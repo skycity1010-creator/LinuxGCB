@@ -1,0 +1,35 @@
+"""python3 -m linuxgcb：完全離線，不執行 SCA 命令。"""
+import argparse
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from .catalog import write_registry
+from .policy import build, validate
+from .report import render
+from .collector import timestamp
+
+
+def main():
+    parser = argparse.ArgumentParser(description='LinuxGCB 離線工具（未完成真機驗收）')
+    sub = parser.add_subparsers(dest='command', required=True)
+    sub.add_parser('build', help='驗證來源並重建 registry 與候選政策')
+    sub.add_parser('validate', help='離線結構與來源檢查，非引擎驗收')
+    report = sub.add_parser('report', help='匯入離線 JSON，輸出 HTML/CSV 與稽核副本')
+    report.add_argument('snapshot')
+    report.add_argument('--out', required=True)
+    report.add_argument('--now', help='固定報表時間，ISO8601 含時區')
+    args = parser.parse_args()
+    if args.command == 'build':
+        rows = write_registry()
+        build()
+        print(f'314 項；307 候選／7 排除；{validate()} 項候選規則，UNVALIDATED／人工審查待完成')
+    elif args.command == 'validate':
+        print('UNVALIDATED：離線結構檢查通過，候選控制項數', validate())
+    else:
+        validate()
+        result = render(json.loads(Path(args.snapshot).read_text()), args.out,
+                        timestamp(args.now) if args.now else datetime.now(timezone.utc))
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+
+if __name__ == '__main__':
+    main()

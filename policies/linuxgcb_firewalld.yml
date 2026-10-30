@@ -1,0 +1,75 @@
+{
+  "policy": {
+    "id": "linuxgcb_rhel9_firewalld_v01",
+    "file": "linuxgcb_firewalld.yml",
+    "name": "RHEL9 GCB v1.2 firewalld v0.1 UNVALIDATED",
+    "description": "未驗證候選政策；僅供核准 RHEL9 試點，非完整符合性檢核",
+    "regex_type": "pcre2"
+  },
+  "requirements": {
+    "title": "僅 RHEL 9",
+    "description": "角色由核准群組控制",
+    "condition": "all",
+    "rules": [
+      "f:/etc/os-release -> r:^ID=\"?rhel\"?$",
+      "f:/etc/os-release -> r:^VERSION_ID=\"?9([.][0-9]+)*\"?$"
+    ]
+  },
+  "checks": [
+    {
+      "id": 900242,
+      "title": "TWGCB-01-012-0242 firewalld防火牆套件",
+      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0242"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed firewalld -> r:^firewalld:installed$"
+      ]
+    },
+    {
+      "id": 900243,
+      "title": "TWGCB-01-012-0243 firewalld服務",
+      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0243"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show firewalld.service --property=LoadState -> r:^LoadState=loaded$",
+        "c:/usr/bin/systemctl show firewalld.service --property=ActiveState -> r:^ActiveState=active$",
+        "c:/usr/bin/systemctl show firewalld.service --property=UnitFileState -> r:^UnitFileState=enabled$"
+      ]
+    },
+    {
+      "id": 900245,
+      "title": "TWGCB-01-012-0245 nftables服務",
+      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0245"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState -> r:^LoadState=masked$",
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState -> r:^UnitFileState=masked$"
+      ]
+    }
+  ]
+}

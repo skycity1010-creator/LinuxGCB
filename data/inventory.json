@@ -1,0 +1,29 @@
+{
+  "total": 314,
+  "unique_ids": 314,
+  "duplicate_ids": [],
+  "categories": {
+    "磁碟與檔案系統": 47,
+    "系統設定與維護": 67,
+    "系統服務": 10,
+    "安裝與維護軟體": 6,
+    "網路設定": 24,
+    "日誌與稽核": 51,
+    "SELinux": 7,
+    "cron設定": 16,
+    "帳號與存取控制": 42,
+    "Firewalld配置": 5,
+    "Nftables配置": 7,
+    "SSH設定": 32
+  },
+  "sheets": {
+    "基本項目": 270,
+    "Firewalld防火牆": 5,
+    "Nftables防火牆": 7,
+    "SSH伺服器": 32
+  },
+  "missing_required": [],
+  "source_sha256": {
+    "Red Hat Enterprise Linux 9政府組態基準列表.xlsx": "7d752b639a1e780df08814c6252efadd3ea2711eaa5c9d91c070b84a296c0247"
+  }
+}

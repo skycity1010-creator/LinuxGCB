@@ -1,0 +1,90 @@
+{
+  "policy": {
+    "id": "linuxgcb_rhel9_sshd_v01",
+    "file": "linuxgcb_sshd.yml",
+    "name": "RHEL9 GCB v1.2 sshd v0.1 UNVALIDATED",
+    "description": "未驗證候選政策；僅供核准 RHEL9 試點，非完整符合性檢核",
+    "regex_type": "pcre2"
+  },
+  "requirements": {
+    "title": "僅 RHEL 9",
+    "description": "角色由核准群組控制",
+    "condition": "all",
+    "rules": [
+      "f:/etc/os-release -> r:^ID=\"?rhel\"?$",
+      "f:/etc/os-release -> r:^VERSION_ID=\"?9([.][0-9]+)*\"?$"
+    ]
+  },
+  "checks": [
+    {
+      "id": 900256,
+      "title": "TWGCB-01-012-0256 /etc/ssh/sshd_config檔案所有權",
+      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0256"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/ssh/sshd_config -> r:^root:root$",
+        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config -> r:^regular (empty )?file$"
+      ]
+    },
+    {
+      "id": 900257,
+      "title": "TWGCB-01-012-0257 /etc/ssh/sshd_config檔案權限",
+      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0257"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/ssh/sshd_config -> r:^(0|200|400|600)$",
+        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config -> r:^regular (empty )?file$"
+      ]
+    },
+    {
+      "id": 900269,
+      "title": "TWGCB-01-012-0269 SSH PermitRootLogin參數",
+      "description": "UNVALIDATED：僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0269"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/sbin/sshd -T -> r:^permitrootlogin no$"
+      ]
+    },
+    {
+      "id": 900270,
+      "title": "TWGCB-01-012-0270 SSH PermitEmptyPasswords參數",
+      "description": "UNVALIDATED：僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0270"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/sbin/sshd -T -> r:^permitemptypasswords no$"
+      ]
+    }
+  ]
+}

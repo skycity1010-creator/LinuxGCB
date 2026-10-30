@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "label": "SYNTHETIC TEST ONLY — 非真實掃描證據",
+  "source_sha256": "7d752b639a1e780df08814c6252efadd3ea2711eaa5c9d91c070b84a296c0247",
+  "policy_hashes": {
+    "linuxgcb_base.yml": "f901bc299e280b879328d0d4af647dc17fdf8636d0544f5606aabee85ce5b59b",
+    "linuxgcb_firewalld.yml": "28abe938aecb6c05748646929bc6169e2e8f7666413b62e9cebb18bbcc2701cc",
+    "linuxgcb_sshd.yml": "21a34f152187827b91f9f8537435b80d30931f1a093a1630a4f47602116735b9"
+  },
+  "hosts": [
+    {
+      "agent_id": "SYNTHETIC-001",
+      "approved_profiles": [
+        "base",
+        "firewalld",
+        "sshd"
+      ],
+      "scanned_at": "2026-10-29T00:00:00Z",
+      "native_score": 85,
+      "checks": [
+        {
+          "id": 900045,
+          "result": "passed",
+          "reason": "SYNTHETIC uid=0 gid=0"
+        },
+        {
+          "id": 900046,
+          "result": "failed",
+          "reason": "=SYNTHETIC <script>alert(1)</script>"
+        },
+        {
+          "id": 900108,
+          "result": "passed",
+          "reason": "SYNTHETIC runtime only"
+        },
+        {
+          "id": 900243,
+          "result": "not applicable",
+          "reason": "SYNTHETIC timeout"
+        },
+        {
+          "id": 900245,
+          "result": "passed",
+          "reason": "SYNTHETIC masked/inactive"
+        },
+        {
+          "id": 900269,
+          "result": "passed",
+          "reason": "SYNTHETIC default context only"
+        }
+      ],
+      "exceptions": {
+        "TWGCB-01-012-0046": {
+          "approver": "SYNTHETIC 審查者",
+          "reason": "SYNTHETIC 測試例外",
+          "ticket": "TEST-ONLY",
+          "evidence": "SYNTHETIC",
+          "expires": "2027-01-01T00:00:00Z"
+        }
+      }
+    }
+  ]
+}

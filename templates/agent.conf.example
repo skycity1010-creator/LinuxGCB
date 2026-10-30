@@ -1,0 +1,13 @@
+<!-- 文件範本：僅供核准的 RHEL9 + Firewalld + SSH 群組審查；本次不部署。
+     無 SSH 角色時，應由不同群組省略 sshd 政策參照。
+     不在此設定 sca.remote_commands；該設定必須於端點一次性安裝 bootstrap 完成。
+     掃描頻率須另經負載與變更審查，本範本未設定排程。 -->
+<agent_config os="Linux">
+  <sca>
+    <policies>
+      <policy>etc/shared/linuxgcb_base.yml</policy>
+      <policy>etc/shared/linuxgcb_firewalld.yml</policy>
+      <policy>etc/shared/linuxgcb_sshd.yml</policy>
+    </policies>
+  </sca>
+</agent_config>

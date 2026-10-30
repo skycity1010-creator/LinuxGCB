@@ -1,0 +1,5 @@
+{
+  "linuxgcb_base.yml": "f901bc299e280b879328d0d4af647dc17fdf8636d0544f5606aabee85ce5b59b",
+  "linuxgcb_firewalld.yml": "28abe938aecb6c05748646929bc6169e2e8f7666413b62e9cebb18bbcc2701cc",
+  "linuxgcb_sshd.yml": "21a34f152187827b91f9f8537435b80d30931f1a093a1630a4f47602116735b9"
+}

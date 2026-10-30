@@ -1,0 +1,26 @@
+{
+  "_meta": {"status": "設計範本，未建立索引，非 Dashboard 匯出", "schema_version": 1},
+  "dynamic": "strict",
+  "properties": {
+    "document_id": {"type": "keyword"},
+    "snapshot_id": {"type": "keyword"},
+    "agent_id": {"type": "keyword"},
+    "gcb_id": {"type": "keyword"},
+    "sca_id": {"type": "integer"},
+    "profile": {"type": "keyword"},
+    "policy_id": {"type": "keyword"},
+    "policy_hash": {"type": "keyword"},
+    "source_sha256": {"type": "keyword"},
+    "state": {"type": "keyword"},
+    "raw_result": {"type": "keyword"},
+    "raw_reason": {"type": "text", "index": false},
+    "category": {"type": "keyword"},
+    "scanned_at": {"type": "date"},
+    "collected_at": {"type": "date"},
+    "stale": {"type": "boolean"},
+    "unresolved": {"type": "boolean"},
+    "exception_approved": {"type": "boolean"},
+    "synthetic": {"type": "boolean"},
+    "complete": {"type": "boolean"}
+  }
+}
