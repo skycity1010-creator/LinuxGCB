@@ -12,7 +12,7 @@ import subprocess
 import unittest
 
 from linuxgcb.argv import w_strtok
-from linuxgcb.batch2 import ADDED, CATEGORIES, MARKER, specs, guarded, expected
+from linuxgcb.batch2 import ABSENT_PACKAGES, ADDED, CATEGORIES, MARKER, specs, guarded, expected
 from linuxgcb.catalog import ROOT, registry
 from linuxgcb.policy import emit_rule, parse_rule, simulate
 from scripts.batch2_fixtures import generated
@@ -62,7 +62,7 @@ class Batch2Tests(unittest.TestCase):
             self.assertIn('UNVALIDATED', next(json.loads(p.read_text())['policy']['name'] for p in (ROOT/'policies').glob('*.yml') if any(c['id']==check['id'] for c in json.loads(p.read_text())['checks'])))
             for target in cases['positive']:
                 no_marker=self.positive(n)
-                no_marker[target]['stdout']=no_marker[target]['stdout'].replace(MARKER,'')
+                no_marker[target]['stdout']=no_marker[target]['stdout'].replace('ABSENT' if n in ABSENT_PACKAGES else MARKER,'')
                 self.assertNotEqual(simulate(check,no_marker),'PASS')
                 for variant in (None,dict(error='permission denied')):
                     obs=self.positive(n)
@@ -73,6 +73,7 @@ class Batch2Tests(unittest.TestCase):
 
     def test_emitted_guard_with_fake_commands_only(self):
         for n,items in specs().items():
+            if n in ABSENT_PACKAGES: continue  # Dedicated FIX3 tri-state tests.
             for command,pattern,good,bad in items:
                 target=guarded(command)
                 # Obtain the actual emitted wrapper then replace its full inner
@@ -96,6 +97,7 @@ class Batch2Tests(unittest.TestCase):
 
     def test_negation_is_rule_level_not_existential_line_negation(self):
         for n,items in specs().items():
+            if n in ABSENT_PACKAGES: continue  # Dedicated FIX3 tri-state tests.
             for command,pattern,good,bad in items:
                 if not pattern.startswith('!'): continue
                 rule=emit_rule(guarded(command),pattern)

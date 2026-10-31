@@ -5,7 +5,7 @@ import subprocess
 import unittest
 
 from linuxgcb.argv import quote_argument, w_strtok
-from linuxgcb.batch2 import ADDED, MARKER, guarded, specs
+from linuxgcb.batch2 import ABSENT_PACKAGES, ADDED, MARKER, guarded, specs
 from linuxgcb.catalog import ROOT
 from linuxgcb.policy import simulate
 
@@ -23,6 +23,7 @@ class Fix2Tests(unittest.TestCase):
                   for c in json.loads(p.read_text())['checks']}
         seen = set()
         for n, items in specs().items():
+            if n in ABSENT_PACKAGES: continue  # Dedicated FIX3 tri-state tests.
             check = checks[900000+n]
             for command, pattern, good, bad in items:
                 old_script = ('out=$('+command+'); rc=$?; if [ "$rc" -eq 0 ]; then '
@@ -52,4 +53,4 @@ class Fix2Tests(unittest.TestCase):
                         outputs.append((result.returncode, result.stdout))
                     self.assertEqual(outputs[0], outputs[1])
                 seen.add(n)
-        self.assertEqual(seen, ADDED)
+        self.assertEqual(seen, ADDED-set(ABSENT_PACKAGES))

@@ -2,7 +2,7 @@
 import copy
 import json
 from linuxgcb.catalog import ROOT
-from linuxgcb.batch2 import ADDED, MARKER, guarded, specs
+from linuxgcb.batch2 import ABSENT_PACKAGES, ADDED, MARKER, guarded, specs
 from linuxgcb.policy import emit_rule
 
 
@@ -19,7 +19,7 @@ def generated():
             target=rule.split(' -> ',1)[0].removeprefix('not ')
             positive[target]['stdout']+='\n'+good
         for obs in positive.values():
-            obs['stdout']=obs['stdout'].strip('\n')+'\n'+MARKER
+            obs['stdout']=obs['stdout'].strip('\n')+('' if n in ABSENT_PACKAGES else '\n'+MARKER)
         # One counterexample per source predicate, preserving all other targets.
         mutations=[]
         for cmd,pattern,good,bad in items:

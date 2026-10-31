@@ -11,9 +11,14 @@ from .argv import quote_argument
 CATEGORIES = {'SSH設定', 'cron設定', 'SELinux', '安裝與維護軟體'}
 ADDED = set(range(102,108)) | set(range(184,190)) | {190,203,204,205,254,255,258,259,260,261,262,263,264,265,266,267,268,271,272,273,274,275,276,277,278,279,280,281,282,283,284,315}
 MARKER = 'LINUXGCB_COMMAND_OK'
+ABSENT_PACKAGES = {102:'ypbind',103:'telnet',104:'telnet-server',105:'rsh-server',106:'tftp-server',189:'mcstrans'}
 
 
 def guarded(command):
+    if command in ('rpm -q '+p+' 2>/dev/null' for p in ABSENT_PACKAGES.values()):
+        script = ('out=$('+command+'); rc=$?; case $rc in '
+                  '0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac')
+        return 'c:/bin/sh -c '+quote_argument(script)
     script = ('out=$('+command+'); rc=$?; if [ "$rc" -eq 0 ]; then '
               "printf '%s\\n' \"$out\" '"+MARKER+"'; else exit $rc; fi")
     return 'c:/bin/sh -c '+quote_argument(script)
@@ -23,9 +28,11 @@ def guarded(command):
 # semantic examples, independent of the fixture generator / regex matcher.
 def specs():
     result = {}
-    for n,package in {102:'ypbind',103:'telnet',104:'telnet-server',105:'rsh-server',106:'tftp-server',188:'setroubleshoot',189:'mcstrans'}.items():
+    for n,package in {188:'setroubleshoot'}.items():
         result[n] = [('/usr/bin/rpm -qa --queryformat '+shlex.quote('%{NAME}\\n'),
                       '!^'+package+'$', 'bash\ncoreutils', package)]
+    for n,package in ABSENT_PACKAGES.items():
+        result[n] = [('rpm -q '+package+' 2>/dev/null', '^ABSENT$', 'ABSENT', 'INSTALLED')]
     result[107] = [('/usr/bin/cat '+p, '^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$',
                     '[main]\nclean_requirements_on_remove=True', '[main]\nclean_requirements_on_remove=False')
                    for p in ('/etc/yum.conf','/etc/dnf/dnf.conf')]
@@ -55,7 +62,7 @@ def specs():
     # Read every source configuration successfully; empty optional .conf set is
     # allowed, but an unreadable directory or any cat/find failure is not.
     result[205] = [('/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '+shlex.quote('*.conf')+' -exec /usr/bin/cat {} +',
-                    '^[ \\t]*cron[.][*][ \\t]+/var/log/cron[ \\t]*$', 'cron.* /var/log/cron', 'cron.none /var/log/cron')]
+                    r'^[ \t]*cron[.][*][ \t]+(/var/log/cron|action\(type="omfile"[ \t]+file="/var/log/cron"\))[ \t]*$', 'cron.* /var/log/cron', 'cron.none /var/log/cron')]
     ssh = '/usr/sbin/sshd -T'
     settings = {
         255:('!^protocol (?!2$).+', 'port 22', 'protocol 1'),
@@ -106,8 +113,8 @@ def rules():
     result={}
     for n,items in specs().items():
         predicates=[(guarded(cmd),pattern) for cmd,pattern,_,_ in items]
-        # Explicit success prerequisite even for negated predicates and empty sets.
-        result[n]=list(dict.fromkeys(predicates+[(guarded(cmd),'^'+MARKER+'$') for cmd,_,_,_ in items]))
+        # Tri-state absence is self-contained; other predicates require the success marker.
+        result[n]=list(dict.fromkeys(predicates+([] if n in ABSENT_PACKAGES else [(guarded(cmd),'^'+MARKER+'$') for cmd,_,_,_ in items])))
     return result
 
 

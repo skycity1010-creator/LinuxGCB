@@ -417,8 +417,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ypbind$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {
@@ -435,8 +434,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^telnet$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {
@@ -453,8 +451,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^telnet-server$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {
@@ -471,8 +468,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^rsh-server$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {
@@ -489,8 +485,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^tftp-server$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {
@@ -796,8 +791,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^mcstrans$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {
@@ -1094,7 +1088,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*cron[.][*][ \\t]+/var/log/cron[ \\t]*$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*cron[.][*][ \\t]+(/var/log/cron|action\\(type=\"omfile\"[ \\t]+file=\"/var/log/cron\"\\))[ \\t]*$",
         "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },

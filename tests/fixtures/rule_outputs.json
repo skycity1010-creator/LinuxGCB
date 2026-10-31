@@ -2842,42 +2842,42 @@
     },
     "900102": {
       "positive": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 0
         }
       },
       "negative": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nypbind",
+        "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "INSTALLED",
           "exit_code": 0
         }
       },
       "missing": {},
       "empty": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "error": "SYNTHETIC command error"
         }
       },
       "nonzero_matching": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 1,
           "stderr": "SYNTHETIC failure despite matching stdout"
         }
       },
       "predicate_negatives": [
         {
-          "rule": "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ypbind$",
+          "rule": "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$",
           "observations": {
-            "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nypbind",
+            "c:/bin/sh -c \"out=$(rpm -q ypbind 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+              "stdout": "INSTALLED",
               "exit_code": 0
             }
           }
@@ -2886,42 +2886,42 @@
     },
     "900103": {
       "positive": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 0
         }
       },
       "negative": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet",
+        "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "INSTALLED",
           "exit_code": 0
         }
       },
       "missing": {},
       "empty": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "error": "SYNTHETIC command error"
         }
       },
       "nonzero_matching": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 1,
           "stderr": "SYNTHETIC failure despite matching stdout"
         }
       },
       "predicate_negatives": [
         {
-          "rule": "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^telnet$",
+          "rule": "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$",
           "observations": {
-            "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet",
+            "c:/bin/sh -c \"out=$(rpm -q telnet 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+              "stdout": "INSTALLED",
               "exit_code": 0
             }
           }
@@ -2930,42 +2930,42 @@
     },
     "900104": {
       "positive": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 0
         }
       },
       "negative": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet-server",
+        "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "INSTALLED",
           "exit_code": 0
         }
       },
       "missing": {},
       "empty": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "error": "SYNTHETIC command error"
         }
       },
       "nonzero_matching": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 1,
           "stderr": "SYNTHETIC failure despite matching stdout"
         }
       },
       "predicate_negatives": [
         {
-          "rule": "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^telnet-server$",
+          "rule": "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$",
           "observations": {
-            "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet-server",
+            "c:/bin/sh -c \"out=$(rpm -q telnet-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+              "stdout": "INSTALLED",
               "exit_code": 0
             }
           }
@@ -2974,42 +2974,42 @@
     },
     "900105": {
       "positive": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 0
         }
       },
       "negative": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nrsh-server",
+        "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "INSTALLED",
           "exit_code": 0
         }
       },
       "missing": {},
       "empty": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "error": "SYNTHETIC command error"
         }
       },
       "nonzero_matching": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 1,
           "stderr": "SYNTHETIC failure despite matching stdout"
         }
       },
       "predicate_negatives": [
         {
-          "rule": "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^rsh-server$",
+          "rule": "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$",
           "observations": {
-            "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nrsh-server",
+            "c:/bin/sh -c \"out=$(rpm -q rsh-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+              "stdout": "INSTALLED",
               "exit_code": 0
             }
           }
@@ -3018,42 +3018,42 @@
     },
     "900106": {
       "positive": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 0
         }
       },
       "negative": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntftp-server",
+        "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "INSTALLED",
           "exit_code": 0
         }
       },
       "missing": {},
       "empty": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "error": "SYNTHETIC command error"
         }
       },
       "nonzero_matching": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 1,
           "stderr": "SYNTHETIC failure despite matching stdout"
         }
       },
       "predicate_negatives": [
         {
-          "rule": "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^tftp-server$",
+          "rule": "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$",
           "observations": {
-            "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntftp-server",
+            "c:/bin/sh -c \"out=$(rpm -q tftp-server 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+              "stdout": "INSTALLED",
               "exit_code": 0
             }
           }
@@ -3106,42 +3106,42 @@
     },
     "900189": {
       "positive": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 0
         }
       },
       "negative": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nmcstrans",
+        "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "INSTALLED",
           "exit_code": 0
         }
       },
       "missing": {},
       "empty": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
+        "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
           "error": "SYNTHETIC command error"
         }
       },
       "nonzero_matching": {
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+        "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+          "stdout": "ABSENT",
           "exit_code": 1,
           "stderr": "SYNTHETIC failure despite matching stdout"
         }
       },
       "predicate_negatives": [
         {
-          "rule": "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^mcstrans$",
+          "rule": "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$",
           "observations": {
-            "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
-              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nmcstrans",
+            "c:/bin/sh -c \"out=$(rpm -q mcstrans 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\"": {
+              "stdout": "INSTALLED",
               "exit_code": 0
             }
           }
@@ -4033,7 +4033,7 @@
       },
       "predicate_negatives": [
         {
-          "rule": "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*cron[.][*][ \\t]+/var/log/cron[ \\t]*$",
+          "rule": "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*cron[.][*][ \\t]+(/var/log/cron|action\\(type=\"omfile\"[ \\t]+file=\"/var/log/cron\"\\))[ \\t]*$",
           "observations": {
             "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\"": {
               "stdout": "cron.none /var/log/cron\nLINUXGCB_COMMAND_OK",

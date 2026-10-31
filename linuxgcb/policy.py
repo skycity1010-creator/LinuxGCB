@@ -132,6 +132,7 @@ def parse_rule(rule):
 def simulate(check, observations):
     """僅輸出匹配模型；執行失敗資訊不足回 UNRESOLVED，不冒充 Wazuh。
 
+    FIX-3 模擬 OS_StrBreak 的前 256 行上限（wm_sca.c:1749）。
     FIX-1 同一 command 的多行輸出仍按逐行存在匹配；alternation 是單一
     正向 regex，規則間維持 all，不以空輸出或 stderr 推論 not-found。
     所有項目 exit_code 不參與輸出匹配（wm_exec 正常結束仍回 0），
@@ -159,7 +160,7 @@ def simulate(check, observations):
         elif not isinstance(obs.get('stdout'), str):
             raise ValueError('觀察必須提供字串 stdout')
         else:
-            matched = any(pattern.search(line) for line in obs['stdout'].split('\n'))
+            matched = any(pattern.search(line) for line in obs['stdout'].split('\n')[:256])
             if rule.startswith('not '):
                 matched = not matched
             outcomes.append('PASS' if matched else 'FAIL')
