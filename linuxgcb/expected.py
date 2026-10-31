@@ -8,6 +8,10 @@ UNKNOWN = '待確認（來源未提供單一基準值）'
 
 
 def source_expected(row):
+    from .batch2 import expected as batch2_expected
+    specific = batch2_expected(row)
+    if specific is not None:
+        return specific
     value = (row.get('expected') or '').strip()
     method = row.get('configuration_method') or ''
     if value == '安裝':

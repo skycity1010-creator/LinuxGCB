@@ -2516,15 +2516,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900102,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0103",
@@ -2539,15 +2546,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900103,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0104",
@@ -2562,15 +2576,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900104,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0105",
@@ -2585,15 +2606,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900105,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0106",
@@ -2608,15 +2636,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900106,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0107",
@@ -2631,15 +2666,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900107,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0108",
@@ -4453,15 +4495,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900184,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅 /etc/default/grub 設定；實際開機項與已產生 grub.cfg 尚待驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0185",
@@ -4476,15 +4525,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900185,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0186",
@@ -4499,15 +4555,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900186,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0187",
@@ -4522,15 +4585,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900187,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0188",
@@ -4545,15 +4615,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900188,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0189",
@@ -4568,15 +4645,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900189,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0190",
@@ -4591,15 +4675,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900190,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0191",
@@ -4988,15 +5079,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900203,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0204",
@@ -5011,15 +5109,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900204,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0205",
@@ -5034,15 +5139,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900205,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0206",
@@ -6888,15 +7000,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900254,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0255",
@@ -6911,15 +7030,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900255,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 僅支援 SSH2；sshd -T 不輸出 Protocol 時接受預設，輸出 protocol 1 則拒絕。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0256",
@@ -6996,15 +7122,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900258,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。來源清單依組織授權，沒有單一基準值；只檢查至少一個有效限制清單，授權正確性待人工審查。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0259",
@@ -7019,15 +7152,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900259,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0260",
@@ -7042,15 +7182,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900260,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。來源文字提 600 但設定命令與 expected 為 640，依 F/G 欄實作 640 位元子集合，差異待核准。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0261",
@@ -7065,15 +7212,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900261,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0262",
@@ -7088,15 +7242,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900262,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0263",
@@ -7111,15 +7272,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900263,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0264",
@@ -7134,15 +7302,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900264,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0265",
@@ -7157,15 +7332,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900265,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0266",
@@ -7180,15 +7362,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900266,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0267",
@@ -7203,15 +7392,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900267,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0268",
@@ -7226,15 +7422,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900268,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0269",
@@ -7309,15 +7512,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900271,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0272",
@@ -7332,15 +7542,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900272,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0273",
@@ -7355,15 +7572,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900273,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0274",
@@ -7378,15 +7602,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900274,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0275",
@@ -7401,15 +7632,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900275,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0276",
@@ -7424,15 +7662,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900276,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0277",
@@ -7447,15 +7692,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900277,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0278",
@@ -7470,15 +7722,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900278,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0279",
@@ -7493,15 +7752,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900279,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 的 compression yes 僅認證後壓縮（等同歷史 delayed）；no 亦符合。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0280",
@@ -7516,15 +7782,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900280,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0281",
@@ -7539,15 +7812,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900281,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0282",
@@ -7562,15 +7842,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900282,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0283",
@@ -7585,15 +7872,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900283,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0284",
@@ -7608,15 +7902,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900284,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0315",
@@ -7631,14 +7932,21 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900315,
     "profile": "sshd",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_sshd_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B2-ENGINE",
+      "B2-SCOPE"
+    ],
+    "family": "BATCH2 guarded read-only",
+    "source_approval": "pending"
   }
 ]

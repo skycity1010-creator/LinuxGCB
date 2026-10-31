@@ -6,14 +6,15 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
-    "added": 46,
-    "implemented": 53,
-    "remaining": 254,
+    "added": 90,
+    "batch2_added": 44,
+    "implemented": 97,
+    "remaining": 210,
     "full": 0,
-    "partial": 48,
+    "partial": 92,
     "blocked": 5,
-    "reviewed": 53,
-    "execution_blocked": 53,
+    "reviewed": 97,
+    "execution_blocked": 97,
     "live_validated": 0
   },
   "reviewed": [
@@ -23,6 +24,7 @@
       "source_sheet": "基本項目",
       "source_row": 34,
       "expected": "停用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "30",
         "TWGCB-01-012-0030",
@@ -78,6 +80,7 @@
       "source_sheet": "基本項目",
       "source_row": 37,
       "expected": "安裝",
+      "docx_historical_cells": [],
       "docx_cells": [
         "33",
         "TWGCB-01-012-0033",
@@ -131,6 +134,7 @@
       "source_sheet": "基本項目",
       "source_row": 49,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "45",
         "TWGCB-01-012-0045",
@@ -186,6 +190,7 @@
       "source_sheet": "基本項目",
       "source_row": 50,
       "expected": "644或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "46",
         "TWGCB-01-012-0046",
@@ -241,6 +246,7 @@
       "source_sheet": "基本項目",
       "source_row": 51,
       "expected": "root:root或root:shadow",
+      "docx_historical_cells": [],
       "docx_cells": [
         "47",
         "TWGCB-01-012-0047",
@@ -296,6 +302,7 @@
       "source_sheet": "基本項目",
       "source_row": 52,
       "expected": "000",
+      "docx_historical_cells": [],
       "docx_cells": [
         "48",
         "TWGCB-01-012-0048",
@@ -351,6 +358,7 @@
       "source_sheet": "基本項目",
       "source_row": 53,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "49",
         "TWGCB-01-012-0049",
@@ -406,6 +414,7 @@
       "source_sheet": "基本項目",
       "source_row": 54,
       "expected": "644或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "50",
         "TWGCB-01-012-0050",
@@ -461,6 +470,7 @@
       "source_sheet": "基本項目",
       "source_row": 55,
       "expected": "root:root或root:shadow",
+      "docx_historical_cells": [],
       "docx_cells": [
         "51",
         "TWGCB-01-012-0051",
@@ -516,6 +526,7 @@
       "source_sheet": "基本項目",
       "source_row": 56,
       "expected": "000",
+      "docx_historical_cells": [],
       "docx_cells": [
         "52",
         "TWGCB-01-012-0052",
@@ -571,6 +582,7 @@
       "source_sheet": "基本項目",
       "source_row": 57,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "53",
         "TWGCB-01-012-0053",
@@ -627,6 +639,7 @@
       "source_sheet": "基本項目",
       "source_row": 58,
       "expected": "644或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "54",
         "TWGCB-01-012-0054",
@@ -683,6 +696,7 @@
       "source_sheet": "基本項目",
       "source_row": 59,
       "expected": "root:root或root:shadow",
+      "docx_historical_cells": [],
       "docx_cells": [
         "55",
         "TWGCB-01-012-0055",
@@ -739,6 +753,7 @@
       "source_sheet": "基本項目",
       "source_row": 60,
       "expected": "000",
+      "docx_historical_cells": [],
       "docx_cells": [
         "56",
         "TWGCB-01-012-0056",
@@ -795,6 +810,7 @@
       "source_sheet": "基本項目",
       "source_row": 61,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "57",
         "TWGCB-01-012-0057",
@@ -851,6 +867,7 @@
       "source_sheet": "基本項目",
       "source_row": 62,
       "expected": "644或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "58",
         "TWGCB-01-012-0058",
@@ -907,6 +924,7 @@
       "source_sheet": "基本項目",
       "source_row": 63,
       "expected": "root:root或root:shadow",
+      "docx_historical_cells": [],
       "docx_cells": [
         "59",
         "TWGCB-01-012-0059",
@@ -963,6 +981,7 @@
       "source_sheet": "基本項目",
       "source_row": 64,
       "expected": "000",
+      "docx_historical_cells": [],
       "docx_cells": [
         "60",
         "TWGCB-01-012-0060",
@@ -1019,6 +1038,7 @@
       "source_sheet": "基本項目",
       "source_row": 98,
       "expected": "停用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "94",
         "TWGCB-01-012-0094",
@@ -1074,6 +1094,7 @@
       "source_sheet": "基本項目",
       "source_row": 101,
       "expected": "停用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "97",
         "TWGCB-01-012-0097",
@@ -1129,6 +1150,7 @@
       "source_sheet": "基本項目",
       "source_row": 102,
       "expected": "停用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "98",
         "TWGCB-01-012-0098",
@@ -1184,6 +1206,7 @@
       "source_sheet": "基本項目",
       "source_row": 105,
       "expected": "啟用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "101",
         "TWGCB-01-012-0101",
@@ -1233,11 +1256,348 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0102",
+      "sca_id": 900102,
+      "source_sheet": "基本項目",
+      "source_row": 106,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "102",
+        "TWGCB-01-012-0102",
+        "安裝與維護軟體",
+        "NIS用戶端套件",
+        "這項原則設定決定是否安裝NIS用戶端套件(ypbind)\nNIS(Network Information System，網路資訊服務)可提供帳號、通行碼、主機名稱或群組等資訊進行登入鑑別，NIS使用較不嚴謹之身分鑑別機制，易受到服務阻斷攻擊\n移除NIS用戶端套件，以避免使用較不安全之NIS服務",
+        "開啟終端機，執行以下指令移除ypbind套件：\n#dnf remove ypbind",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "102",
+          "TWGCB-01-012-0102",
+          "安裝與維護軟體",
+          "NIS用戶端套件",
+          "這項原則設定決定是否安裝NIS用戶端套件(ypbind)\nNIS(Network Information System，網路資訊服務)可提供帳號、通行碼、主機名稱或群組等資訊進行登入鑑別，NIS使用較不嚴謹之身分鑑別機制，易受到服務阻斷攻擊\n移除NIS用戶端套件，以避免使用較不安全之NIS服務",
+          "開啟終端機，執行以下指令移除ypbind套件：\n#dnf remove ypbind",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900102",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0103",
+      "sca_id": 900103,
+      "source_sheet": "基本項目",
+      "source_row": 107,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "103",
+        "TWGCB-01-012-0103",
+        "安裝與維護軟體",
+        "telnet用戶端套件",
+        "這項原則設定決定是否安裝telnet用戶端套件\ntelnet協定不安全且未加密傳輸，將可能導致機敏資料外洩\n移除telnet用戶端套件，以避免使用不安全之telnet服務",
+        "開啟終端機，執行以下指令移除telnet套件：\n#dnf remove telnet",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "103",
+          "TWGCB-01-012-0103",
+          "安裝與維護軟體",
+          "telnet用戶端套件",
+          "這項原則設定決定是否安裝telnet用戶端套件\ntelnet協定不安全且未加密傳輸，將可能導致機敏資料外洩\n移除telnet用戶端套件，以避免使用不安全之telnet服務",
+          "開啟終端機，執行以下指令移除telnet套件：\n#dnf remove telnet",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900103",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0104",
+      "sca_id": 900104,
+      "source_sheet": "基本項目",
+      "source_row": 108,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "104",
+        "TWGCB-01-012-0104",
+        "安裝與維護軟體",
+        "telnet伺服器套件",
+        "這項原則設定決定是否安裝telnet伺服器套件(telnet-server)\ntelnet協定不安全且未加密傳輸，將可能導致機敏資料外洩\n移除telnet伺服器套件，以避免使用不安全之telnet服務",
+        "開啟終端機，執行以下指令移除telnet-server套件：\n#dnf remove telnet-server",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "104",
+          "TWGCB-01-012-0104",
+          "安裝與維護軟體",
+          "telnet伺服器套件",
+          "這項原則設定決定是否安裝telnet伺服器套件(telnet-server)\ntelnet協定不安全且未加密傳輸，將可能導致機敏資料外洩\n移除telnet伺服器套件，以避免使用不安全之telnet服務",
+          "開啟終端機，執行以下指令移除telnet-server套件：\n#dnf remove telnet-server",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900104",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0105",
+      "sca_id": 900105,
+      "source_sheet": "基本項目",
+      "source_row": 109,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "105",
+        "TWGCB-01-012-0105",
+        "安裝與維護軟體",
+        "rsh伺服器套件",
+        "這項原則設定決定是否安裝rsh伺服器套件(rsh-server)\nrsh伺服器提供未加密之遠端存取服務，將可能導致機敏資料外洩\n移除rsh伺服器套件，以避免使用不安全之rsh服務",
+        "開啟終端機，執行以下指令移除rsh-server套件：\n#dnf remove rsh-server",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "105",
+          "TWGCB-01-012-0105",
+          "安裝與維護軟體",
+          "rsh伺服器套件",
+          "這項原則設定決定是否安裝rsh伺服器套件(rsh-server)\nrsh伺服器提供未加密之遠端存取服務，將可能導致機敏資料外洩\n移除rsh伺服器套件，以避免使用不安全之rsh服務",
+          "開啟終端機，執行以下指令移除rsh-server套件：\n#dnf remove rsh-server",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900105",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0106",
+      "sca_id": 900106,
+      "source_sheet": "基本項目",
+      "source_row": 110,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "106",
+        "TWGCB-01-012-0106",
+        "安裝與維護軟體",
+        "tftp伺服器套件",
+        "這項原則設定決定是否安裝tftp伺服器套件(tftp-server)\ntftp(Trivial File Transfer Protocol，簡單檔案傳輸協定)可 讓使用者在用戶端與伺服器之間使用tftp通訊協定來傳輸檔案。tftp通訊協定不支援任何身分鑑別或加密機制，將可能導致資料外洩\n移除tftp伺服器套件，以減少系統被攻擊面",
+        "開啟終端機，執行以下指令移除tftp-server套件：\n#dnf remove tftp-server",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "106",
+          "TWGCB-01-012-0106",
+          "安裝與維護軟體",
+          "tftp伺服器套件",
+          "這項原則設定決定是否安裝tftp伺服器套件(tftp-server)\ntftp(Trivial File Transfer Protocol，簡單檔案傳輸協定)可 讓使用者在用戶端與伺服器之間使用tftp通訊協定來傳輸檔案。tftp通訊協定不支援任何身分鑑別或加密機制，將可能導致資料外洩\n移除tftp伺服器套件，以減少系統被攻擊面",
+          "開啟終端機，執行以下指令移除tftp-server套件：\n#dnf remove tftp-server",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900106",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0107",
+      "sca_id": 900107,
+      "source_sheet": "基本項目",
+      "source_row": 111,
+      "expected": "True",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "107",
+        "TWGCB-01-012-0107",
+        "安裝與維護軟體",
+        "更新套件後移除舊版本元件",
+        "這項原則設定決定系統更新套件後是否移除舊版本元件\n安裝更新後，若未從系統中移除舊版本元件，可能遭攻擊者利用舊版本元件漏洞進行攻擊",
+        "編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，新增或修改成以下內容：\nclean_requirements_on_remove=True",
+        "True"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "107",
+          "TWGCB-01-012-0107",
+          "安裝與維護軟體",
+          "更新套件後移除舊版本元件",
+          "這項原則設定決定系統更新套件後是否移除舊版本元件\n安裝更新後，若未從系統中移除舊版本元件，可能遭攻擊者利用舊版本元件漏洞進行攻擊",
+          "編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，新增或修改成以下內容：\nclean_requirements_on_remove=True",
+          "True"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900107",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0108",
       "sca_id": 900108,
       "source_sheet": "基本項目",
       "source_row": 112,
       "expected": "0",
+      "docx_historical_cells": [],
       "docx_cells": [
         "108",
         "TWGCB-01-012-0108",
@@ -1292,6 +1652,7 @@
       "source_sheet": "基本項目",
       "source_row": 136,
       "expected": "安裝",
+      "docx_historical_cells": [],
       "docx_cells": [
         "132",
         "TWGCB-01-012-0132",
@@ -1345,6 +1706,7 @@
       "source_sheet": "基本項目",
       "source_row": 137,
       "expected": "啟用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "133",
         "TWGCB-01-012-0133",
@@ -1399,6 +1761,7 @@
       "source_sheet": "基本項目",
       "source_row": 145,
       "expected": "600或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "141",
         "TWGCB-01-012-0141",
@@ -1456,6 +1819,7 @@
       "source_sheet": "基本項目",
       "source_row": 146,
       "expected": "640或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "142",
         "TWGCB-01-012-0142",
@@ -1511,6 +1875,7 @@
       "source_sheet": "基本項目",
       "source_row": 178,
       "expected": "安裝",
+      "docx_historical_cells": [],
       "docx_cells": [
         "174",
         "TWGCB-01-012-0174",
@@ -1564,6 +1929,7 @@
       "source_sheet": "基本項目",
       "source_row": 179,
       "expected": "啟用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "175",
         "TWGCB-01-012-0175",
@@ -1618,6 +1984,7 @@
       "source_sheet": "基本項目",
       "source_row": 182,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "178",
         "TWGCB-01-012-0178",
@@ -1674,6 +2041,7 @@
       "source_sheet": "基本項目",
       "source_row": 183,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "179",
         "TWGCB-01-012-0179",
@@ -1729,6 +2097,7 @@
       "source_sheet": "基本項目",
       "source_row": 186,
       "expected": "安裝",
+      "docx_historical_cells": [],
       "docx_cells": [
         "182",
         "TWGCB-01-012-0183",
@@ -1777,11 +2146,404 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0184",
+      "sca_id": 900184,
+      "source_sheet": "基本項目",
+      "source_row": 187,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "183",
+        "TWGCB-01-012-0184",
+        "SELinux",
+        "開機載入程式啟用SELinux",
+        "這項原則設定決定是否在開機載入程式中啟用SELinux\n在開機載入程式中啟用SELinux，確保SELinux正常運作，以提升伺服器安全性",
+        "編輯/etc/default/grub檔案，檢查所有CMDLINE_LINUX參數設定，並移除所有「selinux=0」與「enforcing=0」內容，範例如下：\nGRUB_CMDLINE_LINUX_DEFAULT=\"quiet\"\nGRUB_CMDLINE_LINUX=\"\"\n開啟終端機，執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\" ",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "183",
+          "TWGCB-01-012-0184",
+          "SELinux",
+          "開機載入程式啟用SELinux",
+          "這項原則設定決定是否在開機載入程式中啟用SELinux\n在開機載入程式中啟用SELinux，確保SELinux正常運作，以提升伺服器安全性",
+          "編輯/etc/default/grub檔案，檢查所有CMDLINE_LINUX參數設定，並移除所有「selinux=0」與「enforcing=0」內容，範例如下：\nGRUB_CMDLINE_LINUX_DEFAULT=\"quiet\"\nGRUB_CMDLINE_LINUX=\"\"\n開啟終端機，執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\" ",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅 /etc/default/grub 設定；實際開機項與已產生 grub.cfg 尚待驗證。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900184",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅 /etc/default/grub 設定；實際開機項與已產生 grub.cfg 尚待驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0185",
+      "sca_id": 900185,
+      "source_sheet": "基本項目",
+      "source_row": 188,
+      "expected": "targeted或更嚴格之政策",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "184",
+        "TWGCB-01-012-0185",
+        "SELinux",
+        "SELinux政策",
+        "這項原則設定決定SELinux運作時所採用之政策\n設定SELinux使用預設之targeted政策，針對守護程序與系統軟體加以管制\n可設定政策如下：\ntargeted：預設使用的政策，對大部分網路服務程序進行管制\nminimum：以targeted政策為基礎，僅對選定的網路服務程序進行管制\nmls：多層級安全保護，對所有程序進行管制，是最嚴格的政策",
+        "編輯/etc/selinux/config檔案，設定SELINUXTYPE參數如下：\nSELINUXTYPE=targeted",
+        "targeted或更嚴格之政策"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "184",
+          "TWGCB-01-012-0185",
+          "SELinux",
+          "SELinux政策",
+          "這項原則設定決定SELinux運作時所採用之政策\n設定SELinux使用預設之targeted政策，針對守護程序與系統軟體加以管制\n可設定政策如下：\ntargeted：預設使用的政策，對大部分網路服務程序進行管制\nminimum：以targeted政策為基礎，僅對選定的網路服務程序進行管制\nmls：多層級安全保護，對所有程序進行管制，是最嚴格的政策",
+          "編輯/etc/selinux/config檔案，設定SELINUXTYPE參數如下：\nSELINUXTYPE=targeted",
+          "targeted或更嚴格之政策"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900185",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0186",
+      "sca_id": 900186,
+      "source_sheet": "基本項目",
+      "source_row": 189,
+      "expected": "enforcing",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "185",
+        "TWGCB-01-012-0186",
+        "SELinux",
+        "SELinux啟用狀態",
+        "這項原則設定決定系統開機時是否啟用SELinux，以及啟用的模式\n模式選項如下：\nenforcing：強制模式，依據設定來限制檔案資源存取\npermissive：寬容模式，不限制檔案資源存取，但仍會依據設定檢查並記錄相關訊息\ndisabled：停用模式，停用SELinux\n注意：建議先進行測試再啟用SELinux，並於啟用後確認各項系統服務可正常運作",
+        "編輯/etc/selinux/config檔案，設定SELINUX參數如下：\nSELINUX=enforcing \n開啟終端機，執行以下指令啟用強制(enforcing)模式：\n#setenforce 1",
+        "enforcing"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "185",
+          "TWGCB-01-012-0186",
+          "SELinux",
+          "SELinux啟用狀態",
+          "這項原則設定決定系統開機時是否啟用SELinux，以及啟用的模式\n模式選項如下：\nenforcing：強制模式，依據設定來限制檔案資源存取\npermissive：寬容模式，不限制檔案資源存取，但仍會依據設定檢查並記錄相關訊息\ndisabled：停用模式，停用SELinux\n注意：建議先進行測試再啟用SELinux，並於啟用後確認各項系統服務可正常運作",
+          "編輯/etc/selinux/config檔案，設定SELINUX參數如下：\nSELINUX=enforcing \n開啟終端機，執行以下指令啟用強制(enforcing)模式：\n#setenforce 1",
+          "enforcing"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900186",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0187",
+      "sca_id": 900187,
+      "source_sheet": "基本項目",
+      "source_row": 190,
+      "expected": "無未受限程序",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "186",
+        "TWGCB-01-012-0187",
+        "SELinux",
+        "未受限程序",
+        "這項原則設定決定是否允許存在未受限程序\n未受限程序在SELinux的「unconfined_service_t」區域中執行，幾乎擁有全部的存取權限\n若未受限程序被攻陷，SELinux將無法阻止攻擊者取得系統資源與資料\n注意：建議先進行測試再變更程序類型，並於啟用後確認各項系統服務可正常運作",
+        "開啟終端機，執行以下指令，檢查是否有未受限程序在執行：\n#ps -eZf | grep unconfined_service_t | grep -v grep\n檢視上一步驟的輸出結果，若有未受限程序在執行，須執行chcon指令，將該程序設定至非「unconfined_service_t」之區域。以將「/usr/sbin/httpd」程序設定至「httpd_exec_t」區域為例，chcon指令範例如下：\n#chcon -t httpd_exec_t /usr/sbin/httpd",
+        "無未受限程序"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "186",
+          "TWGCB-01-012-0187",
+          "SELinux",
+          "未受限程序",
+          "這項原則設定決定是否允許存在未受限程序\n未受限程序在SELinux的「unconfined_service_t」區域中執行，幾乎擁有全部的存取權限\n若未受限程序被攻陷，SELinux將無法阻止攻擊者取得系統資源與資料\n注意：建議先進行測試再變更程序類型，並於啟用後確認各項系統服務可正常運作",
+          "開啟終端機，執行以下指令，檢查是否有未受限程序在執行：\n#ps -eZf | grep unconfined_service_t | grep -v grep\n檢視上一步驟的輸出結果，若有未受限程序在執行，須執行chcon指令，將該程序設定至非「unconfined_service_t」之區域。以將「/usr/sbin/httpd」程序設定至「httpd_exec_t」區域為例，chcon指令範例如下：\n#chcon -t httpd_exec_t /usr/sbin/httpd",
+          "無未受限程序"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900187",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0188",
+      "sca_id": 900188,
+      "source_sheet": "基本項目",
+      "source_row": 191,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "187",
+        "TWGCB-01-012-0188",
+        "SELinux",
+        "setroubleshoot套件",
+        "這項原則設定決定是否移除setroubleshoot套件\nsetroubleshoot為SELinux問題診斷套件，此服務會將SELinux執行時所產生包含設定錯誤、未授權存取等錯誤資訊通知給使用者，將可能暴露機敏資訊，或遭使用者惡意變更SELinux設定",
+        "開啟終端機，執行以下指令移除setroubleshoot套件：\n#dnf remove setroubleshoot",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "187",
+          "TWGCB-01-012-0188",
+          "SELinux",
+          "setroubleshoot套件",
+          "這項原則設定決定是否移除setroubleshoot套件\nsetroubleshoot為SELinux問題診斷套件，此服務會將SELinux執行時所產生包含設定錯誤、未授權存取等錯誤資訊通知給使用者，將可能暴露機敏資訊，或遭使用者惡意變更SELinux設定",
+          "開啟終端機，執行以下指令移除setroubleshoot套件：\n#dnf remove setroubleshoot",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900188",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0189",
+      "sca_id": 900189,
+      "source_sheet": "基本項目",
+      "source_row": 192,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "188",
+        "TWGCB-01-012-0189",
+        "SELinux",
+        "mcstrans套件",
+        "這項原則設定決定是否使用mcstrans套件\nmcstrans(Multi category security translation service)套件主要用於將SELinux的多重類別安全性(MCS)標籤轉換為人類可讀的格式\n此套件非經常使用，移除mcstrans套件可減少系統被攻擊面",
+        "開啟終端機，執行以下指令移除mcstrans套件：\n#dnf remove mcstrans",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "188",
+          "TWGCB-01-012-0189",
+          "SELinux",
+          "mcstrans套件",
+          "這項原則設定決定是否使用mcstrans套件\nmcstrans(Multi category security translation service)套件主要用於將SELinux的多重類別安全性(MCS)標籤轉換為人類可讀的格式\n此套件非經常使用，移除mcstrans套件可減少系統被攻擊面",
+          "開啟終端機，執行以下指令移除mcstrans套件：\n#dnf remove mcstrans",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900189",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0190",
+      "sca_id": 900190,
+      "source_sheet": "基本項目",
+      "source_row": 193,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "189",
+        "TWGCB-01-012-0190",
+        "cron設定",
+        "cron守護程序",
+        "這項原則設定決定是否啟用cron守護程序\ncron守護程序是Linux系統上基於時間的任務管理系統，可透過cron以排程方式於固定時間、日期及間隔執行任務\n啟用cron守護程序，以執行包含安全監控等系統維護作業",
+        "開啟終端機，執行以下指令，啟用cron守護程序：\n#systemctl --now enable crond",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "189",
+          "TWGCB-01-012-0190",
+          "cron設定",
+          "cron守護程序",
+          "這項原則設定決定是否啟用cron守護程序\ncron守護程序是Linux系統上基於時間的任務管理系統，可透過cron以排程方式於固定時間、日期及間隔執行任務\n啟用cron守護程序，以執行包含安全監控等系統維護作業",
+          "開啟終端機，執行以下指令，啟用cron守護程序：\n#systemctl --now enable crond",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900190",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0191",
       "sca_id": 900191,
       "source_sheet": "基本項目",
       "source_row": 194,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "190",
         "TWGCB-01-012-0191",
@@ -1838,6 +2600,7 @@
       "source_sheet": "基本項目",
       "source_row": 195,
       "expected": "600或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "191",
         "TWGCB-01-012-0192",
@@ -1894,6 +2657,7 @@
       "source_sheet": "基本項目",
       "source_row": 196,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "192",
         "TWGCB-01-012-0193",
@@ -1949,6 +2713,7 @@
       "source_sheet": "基本項目",
       "source_row": 197,
       "expected": "700或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "193",
         "TWGCB-01-012-0194",
@@ -2004,6 +2769,7 @@
       "source_sheet": "基本項目",
       "source_row": 198,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "194",
         "TWGCB-01-012-0195",
@@ -2059,6 +2825,7 @@
       "source_sheet": "基本項目",
       "source_row": 199,
       "expected": "700或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "195",
         "TWGCB-01-012-0196",
@@ -2114,6 +2881,7 @@
       "source_sheet": "基本項目",
       "source_row": 200,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "196",
         "TWGCB-01-012-0197",
@@ -2169,6 +2937,7 @@
       "source_sheet": "基本項目",
       "source_row": 201,
       "expected": "700或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "197",
         "TWGCB-01-012-0198",
@@ -2224,6 +2993,7 @@
       "source_sheet": "基本項目",
       "source_row": 202,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "198",
         "TWGCB-01-012-0199",
@@ -2279,6 +3049,7 @@
       "source_sheet": "基本項目",
       "source_row": 203,
       "expected": "700或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "199",
         "TWGCB-01-012-0200",
@@ -2334,6 +3105,7 @@
       "source_sheet": "基本項目",
       "source_row": 204,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "200",
         "TWGCB-01-012-0201",
@@ -2389,6 +3161,7 @@
       "source_sheet": "基本項目",
       "source_row": 205,
       "expected": "700或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "201",
         "TWGCB-01-012-0202",
@@ -2439,11 +3212,180 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0203",
+      "sca_id": 900203,
+      "source_sheet": "基本項目",
+      "source_row": 206,
+      "expected": "root:root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "202",
+        "TWGCB-01-012-0203",
+        "cron設定",
+        "at.allow與cron.allow檔案所有權",
+        "這項原則設定決定at.allow與cron.allow檔案所有權\n刪除/etc/at.deny與/etc/cron.deny檔案的拒絕清單，並設定/etc/cron.allow與/etc/at.allow檔案所有權，限制僅系統管理者可授權誰可以使用at與cron建立排程工作",
+        "開啟終端機，執行以下指令，移除/etc/cron.deny與/etc/at.deny，並建立/etc/cron.allow與/etc/at.allow後，設定其所有權：\n#rm /etc/cron.deny\n#rm /etc/at.deny\n#touch /etc/cron.allow\n#touch /etc/at.allow\n#chown root:root /etc/cron.allow\n#chown root:root /etc/at.allow",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "202",
+          "TWGCB-01-012-0203",
+          "cron設定",
+          "at.allow與cron.allow檔案所有權",
+          "這項原則設定決定at.allow與cron.allow檔案所有權\n刪除/etc/at.deny與/etc/cron.deny檔案的拒絕清單，並設定/etc/cron.allow與/etc/at.allow檔案所有權，限制僅系統管理者可授權誰可以使用at與cron建立排程工作",
+          "開啟終端機，執行以下指令，移除/etc/cron.deny與/etc/at.deny，並建立/etc/cron.allow與/etc/at.allow後，設定其所有權：\n#rm /etc/cron.deny\n#rm /etc/at.deny\n#touch /etc/cron.allow\n#touch /etc/at.allow\n#chown root:root /etc/cron.allow\n#chown root:root /etc/at.allow",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900203",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0204",
+      "sca_id": 900204,
+      "source_sheet": "基本項目",
+      "source_row": 207,
+      "expected": "600或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "203",
+        "TWGCB-01-012-0204",
+        "cron設定",
+        "at.allow與cron.allow檔案權限",
+        "這項原則設定決定是否設定at.allow與cron.allow檔案權限\n刪除/etc/at.deny與/etc/cron.deny檔案的拒絕清單，並設定/etc/cron.allow與/etc/at.allow檔案權限，限制僅系統管理者可授權誰可以使用at與cron建立排程工作",
+        "開啟終端機，執行以下指令，移除/etc/cron.deny與/etc/at.deny，並建立/etc/cron.allow與/etc/at.allow後，設定其權限為600或更低權限：\n#rm /etc/cron.deny\n#rm /etc/at.deny\n#touch /etc/cron.allow\n#touch /etc/at.allow\n#chmod 600 /etc/cron.allow\n#chmod 600 /etc/at.allow",
+        "600或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "203",
+          "TWGCB-01-012-0204",
+          "cron設定",
+          "at.allow與cron.allow檔案權限",
+          "這項原則設定決定是否設定at.allow與cron.allow檔案權限\n刪除/etc/at.deny與/etc/cron.deny檔案的拒絕清單，並設定/etc/cron.allow與/etc/at.allow檔案權限，限制僅系統管理者可授權誰可以使用at與cron建立排程工作",
+          "開啟終端機，執行以下指令，移除/etc/cron.deny與/etc/at.deny，並建立/etc/cron.allow與/etc/at.allow後，設定其權限為600或更低權限：\n#rm /etc/cron.deny\n#rm /etc/at.deny\n#touch /etc/cron.allow\n#touch /etc/at.allow\n#chmod 600 /etc/cron.allow\n#chmod 600 /etc/at.allow",
+          "600或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900204",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0205",
+      "sca_id": 900205,
+      "source_sheet": "基本項目",
+      "source_row": 208,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "204",
+        "TWGCB-01-012-0205",
+        "cron設定",
+        "cron日誌記錄功能",
+        "這項原則設定決定是否啟用cron日誌記錄功能\n啟用cron日誌記錄功能時，可查看cron作業之成功或失敗執行紀錄，供系統管理者及早發現未經授權存取與惡意使用cron工具之行為",
+        "開啟終端機，執行以下指令，檢查cron日誌記錄功能設定：\n#grep cron /etc/rsyslog.conf /etc/rsyslog.d/*.conf\n若無發現cron日誌記錄功能設定，請編輯/etc/rsyslog.conf檔案或/etc/rsyslog.d/目錄下的檔案，新增或修改成以下內容，以記錄所有cron訊息：\ncron.* /var/log/cron\n開啟終端機，執行以下指令重新啟動rsyslog服務：\n#systemctl restart rsyslog.service",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "204",
+          "TWGCB-01-012-0205",
+          "cron設定",
+          "cron日誌記錄功能",
+          "這項原則設定決定是否啟用cron日誌記錄功能\n啟用cron日誌記錄功能時，可查看cron作業之成功或失敗執行紀錄，供系統管理者及早發現未經授權存取與惡意使用cron工具之行為",
+          "開啟終端機，執行以下指令，檢查cron日誌記錄功能設定：\n#grep cron /etc/rsyslog.conf /etc/rsyslog.d/*.conf\n若無發現cron日誌記錄功能設定，請編輯/etc/rsyslog.conf檔案或/etc/rsyslog.d/目錄下的檔案，新增或修改成以下內容，以記錄所有cron訊息：\ncron.* /var/log/cron\n開啟終端機，執行以下指令重新啟動rsyslog服務：\n#systemctl restart rsyslog.service",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900205",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0301",
       "sca_id": 900301,
       "source_sheet": "基本項目",
       "source_row": 261,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "257",
         "TWGCB-01-012-0301",
@@ -2508,6 +3450,7 @@
       "source_sheet": "基本項目",
       "source_row": 262,
       "expected": "644或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "258",
         "TWGCB-01-012-0302",
@@ -2572,6 +3515,7 @@
       "source_sheet": "Firewalld防火牆",
       "source_row": 5,
       "expected": "安裝",
+      "docx_historical_cells": [],
       "docx_cells": [
         "1",
         "TWGCB-01-012-0242",
@@ -2625,6 +3569,7 @@
       "source_sheet": "Firewalld防火牆",
       "source_row": 6,
       "expected": "啟用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "2",
         "TWGCB-01-012-0243",
@@ -2679,6 +3624,7 @@
       "source_sheet": "Firewalld防火牆",
       "source_row": 8,
       "expected": "停用",
+      "docx_historical_cells": [],
       "docx_cells": [
         "4",
         "TWGCB-01-012-0245",
@@ -2729,11 +3675,124 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0254",
+      "sca_id": 900254,
+      "source_sheet": "SSH伺服器",
+      "source_row": 5,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "1",
+        "TWGCB-01-012-0254",
+        "SSH設定",
+        "sshd守護程序",
+        "這項原則設定決定是否啟用sshd守護程序\nsshd(Openssh Server程式)實作SSH(Secure Shell)協定，可在兩個主機之間提供安全加密通訊\n啟用sshd守護程序，以加密方式保護傳輸資訊，以防攻擊者藉由封包攔截取得明文機敏資訊",
+        "開啟終端機，執行以下指令，安裝openssh-server套件：\n#dnf install openssh-server.x86_64\n執行以下指令，啟用sshd守護程序：\n#systemctl --now enable sshd.service",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "1",
+          "TWGCB-01-012-0254",
+          "SSH設定",
+          "sshd守護程序",
+          "這項原則設定決定是否啟用sshd守護程序\nsshd(Openssh Server程式)實作SSH(Secure Shell)協定，可在兩個主機之間提供安全加密通訊\n啟用sshd守護程序，以加密方式保護傳輸資訊，以防攻擊者藉由封包攔截取得明文機敏資訊",
+          "開啟終端機，執行以下指令，安裝openssh-server套件：\n#dnf install openssh-server.x86_64\n執行以下指令，啟用sshd守護程序：\n#systemctl --now enable sshd.service",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900254",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0255",
+      "sca_id": 900255,
+      "source_sheet": "SSH伺服器",
+      "source_row": 6,
+      "expected": "Protocol 2",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "2",
+        "TWGCB-01-012-0255",
+        "SSH設定",
+        "SSH協定版本",
+        "這項原則設定決定使用何種SSH協定版本\nSSH支援兩種不同且不相容的協定，分別為SSH-1與SSH-2協定，SSH-1為SSH原始協定且存在安全問題，SSH-2協定為新版本，提供功能改進並增強安全性\n設定使用SSH-2協定，以提供系統更安全的SSH使用環境",
+        "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容，以設定使用SSH-2：\nProtocol 2\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "Protocol 2"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "2",
+          "TWGCB-01-012-0255",
+          "SSH設定",
+          "SSH協定版本",
+          "這項原則設定決定使用何種SSH協定版本\nSSH支援兩種不同且不相容的協定，分別為SSH-1與SSH-2協定，SSH-1為SSH原始協定且存在安全問題，SSH-2協定為新版本，提供功能改進並增強安全性\n設定使用SSH-2協定，以提供系統更安全的SSH使用環境",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容，以設定使用SSH-2：\nProtocol 2\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "Protocol 2"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 僅支援 SSH2；sshd -T 不輸出 Protocol 時接受預設，輸出 protocol 1 則拒絕。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900255",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 僅支援 SSH2；sshd -T 不輸出 Protocol 時接受預設，輸出 protocol 1 則拒絕。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0256",
       "sca_id": 900256,
       "source_sheet": "SSH伺服器",
       "source_row": 7,
       "expected": "root:root",
+      "docx_historical_cells": [],
       "docx_cells": [
         "3",
         "TWGCB-01-012-0256",
@@ -2789,6 +3848,7 @@
       "source_sheet": "SSH伺服器",
       "source_row": 8,
       "expected": "600或更低權限",
+      "docx_historical_cells": [],
       "docx_cells": [
         "4",
         "TWGCB-01-012-0257",
@@ -2839,11 +3899,628 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0258",
+      "sca_id": 900258,
+      "source_sheet": "SSH伺服器",
+      "source_row": 9,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "5",
+        "TWGCB-01-012-0258",
+        "SSH設定",
+        "限制存取SSH",
+        "這項原則設定決定是否啟用限制存取SSH功能\n/etc/ssh/sshd_config檔案可設定以下參數，以限制可透過SSH存取系統的使用者與群組：\nAllowUsers：由空格分隔的使用者名稱組成，設定允許登入的使用者\nAllowGroups：由空格分隔的群組名稱組成，設定允許登入的群組\nDenyUsers：由空格分隔的使用者名稱組成，設定拒絕登入的使用者\nDenyGroups：由空格分隔的群組名稱組成，設定拒絕登入的群組\n啟用限制存取SSH功能，有助於確保只有授權使用者才能透過SSH遠端存取系統",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nAllowUsers (使用者清單)\nAllowGroups (群組清單)\nDenyUsers (使用者清單)\nDenyGroups (使用者清單)\nAllowUsers參數設定smith與jones使用者的範例如下：\nAllowUsers smith jones\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "5",
+          "TWGCB-01-012-0258",
+          "SSH設定",
+          "限制存取SSH",
+          "這項原則設定決定是否啟用限制存取SSH功能\n/etc/ssh/sshd_config檔案可設定以下參數，以限制可透過SSH存取系統的使用者與群組：\nAllowUsers：由空格分隔的使用者名稱組成，設定允許登入的使用者\nAllowGroups：由空格分隔的群組名稱組成，設定允許登入的群組\nDenyUsers：由空格分隔的使用者名稱組成，設定拒絕登入的使用者\nDenyGroups：由空格分隔的群組名稱組成，設定拒絕登入的群組\n啟用限制存取SSH功能，有助於確保只有授權使用者才能透過SSH遠端存取系統",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nAllowUsers (使用者清單)\nAllowGroups (群組清單)\nDenyUsers (使用者清單)\nDenyGroups (使用者清單)\nAllowUsers參數設定smith與jones使用者的範例如下：\nAllowUsers smith jones\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。來源清單依組織授權，沒有單一基準值；只檢查至少一個有效限制清單，授權正確性待人工審查。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900258",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。來源清單依組織授權，沒有單一基準值；只檢查至少一個有效限制清單，授權正確性待人工審查。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0259",
+      "sca_id": 900259,
+      "source_sheet": "SSH伺服器",
+      "source_row": 10,
+      "expected": "root:ssh_keys",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "6",
+        "TWGCB-01-012-0259",
+        "SSH設定",
+        "SSH主機私鑰檔案所有權",
+        "這項原則設定決定SSH主機私鑰檔案擁有者與群組\nSSH主機私鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機私鑰檔案擁有者與群組，避免遭未經授權的使用者取得檔案，用以假冒主機對用戶端進行中間人攻擊",
+        "開啟終端機，執行以下指令，設定SSH主機私鑰檔案擁有者與群組：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown root:ssh_keys {} \\;",
+        "root:ssh_keys"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "6",
+          "TWGCB-01-012-0259",
+          "SSH設定",
+          "SSH主機私鑰檔案所有權",
+          "這項原則設定決定SSH主機私鑰檔案擁有者與群組\nSSH主機私鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機私鑰檔案擁有者與群組，避免遭未經授權的使用者取得檔案，用以假冒主機對用戶端進行中間人攻擊",
+          "開啟終端機，執行以下指令，設定SSH主機私鑰檔案擁有者與群組：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown root:ssh_keys {} \\;",
+          "root:ssh_keys"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900259",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0260",
+      "sca_id": 900260,
+      "source_sheet": "SSH伺服器",
+      "source_row": 11,
+      "expected": "640或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "7",
+        "TWGCB-01-012-0260",
+        "SSH設定",
+        "SSH主機私鑰檔案權限",
+        "這項原則設定決定是否設定SSH主機私鑰檔案權限\nSSH主機私鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機私鑰檔案權限，避免遭未經授權的使用者取得檔案，用以假冒主機對用戶端進行中間人攻擊",
+        "開啟終端機，執行以下指令，設定SSH主機私鑰檔案權限為600或更低權限：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chmod 640 {} \\;",
+        "640或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "7",
+          "TWGCB-01-012-0260",
+          "SSH設定",
+          "SSH主機私鑰檔案權限",
+          "這項原則設定決定是否設定SSH主機私鑰檔案權限\nSSH主機私鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機私鑰檔案權限，避免遭未經授權的使用者取得檔案，用以假冒主機對用戶端進行中間人攻擊",
+          "開啟終端機，執行以下指令，設定SSH主機私鑰檔案權限為600或更低權限：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chmod 640 {} \\;",
+          "640或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。來源文字提 600 但設定命令與 expected 為 640，依 F/G 欄實作 640 位元子集合，差異待核准。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900260",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。來源文字提 600 但設定命令與 expected 為 640，依 F/G 欄實作 640 位元子集合，差異待核准。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0261",
+      "sca_id": 900261,
+      "source_sheet": "SSH伺服器",
+      "source_row": 12,
+      "expected": "root:root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "8",
+        "TWGCB-01-012-0261",
+        "SSH設定",
+        "SSH主機公鑰檔案所有權",
+        "這項原則設定決定SSH主機公鑰檔案擁有者與群組\nSSH主機公鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機公鑰檔案擁有者與群組，避免遭未經授權的使用者修改檔案，導致主機SSH服務無法正常運作",
+        "開啟終端機，執行以下指令，設定SSH主機公鑰檔案擁有者與群組：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \\;",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "8",
+          "TWGCB-01-012-0261",
+          "SSH設定",
+          "SSH主機公鑰檔案所有權",
+          "這項原則設定決定SSH主機公鑰檔案擁有者與群組\nSSH主機公鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機公鑰檔案擁有者與群組，避免遭未經授權的使用者修改檔案，導致主機SSH服務無法正常運作",
+          "開啟終端機，執行以下指令，設定SSH主機公鑰檔案擁有者與群組：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \\;",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900261",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0262",
+      "sca_id": 900262,
+      "source_sheet": "SSH伺服器",
+      "source_row": 13,
+      "expected": "644或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "9",
+        "TWGCB-01-012-0262",
+        "SSH設定",
+        "SSH主機公鑰檔案權限",
+        "這項原則設定決定是否設定SSH主機公鑰檔案權限\nSSH主機公鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機公鑰檔案權限，避免遭未經授權的使用者修改檔案，導致主機SSH服務無法正常運作",
+        "開啟終端機，執行以下指令，設定SSH主機公鑰檔案權限為644或更低權限：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chmod 644 {} \\;",
+        "644或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "9",
+          "TWGCB-01-012-0262",
+          "SSH設定",
+          "SSH主機公鑰檔案權限",
+          "這項原則設定決定是否設定SSH主機公鑰檔案權限\nSSH主機公鑰是SSH協定中驗證主機所使用的加密金鑰，搭配公鑰與私鑰可鑑別使用者身分\n設定SSH主機公鑰檔案權限，避免遭未經授權的使用者修改檔案，導致主機SSH服務無法正常運作",
+          "開啟終端機，執行以下指令，設定SSH主機公鑰檔案權限為644或更低權限：\n#find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chmod 644 {} \\;",
+          "644或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900262",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0263",
+      "sca_id": 900263,
+      "source_sheet": "SSH伺服器",
+      "source_row": 14,
+      "expected": "aes128-ctr,aes192-ctr,aes256-ctr",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "10",
+        "TWGCB-01-012-0263",
+        "SSH設定",
+        "SSH加密演算法",
+        "這項原則設定決定SSH所採用之加密演算法\nCiphers參數可設定SSH-2協定可使用的加密演算法，支援演算法包含3des-cbc、aes128-cbc、aes192-cbc、aes256-cbc、aes128-ctr、aes192-ctr、aes256-ctr、arcfour128、arcfour256、arcfour、blowfish-cbc及st128-cbc\nMACS參數可設定MAC(Message Authentication Codes)可使用的雜湊演算法\nKexAlgorithm參數可設定金鑰交換演算法\n設定SSH加密演算法，以加密方式保護傳輸資訊，以防攻擊者藉由封包攔截進而取得明文機敏資訊",
+        "編輯/etc/crypto-policies/back-ends/opensshserver.config檔案，新增或修改成以下內容：\n-oCiphers aes128-ctr,aes192-ctr,aes256-ctr-oMACS=hmac-sha2-512,hmac-sha2-256\n-oKexAlgorithms=ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "aes128-ctr,aes192-ctr,aes256-ctr"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "10",
+          "TWGCB-01-012-0263",
+          "SSH設定",
+          "SSH加密演算法",
+          "這項原則設定決定SSH所採用之加密演算法\nCiphers參數可設定SSH-2協定可使用的加密演算法，支援演算法包含3des-cbc、aes128-cbc、aes192-cbc、aes256-cbc、aes128-ctr、aes192-ctr、aes256-ctr、arcfour128、arcfour256、arcfour、blowfish-cbc及st128-cbc\nMACS參數可設定MAC(Message Authentication Codes)可使用的雜湊演算法\nKexAlgorithm參數可設定金鑰交換演算法\n設定SSH加密演算法，以加密方式保護傳輸資訊，以防攻擊者藉由封包攔截進而取得明文機敏資訊",
+          "編輯/etc/crypto-policies/back-ends/opensshserver.config檔案，新增或修改成以下內容：\n-oCiphers aes128-ctr,aes192-ctr,aes256-ctr-oMACS=hmac-sha2-512,hmac-sha2-256\n-oKexAlgorithms=ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "aes128-ctr,aes192-ctr,aes256-ctr"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900263",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0264",
+      "sca_id": 900264,
+      "source_sheet": "SSH伺服器",
+      "source_row": 15,
+      "expected": "VERBOSE或INFO",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "11",
+        "TWGCB-01-012-0264",
+        "SSH設定",
+        "SSH日誌記錄等級",
+        "這項原則設定決定SSH日誌記錄等級，在/etc/ssh/sshd_config檔案中，使用LogLevel參數可設定SSH日誌的記錄等級，選項依照紀錄詳細程度由上至下排序如下，QUIET等級為基本紀錄，DEBUG3等級將包含最詳細紀錄：\nQUIET\nFATAL\nERROR\nINFO\nVERBOSE\nDEBUG\nDEBUG1\nDEBUG2\nDEBUG3\nINFO等級為記錄SSH使用者登入活動的基本級別，可用於確定特定使用者何時在系統上處於活動狀態\nVERBOSE等級為記錄登入與登出活動，以及用於登入的任何SSH金鑰指紋，可使用於管理SSH金鑰",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nLogLevel VERBOSE\n或\nLogLevel INFO\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "VERBOSE或INFO"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "11",
+          "TWGCB-01-012-0264",
+          "SSH設定",
+          "SSH日誌記錄等級",
+          "這項原則設定決定SSH日誌記錄等級，在/etc/ssh/sshd_config檔案中，使用LogLevel參數可設定SSH日誌的記錄等級，選項依照紀錄詳細程度由上至下排序如下，QUIET等級為基本紀錄，DEBUG3等級將包含最詳細紀錄：\nQUIET\nFATAL\nERROR\nINFO\nVERBOSE\nDEBUG\nDEBUG1\nDEBUG2\nDEBUG3\nINFO等級為記錄SSH使用者登入活動的基本級別，可用於確定特定使用者何時在系統上處於活動狀態\nVERBOSE等級為記錄登入與登出活動，以及用於登入的任何SSH金鑰指紋，可使用於管理SSH金鑰",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nLogLevel VERBOSE\n或\nLogLevel INFO\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "VERBOSE或INFO"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900264",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0265",
+      "sca_id": 900265,
+      "source_sheet": "SSH伺服器",
+      "source_row": 16,
+      "expected": "no",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "12",
+        "TWGCB-01-012-0265",
+        "SSH設定",
+        "SSH X11Forwarding功能",
+        "這項原則設定決定SSH是否啟用X11Forwarding功能\nX11Forwarding功能用於與X11建立通道，以啟用遠端圖形介面連線\n設定X11Forwarding參數為no，以停用遠端圖形介面連線功能\n對於允許使用者登入的X11遠端伺服器而言，可能遭伺服器上其他使用者攻擊",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nX11Forwarding no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "12",
+          "TWGCB-01-012-0265",
+          "SSH設定",
+          "SSH X11Forwarding功能",
+          "這項原則設定決定SSH是否啟用X11Forwarding功能\nX11Forwarding功能用於與X11建立通道，以啟用遠端圖形介面連線\n設定X11Forwarding參數為no，以停用遠端圖形介面連線功能\n對於允許使用者登入的X11遠端伺服器而言，可能遭伺服器上其他使用者攻擊",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nX11Forwarding no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900265",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0266",
+      "sca_id": 900266,
+      "source_sheet": "SSH伺服器",
+      "source_row": 17,
+      "expected": "4以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "13",
+        "TWGCB-01-012-0266",
+        "SSH設定",
+        "SSH MaxAuthTries參數",
+        "這項原則設定決定SSH是否設定MaxAuthTries參數\nMaxAuthTries參數用以指定每個連接允許的驗證登入失敗次數，當登入失敗次數達到一半時，錯誤訊息將會寫入日誌檔案，詳細說明登入失敗過程\n建議將MaxAuthTries參數設定為較小的值，以降低針對SSH伺服器成功進行暴力攻擊之風險",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nMaxAuthTries 4\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "4以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "13",
+          "TWGCB-01-012-0266",
+          "SSH設定",
+          "SSH MaxAuthTries參數",
+          "這項原則設定決定SSH是否設定MaxAuthTries參數\nMaxAuthTries參數用以指定每個連接允許的驗證登入失敗次數，當登入失敗次數達到一半時，錯誤訊息將會寫入日誌檔案，詳細說明登入失敗過程\n建議將MaxAuthTries參數設定為較小的值，以降低針對SSH伺服器成功進行暴力攻擊之風險",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nMaxAuthTries 4\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "4以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900266",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0267",
+      "sca_id": 900267,
+      "source_sheet": "SSH伺服器",
+      "source_row": 18,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "14",
+        "TWGCB-01-012-0267",
+        "SSH設定",
+        "SSH IgnoreRhosts參數",
+        "這項原則設定決定SSH是否設定IgnoreRhosts參數\nIgnoreRhosts參數指定在RhostsRSAAuthentication或HostbasedAuthentication鑑別過程中，將不使用.rhosts與.shosts檔案\n設定IgnoreRhosts參數為yes，強制使用者在使用SSH進行身分鑑別時須輸入通行碼",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nIgnoreRhosts yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "14",
+          "TWGCB-01-012-0267",
+          "SSH設定",
+          "SSH IgnoreRhosts參數",
+          "這項原則設定決定SSH是否設定IgnoreRhosts參數\nIgnoreRhosts參數指定在RhostsRSAAuthentication或HostbasedAuthentication鑑別過程中，將不使用.rhosts與.shosts檔案\n設定IgnoreRhosts參數為yes，強制使用者在使用SSH進行身分鑑別時須輸入通行碼",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nIgnoreRhosts yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900267",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0268",
+      "sca_id": 900268,
+      "source_sheet": "SSH伺服器",
+      "source_row": 19,
+      "expected": "no",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "15",
+        "TWGCB-01-012-0268",
+        "SSH設定",
+        "SSH HostbasedAuthentication參數",
+        "這項原則設定決定SSH是否設定HostbasedAuthentication參數，以指定是否使用基於主機之身分鑑別方式\n此參數僅適用於SSH-2協定\n基於主機的身分鑑別方式較不安全，建議停用",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nHostbasedAuthentication no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "15",
+          "TWGCB-01-012-0268",
+          "SSH設定",
+          "SSH HostbasedAuthentication參數",
+          "這項原則設定決定SSH是否設定HostbasedAuthentication參數，以指定是否使用基於主機之身分鑑別方式\n此參數僅適用於SSH-2協定\n基於主機的身分鑑別方式較不安全，建議停用",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nHostbasedAuthentication no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900268",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0269",
       "sca_id": 900269,
       "source_sheet": "SSH伺服器",
       "source_row": 20,
       "expected": "no",
+      "docx_historical_cells": [],
       "docx_cells": [
         "16",
         "TWGCB-01-012-0269",
@@ -2898,6 +4575,7 @@
       "source_sheet": "SSH伺服器",
       "source_row": 21,
       "expected": "no",
+      "docx_historical_cells": [],
       "docx_cells": [
         "17",
         "TWGCB-01-012-0270",
@@ -2945,6 +4623,876 @@
       "family": "SSH 預設有效設定",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0271",
+      "sca_id": 900271,
+      "source_sheet": "SSH伺服器",
+      "source_row": 22,
+      "expected": "no",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "18",
+        "TWGCB-01-012-0271",
+        "SSH設定",
+        "SSH PermitUserEnvironment參數",
+        "這項原則設定決定SSH是否設定PermitUserEnvironment參數\nPermitUserEnvironment參數決定是否允許使用者可藉由SSH守護程序變更環境設定\n禁止使用者藉由SSH守護程序變更環境設定，以避免使用者得以繞過系統存取限制",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nPermitUserEnvironment no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "18",
+          "TWGCB-01-012-0271",
+          "SSH設定",
+          "SSH PermitUserEnvironment參數",
+          "這項原則設定決定SSH是否設定PermitUserEnvironment參數\nPermitUserEnvironment參數決定是否允許使用者可藉由SSH守護程序變更環境設定\n禁止使用者藉由SSH守護程序變更環境設定，以避免使用者得以繞過系統存取限制",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nPermitUserEnvironment no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900271",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0272",
+      "sca_id": 900272,
+      "source_sheet": "SSH伺服器",
+      "source_row": 23,
+      "expected": "ClientAliveInterval設為600以下，但須大於0，且ClientAliveCountMax設為1",
+      "docx_historical_cells": [
+        [
+          "1",
+          "修改前",
+          "TWGCB-01-012-0272",
+          "SSH設定",
+          "SSH逾時時間",
+          "這項原則設定決定是否設定SSH逾時時間\nClientAliveInterval與ClientAliveCountMax參數可控制SSH連線逾時時間\n設定ClientAliveInterval參數後，在指定的時間內沒有任何活動將中斷SSH連線\n設定ClientAliveCountMax參數後，SSH守護程序將在每個ClientAliveInterval指定時間到達時，向用戶端發送訊息，若發送訊息次數到達該參數設定值時，用戶端都沒有回應，則中斷SSH連線\n舉例若ClientAliveInterval設為15秒，ClientAliveCountMax設為3時，用戶端若連續45秒都沒有回應，則中斷SSH連線",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nClientAliveInterval 600\nClientAliveCountMax 0\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "ClientAliveInterval設為600以下，但須大於0，且ClientAliveCountMax設為0"
+        ]
+      ],
+      "docx_cells": [
+        "19",
+        "TWGCB-01-012-0272",
+        "SSH設定",
+        "SSH逾時時間",
+        "這項原則設定決定是否設定SSH逾時時間\nClientAliveInterval與ClientAliveCountMax參數可控制SSH連線逾時時間\n設定ClientAliveInterval參數後，在指定的時間內沒有任何活動將中斷SSH連線\n設定ClientAliveCountMax參數後，SSH守護程序將在每個ClientAliveInterval指定時間到達時，向用戶端發送訊息，若發送訊息次數到達該參數設定值時，用戶端都沒有回應，則中斷SSH連線\n舉例若ClientAliveInterval設為15秒，ClientAliveCountMax設為3時，用戶端若連續45秒都沒有回應，則中斷SSH連線",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nClientAliveInterval 600\nClientAliveCountMax 1\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "ClientAliveInterval設為600以下，但須大於0，且ClientAliveCountMax設為1"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "19",
+          "TWGCB-01-012-0272",
+          "SSH設定",
+          "SSH逾時時間",
+          "這項原則設定決定是否設定SSH逾時時間\nClientAliveInterval與ClientAliveCountMax參數可控制SSH連線逾時時間\n設定ClientAliveInterval參數後，在指定的時間內沒有任何活動將中斷SSH連線\n設定ClientAliveCountMax參數後，SSH守護程序將在每個ClientAliveInterval指定時間到達時，向用戶端發送訊息，若發送訊息次數到達該參數設定值時，用戶端都沒有回應，則中斷SSH連線\n舉例若ClientAliveInterval設為15秒，ClientAliveCountMax設為3時，用戶端若連續45秒都沒有回應，則中斷SSH連線",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nClientAliveInterval 600\nClientAliveCountMax 1\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "ClientAliveInterval設為600以下，但須大於0，且ClientAliveCountMax設為1"
+        ],
+        [
+          "",
+          "修改後",
+          "TWGCB-01-012-0272",
+          "SSH設定",
+          "SSH逾時時間",
+          "這項原則設定決定是否設定SSH逾時時間\nClientAliveInterval與ClientAliveCountMax參數可控制SSH連線逾時時間\n設定ClientAliveInterval參數後，在指定的時間內沒有任何活動將中斷SSH連線\n設定ClientAliveCountMax參數後，SSH守護程序將在每個ClientAliveInterval指定時間到達時，向用戶端發送訊息，若發送訊息次數到達該參數設定值時，用戶端都沒有回應，則中斷SSH連線\n舉例若ClientAliveInterval設為15秒，ClientAliveCountMax設為3時，用戶端若連續45秒都沒有回應，則中斷SSH連線",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nClientAliveInterval 600\nClientAliveCountMax 1\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "ClientAliveInterval設為600以下，但須大於0，且ClientAliveCountMax設為1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900272",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0273",
+      "sca_id": 900273,
+      "source_sheet": "SSH伺服器",
+      "source_row": 24,
+      "expected": "60以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "20",
+        "TWGCB-01-012-0273",
+        "SSH設定",
+        "SSH LoginGraceTime參數",
+        "這項原則設定決定SSH是否設定LoginGraceTime參數，用以限定當使用者連上SSH伺服器後，多少時間內若未成功登入，則中斷SSH連線\n設定登入逾時時間(單位為秒)，以避免未經授權使用者長久占據連線資源，導致其他使用者無法連線",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nLoginGraceTime 60\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "60以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "20",
+          "TWGCB-01-012-0273",
+          "SSH設定",
+          "SSH LoginGraceTime參數",
+          "這項原則設定決定SSH是否設定LoginGraceTime參數，用以限定當使用者連上SSH伺服器後，多少時間內若未成功登入，則中斷SSH連線\n設定登入逾時時間(單位為秒)，以避免未經授權使用者長久占據連線資源，導致其他使用者無法連線",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nLoginGraceTime 60\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "60以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900273",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0274",
+      "sca_id": 900274,
+      "source_sheet": "SSH伺服器",
+      "source_row": 25,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "21",
+        "TWGCB-01-012-0274",
+        "SSH設定",
+        "SSH UsePAM參數",
+        "這項原則設定決定SSH是否啟用PAM(Pluggable Authentication Module，啟用插入式鑑別模組) 鑑別\n啟用PAM身分鑑別可提升系統鑑別功能與安全性",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nUsePAM yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "21",
+          "TWGCB-01-012-0274",
+          "SSH設定",
+          "SSH UsePAM參數",
+          "這項原則設定決定SSH是否啟用PAM(Pluggable Authentication Module，啟用插入式鑑別模組) 鑑別\n啟用PAM身分鑑別可提升系統鑑別功能與安全性",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nUsePAM yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900274",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0275",
+      "sca_id": 900275,
+      "source_sheet": "SSH伺服器",
+      "source_row": 26,
+      "expected": "no",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "22",
+        "TWGCB-01-012-0275",
+        "SSH設定",
+        "SSH AllowTcpForwarding參數",
+        "這項原則設定決定SSH是否設定AllowTcpForwarding參數\nAllowTcpForwarding參數用於設定SSH埠轉發(port forwarding)功能，將應用程序埠從用戶端隧道傳輸到伺服器，或將伺服器傳輸到用戶端\n停用SSH埠轉發功能，避免攻擊者或惡意程式利用SSH隱藏未經授權連線，或將竊取資料傳出",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nAllowTcpForwarding no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "22",
+          "TWGCB-01-012-0275",
+          "SSH設定",
+          "SSH AllowTcpForwarding參數",
+          "這項原則設定決定SSH是否設定AllowTcpForwarding參數\nAllowTcpForwarding參數用於設定SSH埠轉發(port forwarding)功能，將應用程序埠從用戶端隧道傳輸到伺服器，或將伺服器傳輸到用戶端\n停用SSH埠轉發功能，避免攻擊者或惡意程式利用SSH隱藏未經授權連線，或將竊取資料傳出",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nAllowTcpForwarding no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900275",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0276",
+      "sca_id": 900276,
+      "source_sheet": "SSH伺服器",
+      "source_row": 27,
+      "expected": "10:30:60",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "23",
+        "TWGCB-01-012-0276",
+        "SSH設定",
+        "SSH MaxStartups參數",
+        "這項原則設定決定SSH是否設定MaxStartups參數，用以指定SSH守護程序同一時間可接受未經身分鑑別連線之最大數量\n限制同一時間可接受之未經身分鑑別連線數量，以避免未經授權使用者長久占據連線資源，導致其他使用者無法連線",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下，當未經身分鑑別連線數量達到10個後，將以30%機率拒絕後續連線；當未經身分鑑別連線數量達到60個後，將全部拒絕後續連線： \nmaxstartups 10:30:60\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "10:30:60"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "23",
+          "TWGCB-01-012-0276",
+          "SSH設定",
+          "SSH MaxStartups參數",
+          "這項原則設定決定SSH是否設定MaxStartups參數，用以指定SSH守護程序同一時間可接受未經身分鑑別連線之最大數量\n限制同一時間可接受之未經身分鑑別連線數量，以避免未經授權使用者長久占據連線資源，導致其他使用者無法連線",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下，當未經身分鑑別連線數量達到10個後，將以30%機率拒絕後續連線；當未經身分鑑別連線數量達到60個後，將全部拒絕後續連線： \nmaxstartups 10:30:60\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "10:30:60"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900276",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0277",
+      "sca_id": 900277,
+      "source_sheet": "SSH伺服器",
+      "source_row": 28,
+      "expected": "4以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "24",
+        "TWGCB-01-012-0277",
+        "SSH設定",
+        "SSH MaxSessions參數",
+        "這項原則設定決定SSH是否設定MaxSessions參數，用以指定每個網路連線允許的最大會談數\n限制每個網路連線允許的最大會談數，以保護系統避免由於同時間建立大量連線，而導致系統無法繼續提供服務",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nMaxSessions 4\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "4以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "24",
+          "TWGCB-01-012-0277",
+          "SSH設定",
+          "SSH MaxSessions參數",
+          "這項原則設定決定SSH是否設定MaxSessions參數，用以指定每個網路連線允許的最大會談數\n限制每個網路連線允許的最大會談數，以保護系統避免由於同時間建立大量連線，而導致系統無法繼續提供服務",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nMaxSessions 4\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "4以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900277",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0278",
+      "sca_id": 900278,
+      "source_sheet": "SSH伺服器",
+      "source_row": 29,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "25",
+        "TWGCB-01-012-0278",
+        "SSH設定",
+        "SSH StrictModes參數",
+        "這項原則設定決定SSH是否設定StrictModes參數，用以指定SSH守護程序在接受登入之前，是否檢查使用者家目錄與檔案之所有權與權限\n設定SSH守護程序檢查使用者家目錄與檔案之所有權與權限，以避免使用者目錄或檔案具有全域寫入權限，而導致遭竄改設定",
+        "編輯/etc/ssh/sshd_config檔案，新增或修改StrictModes參數為以下內容：\nStrictModes yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "25",
+          "TWGCB-01-012-0278",
+          "SSH設定",
+          "SSH StrictModes參數",
+          "這項原則設定決定SSH是否設定StrictModes參數，用以指定SSH守護程序在接受登入之前，是否檢查使用者家目錄與檔案之所有權與權限\n設定SSH守護程序檢查使用者家目錄與檔案之所有權與權限，以避免使用者目錄或檔案具有全域寫入權限，而導致遭竄改設定",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改StrictModes參數為以下內容：\nStrictModes yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900278",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0279",
+      "sca_id": 900279,
+      "source_sheet": "SSH伺服器",
+      "source_row": 30,
+      "expected": "delayed或no",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "26",
+        "TWGCB-01-012-0279",
+        "SSH設定",
+        "SSH Compression參數",
+        "這項原則設定決定SSH是否設定Compression參數，用以指定在使用者成功認證之前是否支援壓縮\n設定SSH守護程序在使用者通過身分鑑別前不能執行壓縮，避免因壓縮軟體漏洞而導致系統遭受攻擊",
+        "編輯/etc/ssh/sshd_config檔案，新增或修改Compression參數為「delayed」或「no」，範例如下：\nCompression no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "delayed或no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "26",
+          "TWGCB-01-012-0279",
+          "SSH設定",
+          "SSH Compression參數",
+          "這項原則設定決定SSH是否設定Compression參數，用以指定在使用者成功認證之前是否支援壓縮\n設定SSH守護程序在使用者通過身分鑑別前不能執行壓縮，避免因壓縮軟體漏洞而導致系統遭受攻擊",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改Compression參數為「delayed」或「no」，範例如下：\nCompression no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "delayed或no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 的 compression yes 僅認證後壓縮（等同歷史 delayed）；no 亦符合。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900279",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 的 compression yes 僅認證後壓縮（等同歷史 delayed）；no 亦符合。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0280",
+      "sca_id": 900280,
+      "source_sheet": "SSH伺服器",
+      "source_row": 31,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "27",
+        "TWGCB-01-012-0280",
+        "SSH設定",
+        "SSH IgnoreUserKnownHosts參數",
+        "這項原則設定決定SSH是否設定IgnoreUserKnownHosts參數，用以指定在RhostsRSAAuthentication或HostbasedAuthentication鑑別過程中，不使用已知主機之身分鑑別\n不使用已知主機之身分鑑別，以強制使用者在使用SSH遠端登入時須輸入通行碼",
+        "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nIgnoreUserKnownHosts yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "27",
+          "TWGCB-01-012-0280",
+          "SSH設定",
+          "SSH IgnoreUserKnownHosts參數",
+          "這項原則設定決定SSH是否設定IgnoreUserKnownHosts參數，用以指定在RhostsRSAAuthentication或HostbasedAuthentication鑑別過程中，不使用已知主機之身分鑑別\n不使用已知主機之身分鑑別，以強制使用者在使用SSH遠端登入時須輸入通行碼",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nIgnoreUserKnownHosts yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900280",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0281",
+      "sca_id": 900281,
+      "source_sheet": "SSH伺服器",
+      "source_row": 32,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "28",
+        "TWGCB-01-012-0281",
+        "SSH設定",
+        "SSH PrintLastLog參數",
+        "這項原則設定決定SSH是否設定PrintLastLog參數，用以指定當使用者登入系統時，SSH守護程序是否顯示上次使用者登入之日期與時間\n顯示使用者上次以SSH登入之日期與時間，有助於使用者及早發現帳號被盜用之情形",
+        "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nPrintLastLog yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "28",
+          "TWGCB-01-012-0281",
+          "SSH設定",
+          "SSH PrintLastLog參數",
+          "這項原則設定決定SSH是否設定PrintLastLog參數，用以指定當使用者登入系統時，SSH守護程序是否顯示上次使用者登入之日期與時間\n顯示使用者上次以SSH登入之日期與時間，有助於使用者及早發現帳號被盜用之情形",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nPrintLastLog yes\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900281",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0282",
+      "sca_id": 900282,
+      "source_sheet": "SSH伺服器",
+      "source_row": 33,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "29",
+        "TWGCB-01-012-0282",
+        "SSH設定",
+        "shosts.equiv檔案",
+        "這項原則設定決定是否移除shosts.equiv檔案\n當使用者進行SSH連線所使用電腦之名稱已經列在shosts.equiv檔案中時，若兩端的使用者名稱相同，則立即允許該使用者登入，此種基於主機之身分鑑別方式無需使用者輸入通行碼，容易遭偽冒身分\n移除shosts.equiv檔案，以強化使用者登入身分鑑別機制",
+        "開啟終端機，執行以下指令，尋找任何「shosts.equiv」檔案：\n#find / -name shosts.equiv\n若發現「shosts.equiv」檔案，執行指令移除檔案，範例如下：\n#rm /etc/ssh/shosts.equiv",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "29",
+          "TWGCB-01-012-0282",
+          "SSH設定",
+          "shosts.equiv檔案",
+          "這項原則設定決定是否移除shosts.equiv檔案\n當使用者進行SSH連線所使用電腦之名稱已經列在shosts.equiv檔案中時，若兩端的使用者名稱相同，則立即允許該使用者登入，此種基於主機之身分鑑別方式無需使用者輸入通行碼，容易遭偽冒身分\n移除shosts.equiv檔案，以強化使用者登入身分鑑別機制",
+          "開啟終端機，執行以下指令，尋找任何「shosts.equiv」檔案：\n#find / -name shosts.equiv\n若發現「shosts.equiv」檔案，執行指令移除檔案，範例如下：\n#rm /etc/ssh/shosts.equiv",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900282",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0283",
+      "sca_id": 900283,
+      "source_sheet": "SSH伺服器",
+      "source_row": 34,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "30",
+        "TWGCB-01-012-0283",
+        "SSH設定",
+        ".shosts檔案",
+        "這項原則設定決定是否移除「.shosts」檔案\n「.shosts」檔案用於設定SSH為單一使用者或使用基於主機之身分鑑別方式，因登入過程中無需使用者輸入通行碼，容易遭偽冒身分\n移除「.shosts」檔案，以強化使用者登入身分鑑別機制",
+        "開啟終端機，執行以下指令，尋找任何「.shosts」檔案：\n#find / -name '*.shosts'\n若發現「.shosts」檔案，執行指令移除檔案，範例如下：\n#rm $HOME/.shosts",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "30",
+          "TWGCB-01-012-0283",
+          "SSH設定",
+          ".shosts檔案",
+          "這項原則設定決定是否移除「.shosts」檔案\n「.shosts」檔案用於設定SSH為單一使用者或使用基於主機之身分鑑別方式，因登入過程中無需使用者輸入通行碼，容易遭偽冒身分\n移除「.shosts」檔案，以強化使用者登入身分鑑別機制",
+          "開啟終端機，執行以下指令，尋找任何「.shosts」檔案：\n#find / -name '*.shosts'\n若發現「.shosts」檔案，執行指令移除檔案，範例如下：\n#rm $HOME/.shosts",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900283",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0284",
+      "sca_id": 900284,
+      "source_sheet": "SSH伺服器",
+      "source_row": 35,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "31",
+        "TWGCB-01-012-0284",
+        "SSH設定",
+        "覆寫全系統加密原則",
+        "這項原則設定決定是否覆寫全系統加密原則，在SSH系統可設為覆寫或不使用全系統加密原則\n設定SSH系統停用覆寫全系統加密原則，以避免SSH使用到安全強度較低之加密演算法",
+        "開啟終端機，執行以下指令，以停用覆寫全系統加密原則：\n#sed -ri \"s/^\\s*(CRYPTO_POLICY\\s*=.*)$/# \\1/\" /etc/sysconfig/sshd\n執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "31",
+          "TWGCB-01-012-0284",
+          "SSH設定",
+          "覆寫全系統加密原則",
+          "這項原則設定決定是否覆寫全系統加密原則，在SSH系統可設為覆寫或不使用全系統加密原則\n設定SSH系統停用覆寫全系統加密原則，以避免SSH使用到安全強度較低之加密演算法",
+          "開啟終端機，執行以下指令，以停用覆寫全系統加密原則：\n#sed -ri \"s/^\\s*(CRYPTO_POLICY\\s*=.*)$/# \\1/\" /etc/sysconfig/sshd\n執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900284",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0315",
+      "sca_id": 900315,
+      "source_sheet": "SSH伺服器",
+      "source_row": 36,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "32",
+        "TWGCB-01-012-0315",
+        "SSH設定",
+        "停用GSSAPI驗證",
+        "這項原則設定決定是否停用GSSAPI驗證\nGSSAPI允許使用者透過現有網路憑證進行身分驗證，無需在每次連接時輸入密碼，主要用於跨多系統之身分驗證環境\n停用GSSAPI，可能會導致無法使用Kerberos驗證",
+        "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nGSSAPIAuthentication no",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "32",
+          "TWGCB-01-012-0315",
+          "SSH設定",
+          "停用GSSAPI驗證",
+          "這項原則設定決定是否停用GSSAPI驗證\nGSSAPI允許使用者透過現有網路憑證進行身分驗證，無需在每次連接時輸入密碼，主要用於跨多系統之身分驗證環境\n停用GSSAPI，可能會導致無法使用Kerberos驗證",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nGSSAPIAuthentication no",
+          "停用"
+        ],
+        [
+          "31",
+          "TWGCB-01-012-0315",
+          "SSH設定",
+          "停用GSSAPI驗證",
+          "這項原則設定決定是否停用GSSAPI驗證\nGSSAPI允許使用者透過現有網路憑證進行身分驗證，無需在每次連接時輸入密碼，主要用於跨多系統之身分驗證環境\n停用GSSAPI，可能會導致無法使用Kerberos驗證",
+          "編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容：\nGSSAPIAuthentication no",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合",
+      "caveats": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900315",
+        "tests/test_batch2.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B2-ENGINE",
+        "B2-SCOPE"
+      ],
+      "family": "BATCH2 guarded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。"
     }
   ]
 }

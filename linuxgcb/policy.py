@@ -5,11 +5,12 @@ from functools import lru_cache
 from .catalog import ROOT, registry, digest
 from .batch1 import rules as batch_rules, disabled_service_rules
 from .expected import PREFIX, values, parse_description
+from .batch2 import rules as batch2_rules, ADDED as BATCH2
 
 
 def definitions():
     modes = '|'.join(format(n, 'o') for n in range(0o1000) if n & ~0o644 == 0)
-    return {**batch_rules(),
+    return {**batch_rules(), **batch2_rules(),
         45: [('c:/usr/bin/stat -c %u:%g /etc/passwd', '^0:0$')],
         46: [('c:/usr/bin/stat -c %a /etc/passwd', '^('+modes+')$')],
         108: [('c:/usr/sbin/sysctl -n net.ipv4.ip_forward', '^0$'),
@@ -33,9 +34,9 @@ def build():
             if row['implementation'] != 'candidate' or row['profile'] != profile:
                 continue
             checks.append(dict(id=row['sca_id'], title=row['gcb_id']+' '+row['title'],
-                description=PREFIX+expected[row['gcb_id']]+' ｜ Q1 執行審查 '+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
+                description=PREFIX+expected[row['gcb_id']]+(' ｜ BATCH2 執行審查 ' if row['sca_id']-900000 in BATCH2 else ' ｜ Q1 執行審查 ')+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
-                rules=[target+' -> r:'+pattern for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
+                rules=[emit_rule(target, pattern) for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,
                       name='RHEL9 GCB v1.2 '+profile+' v0.1 UNVALIDATED',
                       description='未驗證候選政策；僅供核准 RHEL9 試點，非完整符合性檢核', regex_type='pcre2'),
@@ -69,14 +70,16 @@ def validate():
             require(c['id'] not in seen and rows[c['id']]['included'])
             seen.add(c['id'])
             require(parse_description(c.get('description')) == values()[rows[c['id']]['gcb_id']])
-            require(' ｜ Q1 ' in c['description'])
+            require((' ｜ BATCH2 ' if c['id']-900000 in BATCH2 else ' ｜ Q1 ') in c['description'])
             require(c['regex_type'] == 'pcre2' and c['condition'] == 'all')
             require(c['compliance'] == [{'twgcb': [rows[c['id']]['gcb_id']]}])
             require(rows[c['id']]['policy_id'] == p['policy']['id'])
-            require(c['rules'] == [a+' -> r:'+b for a,b in definitions()[c['id']-900000]])
+            require(c['rules'] == [emit_rule(a,b) for a,b in definitions()[c['id']-900000]])
             for rule in c['rules']:
-                target, pattern = rule.split(' -> r:')
-                require(target.startswith('c:/') and not any(x in target for x in ('|',';', '&&', '$', '`')))
+                target, _ = rule.split(' -> ', 1)
+                require(target.removeprefix('not ').startswith('c:/'))
+                if c['id']-900000 not in BATCH2:
+                    require(not any(x in target for x in ('|',';', '&&', '$', '`')))
                 parse_rule(rule)
     require(seen == {900000+n for n in definitions()})
     hashes = json.loads((ROOT/'data/policy_hashes.json').read_text())
@@ -89,18 +92,31 @@ def validate():
 
 @lru_cache(maxsize=1)
 def supported_patterns():
-    return frozenset(p for rules in definitions().values() for _,p in rules) | {
+    return frozenset(p.lstrip('!') for rules in definitions().values() for _,p in rules) | {
         '^ID="?rhel"?$', '^VERSION_ID="?9([.][0-9]+)*"?$'}
 
 
+def emit_rule(target, pattern):
+    return ('not '+target+' -> r:'+pattern[1:]) if pattern.startswith('!') else target+' -> r:'+pattern
+
+
+@lru_cache(maxsize=1)
+def batch2_emitted():
+    return {emit_rule(t,p) for rules in batch2_rules().values() for t,p in rules}
+
+
 def parse_rule(rule):
-    """明確有界子集：絕對路徑 c:/f: + 單一正向 r:；拒絕其他運算子。"""
-    if not isinstance(rule, str) or rule.count(' -> r:') != 1:
+    """Legacy bounded grammar plus exact allowlist of BATCH2 emitted rules."""
+    if not isinstance(rule, str):
+        raise ValueError('不支援的規則語法')
+    if rule in batch2_emitted():
+        target, expression = rule.split(' -> ', 1)
+        return target.removeprefix('not '), re.compile(expression.split(':',1)[1], re.ASCII)
+    if rule.count(' -> r:') != 1:
         raise ValueError('不支援的規則語法')
     target, pattern = rule.split(' -> r:')
     if not re.fullmatch(r'[cf]:/[^\n\r]+', target) or any(x in target for x in (' -> ', ' && ', '|', ';', '`', '$')):
         raise ValueError('不支援的目標')
-    # Python 並非 PCRE2；只接受實際發出的固定模式與測試用 ASCII literal。
     if pattern not in supported_patterns() and not re.fullmatch(r'\^[A-Za-z0-9_ =:/-]+\$', pattern):
         raise ValueError('未驗證的 PCRE2 語法')
     try:
@@ -114,7 +130,9 @@ def simulate(check, observations):
 
     FIX-1 同一 command 的多行輸出仍按逐行存在匹配；alternation 是單一
     正向 regex，規則間維持 all，不以空輸出或 stderr 推論 not-found。
-    exit_code 不參與 SCA 輸出匹配。明確 engine_result 可表示真機／fixture
+    舊 53 項保留 exit_code 不參與輸出匹配；BATCH2 非零則 UNRESOLVED，
+    並以 emitted shell guard 確保失敗不發布輸出或成功標記。
+    明確 engine_result 可表示真機／fixture
     的 Not applicable；error 只表示未取得可靠輸出，不能預測引擎結果。
     """
     if check.get('regex_type', 'pcre2') != 'pcre2':
@@ -125,19 +143,24 @@ def simulate(check, observations):
         raise ValueError('規則不得為空')
     parsed = [parse_rule(rule) for rule in check['rules']]
     outcomes = []
-    for target, pattern in parsed:
+    for rule, (target, pattern) in zip(check['rules'], parsed):
         obs = observations.get(target)
         if target.startswith('f:') and obs is not None and obs.get('exists') is False:
             outcomes.append('NOT_APPLICABLE')
             continue
         if obs is None or obs.get('error'):
             outcomes.append('UNRESOLVED')
+        elif rule in batch2_emitted() and obs.get('exit_code', 0) != 0:
+            outcomes.append('UNRESOLVED')
         elif obs.get('engine_result') == 'NOT_APPLICABLE':
             outcomes.append('NOT_APPLICABLE')
         elif not isinstance(obs.get('stdout'), str):
             raise ValueError('觀察必須提供字串 stdout')
         else:
-            outcomes.append('PASS' if any(pattern.search(line) for line in obs['stdout'].split('\n')) else 'FAIL')
+            matched = any(pattern.search(line) for line in obs['stdout'].split('\n'))
+            if rule.startswith('not '):
+                matched = not matched
+            outcomes.append('PASS' if matched else 'FAIL')
     # 官方 all：任何 FAIL 優先；未知執行不擅自轉成 N/A。
     if 'FAIL' in outcomes:
         return 'FAIL'

@@ -5,6 +5,7 @@ from linuxgcb.catalog import ROOT, registry, digest, XLSX_HASH
 from linuxgcb.policy import validate, simulate, definitions
 from linuxgcb.batch1 import FILES, ADDED
 from linuxgcb.coverage import manifest
+from linuxgcb.batch2 import ADDED as BATCH2
 from scripts.inventory import extract
 
 
@@ -42,7 +43,7 @@ class CatalogTests(unittest.TestCase):
                 checked.add(str(c['id']))
                 for name, state in [('positive','PASS'),('negative','FAIL'),('missing','UNRESOLVED'),('empty','FAIL'),('error','UNRESOLVED'),('nonzero_matching','PASS')]:
                     with self.subTest(id=c['id'],case=name):
-                        self.assertEqual(simulate(c,fixtures['checks'][str(c['id'])][name]),state)
+                        self.assertEqual(simulate(c,fixtures['checks'][str(c['id'])][name]), 'UNRESOLVED' if name=='nonzero_matching' and c['id']-900000 in BATCH2 else state)
         self.assertEqual(checked,set(fixtures['checks']))
 
     def test_permission_bit_subset_and_special_bits(self):
@@ -63,7 +64,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(m['counts']['implemented'],len(definitions()))
         self.assertEqual(m['counts']['remaining'],307-len(definitions()))
         self.assertEqual(m['counts']['full']+m['counts']['partial']+m['counts']['blocked'],len(definitions()))
-        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48,5))
+        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48+len(BATCH2),5))
         for e in m['reviewed']:
             self.assertTrue(all(e['expected'] == c[-1] for c in e['docx_all_cells']))
             self.assertTrue(all(e['gcb_id'] in c for c in e['docx_all_cells']))

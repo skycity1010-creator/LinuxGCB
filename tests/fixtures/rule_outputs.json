@@ -2839,6 +2839,2460 @@
         }
       },
       "missing": {}
+    },
+    "900102": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nypbind",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ypbind$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nypbind",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900103": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^telnet$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900104": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet-server",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^telnet-server$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntelnet-server",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900105": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nrsh-server",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^rsh-server$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nrsh-server",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900106": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntftp-server",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^tftp-server$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\ntftp-server",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900188": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nsetroubleshoot",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^setroubleshoot$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nsetroubleshoot",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900189": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nmcstrans",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^mcstrans$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "bash\ncoreutils\nLINUXGCB_COMMAND_OK\nmcstrans",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900107": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "[main]\nclean_requirements_on_remove=False\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "[main]\nclean_requirements_on_remove=False\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "[main]\nclean_requirements_on_remove=True\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "[main]\nclean_requirements_on_remove=False\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900184": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "GRUB_CMDLINE_LINUX=\"quiet\"\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "GRUB_CMDLINE_LINUX=\"quiet\"\nLINUXGCB_COMMAND_OK\nGRUB_CMDLINE_LINUX=\"selinux=0\"",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "GRUB_CMDLINE_LINUX=\"quiet\"\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*GRUB_CMDLINE_LINUX[^=]*=.*(selinux=0|enforcing=0)",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "GRUB_CMDLINE_LINUX=\"quiet\"\nLINUXGCB_COMMAND_OK\nGRUB_CMDLINE_LINUX=\"selinux=0\"",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900185": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "SELINUXTYPE=targeted\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "SELINUXTYPE=minimum\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "SELINUXTYPE=targeted\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*SELINUXTYPE=(targeted|mls)[ \\t]*$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "SELINUXTYPE=minimum\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900186": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "Enforcing\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "SELINUX=enforcing\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "Enforcing\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "SELINUX=permissive\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "Enforcing\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "SELINUX=enforcing\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*SELINUX=enforcing[ \\t]*$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "Enforcing\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "SELINUX=permissive\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^Enforcing$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "Permissive\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "SELINUX=enforcing\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900187": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "system_u:system_r:init_t:s0 root 1\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "system_u:system_r:init_t:s0 root 1\nLINUXGCB_COMMAND_OK\nsystem_u:system_r:unconfined_service_t:s0 root 2",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "system_u:system_r:init_t:s0 root 1\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:unconfined_service_t",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "system_u:system_r:init_t:s0 root 1\nLINUXGCB_COMMAND_OK\nsystem_u:system_r:unconfined_service_t:s0 root 2",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900190": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "LoadState=wrong\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LoadState=loaded$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=wrong\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ActiveState=active$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=wrong\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^UnitFileState=enabled$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=wrong\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900254": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "openssh-server:installed\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "openssh-server:installed\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "LoadState=wrong\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "openssh-server:installed\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LoadState=loaded$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "openssh-server:installed\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=wrong\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ActiveState=active$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=wrong\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "openssh-server:installed\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^UnitFileState=enabled$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "openssh-server:installed\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=wrong\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^openssh-server:installed$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ActiveState=active\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "package openssh-server is not installed\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "LoadState=loaded\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "UnitFileState=enabled\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900203": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "nobody:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:root$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "nobody:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:root$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "nobody:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/etc/(at|cron)[.]deny$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK\n/etc/cron.deny",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900204": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "600\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "600\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "600\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "666\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "600\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        },
+        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "600\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|200|400|600)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "600\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "666\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|200|400|600)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "666\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "600\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/etc/(at|cron)[.]deny$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "600\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK\n/etc/cron.deny",
+              "exit_code": 0
+            },
+            "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "600\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900205": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "cron.* /var/log/cron\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "cron.none /var/log/cron\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "cron.* /var/log/cron\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*cron[.][*][ \\t]+/var/log/cron[ \\t]*$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "cron.none /var/log/cron\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900255": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "port 22\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "port 22\nLINUXGCB_COMMAND_OK\nprotocol 1",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "port 22\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^protocol (?!2$).+",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "port 22\nLINUXGCB_COMMAND_OK\nprotocol 1",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900258": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "allowusers approved_user\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "port 22\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "allowusers approved_user\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(allowusers|allowgroups|denyusers|denygroups) .+",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "port 22\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900263": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ciphers aes128-ctr,aes192-ctr,aes256-ctr\nmacs hmac-sha2-512,hmac-sha2-256\nkexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ciphers aes128-cbc\nmacs hmac-sha2-512,hmac-sha2-256\nkexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ciphers aes128-ctr,aes192-ctr,aes256-ctr\nmacs hmac-sha2-512,hmac-sha2-256\nkexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ciphers aes128-ctr,aes192-ctr,aes256-ctr$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ciphers aes128-cbc\nmacs hmac-sha2-512,hmac-sha2-256\nkexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^macs hmac-sha2-512,hmac-sha2-256$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ciphers aes128-ctr,aes192-ctr,aes256-ctr\nmacs hmac-md5\nkexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^kexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ciphers aes128-ctr,aes192-ctr,aes256-ctr\nmacs hmac-sha2-512,hmac-sha2-256\nkexalgorithms diffie-hellman-group1-sha1\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900264": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "loglevel VERBOSE\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "loglevel DEBUG\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "loglevel VERBOSE\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^loglevel (VERBOSE|INFO)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "loglevel DEBUG\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900265": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "x11forwarding no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "x11forwarding yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "x11forwarding no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^x11forwarding no$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "x11forwarding yes\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900266": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxauthtries 4\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxauthtries 0\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxauthtries 4\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^maxauthtries [1-4]$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "maxauthtries 0\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900267": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ignorerhosts yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ignorerhosts no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ignorerhosts yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ignorerhosts yes$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ignorerhosts no\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900268": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "hostbasedauthentication no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "hostbasedauthentication yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "hostbasedauthentication no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^hostbasedauthentication no$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "hostbasedauthentication yes\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900271": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "permituserenvironment no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "permituserenvironment yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "permituserenvironment no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^permituserenvironment no$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "permituserenvironment yes\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900272": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "clientaliveinterval 600\nclientalivecountmax 1\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "clientaliveinterval 0\nclientalivecountmax 1\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "clientaliveinterval 600\nclientalivecountmax 1\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^clientaliveinterval ([1-9]|[1-9][0-9]|[1-5][0-9]{2}|600)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "clientaliveinterval 0\nclientalivecountmax 1\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^clientalivecountmax 1$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "clientaliveinterval 600\nclientalivecountmax 0\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900273": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "logingracetime 60\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "logingracetime 0\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "logingracetime 60\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^logingracetime ([1-9]|[1-5][0-9]|60)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "logingracetime 0\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900274": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "usepam yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "usepam no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "usepam yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^usepam yes$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "usepam no\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900275": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "allowtcpforwarding no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "allowtcpforwarding yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "allowtcpforwarding no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^allowtcpforwarding no$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "allowtcpforwarding yes\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900276": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxstartups 10:30:60\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxstartups 10:30:100\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxstartups 10:30:60\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^maxstartups 10:30:60$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "maxstartups 10:30:100\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900277": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxsessions 4\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxsessions 0\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "maxsessions 4\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^maxsessions [1-4]$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "maxsessions 0\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900278": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "strictmodes yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "strictmodes no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "strictmodes yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^strictmodes yes$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "strictmodes no\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900279": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "compression no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "compression invalid\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "compression no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^compression (delayed|no|yes)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "compression invalid\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900280": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ignoreuserknownhosts yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ignoreuserknownhosts no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "ignoreuserknownhosts yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ignoreuserknownhosts yes$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "ignoreuserknownhosts no\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900281": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "printlastlog yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "printlastlog no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "printlastlog yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^printlastlog yes$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "printlastlog no\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900315": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "gssapiauthentication no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "gssapiauthentication yes\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "gssapiauthentication no\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^gssapiauthentication no$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "gssapiauthentication yes\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900259": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:ssh_keys\nroot:ssh_keys\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nroot:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:ssh_keys\nroot:ssh_keys\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:ssh_keys$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:root\nroot:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!root:ssh_keys$|LINUXGCB_COMMAND_OK$).+",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:ssh_keys\nroot:ssh_keys\nLINUXGCB_COMMAND_OK\nroot:root",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900260": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "640\n640\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "666\n666\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "640\n640\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|40|200|240|400|440|600|640)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "666\n666\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!(0|40|200|240|400|440|600|640)$|LINUXGCB_COMMAND_OK$).+",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "640\n640\nLINUXGCB_COMMAND_OK\n666",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900261": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nroot:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "nobody:root\nnobody:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "root:root\nroot:root\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:root$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "nobody:root\nnobody:root\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!root:root$|LINUXGCB_COMMAND_OK$).+",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "root:root\nroot:root\nLINUXGCB_COMMAND_OK\nnobody:root",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900262": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "644\n644\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "666\n666\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "644\n644\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "666\n666\nLINUXGCB_COMMAND_OK",
+              "exit_code": 0
+            }
+          }
+        },
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$|LINUXGCB_COMMAND_OK$).+",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "644\n644\nLINUXGCB_COMMAND_OK\n666",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900282": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK\n/home/example/shosts.equiv",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK\n/home/example/shosts.equiv",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900283": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK\n/home/example/.shosts",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "\nLINUXGCB_COMMAND_OK\n/home/example/.shosts",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
+    },
+    "900284": {
+      "positive": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "# CRYPTO_POLICY=\nLINUXGCB_COMMAND_OK",
+          "exit_code": 0
+        }
+      },
+      "negative": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "# CRYPTO_POLICY=\nLINUXGCB_COMMAND_OK\nCRYPTO_POLICY=",
+          "exit_code": 0
+        }
+      },
+      "missing": {},
+      "empty": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "",
+          "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "error": "SYNTHETIC command error"
+        }
+      },
+      "nonzero_matching": {
+        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+          "stdout": "# CRYPTO_POLICY=\nLINUXGCB_COMMAND_OK",
+          "exit_code": 1,
+          "stderr": "SYNTHETIC failure despite matching stdout"
+        }
+      },
+      "predicate_negatives": [
+        {
+          "rule": "not c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*CRYPTO_POLICY[ \\t]*=",
+          "observations": {
+            "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi'": {
+              "stdout": "# CRYPTO_POLICY=\nLINUXGCB_COMMAND_OK\nCRYPTO_POLICY=",
+              "exit_code": 0
+            }
+          }
+        }
+      ]
     }
   }
 }

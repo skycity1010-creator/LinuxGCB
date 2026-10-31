@@ -4,9 +4,9 @@
   "label": "SYNTHETIC TEST ONLY — 非真實掃描證據",
   "source_sha256": "7d752b639a1e780df08814c6252efadd3ea2711eaa5c9d91c070b84a296c0247",
   "policy_hashes": {
-    "linuxgcb_base.yml": "f109f9ee2264b7feb623ce2dcd68fd9a453e3286302a695253a880a80337f4af",
+    "linuxgcb_base.yml": "d64d929c6eaac59c390f516e7e62b445be420f74c58af1ac34aba2a36ffef150",
     "linuxgcb_firewalld.yml": "08e9737339b539378b51c0335009d258015b40e52da9eb876bc42bfbb46c117b",
-    "linuxgcb_sshd.yml": "b91695b332cba3798f6c566ad822cb17c4894e3a2923a0e43f6bd9ec93e8fc25"
+    "linuxgcb_sshd.yml": "3cec36c5892b0351b30745ae026ca8f50d59d09b380dbd0436e46f2650091a77"
   },
   "hosts": [
     {

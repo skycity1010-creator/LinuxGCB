@@ -1,3 +1,18 @@
+# LinuxGCB P2-BATCH2：四類剩餘候選擴充
+
+本批依 registry 實際剩餘數新增 **44 項（53→97）**：SSH 28、cron 4、SELinux 6、安裝與維護軟體 6。原 53 個 emitted checks 完整內容不變，307/7 scope、來源及 R2/R3 保留。政策仍為 UNVALIDATED；詳見 [逐條審查與來源 cells](docs/BATCH2_REVIEW.md) 及 [離線測試結果](docs/BATCH2_TEST_OUTPUT.txt)。
+
+新增規則使用成功輸出保護與全規則否定；原 Q1 模擬行為保留。重建及檢查：
+
+```bash
+python3 -m linuxgcb build
+python3 -m scripts.batch2_fixtures
+python3 -m linuxgcb validate
+python3 -m unittest discover -s tests -v
+```
+
+以下為原 Q1／REPORT-1 歷史說明，其 53 項數字與語法限制不代表 BATCH2 當前總量。
+
 # LinuxGCB Q1：既有 53 項候選品質整併
 
 僅離線開發，分支 `codex/linuxgcb-quality1`。來源 314 項 = 307 候選 + 7 排除；固定數字 ID 不變，僅審查既有 53 項，沒有擴充控制或 Dashboard。完整結論見 [Q1 審查](docs/QUALITY_REVIEW_Q1.md)。歷史交接保留原樣，過去 full 數量不代表本次核准。

@@ -6,6 +6,7 @@ from xml.etree import ElementTree as ET
 from .catalog import ROOT, registry, digest
 from .batch1 import ADDED, caveat
 from .quality import status
+from .batch2 import ADDED as BATCH2, caveat as batch2_caveat
 
 def manifest():
     ns={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -22,19 +23,23 @@ def manifest():
         n=row['sca_id']-900000
         if row['implementation'] != 'candidate': continue
         matches=[c for c in tables if row['gcb_id'] in c]
+        historical=[]
+        if n in BATCH2:
+            historical=[c for c in matches if c[-1] != row['expected']]
+            matches=[c for c in matches if c[-1] == row['expected']]
         if not matches or any(c[-2:] != matches[0][-2:] for c in matches) or row['expected'] not in matches[0]:
             raise ValueError('DOCX ID／期望欄無法唯一核對：'+row['gcb_id'])
         entries.append(dict(gcb_id=row['gcb_id'],sca_id=row['sca_id'],
             source_sheet=row['source_sheet'],source_row=row['source_row'],expected=row['expected'],
-            docx_cells=matches[0],docx_occurrences=len(matches),docx_all_cells=matches,docx_sha256=digest(docx),
-            mechanism='原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell',
-            caveats=caveat(n) if n in ADDED else row['pending'],tests=['tests/fixtures/rule_outputs.json#'+str(row['sca_id']), 'tests/test_quality_q1.py'],
+            docx_historical_cells=historical,docx_cells=matches[0],docx_occurrences=len(matches),docx_all_cells=matches,docx_sha256=digest(docx),
+            mechanism=('BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合' if n in BATCH2 else '原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell'),
+            caveats=batch2_caveat(n) if n in BATCH2 else caveat(n) if n in ADDED else row['pending'],tests=['tests/fixtures/rule_outputs.json#'+str(row['sca_id']), 'tests/test_batch2.py' if n in BATCH2 else 'tests/test_quality_q1.py'],
             cases=['positive','negative','missing','empty','error','nonzero_matching'],
             review_status='human_review_pending',**status(n)))
     rows=registry();counts=Counter(r['implementation'] for r in rows)
     return dict(schema_version=2,label='離線候選涵蓋；非實機證據',
         counts=dict(source=len(rows),included=sum(r['included'] for r in rows),excluded=counts['excluded'],
-                    before=7,added=len(ADDED),implemented=counts['candidate'],remaining=counts['pending'],
+                    before=7,added=len(ADDED)+len(BATCH2),batch2_added=len(BATCH2),implemented=counts['candidate'],remaining=counts['pending'],
                     full=sum(r['coverage']=='full' for r in rows),partial=sum(r['coverage']=='partial' for r in rows),
                     blocked=sum(r['coverage']=='blocked' for r in rows),reviewed=len(entries),execution_blocked=len(entries),live_validated=0),
         reviewed=entries)

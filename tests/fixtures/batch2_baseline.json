@@ -1,0 +1,1001 @@
+{
+  "label": "IMMUTABLE pre-BATCH2 emitted checks; regression baseline",
+  "checks": [
+    {
+      "id": 900030,
+      "title": "TWGCB-01-012-0030 autofs服務",
+      "description": "合規值: autofs disabled+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0030"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show autofs.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900033,
+      "title": "TWGCB-01-012-0033 sudo套件",
+      "description": "合規值: sudo 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0033"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed sudo -> r:^sudo:installed$"
+      ]
+    },
+    {
+      "id": 900045,
+      "title": "TWGCB-01-012-0045 /etc/passwd檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0045"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %u:%g /etc/passwd -> r:^0:0$"
+      ]
+    },
+    {
+      "id": 900046,
+      "title": "TWGCB-01-012-0046 /etc/passwd檔案權限",
+      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0046"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/passwd -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$"
+      ]
+    },
+    {
+      "id": 900047,
+      "title": "TWGCB-01-012-0047 /etc/shadow檔案所有權",
+      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0047"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/shadow -> r:^root:(root|shadow)$"
+      ]
+    },
+    {
+      "id": 900048,
+      "title": "TWGCB-01-012-0048 /etc/shadow檔案權限",
+      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0048"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/shadow -> r:^(0)$"
+      ]
+    },
+    {
+      "id": 900049,
+      "title": "TWGCB-01-012-0049 /etc/group檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0049"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/group -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900050,
+      "title": "TWGCB-01-012-0050 /etc/group檔案權限",
+      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0050"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/group -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$"
+      ]
+    },
+    {
+      "id": 900051,
+      "title": "TWGCB-01-012-0051 /etc/gshadow檔案所有權",
+      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0051"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/gshadow -> r:^root:(root|shadow)$"
+      ]
+    },
+    {
+      "id": 900052,
+      "title": "TWGCB-01-012-0052 /etc/gshadow檔案權限",
+      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0052"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/gshadow -> r:^(0)$"
+      ]
+    },
+    {
+      "id": 900053,
+      "title": "TWGCB-01-012-0053 /etc/passwd-檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0053"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/passwd- -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900054,
+      "title": "TWGCB-01-012-0054 /etc/passwd-檔案權限",
+      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0054"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/passwd- -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$"
+      ]
+    },
+    {
+      "id": 900055,
+      "title": "TWGCB-01-012-0055 /etc/shadow-檔案所有權",
+      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0055"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/shadow- -> r:^root:(root|shadow)$"
+      ]
+    },
+    {
+      "id": 900056,
+      "title": "TWGCB-01-012-0056 /etc/shadow-檔案權限",
+      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0056"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/shadow- -> r:^(0)$"
+      ]
+    },
+    {
+      "id": 900057,
+      "title": "TWGCB-01-012-0057 /etc/group-檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0057"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/group- -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900058,
+      "title": "TWGCB-01-012-0058 /etc/group-檔案權限",
+      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0058"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/group- -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$"
+      ]
+    },
+    {
+      "id": 900059,
+      "title": "TWGCB-01-012-0059 /etc/gshadow-檔案所有權",
+      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0059"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/gshadow- -> r:^root:(root|shadow)$"
+      ]
+    },
+    {
+      "id": 900060,
+      "title": "TWGCB-01-012-0060 /etc/gshadow-檔案權限",
+      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0060"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/gshadow- -> r:^(0)$"
+      ]
+    },
+    {
+      "id": 900094,
+      "title": "TWGCB-01-012-0094 rsyncd服務",
+      "description": "合規值: rsyncd masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0094"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900097,
+      "title": "TWGCB-01-012-0097 Squid服務",
+      "description": "合規值: squid masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0097"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show squid.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show squid.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900098,
+      "title": "TWGCB-01-012-0098 Samba服務",
+      "description": "合規值: smb masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0098"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show smb.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show smb.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$",
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900101,
+      "title": "TWGCB-01-012-0101 kdump服務",
+      "description": "合規值: kdump.service enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0101"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show kdump.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900108,
+      "title": "TWGCB-01-012-0108 IP轉送",
+      "description": "合規值: net.ipv4.ip_forward=0；net.ipv6.conf.all.forwarding=0 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0108"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/sbin/sysctl -n net.ipv4.ip_forward -> r:^0$",
+        "c:/usr/sbin/sysctl -n net.ipv6.conf.all.forwarding -> r:^0$"
+      ]
+    },
+    {
+      "id": 900132,
+      "title": "TWGCB-01-012-0132 auditd套件",
+      "description": "合規值: audit audit-libs 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0132"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed audit -> r:^audit:installed$",
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed audit-libs -> r:^audit-libs:installed$"
+      ]
+    },
+    {
+      "id": 900133,
+      "title": "TWGCB-01-012-0133 auditd服務",
+      "description": "合規值: auditd enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0133"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show auditd.service --property=LoadState -> r:^LoadState=loaded$",
+        "c:/usr/bin/systemctl show auditd.service --property=ActiveState -> r:^ActiveState=active$",
+        "c:/usr/bin/systemctl show auditd.service --property=UnitFileState -> r:^UnitFileState=enabled$"
+      ]
+    },
+    {
+      "id": 900141,
+      "title": "TWGCB-01-012-0141 稽核規則檔案權限",
+      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05,Q1-08；raw PASS 非已驗證符合。僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0141"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/audit/rules.d/audit.rules -> r:^(0|200|400|600)$"
+      ]
+    },
+    {
+      "id": 900142,
+      "title": "TWGCB-01-012-0142 稽核設定檔案權限",
+      "description": "合規值: 640或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0142"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/audit/auditd.conf -> r:^(0|40|200|240|400|440|600|640)$"
+      ]
+    },
+    {
+      "id": 900174,
+      "title": "TWGCB-01-012-0174 rsyslog套件",
+      "description": "合規值: rsyslog 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0174"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed rsyslog -> r:^rsyslog:installed$"
+      ]
+    },
+    {
+      "id": 900175,
+      "title": "TWGCB-01-012-0175 rsyslog服務",
+      "description": "合規值: rsyslog enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0175"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show rsyslog.service --property=LoadState -> r:^LoadState=loaded$",
+        "c:/usr/bin/systemctl show rsyslog.service --property=ActiveState -> r:^ActiveState=active$",
+        "c:/usr/bin/systemctl show rsyslog.service --property=UnitFileState -> r:^UnitFileState=enabled$"
+      ]
+    },
+    {
+      "id": 900178,
+      "title": "TWGCB-01-012-0178 /var/log/messages檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0178"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /var/log/messages -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900179,
+      "title": "TWGCB-01-012-0179 /var/log目錄所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0179"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /var/log -> r:^root:root$",
+        "c:/usr/bin/stat -c %f /var/log -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900183,
+      "title": "TWGCB-01-012-0183 SELinux套件",
+      "description": "合規值: libselinux 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0183"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed libselinux -> r:^libselinux:installed$"
+      ]
+    },
+    {
+      "id": 900191,
+      "title": "TWGCB-01-012-0191 /etc/crontab檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0191"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/crontab -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900192,
+      "title": "TWGCB-01-012-0192 /etc/crontab檔案權限",
+      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0192"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/crontab -> r:^(0|200|400|600)$"
+      ]
+    },
+    {
+      "id": 900193,
+      "title": "TWGCB-01-012-0193 /etc/cron.hourly目錄所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0193"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/cron.hourly -> r:^root:root$",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900194,
+      "title": "TWGCB-01-012-0194 /etc/cron.hourly目錄權限",
+      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0194"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/cron.hourly -> r:^(0|100|200|300|400|500|600|700)$",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900195,
+      "title": "TWGCB-01-012-0195 /etc/cron.daily目錄所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0195"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/cron.daily -> r:^root:root$",
+        "c:/usr/bin/stat -c %f /etc/cron.daily -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900196,
+      "title": "TWGCB-01-012-0196 /etc/cron.daily目錄權限",
+      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0196"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/cron.daily -> r:^(0|100|200|300|400|500|600|700)$",
+        "c:/usr/bin/stat -c %f /etc/cron.daily -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900197,
+      "title": "TWGCB-01-012-0197 /etc/cron.weekly目錄所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0197"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/cron.weekly -> r:^root:root$",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900198,
+      "title": "TWGCB-01-012-0198 /etc/cron.weekly目錄權限",
+      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0198"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/cron.weekly -> r:^(0|100|200|300|400|500|600|700)$",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900199,
+      "title": "TWGCB-01-012-0199 /etc/cron.monthly目錄所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0199"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/cron.monthly -> r:^root:root$",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900200,
+      "title": "TWGCB-01-012-0200 /etc/cron.monthly目錄權限",
+      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0200"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/cron.monthly -> r:^(0|100|200|300|400|500|600|700)$",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900201,
+      "title": "TWGCB-01-012-0201 /etc/cron.d目錄所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0201"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/cron.d -> r:^root:root$",
+        "c:/usr/bin/stat -c %f /etc/cron.d -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900202,
+      "title": "TWGCB-01-012-0202 /etc/cron.d目錄權限",
+      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0202"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/cron.d -> r:^(0|100|200|300|400|500|600|700)$",
+        "c:/usr/bin/stat -c %f /etc/cron.d -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900301,
+      "title": "TWGCB-01-012-0301 /etc/shells檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0301"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/shells -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900302,
+      "title": "TWGCB-01-012-0302 /etc/shells檔案權限",
+      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0302"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/shells -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$"
+      ]
+    },
+    {
+      "id": 900256,
+      "title": "TWGCB-01-012-0256 /etc/ssh/sshd_config檔案所有權",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0256"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %U:%G /etc/ssh/sshd_config -> r:^root:root$"
+      ]
+    },
+    {
+      "id": 900257,
+      "title": "TWGCB-01-012-0257 /etc/ssh/sshd_config檔案權限",
+      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0257"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/stat -c %a /etc/ssh/sshd_config -> r:^(0|200|400|600)$"
+      ]
+    },
+    {
+      "id": 900269,
+      "title": "TWGCB-01-012-0269 SSH PermitRootLogin參數",
+      "description": "合規值: PermitRootLogin no ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0269"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/sbin/sshd -T -> r:^permitrootlogin no$"
+      ]
+    },
+    {
+      "id": 900270,
+      "title": "TWGCB-01-012-0270 SSH PermitEmptyPasswords參數",
+      "description": "合規值: PermitEmptyPasswords no ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0270"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/sbin/sshd -T -> r:^permitemptypasswords no$"
+      ]
+    },
+    {
+      "id": 900242,
+      "title": "TWGCB-01-012-0242 firewalld防火牆套件",
+      "description": "合規值: firewalld 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0242"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/rpm -q --queryformat %{NAME}:installed firewalld -> r:^firewalld:installed$"
+      ]
+    },
+    {
+      "id": 900243,
+      "title": "TWGCB-01-012-0243 firewalld服務",
+      "description": "合規值: firewalld enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0243"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show firewalld.service --property=LoadState -> r:^LoadState=loaded$",
+        "c:/usr/bin/systemctl show firewalld.service --property=ActiveState -> r:^ActiveState=active$",
+        "c:/usr/bin/systemctl show firewalld.service --property=UnitFileState -> r:^UnitFileState=enabled$"
+      ]
+    },
+    {
+      "id": 900245,
+      "title": "TWGCB-01-012-0245 nftables服務",
+      "description": "合規值: nftables masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0245"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    }
+  ],
+  "hashes": {
+    "data/controls.json": "a95f8358b18f57600c97c0023bb48f98a867adf09c2535f86d9be25e28643be4",
+    "Red Hat Enterprise Linux 9政府組態基準列表.xlsx": "7d752b639a1e780df08814c6252efadd3ea2711eaa5c9d91c070b84a296c0247",
+    "tests/fixtures/realhost_r2.json": "3ab6eaa26139f432559c6e6140aa574794296fae96c9097524814baaf9d21066",
+    "tests/fixtures/realhost_r3.json": "c44f822c8a3671af02302ed535d9fb9fdc73c78aa891a566a2d1bcd40f08053e"
+  },
+  "legacy_fixture_hashes": {
+    "900045": "a5a976a620377fbade3063f9c6ba110a0004e809e3412f035295cd8193559e11",
+    "900046": "aab3ffa7f9c39350fca45b9396f9f686d8352c6fca39ac43bc7d0d09982bbb8d",
+    "900108": "ce8afa2c6b6f132770312167622f8628152d490e5c45d5be334bac40eb60c28a",
+    "900269": "ddefa9a13890fd4222511c22f1ae9b5f84cfd12c876b1fcefacbdccf80fb5dfb",
+    "900270": "514ccda67c6d9aafc28fc6007ca4ce3d85e3dfef2ce06a5b023063ae2d71a61b",
+    "900243": "462044408b7d83b00ed54059f2a61b101a6241af67445b3f11be4ce4ceeb08fa",
+    "900245": "0cbbfee33b4de96425bf5e5efd6a4ac093f25854dd4097cf370df771685855c3",
+    "900030": "4cd2c348990a5670f24ea4efcec7575046e2c3bf16920d125ca70b892261a03d",
+    "900033": "432d20824c3d82cf7d38474c690a2c2acbf5698f87ad032f6304ee9ea75cdd3b",
+    "900047": "9edae512945b9dad25cdb87f0d0556fe7a25e1bb535b8e706f0f94e06231c85f",
+    "900048": "000f5304f70c70ddb77eff175ed5c1310397bd89348a293be998ae3061127546",
+    "900049": "6894e23f55c14b89a864cbe797e1a4646c799f97913f1b31501f849086be21a4",
+    "900050": "40327c044c0994febd0c3864ad603f5f086a90a72066bd6809bae41a230db75b",
+    "900051": "089ce9d1281c415644eb0f2de56b0a8aeccdfdc6ca2dd09d446bea4b27eea105",
+    "900052": "83ac86f78e54207e235da4a850bc13be5d4d63068455fb9884ad401fc8b46e41",
+    "900053": "6a7946fc4bf469109357cbe437b73f31be6d014189a343432a4cc07c18894505",
+    "900054": "d466380c09d8cf7021e8cbfa8b788c1025d09852528b3c72b67621937cebe821",
+    "900055": "6078015524054d35ab9e14afc45cbace7dece63e46a0eb13773d9baf8258ce73",
+    "900056": "aaa83d479a77e38e44ae53d6ebc650cea617ac9a0838a159b2ba130df3f0a044",
+    "900057": "04e0b4337621135418d3bd79bf2bcdd7e1c8ffd966ad44122daee4344e3f2593",
+    "900058": "c6d6790f7ce3e5132911a173dd1a46091a767ad8e8a5348d3e9642c0b1ff07ba",
+    "900059": "aefce7df5bdc064ca43ef37c98968c25074fad56ce9b63aaeddd097cb23545b7",
+    "900060": "95854261b6d08ed99c9b96f9614cb4e65c096543c3fe40da8e0c4b485b252b39",
+    "900094": "2ee138affa7ecb8316f76ba551de0a4b8a75ce8306153ad6895a514d08d44b10",
+    "900097": "ff2c26d3be309eb93d6b9bb9868e7a9f46720c354a1f6785f57aa21265b6dad5",
+    "900098": "87d21fb35c7c9e3c5c91234346bc03f1b408bae3fdd8cc78908c236e5cdc881b",
+    "900101": "6cd7955b314e660d0cd52492d1575761a6ef86bdbf1bf6734391dbb3d263b8ec",
+    "900132": "9fa1a5f06154d67c494d0abe4da7aa9230e021b01a6a609445512d77c1cad4d4",
+    "900133": "b8cdde12bc81846b8fcaa35940533429f27d9f826059c43992ed5e567a2cc896",
+    "900141": "4297da4f741f5dc6968adea448466cf07b3694a0cc8c0337ef0d3453c4655997",
+    "900142": "2b8adff80ec60004580a38562f3dc7d276f59e14069a73eef3444ea94a94c52a",
+    "900174": "34edba11400a312834b587e4f578c458e552b12e8e8fe7f52a5e3071fc54c14b",
+    "900175": "12d980fa43964a940c11f607b6b778cc5bc60f185b38cffe52fb29fccc37a0db",
+    "900178": "df96de4e746b20d03f68a04676c4356bbfe28255efb52ff01fefb79feae910de",
+    "900179": "b651cc78eb09aaa2b4467e30bb8ce1221c0821454a802cac0c9525c3eb165646",
+    "900183": "e47bf04664abbec48b491d316833ad51504d4154ba5a5006bac8ba50b16395fc",
+    "900191": "d346be9520e4db488c4c4d75e3ba7daed6c25994e442f18f4d1c687c83187bf3",
+    "900192": "78161a50e640027aa104fb8fae61ee36073f37afb47bcb17248d0b4af6156e9a",
+    "900193": "70979acd5cc27edfc828fdbf14f5613e4ccc8adb812cb85197d338d7fb30c144",
+    "900194": "8a46cda85fa85b5be95b6ad1f0694526422a617a5bd263d0acd030d17738ea26",
+    "900195": "0b8c7ec60752fe7e7e8c95fa35eb1434968312b3d2f48ee11a4116ebd0809c7c",
+    "900196": "98098e65cc96a296d00cdcda5f52ee7822dfd7842d5a5773b8b941f640823d44",
+    "900197": "19682852b71d87272b5d6e3c71d45a379a4848e2565a39389e67808647e90fb8",
+    "900198": "33569d9c05fe3aa5eaf244c302f9d527d65627f1a96bb78fcb6947172acec503",
+    "900199": "54d8c3486e2215cd38e27dc454759d6bb4d1b158c028b9e7e68285fa653ab7f1",
+    "900200": "3d6529fa832bcb960ba0693b66566fa902aafea06b1fc8ef63676820516b169c",
+    "900201": "32b46ea88cf1af61cda084139aeb03b739dc2885da7669d6ef60f04d21a46cfc",
+    "900202": "6b5112558d129652c2320879f920db2518a566a99ac6ebc9d2f75bcb702408e4",
+    "900242": "0bdce66d188fd5901cb83de862e480148b42732957f34cdec228986de6e5d3aa",
+    "900256": "d996fbd80d10e91f319dcc8d8fcb526ee2c0ef5a7f2507e56d1a8c2432b5581d",
+    "900257": "26b2e0207ebd894b09c5228f3a316bfea45b1a055f8e4fe3253611b5d2300785",
+    "900301": "79c82c19d13fee27633998e16566eacb558702932fd2ea440d9f91e42dcb08e5",
+    "900302": "839ed64ce5f5e51a6d332270be296ecd8f9b692279cc9619acaa9a4bcf2aa136"
+  }
+}

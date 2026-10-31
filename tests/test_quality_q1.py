@@ -7,6 +7,7 @@ import unittest
 from datetime import datetime, timezone
 from pathlib import Path
 from linuxgcb.catalog import ROOT, registry
+from linuxgcb.batch2 import ADDED as BATCH2
 from linuxgcb.policy import simulate, definitions
 from linuxgcb.report import normalize, metrics, render
 
@@ -72,6 +73,7 @@ class QualityQ1Tests(unittest.TestCase):
     def test_review_reconciles_exact_existing_ids(self):
         rows=[r for r in registry() if r['implementation']=='candidate']
         self.assertEqual({r['sca_id'] for r in rows},{900000+n for n in definitions()})
+        rows=[r for r in rows if r['sca_id']-900000 not in BATCH2]
         self.assertEqual(len(rows),53)
         self.assertTrue(all(r['execution_review']=='blocked' for r in rows))
         self.assertTrue(all('Q1-01' in r['issue_ids'] for r in rows))
@@ -83,7 +85,7 @@ class QualityQ1Tests(unittest.TestCase):
         rows=normalize(snapshot,NOW);summary=metrics(rows)
         self.assertEqual(summary['counts'].get('PASS',0),0)
         self.assertEqual(summary['completeness'],0)
-        self.assertEqual(summary['raw_observed'],53)
+        self.assertEqual(summary['raw_observed'],len(definitions()))
         self.assertFalse(any(r['verified_compliance'] for r in rows))
         self.assertEqual(sum(r['state']=='NOT_SCANNED' for r in rows if r['raw_result'] is not None),0)
 
