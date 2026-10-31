@@ -11,7 +11,7 @@ from .argv import quote_argument
 CATEGORIES = {'SSH設定', 'cron設定', 'SELinux', '安裝與維護軟體'}
 ADDED = set(range(102,108)) | set(range(184,190)) | {190,203,204,205,254,255,258,259,260,261,262,263,264,265,266,267,268,271,272,273,274,275,276,277,278,279,280,281,282,283,284,315}
 MARKER = 'LINUXGCB_COMMAND_OK'
-ABSENT_PACKAGES = {102:'ypbind',103:'telnet',104:'telnet-server',105:'rsh-server',106:'tftp-server',189:'mcstrans'}
+ABSENT_PACKAGES = {102:'ypbind',103:'telnet',104:'telnet-server',105:'rsh-server',106:'tftp-server',188:'setroubleshoot',189:'mcstrans'}
 
 
 def guarded(command):
@@ -28,9 +28,6 @@ def guarded(command):
 # semantic examples, independent of the fixture generator / regex matcher.
 def specs():
     result = {}
-    for n,package in {188:'setroubleshoot'}.items():
-        result[n] = [('/usr/bin/rpm -qa --queryformat '+shlex.quote('%{NAME}\\n'),
-                      '!^'+package+'$', 'bash\ncoreutils', package)]
     for n,package in ABSENT_PACKAGES.items():
         result[n] = [('rpm -q '+package+' 2>/dev/null', '^ABSENT$', 'ABSENT', 'INSTALLED')]
     result[107] = [('/usr/bin/cat '+p, '^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$',

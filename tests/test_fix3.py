@@ -10,7 +10,7 @@ from linuxgcb.batch2 import ABSENT_PACKAGES, MARKER, guarded
 from linuxgcb.catalog import ROOT, digest
 from linuxgcb.policy import parse_rule, simulate
 
-CHANGED = {900000+n for n in ABSENT_PACKAGES} | {900205}
+CHANGED = {900000+n for n in ABSENT_PACKAGES if n != 188} | {900205}
 
 
 class Fix3Tests(unittest.TestCase):
@@ -24,17 +24,23 @@ class Fix3Tests(unittest.TestCase):
         before = {c['id']: c for c in self.before['checks']}
         self.assertEqual(len(before), 97)
         self.assertTrue(before.keys() <= self.checks.keys())
-        self.assertEqual({n for n in before if before[n]['rules'] != self.checks[n]['rules']}, CHANGED)
+        self.assertEqual({n for n in before if before[n]['rules'] != self.checks[n]['rules']}, CHANGED | {900188})
         for n, check in before.items():
             actual = dict(self.checks[n])
-            if n in CHANGED:
+            if n in CHANGED | {900188}:
                 actual['rules'] = check['rules']
             self.assertEqual(actual, check)
         for name, sha in self.before['protected_hashes'].items():
             self.assertEqual(digest(ROOT/name), sha, name)
 
     def test_engine_output_boundary_and_old_marker_failure(self):
-        # Same guard as FIX2, with an allowlisted unaffected package predicate.
+        # Preserve the historical 900188 guard solely in the test allowlist.
+        from linuxgcb.policy import batch2_emitted
+        legacy = next(c for c in self.before['checks'] if c['id'] == 900188)
+        allowlist = batch2_emitted() | set(legacy['rules'])
+        patcher = patch('linuxgcb.policy.batch2_emitted', return_value=allowlist)
+        patcher.start()
+        self.addCleanup(patcher.stop)
         old = next(c for c in self.before['checks'] if c['id'] == 900188)
         target = parse_rule(old['rules'][0])[0]
         for count, want in ((255, 'PASS'), (256, 'FAIL'), (500, 'FAIL')):

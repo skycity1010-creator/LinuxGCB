@@ -24,6 +24,7 @@ class Batch2Tests(unittest.TestCase):
     def setUpClass(cls):
         cls.checks={c['id']:c for p in (ROOT/'policies').glob('*.yml') for c in json.loads(p.read_text())['checks']}
         cls.fixtures=json.loads((ROOT/'tests/fixtures/rule_outputs.json').read_text())['checks']
+        cls.fixtures['900188'] = generated()['900188']  # FIX5 in-memory overlay; historical file stays intact.
         cls.baseline=json.loads((ROOT/'tests/fixtures/batch2_baseline.json').read_text())
 
     def check(self,n): return self.checks[900000+n]

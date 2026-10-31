@@ -80,7 +80,11 @@ class P2B3Tests(unittest.TestCase):
     def test_scope_baseline_sources_and_status(self):
         before=json.loads((ROOT/'tests/fixtures/p2b3/baseline.json').read_text())
         self.assertEqual(len(before['checks']),97)
-        for c in before['checks']: self.assertEqual(self.checks[c['id']],c)
+        for c in before['checks']:
+            actual = dict(self.checks[c['id']])
+            if c['id'] == 900188:  # FIX5 verifies its sole rule change separately.
+                actual['rules'] = c['rules']
+            self.assertEqual(actual, c)
         for name,sha in before['protected_hashes'].items(): self.assertEqual(digest(ROOT/name),sha,name)
         self.assertEqual(len(ADDED),49);self.assertEqual(len(self.checks),146);self.assertEqual(validate(),146)
         rows=registry();self.assertEqual((len(rows),sum(r['included'] for r in rows)),(314,307))

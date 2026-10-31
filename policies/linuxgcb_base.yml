@@ -1589,8 +1589,7 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^setroubleshoot$",
-        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(rpm -q setroubleshoot 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
       ]
     },
     {

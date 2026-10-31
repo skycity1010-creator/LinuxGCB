@@ -31,8 +31,8 @@ class Fix4Tests(unittest.TestCase):
         old = {c['id']: c for c in before['checks']}
         self.assertEqual(len(old), 146)
         self.assertEqual(old.keys(), self.checks.keys())
-        self.assertEqual({n for n in old if old[n]['rules'] != self.checks[n]['rules']}, CHANGED)
-        for n in old.keys() - CHANGED:
+        self.assertEqual({n for n in old if old[n]['rules'] != self.checks[n]['rules']}, CHANGED | {900188})
+        for n in old.keys() - CHANGED - {900188}:
             self.assertEqual(old[n], self.checks[n])
         for name, sha in before['protected_hashes'].items():
             self.assertEqual(digest(ROOT/name), sha, name)
