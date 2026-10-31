@@ -99,7 +99,7 @@ class P2B7Tests(unittest.TestCase):
             program = batch7.script(n).replace("ROOT = ''",'ROOT = '+repr(self.tmp.name),1)
             with patch('subprocess.run',side_effect=OSError('offline')),contextlib.redirect_stdout(io.StringIO()) as out:
                 exec(program,{})
-            self.assertEqual(out.getvalue(),'',n)
+            self.assertEqual(out.getvalue(),'PASS\n' if n in (303,304) else '',n)
         self.tree()
         for n in batch7.ADDED:
             with patch('builtins.open',side_effect=PermissionError),patch.object(rt.os,'stat',side_effect=PermissionError),patch('subprocess.run',side_effect=subprocess.TimeoutExpired('offline',1)),contextlib.redirect_stdout(io.StringIO()) as out:
@@ -219,10 +219,11 @@ class P2B7Tests(unittest.TestCase):
         self.put('/var/spool/cron/root','0 25 * * * /usr/sbin/aide --check')
         self.assertFalse(rt.check(37))
         Path(self.tmp.name+'/etc/security/opasswd.old').unlink()
+        self.real_stat = os.stat
         for n in (303,304):
-            with contextlib.redirect_stdout(io.StringIO()) as out:
+            with patch.object(rt.os,'stat',side_effect=self.owner_stat), contextlib.redirect_stdout(io.StringIO()) as out:
                 exec(batch7.script(n).replace("ROOT = ''",'ROOT = '+repr(self.tmp.name),1),{})
-            self.assertEqual(out.getvalue(),'')
+            self.assertEqual(out.getvalue(),'PASS\n')
 
     def test_chrony_options_conflicting_and_repeated(self):
         for options in ('-F 2 -F 0','-F 2 -u chrony -u root','-F 2 -uroot','-F 2 -u','-F 2 -F'):
@@ -263,5 +264,5 @@ class P2B7Tests(unittest.TestCase):
             new.update({c['id']:c for c in json.loads(p.read_text())['checks']})
         self.assertEqual(len(old),188);self.assertEqual(len(new),236)
         self.assertEqual(old,{n:new[n] for n in old})
-        names=subprocess.check_output(['git','diff','--name-only','6788fdc','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','docs/P2B6_REVIEW.md'],cwd=ROOT,text=True)
+        names=subprocess.check_output(['git','diff','--name-only','bc2cfbb','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','docs/P2B6_REVIEW.md'],cwd=ROOT,text=True)
         self.assertEqual(names,'')

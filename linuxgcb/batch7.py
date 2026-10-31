@@ -37,7 +37,12 @@ def sources():
 
 
 def script(n):
-    return inspect.getsource(p2b7_runtime) + '\ntry:\n    ok = check(' + str(n) + ")\nexcept (OSError, ValueError, IndexError, KeyError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n"
+    source = inspect.getsource(p2b7_runtime)
+    # Preserve byte-identical embedded scripts outside the FIX6 ID family.
+    if n not in set(range(79,86)) | {303,304}:
+        source = source.replace("u[6].endswith(('/nologin','/false'))", "u[6] in ('/sbin/nologin','/bin/false')")
+        source = source.replace("        for p in ('/etc/security/opasswd','/etc/security/opasswd.old'):\n            try:\n                ok = meta(p,uid=0,gid=0) if n == 303 else meta(p,mode=0o644)\n            except FileNotFoundError:\n                continue\n            if not ok:\n                return False\n        return True", "        return all(meta(p,uid=0,gid=0) if n == 303 else meta(p,mode=0o644) for p in ('/etc/security/opasswd','/etc/security/opasswd.old'))")
+    return source + '\ntry:\n    ok = check(' + str(n) + ")\nexcept (OSError, ValueError, IndexError, KeyError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n"
 
 
 @lru_cache(maxsize=1)

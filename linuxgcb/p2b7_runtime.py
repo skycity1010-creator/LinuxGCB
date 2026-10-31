@@ -216,7 +216,7 @@ def check(n):
         users = records('/etc/passwd',7)
         for u in users:
             excluded = r'^(root|halt|sync|shutdown)' if n >= 83 else r'^(halt|sync|shutdown)'
-            if re.match(excluded,u[0]) or u[6] in ('/sbin/nologin','/bin/false'):
+            if re.match(excluded,u[0]) or u[6].endswith(('/nologin','/false')):
                 continue
             home = u[5]
             if not home.startswith('/') or not os.path.isdir(path(home)):
@@ -244,7 +244,14 @@ def check(n):
         groups = [s for s in records('/etc/group',4) if s[0] == 'shadow']
         return len(groups)==1 and groups[0][3]=='' and all(int(s[3]) != int(groups[0][2]) for s in records('/etc/passwd',7))
     if n in (303,304):
-        return all(meta(p,uid=0,gid=0) if n == 303 else meta(p,mode=0o644) for p in ('/etc/security/opasswd','/etc/security/opasswd.old'))
+        for p in ('/etc/security/opasswd','/etc/security/opasswd.old'):
+            try:
+                ok = meta(p,uid=0,gid=0) if n == 303 else meta(p,mode=0o644)
+            except FileNotFoundError:
+                continue
+            if not ok:
+                return False
+        return True
     if n == 305:
         return not any(s.endswith('/nologin') for s in lines('/etc/shells'))
     if n == 306:
