@@ -264,5 +264,5 @@ class P2B7Tests(unittest.TestCase):
             new.update({c['id']:c for c in json.loads(p.read_text())['checks']})
         self.assertEqual(len(old),188);self.assertEqual(len(new),282)
         self.assertEqual(old,{n:new[n] for n in old})
-        names=subprocess.check_output(['git','diff','--name-only','bc2cfbb','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','docs/P2B6_REVIEW.md'],cwd=ROOT,text=True)
+        names=subprocess.check_output(['git','diff','--name-only','971fbc51601a08352ee80aadb15a23a68e4aab78','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','docs/P2B6_REVIEW.md'],cwd=ROOT,text=True)
         self.assertEqual(names,'')

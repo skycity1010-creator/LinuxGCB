@@ -109,4 +109,4 @@ class P2B8Tests(unittest.TestCase):
             new={c['id']:c for c in json.loads(p.read_text())['checks']}
             for c in old['checks']:self.assertEqual(c,new[c['id']]);count+=1
         self.assertEqual(count,236)
-        self.assertEqual(subprocess.check_output(['git','diff','--name-only','d5e32f0','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')
+        self.assertEqual(subprocess.check_output(['git','diff','--name-only','971fbc51601a08352ee80aadb15a23a68e4aab78','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')

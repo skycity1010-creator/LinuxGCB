@@ -5,7 +5,7 @@ from zipfile import ZipFile
 from xml.etree import ElementTree as ET
 from functools import lru_cache
 from pathlib import Path
-from . import p2b8_runtime
+from . import p2b8_runtime, fix7_runtime
 from .argv import quote_argument
 ADDED = set(range(1,30)) | {31} | set(range(285,301))
 from .p2b8_runtime import MODULES
@@ -38,7 +38,10 @@ def sources():
 
 
 def script(n):
-    return inspect.getsource(p2b8_runtime) + '\ntry:\n    ok = check(' + str(n) + ")\nexcept (OSError, ValueError, IndexError, KeyError, subprocess.SubprocessError):\n    ok = False\nif ok is None:\n    print('REVIEW')\nelif ok:\n    print('PASS')\n"
+    runtime = inspect.getsource(p2b8_runtime)
+    if n in {8,9,13,14,15,16,23,24,25}:
+        runtime += '\n' + inspect.getsource(fix7_runtime.mountinfo) + '\n' + inspect.getsource(fix7_runtime.independent)
+    return runtime + '\ntry:\n    ok = check(' + str(n) + ")\nexcept (OSError, ValueError, IndexError, KeyError, subprocess.SubprocessError):\n    ok = False\nif ok is None:\n    print('REVIEW')\nelif ok:\n    print('PASS')\n"
 
 
 @lru_cache(maxsize=1)
