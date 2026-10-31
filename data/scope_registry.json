@@ -5505,15 +5505,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900206,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 Retry 大寫解讀為 libpwquality retry 小寫；待批。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0207",
@@ -5528,15 +5535,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900207,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0208",
@@ -5551,15 +5565,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900208,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "同時要求來源 PASS_MIN_LEN 與 minlen；RHEL9 PASS_MIN_LEN 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0209",
@@ -5574,15 +5595,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900209,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0210",
@@ -5597,15 +5625,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900210,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0211",
@@ -5620,15 +5655,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900211,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0212",
@@ -5643,15 +5685,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900212,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0213",
@@ -5666,15 +5715,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900213,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0214",
@@ -5689,15 +5745,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900214,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0215",
@@ -5712,15 +5775,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900215,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0216",
@@ -5735,15 +5805,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900216,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0217",
@@ -5758,15 +5835,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900217,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0218",
@@ -5781,15 +5865,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900218,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0219",
@@ -5804,15 +5895,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900219,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0220",
@@ -5827,15 +5925,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900220,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源腳本與文字模組混用；採 pam_pwhistory remember>=3，單查 system-auth；待批。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0221",
@@ -5850,15 +5955,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900221,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0222",
@@ -5873,15 +5985,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900222,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0223",
@@ -5896,15 +6015,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900223,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0224",
@@ -5919,15 +6045,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900224,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0225",
@@ -5942,15 +6075,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900225,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0226",
@@ -5965,15 +6105,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900226,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "useradd -D -f 對應 /etc/default/useradd INACTIVE；既有帳號待人工證據。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0227",
@@ -5988,15 +6135,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900227,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 login.defs FAIL_DELAY>=4，未替換成 PAM delay。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0228",
@@ -6011,15 +6165,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900228,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 login.defs CREATE_HOME，未改查 /etc/default/useradd。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0229",
@@ -6034,15 +6195,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900229,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0230",
@@ -6057,15 +6225,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900230,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0231",
@@ -6080,15 +6255,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900231,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "rpm -q kbd：0 installed、1 absent、其他錯誤無 PASS；不用 rpm -qa。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0232",
@@ -6103,15 +6285,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900232,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0233",
@@ -6126,15 +6315,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900233,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0234",
@@ -6149,15 +6345,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900234,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0235",
@@ -6172,15 +6375,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900235,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 UID_MIN（非 SYS_UID_MAX）；root/+ 排除，shell 另排除 sync/shutdown/halt；passwd -S 唯讀確認 L/LK。不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0236",
@@ -6195,15 +6405,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900236,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "同時要求 bashrc 與 profile/profile.d；保守靜態宣告子集，條件分支/載入順序與 readonly/export 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0237",
@@ -6218,15 +6435,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900237,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0238",
@@ -6241,15 +6465,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900238,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0239",
@@ -6264,15 +6495,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900239,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "同時要求 bashrc 與 profile/profile.d；umask 位元包含027，含007因不符合來源027不接受；shell 分支待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0240",
@@ -6287,15 +6525,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900240,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0241",
@@ -6310,15 +6555,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900241,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "確認 wheel 包含 root；其他允許成員名單需人工核准。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0285",
@@ -6908,15 +7160,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900309,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源同時檢查 /root/.bash_profile 與 /root/.bashrc，缺檔失敗。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0310",
@@ -6931,15 +7190,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900310,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0311",
@@ -6954,15 +7220,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900311,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0312",
@@ -6977,15 +7250,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900312,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "檢查渲染堆疊 pam_unix 無 nullok；authselect feature 狀態及 apply-changes 待真機。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0313",
@@ -7000,15 +7280,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900313,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0314",
@@ -7023,15 +7310,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900314,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B6-ENGINE",
+      "B6-SCOPE"
+    ],
+    "family": "P2B6 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0242",

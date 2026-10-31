@@ -6,18 +6,21 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
-    "added": 139,
+    "added": 181,
+    "batch6_before": 146,
+    "batch6_added": 42,
+    "batch6_after": 188,
     "batch3_added": 49,
     "batch3_before": 97,
     "batch3_after": 146,
     "batch2_added": 44,
-    "implemented": 146,
-    "remaining": 161,
+    "implemented": 188,
+    "remaining": 119,
     "full": 0,
-    "partial": 141,
+    "partial": 183,
     "blocked": 5,
-    "reviewed": 146,
-    "execution_blocked": 146,
+    "reviewed": 188,
+    "execution_blocked": 188,
     "live_validated": 0
   },
   "reviewed": [
@@ -6144,6 +6147,1950 @@
       "pending": "BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。"
     },
     {
+      "gcb_id": "TWGCB-01-012-0206",
+      "sca_id": 900206,
+      "source_sheet": "基本項目",
+      "source_row": 209,
+      "expected": "3以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "205",
+        "TWGCB-01-012-0206",
+        "帳號與存取控制",
+        "可設定通行碼次數",
+        "這項原則設定決定重新設定通行碼時，若通行碼強度未達到系統要求，可以連續輸入通行碼之次數\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nretry=3：使用者有3次機會設定符合規定之通行碼，若超過3次無法變更成功，則會回應錯誤",
+        "開啟終端機，編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nRetry = 3",
+        "3以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "205",
+          "TWGCB-01-012-0206",
+          "帳號與存取控制",
+          "可設定通行碼次數",
+          "這項原則設定決定重新設定通行碼時，若通行碼強度未達到系統要求，可以連續輸入通行碼之次數\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nretry=3：使用者有3次機會設定符合規定之通行碼，若超過3次無法變更成功，則會回應錯誤",
+          "開啟終端機，編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nRetry = 3",
+          "3以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "來源 Retry 大寫解讀為 libpwquality retry 小寫；待批。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900206",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 Retry 大寫解讀為 libpwquality retry 小寫；待批。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0207",
+      "sca_id": 900207,
+      "source_sheet": "基本項目",
+      "source_row": 210,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "206",
+        "TWGCB-01-012-0207",
+        "帳號與存取控制",
+        "強制root通行碼須符合通行碼規則",
+        "這項原則設定決定是否強制root帳號之通行碼須符合通行碼規則\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\n啟用root帳號通行碼檢查功能，以確保即使重新設定通行碼者為root帳號，亦須符合通行碼規則，以提高通行碼強度\nEnforce_for_root：強制root帳號之通行碼須符合通行碼規則",
+        "開啟終端機，執行以下指令，建立客製化profile：\n#authselect create-profile <profile名稱> -b sssd --symlink-meta\n#authselect select custom/<profile名稱> with-sudo with-faillock without-nullok\n開啟終端機，執行以下腳本，更新system-auth與password-auth檔案：\n#!/bin/bash\nCP=$(authselect current | awk 'NR == 1 {print $3}' | grep custom/)\nfor FN in system-auth password-auth; do\n    [[ -n $CP ]] && PTF=/etc/authselect/$CP/$FN || PTF=/etc/authselect/$FN\n    [[ -z $(grep -E '^\\s*password\\s+requisite\\s+pam_pwquality.so\\s+.*enforce_for_root\\s*.*$' $PTF) ]] && sed -ri 's/^\\s*(password\\s+requisite\\s+pam_pwquality.so\\s+)(.*)$/\\1\\2 enforce_for_root/' $PTF\ndone\nauthselect apply-changes",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "206",
+          "TWGCB-01-012-0207",
+          "帳號與存取控制",
+          "強制root通行碼須符合通行碼規則",
+          "這項原則設定決定是否強制root帳號之通行碼須符合通行碼規則\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\n啟用root帳號通行碼檢查功能，以確保即使重新設定通行碼者為root帳號，亦須符合通行碼規則，以提高通行碼強度\nEnforce_for_root：強制root帳號之通行碼須符合通行碼規則",
+          "開啟終端機，執行以下指令，建立客製化profile：\n#authselect create-profile <profile名稱> -b sssd --symlink-meta\n#authselect select custom/<profile名稱> with-sudo with-faillock without-nullok\n開啟終端機，執行以下腳本，更新system-auth與password-auth檔案：\n#!/bin/bash\nCP=$(authselect current | awk 'NR == 1 {print $3}' | grep custom/)\nfor FN in system-auth password-auth; do\n    [[ -n $CP ]] && PTF=/etc/authselect/$CP/$FN || PTF=/etc/authselect/$FN\n    [[ -z $(grep -E '^\\s*password\\s+requisite\\s+pam_pwquality.so\\s+.*enforce_for_root\\s*.*$' $PTF) ]] && sed -ri 's/^\\s*(password\\s+requisite\\s+pam_pwquality.so\\s+)(.*)$/\\1\\2 enforce_for_root/' $PTF\ndone\nauthselect apply-changes",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900207",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0208",
+      "sca_id": 900208,
+      "source_sheet": "基本項目",
+      "source_row": 211,
+      "expected": "12個字元以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "207",
+        "TWGCB-01-012-0208",
+        "帳號與存取控制",
+        "通行碼最小長度",
+        "這項原則設定決定使用者帳號之通行碼可包含之最少字元數\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nminlen = 12：表示通行碼至少包含12個字元",
+        "編輯/etc/login.defs檔案，新增或修改成以下內容：\nPASS_MIN_LEN 12\n編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nminlen = 12",
+        "12個字元以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "207",
+          "TWGCB-01-012-0208",
+          "帳號與存取控制",
+          "通行碼最小長度",
+          "這項原則設定決定使用者帳號之通行碼可包含之最少字元數\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nminlen = 12：表示通行碼至少包含12個字元",
+          "編輯/etc/login.defs檔案，新增或修改成以下內容：\nPASS_MIN_LEN 12\n編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nminlen = 12",
+          "12個字元以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "同時要求來源 PASS_MIN_LEN 與 minlen；RHEL9 PASS_MIN_LEN 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900208",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "同時要求來源 PASS_MIN_LEN 與 minlen；RHEL9 PASS_MIN_LEN 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0209",
+      "sca_id": 900209,
+      "source_sheet": "基本項目",
+      "source_row": 212,
+      "expected": "4",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "208",
+        "TWGCB-01-012-0209",
+        "帳號與存取控制",
+        "通行碼必須至少包含字元類別數量",
+        "這項原則設定決定使用者帳號之通行碼至少包含幾種類別之字元\n設定使用者帳號之通行碼至少包含4種類別字元(數字、大寫、小寫及特殊字元)，以提高通行碼複雜度與強度，降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nminclass = 4：表示通行碼至少要有4種類別字元",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nminclass = 4",
+        "4"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "208",
+          "TWGCB-01-012-0209",
+          "帳號與存取控制",
+          "通行碼必須至少包含字元類別數量",
+          "這項原則設定決定使用者帳號之通行碼至少包含幾種類別之字元\n設定使用者帳號之通行碼至少包含4種類別字元(數字、大寫、小寫及特殊字元)，以提高通行碼複雜度與強度，降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nminclass = 4：表示通行碼至少要有4種類別字元",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nminclass = 4",
+          "4"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900209",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0210",
+      "sca_id": 900210,
+      "source_sheet": "基本項目",
+      "source_row": 213,
+      "expected": "1個以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "209",
+        "TWGCB-01-012-0210",
+        "帳號與存取控制",
+        "通行碼必須至少包含數字個數",
+        "這項原則設定決定使用者帳號之通行碼至少包含幾個數字\n當dcredit大於或等於0時，代表通行碼每出現1個數字時，Length credit加1(最多加到與dcredit相同)\n當dcredit小於0時，代表通行碼必須至少包含之「數字」個數\ndcredit=-1：表示通行碼至少包含1個數字",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\ndcredit = -1",
+        "1個以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "209",
+          "TWGCB-01-012-0210",
+          "帳號與存取控制",
+          "通行碼必須至少包含數字個數",
+          "這項原則設定決定使用者帳號之通行碼至少包含幾個數字\n當dcredit大於或等於0時，代表通行碼每出現1個數字時，Length credit加1(最多加到與dcredit相同)\n當dcredit小於0時，代表通行碼必須至少包含之「數字」個數\ndcredit=-1：表示通行碼至少包含1個數字",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\ndcredit = -1",
+          "1個以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900210",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0211",
+      "sca_id": 900211,
+      "source_sheet": "基本項目",
+      "source_row": 214,
+      "expected": "1個以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "210",
+        "TWGCB-01-012-0211",
+        "帳號與存取控制",
+        "通行碼必須至少包含大寫字母個數",
+        "這項原則設定決定使用者帳號之通行碼至少包含幾個大寫字母\n當ucredit大於或等於0時，代表通行碼每出現1個大寫字母時，Length credit加1(最多加到與ucredit相同)\n當ucredit小於0時，代表通行碼必須至少包含之「大寫字母」個數\nucredit=-1：表示通行碼至少包含1個大寫字母",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nucredit = -1",
+        "1個以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "210",
+          "TWGCB-01-012-0211",
+          "帳號與存取控制",
+          "通行碼必須至少包含大寫字母個數",
+          "這項原則設定決定使用者帳號之通行碼至少包含幾個大寫字母\n當ucredit大於或等於0時，代表通行碼每出現1個大寫字母時，Length credit加1(最多加到與ucredit相同)\n當ucredit小於0時，代表通行碼必須至少包含之「大寫字母」個數\nucredit=-1：表示通行碼至少包含1個大寫字母",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nucredit = -1",
+          "1個以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900211",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0212",
+      "sca_id": 900212,
+      "source_sheet": "基本項目",
+      "source_row": 215,
+      "expected": "1個以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "211",
+        "TWGCB-01-012-0212",
+        "帳號與存取控制",
+        "通行碼必須至少包含小寫字母個數",
+        "這項原則設定決定使用者帳號之通行碼至少包含幾個小寫字母\n當lcredit大於或等於0時，代表通行碼每出現1個小寫字母時，Length credit加1(最多加到與lcredit相同)\n當lcredit小於0時，代表通行碼必須至少包含之「小寫字母」個數\nlcredit=-1：表示通行碼至少包含1個小寫字母",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nlcredit = -1",
+        "1個以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "211",
+          "TWGCB-01-012-0212",
+          "帳號與存取控制",
+          "通行碼必須至少包含小寫字母個數",
+          "這項原則設定決定使用者帳號之通行碼至少包含幾個小寫字母\n當lcredit大於或等於0時，代表通行碼每出現1個小寫字母時，Length credit加1(最多加到與lcredit相同)\n當lcredit小於0時，代表通行碼必須至少包含之「小寫字母」個數\nlcredit=-1：表示通行碼至少包含1個小寫字母",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nlcredit = -1",
+          "1個以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900212",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0213",
+      "sca_id": 900213,
+      "source_sheet": "基本項目",
+      "source_row": 216,
+      "expected": "1個以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "212",
+        "TWGCB-01-012-0213",
+        "帳號與存取控制",
+        "通行碼必須至少包含特殊字元個數",
+        "這項原則設定決定使用者帳號之通行碼至少包含幾個特殊字元\n當ocredit大於或等於0時，代表通行碼每出現1個小寫字母時，Length credit加1(最多加到與ocredit相同)\n當ocredit小於0時，代表通行碼必須至少包含之「特殊字元」個數\nocredit=-1：表示通行碼至少包含1個特殊字元",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nocredit = -1",
+        "1個以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "212",
+          "TWGCB-01-012-0213",
+          "帳號與存取控制",
+          "通行碼必須至少包含特殊字元個數",
+          "這項原則設定決定使用者帳號之通行碼至少包含幾個特殊字元\n當ocredit大於或等於0時，代表通行碼每出現1個小寫字母時，Length credit加1(最多加到與ocredit相同)\n當ocredit小於0時，代表通行碼必須至少包含之「特殊字元」個數\nocredit=-1：表示通行碼至少包含1個特殊字元",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nocredit = -1",
+          "1個以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900213",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0214",
+      "sca_id": 900214,
+      "source_sheet": "基本項目",
+      "source_row": 217,
+      "expected": "3以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "213",
+        "TWGCB-01-012-0214",
+        "帳號與存取控制",
+        "新通行碼與舊通行碼最少相異字元數",
+        "這項原則設定決定使用者帳號之新通行碼內必須有幾個字元與舊通行碼不同\n設定新通行碼與舊通行碼之相異字元數，以避免使用者長期使用相同或相似之通行碼\ndifok =3：表示新通行碼必須有3個字元與舊通行碼不同",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\ndifok = 3",
+        "3以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "213",
+          "TWGCB-01-012-0214",
+          "帳號與存取控制",
+          "新通行碼與舊通行碼最少相異字元數",
+          "這項原則設定決定使用者帳號之新通行碼內必須有幾個字元與舊通行碼不同\n設定新通行碼與舊通行碼之相異字元數，以避免使用者長期使用相同或相似之通行碼\ndifok =3：表示新通行碼必須有3個字元與舊通行碼不同",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\ndifok = 3",
+          "3以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900214",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0215",
+      "sca_id": 900215,
+      "source_sheet": "基本項目",
+      "source_row": 218,
+      "expected": "4以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "214",
+        "TWGCB-01-012-0215",
+        "帳號與存取控制",
+        "同一類別字元可連續使用個數",
+        "這項原則設定決定使用者帳號之通行碼最多允許同一類別字元可連續使用個數\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nmaxclassrepeat = 4：表示通行碼最多允許連續4個同一類別之字元",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxclassrepeat = 4",
+        "4以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "214",
+          "TWGCB-01-012-0215",
+          "帳號與存取控制",
+          "同一類別字元可連續使用個數",
+          "這項原則設定決定使用者帳號之通行碼最多允許同一類別字元可連續使用個數\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nmaxclassrepeat = 4：表示通行碼最多允許連續4個同一類別之字元",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxclassrepeat = 4",
+          "4以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900215",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0216",
+      "sca_id": 900216,
+      "source_sheet": "基本項目",
+      "source_row": 219,
+      "expected": "3以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "215",
+        "TWGCB-01-012-0216",
+        "帳號與存取控制",
+        "相同字元可連續使用個數",
+        "這項原則設定決定使用者帳號之通行碼最多允許可連續使用幾個相同字元\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nmaxrepeat = 3：表示通行碼最多允許3個連續相同字元",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxrepeat = 3",
+        "3以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "215",
+          "TWGCB-01-012-0216",
+          "帳號與存取控制",
+          "相同字元可連續使用個數",
+          "這項原則設定決定使用者帳號之通行碼最多允許可連續使用幾個相同字元\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\nmaxrepeat = 3：表示通行碼最多允許3個連續相同字元",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxrepeat = 3",
+          "3以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900216",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0217",
+      "sca_id": 900217,
+      "source_sheet": "基本項目",
+      "source_row": 220,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "216",
+        "TWGCB-01-012-0217",
+        "帳號與存取控制",
+        "必須禁止使用字典檔單字做為通行碼",
+        "這項原則設定決定是否禁止使用字典檔單字做為使用者帳號之通行碼\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\ndictcheck=1：表示通行碼不可為字典檔單字",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\ndictcheck=1",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "216",
+          "TWGCB-01-012-0217",
+          "帳號與存取控制",
+          "必須禁止使用字典檔單字做為通行碼",
+          "這項原則設定決定是否禁止使用字典檔單字做為使用者帳號之通行碼\n若使用PAM模組管理通行碼，pam_pwquality.so將會檢驗通行碼相關規則，例如通行碼長度、通行碼使用字元及通行碼複雜度等，使用高強度通行碼可降低系統遭攻擊者進行字典檔查詢或暴力破解等通行碼攻擊之影響\ndictcheck=1：表示通行碼不可為字典檔單字",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\ndictcheck=1",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900217",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0218",
+      "sca_id": 900218,
+      "source_sheet": "基本項目",
+      "source_row": 221,
+      "expected": "5次以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "217",
+        "TWGCB-01-012-0218",
+        "帳號與存取控制",
+        "帳戶鎖定閾值",
+        "這項原則設定決定使用者帳號被鎖定之嘗試登入失敗次數，以降低通行碼暴力攻擊之影響\ndeny=5：使用者帳號被鎖定嘗試登入失敗最多5次",
+        "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\ndeny = 5",
+        "5次以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "217",
+          "TWGCB-01-012-0218",
+          "帳號與存取控制",
+          "帳戶鎖定閾值",
+          "這項原則設定決定使用者帳號被鎖定之嘗試登入失敗次數，以降低通行碼暴力攻擊之影響\ndeny=5：使用者帳號被鎖定嘗試登入失敗最多5次",
+          "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\ndeny = 5",
+          "5次以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900218",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0219",
+      "sca_id": 900219,
+      "source_sheet": "基本項目",
+      "source_row": 222,
+      "expected": "900秒以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "218",
+        "TWGCB-01-012-0219",
+        "帳號與存取控制",
+        "帳戶鎖定時間",
+        "這項原則設定決定使用者帳號被鎖定後之帳號解鎖時間，以降低通行碼暴力攻擊之影響\nunlock_time=900：決定鎖定帳號後，必須經過900秒才能解除鎖定\n若解除鎖定之時間未到，可由系統管理者執行下列指令逕行解除鎖定：\n#faillock --user (使用者帳號名稱) --reset",
+        "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\nunlock_time = 900",
+        "900秒以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "218",
+          "TWGCB-01-012-0219",
+          "帳號與存取控制",
+          "帳戶鎖定時間",
+          "這項原則設定決定使用者帳號被鎖定後之帳號解鎖時間，以降低通行碼暴力攻擊之影響\nunlock_time=900：決定鎖定帳號後，必須經過900秒才能解除鎖定\n若解除鎖定之時間未到，可由系統管理者執行下列指令逕行解除鎖定：\n#faillock --user (使用者帳號名稱) --reset",
+          "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\nunlock_time = 900",
+          "900秒以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900219",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0220",
+      "sca_id": 900220,
+      "source_sheet": "基本項目",
+      "source_row": 223,
+      "expected": "3以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "219",
+        "TWGCB-01-012-0220",
+        "帳號與存取控制",
+        "強制執行通行碼歷程記錄",
+        "這項原則設定決定記錄幾個使用者最近使用之舊通行碼，並限制新通行碼不能與此類舊通行碼重複\n藉由限制使用者不能持續重複使用舊通行碼，令攻擊者難以猜測通行碼以提升安全性",
+        "開啟終端機，執行以下指令，建立客製化profile：\n#authselect create-profile <profile名稱> -b sssd --symlink-meta\n#authselect select custom/<profile名稱> with-sudo with-faillock without-nullok\n開啟終端機，執行以下腳本，新增或修改設定為「remember=3」，更新system-auth檔案：\n#!/bin/bash\nCP=$(authselect current | awk 'NR == 1 {print $3}' | grep custom/)\n    [[ -n $CP ]] && PTF=/etc/authselect/$CP/system-auth || PTF=/etc/authselect/system-auth\n    [[ -n $(grep -E '^\\s*password\\s+(sufficient\\s+pam_unix|requi(red|site)\\s+pam_pwhistory).so\\s+([^#]+\\s+)*remember=\\S+\\s*.*$' $PTF) ]] && sed -ri 's/^\\s*(password\\s+(requisite|sufficient)\\s+(pam_pwquality\\.so|pam_unix\\.so)\\s+)(.*)(remember=\\S+\\s*)(.*)$/\\1\\4 remember=3 \\6/' $PTF || sed -ri 's/^\\s*(password\\s+(requisite|sufficient)\\s+(pam_pwquality\\.so|pam_unix\\.so)\\s+)(.*)$/\\1\\4 remember=3/' $PTF\nauthselect apply-changes",
+        "3以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "219",
+          "TWGCB-01-012-0220",
+          "帳號與存取控制",
+          "強制執行通行碼歷程記錄",
+          "這項原則設定決定記錄幾個使用者最近使用之舊通行碼，並限制新通行碼不能與此類舊通行碼重複\n藉由限制使用者不能持續重複使用舊通行碼，令攻擊者難以猜測通行碼以提升安全性",
+          "開啟終端機，執行以下指令，建立客製化profile：\n#authselect create-profile <profile名稱> -b sssd --symlink-meta\n#authselect select custom/<profile名稱> with-sudo with-faillock without-nullok\n開啟終端機，執行以下腳本，新增或修改設定為「remember=3」，更新system-auth檔案：\n#!/bin/bash\nCP=$(authselect current | awk 'NR == 1 {print $3}' | grep custom/)\n    [[ -n $CP ]] && PTF=/etc/authselect/$CP/system-auth || PTF=/etc/authselect/system-auth\n    [[ -n $(grep -E '^\\s*password\\s+(sufficient\\s+pam_unix|requi(red|site)\\s+pam_pwhistory).so\\s+([^#]+\\s+)*remember=\\S+\\s*.*$' $PTF) ]] && sed -ri 's/^\\s*(password\\s+(requisite|sufficient)\\s+(pam_pwquality\\.so|pam_unix\\.so)\\s+)(.*)(remember=\\S+\\s*)(.*)$/\\1\\4 remember=3 \\6/' $PTF || sed -ri 's/^\\s*(password\\s+(requisite|sufficient)\\s+(pam_pwquality\\.so|pam_unix\\.so)\\s+)(.*)$/\\1\\4 remember=3/' $PTF\nauthselect apply-changes",
+          "3以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "來源腳本與文字模組混用；採 pam_pwhistory remember>=3，單查 system-auth；待批。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900220",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源腳本與文字模組混用；採 pam_pwhistory remember>=3，單查 system-auth；待批。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0221",
+      "sca_id": 900221,
+      "source_sheet": "基本項目",
+      "source_row": 224,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "220",
+        "TWGCB-01-012-0221",
+        "帳號與存取控制",
+        "顯示登入失敗次數與日期",
+        "這項原則設定決定是否在使用者登入時顯示登入失敗次數，以及最近一次登入失敗之日期\n顯示使用者登入失敗與日期，有助於使用者及早發現帳號遭冒用之情形",
+        "編輯/etc/pam.d/postlogin檔案，新增或修改以下內容至檔案最上方：\nsession required pam_lastlog.so showfailed",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "220",
+          "TWGCB-01-012-0221",
+          "帳號與存取控制",
+          "顯示登入失敗次數與日期",
+          "這項原則設定決定是否在使用者登入時顯示登入失敗次數，以及最近一次登入失敗之日期\n顯示使用者登入失敗與日期，有助於使用者及早發現帳號遭冒用之情形",
+          "編輯/etc/pam.d/postlogin檔案，新增或修改以下內容至檔案最上方：\nsession required pam_lastlog.so showfailed",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900221",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0222",
+      "sca_id": 900222,
+      "source_sheet": "基本項目",
+      "source_row": 225,
+      "expected": "SHA512",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "221",
+        "TWGCB-01-012-0222",
+        "帳號與存取控制",
+        "通行碼雜湊演算法",
+        "這項原則設定決定系統所採用之通行碼雜湊演算法\nSHA512相對於MD5提供更強之雜湊演算法，可提高攻擊者破解通行碼難度，為系統提供多一層安全防護",
+        "編輯/etc/libuser.conf檔案，新增或修改成以下內容：\ncrypt_style = sha512\n編輯/etc/login.defs檔案，新增或修改成以下內容：\nENCRYPT_METHOD SHA512\n開啟終端機，執行以下指令，建立客製化profile：\n#authselect create-profile <profile名稱> -b sssd --symlink-meta\n#authselect select custom/<profile名稱> with-sudo with-faillock without-nullok\n開啟終端機，執行以下腳本，新增或修改設定為「sha512」，更新system-auth與password-auth檔案：\n#!/bin/bash\nCP=$(authselect current | awk 'NR == 1 {print $3}' | grep custom/)\nfor FN in system-auth password-auth; do\n[[ -n $CP ]] && PTF=/etc/authselect/$CP/$FN || PTF=/etc/authselect/$FN\n[[ -z $(grep -E '^\\s*password\\s+sufficient\\s+pam_unix.so\\s+.*sha512\\s*.*$' $PTF) ]] && sed -ri 's/^\\s*(password\\s+sufficient\\s+pam_unix.so\\s+)(.*)$/\\1\\2 sha512/' $PTF\ndone\nauthselect apply-changes",
+        "SHA512"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "221",
+          "TWGCB-01-012-0222",
+          "帳號與存取控制",
+          "通行碼雜湊演算法",
+          "這項原則設定決定系統所採用之通行碼雜湊演算法\nSHA512相對於MD5提供更強之雜湊演算法，可提高攻擊者破解通行碼難度，為系統提供多一層安全防護",
+          "編輯/etc/libuser.conf檔案，新增或修改成以下內容：\ncrypt_style = sha512\n編輯/etc/login.defs檔案，新增或修改成以下內容：\nENCRYPT_METHOD SHA512\n開啟終端機，執行以下指令，建立客製化profile：\n#authselect create-profile <profile名稱> -b sssd --symlink-meta\n#authselect select custom/<profile名稱> with-sudo with-faillock without-nullok\n開啟終端機，執行以下腳本，新增或修改設定為「sha512」，更新system-auth與password-auth檔案：\n#!/bin/bash\nCP=$(authselect current | awk 'NR == 1 {print $3}' | grep custom/)\nfor FN in system-auth password-auth; do\n[[ -n $CP ]] && PTF=/etc/authselect/$CP/$FN || PTF=/etc/authselect/$FN\n[[ -z $(grep -E '^\\s*password\\s+sufficient\\s+pam_unix.so\\s+.*sha512\\s*.*$' $PTF) ]] && sed -ri 's/^\\s*(password\\s+sufficient\\s+pam_unix.so\\s+)(.*)$/\\1\\2 sha512/' $PTF\ndone\nauthselect apply-changes",
+          "SHA512"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900222",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0223",
+      "sca_id": 900223,
+      "source_sheet": "基本項目",
+      "source_row": 226,
+      "expected": "1天以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "222",
+        "TWGCB-01-012-0223",
+        "帳號與存取控制",
+        "通行碼最短使用期限",
+        "這項原則設定決定在使用者變更通行碼之前，通行碼必須使用之期限(天數)。設為0代表可隨時變更通行碼，設為-1代表停用此原則\n設定通行碼最短使用期限為1天，以避免使用者重複使用相同通行碼",
+        "編輯/etc/login.defs檔案，設定PASS_MIN_DAYS參數如下：\nPASS_MIN_DAYS 1\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，使該帳號之通行碼最短使用期限變更為1天：\n#chage --mindays 1 (使用者帳號名稱)",
+        "1天以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "222",
+          "TWGCB-01-012-0223",
+          "帳號與存取控制",
+          "通行碼最短使用期限",
+          "這項原則設定決定在使用者變更通行碼之前，通行碼必須使用之期限(天數)。設為0代表可隨時變更通行碼，設為-1代表停用此原則\n設定通行碼最短使用期限為1天，以避免使用者重複使用相同通行碼",
+          "編輯/etc/login.defs檔案，設定PASS_MIN_DAYS參數如下：\nPASS_MIN_DAYS 1\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，使該帳號之通行碼最短使用期限變更為1天：\n#chage --mindays 1 (使用者帳號名稱)",
+          "1天以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900223",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0224",
+      "sca_id": 900224,
+      "source_sheet": "基本項目",
+      "source_row": 227,
+      "expected": "14天以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "223",
+        "TWGCB-01-012-0224",
+        "帳號與存取控制",
+        "通行碼到期前提醒使用者變更通行碼",
+        "這項原則設定決定在使用者通行碼即將到期時，要提前多久(天數)提醒使用者進行通行碼變更\n設定通行碼到期前14天提醒使用者，預先提供通行碼即將到期之警告，讓使用者有時間思考安全通行碼",
+        "編輯/etc/login.defs檔案，設定PASS_WARN_AGE參數如下：\nPASS_WARN_AGE 14\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，才能使通行碼到期前14天提醒使用者變更通行碼：\n#chage --warndays 14 (使用者帳號名稱)",
+        "14天以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "223",
+          "TWGCB-01-012-0224",
+          "帳號與存取控制",
+          "通行碼到期前提醒使用者變更通行碼",
+          "這項原則設定決定在使用者通行碼即將到期時，要提前多久(天數)提醒使用者進行通行碼變更\n設定通行碼到期前14天提醒使用者，預先提供通行碼即將到期之警告，讓使用者有時間思考安全通行碼",
+          "編輯/etc/login.defs檔案，設定PASS_WARN_AGE參數如下：\nPASS_WARN_AGE 14\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，才能使通行碼到期前14天提醒使用者變更通行碼：\n#chage --warndays 14 (使用者帳號名稱)",
+          "14天以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900224",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0225",
+      "sca_id": 900225,
+      "source_sheet": "基本項目",
+      "source_row": 228,
+      "expected": "90天以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "224",
+        "TWGCB-01-012-0225",
+        "帳號與存取控制",
+        "通行碼最長使用期限",
+        "這項原則設定決定系統要求使用者變更通行碼之前，通行碼可以使用之期限(天數)。設為-1代表停用此原則\n設定通行碼最長使用期限為90天，提高通行碼更換頻率，提高攻擊者破解通行碼難度",
+        "編輯/etc/login.defs檔案，設定PASS_MAX_DAYS參數如下：\nPASS_MAX_DAYS 90\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，才能使通行碼最長使用期限變更為90天：\n#chage --maxdays 90 (使用者帳號名稱)",
+        "90天以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "224",
+          "TWGCB-01-012-0225",
+          "帳號與存取控制",
+          "通行碼最長使用期限",
+          "這項原則設定決定系統要求使用者變更通行碼之前，通行碼可以使用之期限(天數)。設為-1代表停用此原則\n設定通行碼最長使用期限為90天，提高通行碼更換頻率，提高攻擊者破解通行碼難度",
+          "編輯/etc/login.defs檔案，設定PASS_MAX_DAYS參數如下：\nPASS_MAX_DAYS 90\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，才能使通行碼最長使用期限變更為90天：\n#chage --maxdays 90 (使用者帳號名稱)",
+          "90天以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900225",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0226",
+      "sca_id": 900226,
+      "source_sheet": "基本項目",
+      "source_row": 229,
+      "expected": "30天以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "225",
+        "TWGCB-01-012-0226",
+        "帳號與存取控制",
+        "通行碼到期後，帳號停用前之天數",
+        "這項原則設定決定使用者帳號於通行碼到期後，若超過設定天數則停用帳號\n設定通行碼到期後，超過30天即停用帳號，避免未使用帳號對系統構成威脅",
+        "開啟終端機，執行以下指令，設定通行碼到期後之帳號停用天數：\n#useradd -D -f 30\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，才能使通行碼到期後，超過30天即停用帳號：\n#chage --inactive 30 (使用者帳號名稱)",
+        "30天以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "225",
+          "TWGCB-01-012-0226",
+          "帳號與存取控制",
+          "通行碼到期後，帳號停用前之天數",
+          "這項原則設定決定使用者帳號於通行碼到期後，若超過設定天數則停用帳號\n設定通行碼到期後，超過30天即停用帳號，避免未使用帳號對系統構成威脅",
+          "開啟終端機，執行以下指令，設定通行碼到期後之帳號停用天數：\n#useradd -D -f 30\n針對進行上述設定前已存在之使用者帳號，須再執行下列指令，才能使通行碼到期後，超過30天即停用帳號：\n#chage --inactive 30 (使用者帳號名稱)",
+          "30天以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "useradd -D -f 對應 /etc/default/useradd INACTIVE；既有帳號待人工證據。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900226",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "useradd -D -f 對應 /etc/default/useradd INACTIVE；既有帳號待人工證據。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0227",
+      "sca_id": 900227,
+      "source_sheet": "基本項目",
+      "source_row": 230,
+      "expected": "4秒以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "226",
+        "TWGCB-01-012-0227",
+        "帳號與存取控制",
+        "登入嘗試失敗之延遲時間",
+        "這項原則設定決定在使用者登入嘗試失敗後須延遲多久時間(秒)，才允許再次嘗試登入系統\n設定登入嘗試失敗之延遲時間，可減緩自動猜測通行碼攻擊速度，提高通行碼猜測難度",
+        "編輯/etc/login.defs檔案，將FAIL_DELAY參數值設為4以上，範例如下：\nFAIL_DELAY 4",
+        "4秒以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "226",
+          "TWGCB-01-012-0227",
+          "帳號與存取控制",
+          "登入嘗試失敗之延遲時間",
+          "這項原則設定決定在使用者登入嘗試失敗後須延遲多久時間(秒)，才允許再次嘗試登入系統\n設定登入嘗試失敗之延遲時間，可減緩自動猜測通行碼攻擊速度，提高通行碼猜測難度",
+          "編輯/etc/login.defs檔案，將FAIL_DELAY參數值設為4以上，範例如下：\nFAIL_DELAY 4",
+          "4秒以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "依來源 login.defs FAIL_DELAY>=4，未替換成 PAM delay。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900227",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 login.defs FAIL_DELAY>=4，未替換成 PAM delay。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0228",
+      "sca_id": 900228,
+      "source_sheet": "基本項目",
+      "source_row": 231,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "227",
+        "TWGCB-01-012-0228",
+        "帳號與存取控制",
+        "新使用者帳號預設建立使用者家目錄",
+        "這項原則設定決定當系統新增新使用者帳號時，是否為該帳號建立使用者家目錄\n為新增使用者帳號預設建立使用者家目錄，供使用者存放環境設定與個人檔案",
+        "編輯/etc/login.defs檔案，設定CREATE_HOME參數如下：\nCREATE_HOME yes",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "227",
+          "TWGCB-01-012-0228",
+          "帳號與存取控制",
+          "新使用者帳號預設建立使用者家目錄",
+          "這項原則設定決定當系統新增新使用者帳號時，是否為該帳號建立使用者家目錄\n為新增使用者帳號預設建立使用者家目錄，供使用者存放環境設定與個人檔案",
+          "編輯/etc/login.defs檔案，設定CREATE_HOME參數如下：\nCREATE_HOME yes",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "依來源 login.defs CREATE_HOME，未改查 /etc/default/useradd。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900228",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 login.defs CREATE_HOME，未改查 /etc/default/useradd。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0229",
+      "sca_id": 900229,
+      "source_sheet": "基本項目",
+      "source_row": 232,
+      "expected": "要求身分鑑別",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "228",
+        "TWGCB-01-012-0229",
+        "帳號與存取控制",
+        "要求使用者必須經過身分鑑別才能提升權限",
+        "這項原則設定決定是否要求使用者必須經過身分鑑別，才能使用sudo提升權限或更換角色\n設定使用sudo提權時必須經過身分鑑別，以避免遭使用者存取未被授權之檔案或服務",
+        "開啟終端機，執行以下指令，尋找「NOPASSWD」或「!authenticate」：\n#egrep -i '(nopasswd|!authenticate)' /etc/sudoers /etc/sudoers.d/*\n執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，針對包含「NOPASSWD」或「!authenticate」之指令行，予以註解(#)或刪除",
+        "要求身分鑑別"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "228",
+          "TWGCB-01-012-0229",
+          "帳號與存取控制",
+          "要求使用者必須經過身分鑑別才能提升權限",
+          "這項原則設定決定是否要求使用者必須經過身分鑑別，才能使用sudo提升權限或更換角色\n設定使用sudo提權時必須經過身分鑑別，以避免遭使用者存取未被授權之檔案或服務",
+          "開啟終端機，執行以下指令，尋找「NOPASSWD」或「!authenticate」：\n#egrep -i '(nopasswd|!authenticate)' /etc/sudoers /etc/sudoers.d/*\n執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，針對包含「NOPASSWD」或「!authenticate」之指令行，予以註解(#)或刪除",
+          "要求身分鑑別"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900229",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0230",
+      "sca_id": 900230,
+      "source_sheet": "基本項目",
+      "source_row": 233,
+      "expected": "10以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "229",
+        "TWGCB-01-012-0230",
+        "帳號與存取控制",
+        "限制每個帳號可同時登入之數量",
+        "這項原則設定決定是否限制每個帳號可同時登入之數量\n限制系統上每個帳號可同時登入之數量，有助於降低阻斷服務攻擊之風險\n注意：這項原則設定可能會影響系統服務之同時登入上限，啟用此項設定後，請確認各項系統服務正常運作",
+        "編輯/etc/security/limits.conf檔案或/etc/security/limits.d/目錄下之「.conf」檔案，新增或修改成以下內容：\n* hard maxlogins 10",
+        "10以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "229",
+          "TWGCB-01-012-0230",
+          "帳號與存取控制",
+          "限制每個帳號可同時登入之數量",
+          "這項原則設定決定是否限制每個帳號可同時登入之數量\n限制系統上每個帳號可同時登入之數量，有助於降低阻斷服務攻擊之風險\n注意：這項原則設定可能會影響系統服務之同時登入上限，啟用此項設定後，請確認各項系統服務正常運作",
+          "編輯/etc/security/limits.conf檔案或/etc/security/limits.d/目錄下之「.conf」檔案，新增或修改成以下內容：\n* hard maxlogins 10",
+          "10以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900230",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0231",
+      "sca_id": 900231,
+      "source_sheet": "基本項目",
+      "source_row": 234,
+      "expected": "安裝",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "230",
+        "TWGCB-01-012-0231",
+        "帳號與存取控制",
+        "kbd套件",
+        "這項原則設定決定是否安裝kbd套件，套件提供vlock工具可用於鎖定使用者終端機螢幕\n安裝kbd套件後，即可使用vlock工具在終端機介面啟動螢幕鎖定機制，以防止資訊外洩或遭人惡意終止目前正在執行之作業\n輸入啟動終端機螢幕鎖定之使用者通行碼可解除鎖定狀態",
+        "開啟終端機，執行以下指令，安裝kbd套件：\n#dnf install kbd.x86_64",
+        "安裝"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "230",
+          "TWGCB-01-012-0231",
+          "帳號與存取控制",
+          "kbd套件",
+          "這項原則設定決定是否安裝kbd套件，套件提供vlock工具可用於鎖定使用者終端機螢幕\n安裝kbd套件後，即可使用vlock工具在終端機介面啟動螢幕鎖定機制，以防止資訊外洩或遭人惡意終止目前正在執行之作業\n輸入啟動終端機螢幕鎖定之使用者通行碼可解除鎖定狀態",
+          "開啟終端機，執行以下指令，安裝kbd套件：\n#dnf install kbd.x86_64",
+          "安裝"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "rpm -q kbd：0 installed、1 absent、其他錯誤無 PASS；不用 rpm -qa。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900231",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "rpm -q kbd：0 installed、1 absent、其他錯誤無 PASS；不用 rpm -qa。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0232",
+      "sca_id": 900232,
+      "source_sheet": "基本項目",
+      "source_row": 235,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "231",
+        "TWGCB-01-012-0232",
+        "帳號與存取控制",
+        "使用者會談鎖定",
+        "這項原則設定決定是否設定使用者會談鎖定，以啟用螢幕保護裝置\n設定使用者會談鎖定，提供使用者需暫時離開系統之防護措施，必須重新進行身分鑑別才能解除鎖定登入系統",
+        "開啟終端機，執行以下指令，建立或編輯資料庫，設定螢幕保護裝置：\n#vim /etc/dconf/db/local.d/00-screensaver\n編輯資料庫之「org/gnome/desktop/screensaver」段落，新增或修改成以下內容：\n[org/gnome/desktop/screensaver]\n##Set this to true to lock the screen when the screensaver activates\nlock-enabled=true\n執行以下指令更新系統資料庫：\n#dconf update",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "231",
+          "TWGCB-01-012-0232",
+          "帳號與存取控制",
+          "使用者會談鎖定",
+          "這項原則設定決定是否設定使用者會談鎖定，以啟用螢幕保護裝置\n設定使用者會談鎖定，提供使用者需暫時離開系統之防護措施，必須重新進行身分鑑別才能解除鎖定登入系統",
+          "開啟終端機，執行以下指令，建立或編輯資料庫，設定螢幕保護裝置：\n#vim /etc/dconf/db/local.d/00-screensaver\n編輯資料庫之「org/gnome/desktop/screensaver」段落，新增或修改成以下內容：\n[org/gnome/desktop/screensaver]\n##Set this to true to lock the screen when the screensaver activates\nlock-enabled=true\n執行以下指令更新系統資料庫：\n#dconf update",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900232",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0233",
+      "sca_id": 900233,
+      "source_sheet": "基本項目",
+      "source_row": 236,
+      "expected": "900秒以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "232",
+        "TWGCB-01-012-0233",
+        "帳號與存取控制",
+        "GNOME使用者會談逾時時間",
+        "這項原則設定決定是否設定GNOME使用者會談逾時時間，超過逾時時間系統將鎖定該會談\n設定使用者會談逾時時間，提供使用者離開系統而未登出之防護措施，必須重新進行身分鑑別才能解除鎖定登入系統",
+        "開啟終端機，執行以下指令，建立或編輯資料庫，設定螢幕保護裝置：\n#vim /etc/dconf/db/local.d/00-screensaver\n編輯資料庫之「org/gnome/desktop/session」段落，新增或修改成以下內容：\n[org/gnome/desktop/session]\n##Set the lock time out to 900 seconds before the session is considered idle\nidle-delay=uint32 900\n執行以下指令更新系統資料庫：\n#dconf update",
+        "900秒以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "232",
+          "TWGCB-01-012-0233",
+          "帳號與存取控制",
+          "GNOME使用者會談逾時時間",
+          "這項原則設定決定是否設定GNOME使用者會談逾時時間，超過逾時時間系統將鎖定該會談\n設定使用者會談逾時時間，提供使用者離開系統而未登出之防護措施，必須重新進行身分鑑別才能解除鎖定登入系統",
+          "開啟終端機，執行以下指令，建立或編輯資料庫，設定螢幕保護裝置：\n#vim /etc/dconf/db/local.d/00-screensaver\n編輯資料庫之「org/gnome/desktop/session」段落，新增或修改成以下內容：\n[org/gnome/desktop/session]\n##Set the lock time out to 900 seconds before the session is considered idle\nidle-delay=uint32 900\n執行以下指令更新系統資料庫：\n#dconf update",
+          "900秒以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900233",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0234",
+      "sca_id": 900234,
+      "source_sheet": "基本項目",
+      "source_row": 237,
+      "expected": "false",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "233",
+        "TWGCB-01-012-0234",
+        "帳號與存取控制",
+        "禁止GNOME使用者自動登入",
+        "這項原則設定決定是否禁止GNOME使用者在圖形使用者介面下自動登入\n禁止GNOME使用者自動登入，以避免使用者無需身分鑑別即可存取系統資料，導致資料外洩或遭竄改設定",
+        "編輯/etc/gdm/custom.conf檔案，在「daemon]」段落，新增或修改成以下內容：\n[daemon]\nAutomaticLoginEnable=false",
+        "false"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "233",
+          "TWGCB-01-012-0234",
+          "帳號與存取控制",
+          "禁止GNOME使用者自動登入",
+          "這項原則設定決定是否禁止GNOME使用者在圖形使用者介面下自動登入\n禁止GNOME使用者自動登入，以避免使用者無需身分鑑別即可存取系統資料，導致資料外洩或遭竄改設定",
+          "編輯/etc/gdm/custom.conf檔案，在「daemon]」段落，新增或修改成以下內容：\n[daemon]\nAutomaticLoginEnable=false",
+          "false"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900234",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0235",
+      "sca_id": 900235,
+      "source_sheet": "基本項目",
+      "source_row": 238,
+      "expected": "nologin",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "234",
+        "TWGCB-01-012-0235",
+        "帳號與存取控制",
+        "系統帳號登入方式",
+        "這項原則設定決定是否藉由設定nologin參數，以禁止系統帳號登入\n系統帳號是除了root外，UID小於1000之帳號，與一般使用者無關，是為了執行相關管理功能而存在於系統中\n針對系統帳號進行通行碼鎖定與設定無法登入之合法 shell(/sbin/nologin)，以提高攻擊者使用此類帳號進行攻擊之難度\n系統帳號雖無法使用bash或其他shell登入系統，但仍可使用系統資源提供服務",
+        "開啟終端機，執行以下指令，設定系統帳號(sync、shutdown及halt帳號除外)不可使用殼層(Shell)登入：\n#awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"' && $7!=\"'\"$(which nologin)\"'\" && $7!=\"/bin/false\") {print $1}' /etc/passwd | while read user; do usermod -s $(which nologin) $user; done\n執行以下指令，鎖定所有非root之系統帳號：\n#awk -F: '($1!=\"root\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"') {print $1}' /etc/passwd | xargs -I '{}' passwd -S '{}' | awk '($2!=\"L\" && $2!=\"LK\") {print $1}' | while read user; do usermod -L $user; done",
+        "nologin"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "234",
+          "TWGCB-01-012-0235",
+          "帳號與存取控制",
+          "系統帳號登入方式",
+          "這項原則設定決定是否藉由設定nologin參數，以禁止系統帳號登入\n系統帳號是除了root外，UID小於1000之帳號，與一般使用者無關，是為了執行相關管理功能而存在於系統中\n針對系統帳號進行通行碼鎖定與設定無法登入之合法 shell(/sbin/nologin)，以提高攻擊者使用此類帳號進行攻擊之難度\n系統帳號雖無法使用bash或其他shell登入系統，但仍可使用系統資源提供服務",
+          "開啟終端機，執行以下指令，設定系統帳號(sync、shutdown及halt帳號除外)不可使用殼層(Shell)登入：\n#awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"' && $7!=\"'\"$(which nologin)\"'\" && $7!=\"/bin/false\") {print $1}' /etc/passwd | while read user; do usermod -s $(which nologin) $user; done\n執行以下指令，鎖定所有非root之系統帳號：\n#awk -F: '($1!=\"root\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"') {print $1}' /etc/passwd | xargs -I '{}' passwd -S '{}' | awk '($2!=\"L\" && $2!=\"LK\") {print $1}' | while read user; do usermod -L $user; done",
+          "nologin"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "依來源 UID_MIN（非 SYS_UID_MAX）；root/+ 排除，shell 另排除 sync/shutdown/halt；passwd -S 唯讀確認 L/LK。不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900235",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 UID_MIN（非 SYS_UID_MAX）；root/+ 排除，shell 另排除 sync/shutdown/halt；passwd -S 唯讀確認 L/LK。不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0236",
+      "sca_id": 900236,
+      "source_sheet": "基本項目",
+      "source_row": 239,
+      "expected": "900秒以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "235",
+        "TWGCB-01-012-0236",
+        "帳號與存取控制",
+        "Bash shell閒置時登出時間",
+        "這項原則設定決定Bash shell閒置超過多少秒後自動登出\nBash目前是Linux之標準shell，Bash主要相容於sh，並且依據一些使用者需求而加強之shell版本\n當shell屬於前景程序時，才能自動從shell登出，例如使用vim編輯檔案並已閒置15分鐘，自動登出將不會發生\n設定Bash shell閒置逾時時間，可提供使用者離開系統而未鎖定螢幕之防護措施，避免其他使用者未經授權使用shell",
+        "編輯/etc/bashrc檔案，新增或修改參數如下：\nreadonly TMOUT=900 ; export TMOUT\n編輯/etc/profile檔案或/etc/profile.d/目錄下之「.sh」檔案，新增或修改參數如下：\nreadonly TMOUT=900 ; export TMOUT",
+        "900秒以下，但須大於0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "235",
+          "TWGCB-01-012-0236",
+          "帳號與存取控制",
+          "Bash shell閒置時登出時間",
+          "這項原則設定決定Bash shell閒置超過多少秒後自動登出\nBash目前是Linux之標準shell，Bash主要相容於sh，並且依據一些使用者需求而加強之shell版本\n當shell屬於前景程序時，才能自動從shell登出，例如使用vim編輯檔案並已閒置15分鐘，自動登出將不會發生\n設定Bash shell閒置逾時時間，可提供使用者離開系統而未鎖定螢幕之防護措施，避免其他使用者未經授權使用shell",
+          "編輯/etc/bashrc檔案，新增或修改參數如下：\nreadonly TMOUT=900 ; export TMOUT\n編輯/etc/profile檔案或/etc/profile.d/目錄下之「.sh」檔案，新增或修改參數如下：\nreadonly TMOUT=900 ; export TMOUT",
+          "900秒以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "同時要求 bashrc 與 profile/profile.d；保守靜態宣告子集，條件分支/載入順序與 readonly/export 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900236",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "同時要求 bashrc 與 profile/profile.d；保守靜態宣告子集，條件分支/載入順序與 readonly/export 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0237",
+      "sca_id": 900237,
+      "source_sheet": "基本項目",
+      "source_row": 240,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "236",
+        "TWGCB-01-012-0237",
+        "帳號與存取控制",
+        "防止修改圖形使用者介面(GUI)設定",
+        "這項原則設定決定是否防止修改圖形使用者介面(GUI)設定\n使用者會談鎖定(Session Lock)機制，提供使用者需暫時離開系統之防護措施，必須重新進行身分鑑別才能解除鎖定登入系統\n防止使用者修改GUI介面設定，避免使用者變更系統之鎖定機制以保護系統安全",
+        "開啟終端機，執行以下指令，建立或編輯資料庫，設定防止修改圖形使用者介面(GUI)設定：\n#vim /etc/dconf/db/local.d/locks/session\n編輯資料庫，新增或修改成以下內容：\n/org/gnome/desktop/session/idle-delay\n/org/gnome/desktop/screensaver/lock-enabled\n/org/gnome/desktop/screensaver/lock-delay\n/org/gnome/desktop/lockdown/disable-lock-screen",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "236",
+          "TWGCB-01-012-0237",
+          "帳號與存取控制",
+          "防止修改圖形使用者介面(GUI)設定",
+          "這項原則設定決定是否防止修改圖形使用者介面(GUI)設定\n使用者會談鎖定(Session Lock)機制，提供使用者需暫時離開系統之防護措施，必須重新進行身分鑑別才能解除鎖定登入系統\n防止使用者修改GUI介面設定，避免使用者變更系統之鎖定機制以保護系統安全",
+          "開啟終端機，執行以下指令，建立或編輯資料庫，設定防止修改圖形使用者介面(GUI)設定：\n#vim /etc/dconf/db/local.d/locks/session\n編輯資料庫，新增或修改成以下內容：\n/org/gnome/desktop/session/idle-delay\n/org/gnome/desktop/screensaver/lock-enabled\n/org/gnome/desktop/screensaver/lock-delay\n/org/gnome/desktop/lockdown/disable-lock-screen",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900237",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0238",
+      "sca_id": 900238,
+      "source_sheet": "基本項目",
+      "source_row": 241,
+      "expected": "GID 0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "237",
+        "TWGCB-01-012-0238",
+        "帳號與存取控制",
+        "root帳號所屬群組",
+        "這項原則設定決定是否檢查root帳號所屬群組\nusermod指令可用於指定root帳號所屬群組，這會影響root管理者所建立檔案之權限\nroot帳號所屬群組使用GID 0，有助於防止一般使用者意外存取root帳號所擁有之檔案",
+        "開啟終端機，執行以下指令，設定root帳號所屬群組：\n#usermod -g 0 root",
+        "GID 0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "237",
+          "TWGCB-01-012-0238",
+          "帳號與存取控制",
+          "root帳號所屬群組",
+          "這項原則設定決定是否檢查root帳號所屬群組\nusermod指令可用於指定root帳號所屬群組，這會影響root管理者所建立檔案之權限\nroot帳號所屬群組使用GID 0，有助於防止一般使用者意外存取root帳號所擁有之檔案",
+          "開啟終端機，執行以下指令，設定root帳號所屬群組：\n#usermod -g 0 root",
+          "GID 0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900238",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0239",
+      "sca_id": 900239,
+      "source_sheet": "基本項目",
+      "source_row": 242,
+      "expected": "027或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "238",
+        "TWGCB-01-012-0239",
+        "帳號與存取控制",
+        "所有使用者帳號之預設umask",
+        "這項原則設定決定是否在/etc/profile中設定所有使用者帳號之預設umask，用以指定新建立檔案之預設權限\numask設為027，表示使用者所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取與執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n0：可讀取、寫入及執行\n1：不可執行\n2：不可寫入\n3：不可寫入與執行\n4：不可讀取\n5：不可讀取與執行\n6：不可讀取與寫入\n7：不可讀取、寫入及執行",
+        "編輯/etc/profile檔案、/etc/profile.d/目錄下之「.sh」檔案及/etc/bashrc檔案，新增或修改參數如下：\numask 027",
+        "027或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "238",
+          "TWGCB-01-012-0239",
+          "帳號與存取控制",
+          "所有使用者帳號之預設umask",
+          "這項原則設定決定是否在/etc/profile中設定所有使用者帳號之預設umask，用以指定新建立檔案之預設權限\numask設為027，表示使用者所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取與執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n0：可讀取、寫入及執行\n1：不可執行\n2：不可寫入\n3：不可寫入與執行\n4：不可讀取\n5：不可讀取與執行\n6：不可讀取與寫入\n7：不可讀取、寫入及執行",
+          "編輯/etc/profile檔案、/etc/profile.d/目錄下之「.sh」檔案及/etc/bashrc檔案，新增或修改參數如下：\numask 027",
+          "027或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "同時要求 bashrc 與 profile/profile.d；umask 位元包含027，含007因不符合來源027不接受；shell 分支待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900239",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "同時要求 bashrc 與 profile/profile.d；umask 位元包含027，含007因不符合來源027不接受；shell 分支待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0240",
+      "sca_id": 900240,
+      "source_sheet": "基本項目",
+      "source_row": 243,
+      "expected": "027或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "239",
+        "TWGCB-01-012-0240",
+        "帳號與存取控制",
+        "在/etc/login.defs設定所有使用者之預設umask",
+        "這項原則設定決定在/etc/login.defs設定所有使用者之預設umask，umask用以指定新建立之檔案或目錄之預設權限\n設定umask為027，表示使用者所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取及執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n0：可讀、寫及執行\n1：不可執行\n2：不可寫\n3：不可寫與執行\n4：不可讀\n5：不可讀與執行\n6：不可讀與寫\n7：不可讀、寫及執行",
+        "編輯/etc/login.defs檔案，設定UMASK參數值如下：\nUMASK 027",
+        "027或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "239",
+          "TWGCB-01-012-0240",
+          "帳號與存取控制",
+          "在/etc/login.defs設定所有使用者之預設umask",
+          "這項原則設定決定在/etc/login.defs設定所有使用者之預設umask，umask用以指定新建立之檔案或目錄之預設權限\n設定umask為027，表示使用者所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取及執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n0：可讀、寫及執行\n1：不可執行\n2：不可寫\n3：不可寫與執行\n4：不可讀\n5：不可讀與執行\n6：不可讀與寫\n7：不可讀、寫及執行",
+          "編輯/etc/login.defs檔案，設定UMASK參數值如下：\nUMASK 027",
+          "027或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900240",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0241",
+      "sca_id": 900241,
+      "source_sheet": "基本項目",
+      "source_row": 244,
+      "expected": "僅限wheel群組才能使用su指令",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "240",
+        "TWGCB-01-012-0241",
+        "帳號與存取控制",
+        "可使用su指令之群組",
+        "這項原則設定決定是否設定wheel群組(所有系統管理者所屬群組)，並限制僅wheel群組內之使用者才能使用su指令\nsu指令允許使用者以其他使用者身分執行指令或shell，預設情況下任何使用者皆可執行su指令，透過啟用/etc/pam.d/su檔案之pam_wheel.so設定，將僅允許wheel群組中之用戶執行su指令，有利於系統管理者控管使用者提升特權行為",
+        "編輯/etc/pam.d/su檔案，新增或修改成以下內容：\nauth required pam_wheel.so use_uid\n編輯/etc/group檔案之wheel群組設定，建立允許使用su指令之使用者帳號清單，如下所示：\nwheel:x:GID:root,(使用者帳號清單)\n範例：如欲在wheel群組(GID為10)建立允許root、user1及user2帳號使用su指令，內容如下：\nwheel:x:10:root,user1,user2",
+        "僅限wheel群組才能使用su指令"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "240",
+          "TWGCB-01-012-0241",
+          "帳號與存取控制",
+          "可使用su指令之群組",
+          "這項原則設定決定是否設定wheel群組(所有系統管理者所屬群組)，並限制僅wheel群組內之使用者才能使用su指令\nsu指令允許使用者以其他使用者身分執行指令或shell，預設情況下任何使用者皆可執行su指令，透過啟用/etc/pam.d/su檔案之pam_wheel.so設定，將僅允許wheel群組中之用戶執行su指令，有利於系統管理者控管使用者提升特權行為",
+          "編輯/etc/pam.d/su檔案，新增或修改成以下內容：\nauth required pam_wheel.so use_uid\n編輯/etc/group檔案之wheel群組設定，建立允許使用su指令之使用者帳號清單，如下所示：\nwheel:x:GID:root,(使用者帳號清單)\n範例：如欲在wheel群組(GID為10)建立允許root、user1及user2帳號使用su指令，內容如下：\nwheel:x:10:root,user1,user2",
+          "僅限wheel群組才能使用su指令"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "確認 wheel 包含 root；其他允許成員名單需人工核准。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900241",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "確認 wheel 包含 root；其他允許成員名單需人工核准。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0301",
       "sca_id": 900301,
       "source_sheet": "基本項目",
@@ -6338,6 +8285,384 @@
       "source_approval": "pending",
       "live_validation": "UNVALIDATED",
       "pending": "依來源 /etc/logrotate.d/rsyslog 指定路徑、weekly/rotate 4/compress/missingok/notifempty/postrotate 及目錄 <=0750；不是任意 rsyslog 字樣即合格；複雜多 stanza、實際輪替待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0309",
+      "sca_id": 900309,
+      "source_sheet": "基本項目",
+      "source_row": 269,
+      "expected": "027或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "265",
+        "TWGCB-01-012-0309",
+        "帳號與存取控制",
+        "root之預設umask",
+        "這項原則設定決定是否在/root/.bash_profile與/root/.bashrc中設定root之預設umask，用以指定新建立檔案之預設權限\numask設為027，表示root所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取與執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n (1)0：可讀、寫及執行\n(2)1：不可執行\n(3)2：不可寫\n(4)3：不可寫與執行\n(5)4：不可讀\n(6)5：不可讀與執行\n(7)6：不可讀與寫\n(8)7：不可讀、寫及執行",
+        "編輯/root/.bash_profile檔案/root/.bashrc，新增或修改參數如下：\numask 027",
+        "027或更低權限"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "265",
+          "TWGCB-01-012-0309",
+          "帳號與存取控制",
+          "root之預設umask",
+          "這項原則設定決定是否在/root/.bash_profile與/root/.bashrc中設定root之預設umask，用以指定新建立檔案之預設權限\numask設為027，表示root所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取與執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n (1)0：可讀、寫及執行\n(2)1：不可執行\n(3)2：不可寫\n(4)3：不可寫與執行\n(5)4：不可讀\n(6)5：不可讀與執行\n(7)6：不可讀與寫\n(8)7：不可讀、寫及執行",
+          "編輯/root/.bash_profile檔案/root/.bashrc，新增或修改參數如下：\numask 027",
+          "027或更低權限"
+        ],
+        [
+          "25",
+          "TWGCB-01-012-0309",
+          "帳號與存取控制",
+          "root之預設umask",
+          "這項原則設定決定是否在/root/.bash_profile與/root/.bashrc中設定root之預設umask，用以指定新建立檔案之預設權限\numask設為027，表示root所建立之檔案，擁有者可讀取、寫入及執行，群組可讀取與執行，其他使用者無讀取、寫入及執行權限\numask第1個位元代表擁有者，第2個位元代表群組，第3個位元代表其他使用者，設定值說明如下：\n (1)0：可讀、寫及執行\n(2)1：不可執行\n(3)2：不可寫\n(4)3：不可寫與執行\n(5)4：不可讀\n(6)5：不可讀與執行\n(7)6：不可讀與寫\n(8)7：不可讀、寫及執行",
+          "編輯/root/.bash_profile檔案/root/.bashrc，新增或修改參數如下：\numask 027",
+          "027或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "依來源同時檢查 /root/.bash_profile 與 /root/.bashrc，缺檔失敗。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900309",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源同時檢查 /root/.bash_profile 與 /root/.bashrc，缺檔失敗。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0310",
+      "sca_id": 900310,
+      "source_sheet": "基本項目",
+      "source_row": 270,
+      "expected": "60秒以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "266",
+        "TWGCB-01-012-0310",
+        "帳號與存取控制",
+        "root帳戶鎖定時間",
+        "這項原則設定決定root帳號被鎖定後之解鎖時間，以降低通行碼暴力攻擊之影響\nroot_unlock_time=60：帳號鎖定後須等待60秒方可解鎖\n若解除鎖定之時間未到，可由系統管理者執行下列指令逕行解除鎖定：\n#faillock --user <使用者帳號名稱> --reset",
+        "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\neven_deny_root\nroot_unlock_time=60",
+        "60秒以上"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "266",
+          "TWGCB-01-012-0310",
+          "帳號與存取控制",
+          "root帳戶鎖定時間",
+          "這項原則設定決定root帳號被鎖定後之解鎖時間，以降低通行碼暴力攻擊之影響\nroot_unlock_time=60：帳號鎖定後須等待60秒方可解鎖\n若解除鎖定之時間未到，可由系統管理者執行下列指令逕行解除鎖定：\n#faillock --user <使用者帳號名稱> --reset",
+          "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\neven_deny_root\nroot_unlock_time=60",
+          "60秒以上"
+        ],
+        [
+          "26",
+          "TWGCB-01-012-0310",
+          "帳號與存取控制",
+          "root帳戶鎖定時間",
+          "這項原則設定決定root帳號被鎖定後之解鎖時間，以降低通行碼暴力攻擊之影響\nroot_unlock_time=60：帳號鎖定後須等待60秒方可解鎖\n若解除鎖定之時間未到，可由系統管理者執行下列指令逕行解除鎖定：\n#faillock --user <使用者帳號名稱> --reset",
+          "編輯/etc/security/faillock.conf檔案，新增或修改成以下內容：\neven_deny_root\nroot_unlock_time=60",
+          "60秒以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900310",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0311",
+      "sca_id": 900311,
+      "source_sheet": "基本項目",
+      "source_row": 271,
+      "expected": "3以下，但須大於0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "267",
+        "TWGCB-01-012-0311",
+        "帳號與存取控制",
+        "連續字元序列可使用個數",
+        "這項原則設定決定使用者帳號之通行碼最多可包含幾個連續字元序列\n若使用PAM模組管理通行碼，pam_pwquality.so會檢驗通行碼長度、使用字元及複雜度等規則，使用高強度通行碼可降低系統遭字典攻擊或暴力破解風險\nmaxsequence=3：表示通行碼最多允許3個連續字元序列",
+        "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxsequence=3",
+        "3以下，但須大於0"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "267",
+          "TWGCB-01-012-0311",
+          "帳號與存取控制",
+          "連續字元序列可使用個數",
+          "這項原則設定決定使用者帳號之通行碼最多可包含幾個連續字元序列\n若使用PAM模組管理通行碼，pam_pwquality.so會檢驗通行碼長度、使用字元及複雜度等規則，使用高強度通行碼可降低系統遭字典攻擊或暴力破解風險\nmaxsequence=3：表示通行碼最多允許3個連續字元序列",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxsequence=3",
+          "3以下，但須大於0"
+        ],
+        [
+          "27",
+          "TWGCB-01-012-0311",
+          "帳號與存取控制",
+          "連續字元序列可使用個數",
+          "這項原則設定決定使用者帳號之通行碼最多可包含幾個連續字元序列\n若使用PAM模組管理通行碼，pam_pwquality.so會檢驗通行碼長度、使用字元及複雜度等規則，使用高強度通行碼可降低系統遭字典攻擊或暴力破解風險\nmaxsequence=3：表示通行碼最多允許3個連續字元序列",
+          "編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容：\nmaxsequence=3",
+          "3以下，但須大於0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900311",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0312",
+      "sca_id": 900312,
+      "source_sheet": "基本項目",
+      "source_row": 272,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "268",
+        "TWGCB-01-012-0312",
+        "帳號與存取控制",
+        "啟用without-nullok",
+        "這項原則設定決定是否啟用without-nullok\n應避免使用空密碼，並強制使用強密碼以保護敏感資訊。啟用without-nullok可禁止空密碼登入，防止未經授權存取並提高系統安全性",
+        "開啟終端機，執行以下指令，啟用without-nullok：\n#authselect enable-feature without-nullok",
+        "啟用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "268",
+          "TWGCB-01-012-0312",
+          "帳號與存取控制",
+          "啟用without-nullok",
+          "這項原則設定決定是否啟用without-nullok\n應避免使用空密碼，並強制使用強密碼以保護敏感資訊。啟用without-nullok可禁止空密碼登入，防止未經授權存取並提高系統安全性",
+          "開啟終端機，執行以下指令，啟用without-nullok：\n#authselect enable-feature without-nullok",
+          "啟用"
+        ],
+        [
+          "28",
+          "TWGCB-01-012-0312",
+          "帳號與存取控制",
+          "啟用without-nullok",
+          "這項原則設定決定是否啟用without-nullok\n應避免使用空密碼，並強制使用強密碼以保護敏感資訊。啟用without-nullok可禁止空密碼登入，防止未經授權存取並提高系統安全性",
+          "開啟終端機，執行以下指令，啟用without-nullok：\n#authselect enable-feature without-nullok",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "檢查渲染堆疊 pam_unix 無 nullok；authselect feature 狀態及 apply-changes 待真機。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900312",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "檢查渲染堆疊 pam_unix 無 nullok；authselect feature 狀態及 apply-changes 待真機。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0313",
+      "sca_id": 900313,
+      "source_sheet": "基本項目",
+      "source_row": 273,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "269",
+        "TWGCB-01-012-0313",
+        "帳號與存取控制",
+        "啟用pam_pwquality",
+        "這項原則設定決定是否啟用pam_pwquality模組\npam_pwquality模組用於密碼強度檢查，依據字典與預設規則評估密碼安全性，確保密碼不易遭破解",
+        "開啟終端機，執行以下指令，檢查是否有pam_pwquality.so：\ngrep -P -- '\\bpam_pwquality\\.so\\b' /etc/pam.d/{password,system}-auth\n若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容：\npassword requisite pam_pwquality.so local_users_only",
+        "啟用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "269",
+          "TWGCB-01-012-0313",
+          "帳號與存取控制",
+          "啟用pam_pwquality",
+          "這項原則設定決定是否啟用pam_pwquality模組\npam_pwquality模組用於密碼強度檢查，依據字典與預設規則評估密碼安全性，確保密碼不易遭破解",
+          "開啟終端機，執行以下指令，檢查是否有pam_pwquality.so：\ngrep -P -- '\\bpam_pwquality\\.so\\b' /etc/pam.d/{password,system}-auth\n若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容：\npassword requisite pam_pwquality.so local_users_only",
+          "啟用"
+        ],
+        [
+          "29",
+          "TWGCB-01-012-0313",
+          "帳號與存取控制",
+          "啟用pam_pwquality",
+          "這項原則設定決定是否啟用pam_pwquality模組\npam_pwquality模組用於密碼強度檢查，依據字典與預設規則評估密碼安全性，確保密碼不易遭破解",
+          "開啟終端機，執行以下指令，檢查是否有pam_pwquality.so：\ngrep -P -- '\\bpam_pwquality\\.so\\b' /etc/pam.d/{password,system}-auth\n若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容：\npassword requisite pam_pwquality.so local_users_only",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900313",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0314",
+      "sca_id": 900314,
+      "source_sheet": "基本項目",
+      "source_row": 274,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "270",
+        "TWGCB-01-012-0314",
+        "帳號與存取控制",
+        "啟用pam_unix",
+        "這項原則設定決定是否啟用pam_unix模組\npam_unix模組為UNIX認證模組，負責透過/etc/passwd與/etc/shadow檔案進行本機帳號認證與管理",
+        "開啟終端機，執行以下指令，檢查是否有pam_unix.so：\ngrep -P -- '\\bpam_unix\\.so\\b' /etc/pam.d/{password,system}-auth\n若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容：\nauth sufficient pam_unix.so\naccount required pam_unix.so\npassword sufficient pam_unix.so sha512 shadow use_authtok\nsession required pam_unix.so",
+        "啟用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "270",
+          "TWGCB-01-012-0314",
+          "帳號與存取控制",
+          "啟用pam_unix",
+          "這項原則設定決定是否啟用pam_unix模組\npam_unix模組為UNIX認證模組，負責透過/etc/passwd與/etc/shadow檔案進行本機帳號認證與管理",
+          "開啟終端機，執行以下指令，檢查是否有pam_unix.so：\ngrep -P -- '\\bpam_unix\\.so\\b' /etc/pam.d/{password,system}-auth\n若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容：\nauth sufficient pam_unix.so\naccount required pam_unix.so\npassword sufficient pam_unix.so sha512 shadow use_authtok\nsession required pam_unix.so",
+          "啟用"
+        ],
+        [
+          "30",
+          "TWGCB-01-012-0314",
+          "帳號與存取控制",
+          "啟用pam_unix",
+          "這項原則設定決定是否啟用pam_unix模組\npam_unix模組為UNIX認證模組，負責透過/etc/passwd與/etc/shadow檔案進行本機帳號認證與管理",
+          "開啟終端機，執行以下指令，檢查是否有pam_unix.so：\ngrep -P -- '\\bpam_unix\\.so\\b' /etc/pam.d/{password,system}-auth\n若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容：\nauth sufficient pam_unix.so\naccount required pam_unix.so\npassword sufficient pam_unix.so sha512 shadow use_authtok\nsession required pam_unix.so",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B6 direct Python argv source predicates",
+      "caveats": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "tests": [
+        "tests/test_p2b6.py#900314",
+        "tests/test_p2b6.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B6-ENGINE",
+        "B6-SCOPE"
+      ],
+      "family": "P2B6 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
     },
     {
       "gcb_id": "TWGCB-01-012-0242",
