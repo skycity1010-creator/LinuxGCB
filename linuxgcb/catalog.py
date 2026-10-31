@@ -5,6 +5,7 @@ from pathlib import Path
 from scripts.inventory import extract
 from .batch1 import ADDED
 from .quality import status
+from .batch3 import ADDED as BATCH3
 from .batch2 import ADDED as BATCH2
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +15,7 @@ IMPLEMENTED = {45: 'base', 46: 'base', 108: 'base', 243: 'firewalld',
                245: 'firewalld', 269: 'sshd', 270: 'sshd'}
 IMPLEMENTED.update({n: ('sshd' if n in (256,257) else 'firewalld' if n==242 else 'base') for n in ADDED})
 IMPLEMENTED.update({n: ('sshd' if n >= 254 else 'base') for n in BATCH2})
+IMPLEMENTED.update({n: 'base' for n in BATCH3})
 PARTIAL = {141: '僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋',
            108: '僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審',
            269: '僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審',

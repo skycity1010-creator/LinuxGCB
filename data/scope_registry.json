@@ -2255,15 +2255,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900092,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0093",
@@ -2278,15 +2285,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900093,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0094",
@@ -2332,15 +2346,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900095,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0096",
@@ -2355,15 +2376,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900096,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。來源允許 v3；自動候選限明確 rouser priv，禁 v1/v2 access/include；SHA/AES 金鑰建立與實際協商仍須人工證據，不讀取或輸出私密使用者金鑰。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0097",
@@ -2440,15 +2468,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900099,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0100",
@@ -2463,15 +2498,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900100,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0101",
@@ -3314,15 +3356,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900134,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0135",
@@ -3337,15 +3386,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900135,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0136",
@@ -3360,15 +3416,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900136,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0137",
@@ -3383,15 +3446,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900137,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0138",
@@ -3406,15 +3476,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900138,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0139",
@@ -3429,15 +3506,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900139,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0140",
@@ -3452,15 +3536,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900140,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0141",
@@ -3539,15 +3630,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900143,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0144",
@@ -3562,15 +3660,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900144,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0145",
@@ -3585,15 +3690,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900145,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐工具要求來源完整屬性序列；AIDE macro/Include 與資料庫初始化待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0146",
@@ -3608,15 +3720,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900146,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0147",
@@ -3631,15 +3750,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900147,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0148",
@@ -3654,15 +3780,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900148,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0149",
@@ -3677,15 +3810,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900149,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0150",
@@ -3700,15 +3840,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900150,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0151",
@@ -3723,15 +3870,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900151,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0152",
@@ -3746,15 +3900,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900152,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0153",
@@ -3769,15 +3930,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900153,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0154",
@@ -3792,15 +3960,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900154,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0155",
@@ -3815,15 +3990,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900155,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0156",
@@ -3838,15 +4020,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900156,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0157",
@@ -3861,15 +4050,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900157,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0158",
@@ -3884,15 +4080,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900158,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "列舉 mountinfo 實體檔案系統（排除 proc/sysfs 等虛擬介面），每掛載點 xdev 查所有 regular setuid/setgid；空集合為全稱真但 privileged.rules 仍須可讀。大型/網路檔案系統成本與競態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0159",
@@ -3907,15 +4110,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900159,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。來源 renameat-S 排版錯誤解讀為 renameat -S，保留五個 syscall，待人工核准。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0160",
@@ -3930,15 +4140,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900160,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0161",
@@ -3953,15 +4170,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900161,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只辨識 /etc/sudoers 與 sudoers.d 的明確 Defaults logfile；不假定 /var/log/sudo.log；條件 Defaults、外部 include 與覆寫完整語意待人工審查。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0162",
@@ -3976,15 +4200,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900162,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0163",
@@ -3999,15 +4230,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900163,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0164",
@@ -4022,15 +4260,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900164,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0165",
@@ -4045,15 +4290,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900165,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0166",
@@ -4068,15 +4320,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900166,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0167",
@@ -4091,15 +4350,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900167,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0168",
@@ -4114,15 +4380,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900168,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0169",
@@ -4137,15 +4410,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900169,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0170",
@@ -4160,15 +4440,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900170,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0171",
@@ -4183,15 +4470,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900171,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0172",
@@ -4206,15 +4500,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900172,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0173",
@@ -4229,15 +4530,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900173,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 -e 2--loginuid-immutable 排版解讀為兩條指令；自然數字排序規則檔，最後 -e 必須為 2 且最後有效行為鎖定指令；核心狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0174",
@@ -4311,15 +4619,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900176,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "保守要求所有明確 $FileCreateMode 與 action fileCreateMode 均不超過 0640；未設定不假定預設合格；複雜模板/include 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0177",
@@ -4334,15 +4649,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900177,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "接受來源逗號與分號 selector，舊式 secure 路徑與新式 omfile action；複雜多行 action/模板/ruleset 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0178",
@@ -4420,15 +4742,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900181,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0182",
@@ -4443,15 +4772,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900182,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0183",
@@ -6542,15 +6878,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900308,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 /etc/logrotate.d/rsyslog 指定路徑、weekly/rotate 4/compress/missingok/notifempty/postrotate 及目錄 <=0750；不是任意 rsyslog 字樣即合格；複雜多 stanza、實際輪替待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B3-ENGINE",
+      "B3-SCOPE"
+    ],
+    "family": "P2B3 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0309",

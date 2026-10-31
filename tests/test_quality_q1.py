@@ -7,6 +7,7 @@ import unittest
 from datetime import datetime, timezone
 from pathlib import Path
 from linuxgcb.catalog import ROOT, registry
+from linuxgcb.batch3 import ADDED as BATCH3
 from linuxgcb.batch2 import ADDED as BATCH2
 from linuxgcb.policy import simulate, definitions
 from linuxgcb.report import normalize, metrics, render
@@ -19,7 +20,10 @@ class QualityQ1Tests(unittest.TestCase):
                     rules=[a+' -> r:'+b for a,b in definitions()[n]])
 
     def snapshot(self):
-        return json.loads((ROOT/'tests/fixtures/snapshot.json').read_text())
+        snapshot=json.loads((ROOT/'tests/fixtures/snapshot.json').read_text())
+        # Test-only hash binding; historical observations remain unchanged on disk.
+        snapshot['policy_hashes']=json.loads((ROOT/'data/policy_hashes.json').read_text())
+        return snapshot
 
     def test_reject_unsupported_conditions_even_when_matching(self):
         for condition in ('any','none','ALL',''):
@@ -73,7 +77,7 @@ class QualityQ1Tests(unittest.TestCase):
     def test_review_reconciles_exact_existing_ids(self):
         rows=[r for r in registry() if r['implementation']=='candidate']
         self.assertEqual({r['sca_id'] for r in rows},{900000+n for n in definitions()})
-        rows=[r for r in rows if r['sca_id']-900000 not in BATCH2]
+        rows=[r for r in rows if r['sca_id']-900000 not in BATCH2 | BATCH3]
         self.assertEqual(len(rows),53)
         self.assertTrue(all(r['execution_review']=='blocked' for r in rows))
         self.assertTrue(all('Q1-01' in r['issue_ids'] for r in rows))

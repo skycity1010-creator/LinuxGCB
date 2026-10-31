@@ -8,6 +8,10 @@ UNKNOWN = '待確認（來源未提供單一基準值）'
 
 
 def source_expected(row):
+    from .batch3 import expected as batch3_expected
+    specific = batch3_expected(row)
+    if specific is not None:
+        return specific
     from .batch2 import expected as batch2_expected
     specific = batch2_expected(row)
     if specific is not None:

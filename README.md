@@ -1,3 +1,20 @@
+# LinuxGCB P2B3：日誌與稽核／系統服務（離線）
+
+新增 **49 項（97→146）**：日誌與稽核 43、系統服務 6。既有 97 個完整 checks 不變；來源 314、scope 307／排除 7 不變。所有新增候選均為 human_review_pending、execution_review=blocked、UNVALIDATED。
+
+逐條機轉與限制見 [P2B3 審查](docs/P2B3_REVIEW.md)，驗證見 [測試輸出](docs/P2B3_TEST_OUTPUT.txt)。新增解析命令需要端點 `/usr/bin/python3`，不安裝 helper；仍待 RHEL9／Wazuh 真機驗證。
+
+```bash
+python3 -m scripts.p2b3_fixtures
+python3 -m scripts.p2b3_review
+python3 -m linuxgcb build
+python3 -m linuxgcb validate
+mkdir -p out/p2b3-tmp
+TMPDIR="$PWD/out/p2b3-tmp" python3 -m unittest discover -s tests -v
+```
+
+以下為歷史批次說明。
+
 # LinuxGCB P2-BATCH2：四類剩餘候選擴充
 
 本批依 registry 實際剩餘數新增 **44 項（53→97）**：SSH 28、cron 4、SELinux 6、安裝與維護軟體 6。原 53 個 emitted checks 完整內容不變，307/7 scope、來源及 R2/R3 保留。政策仍為 UNVALIDATED；詳見 [逐條審查與來源 cells](docs/BATCH2_REVIEW.md) 及 [離線測試結果](docs/BATCH2_TEST_OUTPUT.txt)。

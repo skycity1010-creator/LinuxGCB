@@ -14,6 +14,8 @@ NOW=datetime(2026,10,30,tzinfo=timezone.utc)
 class ReportTests(unittest.TestCase):
     def setUp(self):
         self.fixture=json.loads((ROOT/'tests/fixtures/snapshot.json').read_text())
+        # Test-only rebind to the expanded policy; preserve historical fixture bytes.
+        self.fixture['policy_hashes']=json.loads((ROOT/'data/policy_hashes.json').read_text())
     def rows(self):return normalize(self.fixture,NOW)
     def test_full_inventory_status_and_denominators(self):
         rows=self.rows();by={r['sca_id']:r for r in rows};m=metrics(rows)

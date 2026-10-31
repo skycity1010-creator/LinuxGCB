@@ -6,6 +6,7 @@ import unittest
 from datetime import datetime, timezone
 from pathlib import Path
 from linuxgcb.catalog import ROOT
+from linuxgcb.batch3 import ADDED as BATCH3
 from linuxgcb.batch2 import ADDED as BATCH2
 from linuxgcb.expected import UNKNOWN, parse_description, source_expected
 from linuxgcb.report import normalize, render
@@ -16,7 +17,7 @@ class ExpectedTests(unittest.TestCase):
     def test_all_53_source_values_and_q1_preserved(self):
         source = {r['gcb_id']: r for r in json.loads((ROOT/'data/controls.json').read_text())}
         checks = [c for p in (ROOT/'policies').glob('*.yml') for c in json.loads(p.read_text())['checks']]
-        checks = [c for c in checks if c['id']-900000 not in BATCH2]
+        checks = [c for c in checks if c['id']-900000 not in BATCH2 | BATCH3]
         self.assertEqual(len(checks), 53)
         for c in checks:
             gid = c['compliance'][0]['twgcb'][0]

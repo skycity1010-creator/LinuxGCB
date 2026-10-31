@@ -6,15 +6,18 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
-    "added": 90,
+    "added": 139,
+    "batch3_added": 49,
+    "batch3_before": 97,
+    "batch3_after": 146,
     "batch2_added": 44,
-    "implemented": 97,
-    "remaining": 210,
+    "implemented": 146,
+    "remaining": 161,
     "full": 0,
-    "partial": 92,
+    "partial": 141,
     "blocked": 5,
-    "reviewed": 97,
-    "execution_blocked": 97,
+    "reviewed": 146,
+    "execution_blocked": 146,
     "live_validated": 0
   },
   "reviewed": [
@@ -1033,6 +1036,119 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0092",
+      "sca_id": 900092,
+      "source_sheet": "基本項目",
+      "source_row": 96,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "92",
+        "TWGCB-01-012-0092",
+        "系統服務",
+        "xinetd套件",
+        "這項原則設定決定是否移除xinetd套件\nxinetd(Extended Internet daemon)套件取代原有之inetd守護程序，負責管理網路相關服務\nxinetd監聽來自網路之請求，進而啟動相應服務，可以用來啟動使用特權埠與非特權埠之服務\n移除xinetd套件可減少系統被攻擊面",
+        "開啟終端機，執行以下指令移除xinetd套件：\n#dnf remove xinetd",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "92",
+          "TWGCB-01-012-0092",
+          "系統服務",
+          "xinetd套件",
+          "這項原則設定決定是否移除xinetd套件\nxinetd(Extended Internet daemon)套件取代原有之inetd守護程序，負責管理網路相關服務\nxinetd監聽來自網路之請求，進而啟動相應服務，可以用來啟動使用特權埠與非特權埠之服務\n移除xinetd套件可減少系統被攻擊面",
+          "開啟終端機，執行以下指令移除xinetd套件：\n#dnf remove xinetd",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "定向 rpm -q 三態",
+      "caveats": "僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900092",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "rpm_other_error"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0093",
+      "sca_id": 900093,
+      "source_sheet": "基本項目",
+      "source_row": 97,
+      "expected": "設定1個以上校時來源",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "93",
+        "TWGCB-01-012-0093",
+        "系統服務",
+        "chrony校時設定",
+        "這項原則設定決定是否設定chrony守護程序之校時來源\nchrony是一個守護程序，藉由實作網路時間協定(NTP)，以於各系統之間同步系統時間，並可使用高準確之校時來源\n設定chrony校時來源，以確保系統時間正確",
+        "編輯/etc/chrony.conf檔案，新增或修改NTP伺服器設定，範例如下：\nserver (NTP伺服器名稱)\n或\npool (NTP池名稱)",
+        "設定1個以上校時來源"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "93",
+          "TWGCB-01-012-0093",
+          "系統服務",
+          "chrony校時設定",
+          "這項原則設定決定是否設定chrony守護程序之校時來源\nchrony是一個守護程序，藉由實作網路時間協定(NTP)，以於各系統之間同步系統時間，並可使用高準確之校時來源\n設定chrony校時來源，以確保系統時間正確",
+          "編輯/etc/chrony.conf檔案，新增或修改NTP伺服器設定，範例如下：\nserver (NTP伺服器名稱)\n或\npool (NTP池名稱)",
+          "設定1個以上校時來源"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "chrony 有效 server/pool",
+      "caveats": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900093",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0094",
       "sca_id": 900094,
       "source_sheet": "基本項目",
@@ -1087,6 +1203,119 @@
       "family": "systemd 服務",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0095",
+      "sca_id": 900095,
+      "source_sheet": "基本項目",
+      "source_row": 99,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "95",
+        "TWGCB-01-012-0095",
+        "系統服務",
+        "avahi-daemon服務",
+        "這項原則設定決定是否啟用avahi-daemon服務，以運行Avahi伺服器\nAvahi實作零配置網路服務規範(zeroconf)，使用者無需進行手動設定，系統即可自動連線區域網路中之各種網路裝置與服務(如印表機、DNS)\n停用avahi-daemon服務可減少系統被攻擊面",
+        "開啟終端機，執行以下指令停用avahi-daemon服務：\n#systemctl --now mask avahi-daemon.service\n#systemctl --now mask avahi-daemon.socket",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "95",
+          "TWGCB-01-012-0095",
+          "系統服務",
+          "avahi-daemon服務",
+          "這項原則設定決定是否啟用avahi-daemon服務，以運行Avahi伺服器\nAvahi實作零配置網路服務規範(zeroconf)，使用者無需進行手動設定，系統即可自動連線區域網路中之各種網路裝置與服務(如印表機、DNS)\n停用avahi-daemon服務可減少系統被攻擊面",
+          "開啟終端機，執行以下指令停用avahi-daemon服務：\n#systemctl --now mask avahi-daemon.service\n#systemctl --now mask avahi-daemon.socket",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "FIX-1 systemctl service/socket 停用",
+      "caveats": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900095",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0096",
+      "sca_id": 900096,
+      "source_sheet": "基本項目",
+      "source_row": 100,
+      "expected": "停用SNMP服務或僅啟用SNMPv3功能",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "96",
+        "TWGCB-01-012-0096",
+        "系統服務",
+        "SNMP服務",
+        "這項原則設定決定是否啟用SNMP服務\nSNMP(Simple Network Management Protocol，簡單網路管理協定)服務用於監聽來自SNMP管理系統之SNMP命令，執行命令或蒐集資訊，然後將結果送回請求系統\nSNMP伺服器可以使用SNMPv1與SNMPv2進行通訊，因SNMPv1與SNMPv2使用不安全之明文傳輸設計，停用SNMP服務可減少系統被攻擊面",
+        "執行以下任一操作設定SNMP服務：\n停用SNMP服務\n開啟終端機，執行以下指令停用SNMP服務：\n#systemctl --now mask snmpd\n僅啟用SNMPv3功能\n使用「net-snmp-create-v3-user」工具設定啟用SNMPv3功能之範例如下：\n開啟終端機，執行以下指令停止SNMP服務：\n#systemctl stop snmpd\n執行以下指令設定SNMPv3並建立SNMPv3使用者，設定為僅允許讀取、身分鑑別使用SHA及傳輸加密使用AES：\n#net-snmp-create-v3-user -ro -A (使用者通行碼) -a SHA -X (傳輸加密用金鑰) -x AES (使用者名稱)\n執行以下指令編輯/etc/snmp/snmpd.conf檔案：\n#vim /etc/snmp/snmpd.conf\n將包含com2sec、group、view及access參數之行內容註解(新增#符號於行首)，以停用SNMPv1與SNMPv2，範例如下：\n#com2sec notConfigUser  default       public\n#group   notConfigGroup v1           notConfigUser\n#group   notConfigGroup v2c          notConfigUser\n#view    systemview    included   .1.3.6.1.2.1.1\n#view    systemview    included   .1.3.6.1.2.1.25.1.1\n#access  notConfigGroup  \"\"      any       noauth    exact  systemview none none\n執行以下指令重新啟動SNMP服務，令設定生效僅啟用SNMPv3：\n#systemctl start snmpd",
+        "停用SNMP服務或僅啟用SNMPv3功能"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "96",
+          "TWGCB-01-012-0096",
+          "系統服務",
+          "SNMP服務",
+          "這項原則設定決定是否啟用SNMP服務\nSNMP(Simple Network Management Protocol，簡單網路管理協定)服務用於監聽來自SNMP管理系統之SNMP命令，執行命令或蒐集資訊，然後將結果送回請求系統\nSNMP伺服器可以使用SNMPv1與SNMPv2進行通訊，因SNMPv1與SNMPv2使用不安全之明文傳輸設計，停用SNMP服務可減少系統被攻擊面",
+          "執行以下任一操作設定SNMP服務：\n停用SNMP服務\n開啟終端機，執行以下指令停用SNMP服務：\n#systemctl --now mask snmpd\n僅啟用SNMPv3功能\n使用「net-snmp-create-v3-user」工具設定啟用SNMPv3功能之範例如下：\n開啟終端機，執行以下指令停止SNMP服務：\n#systemctl stop snmpd\n執行以下指令設定SNMPv3並建立SNMPv3使用者，設定為僅允許讀取、身分鑑別使用SHA及傳輸加密使用AES：\n#net-snmp-create-v3-user -ro -A (使用者通行碼) -a SHA -X (傳輸加密用金鑰) -x AES (使用者名稱)\n執行以下指令編輯/etc/snmp/snmpd.conf檔案：\n#vim /etc/snmp/snmpd.conf\n將包含com2sec、group、view及access參數之行內容註解(新增#符號於行首)，以停用SNMPv1與SNMPv2，範例如下：\n#com2sec notConfigUser  default       public\n#group   notConfigGroup v1           notConfigUser\n#group   notConfigGroup v2c          notConfigUser\n#view    systemview    included   .1.3.6.1.2.1.1\n#view    systemview    included   .1.3.6.1.2.1.25.1.1\n#access  notConfigGroup  \"\"      any       noauth    exact  systemview none none\n執行以下指令重新啟動SNMP服務，令設定生效僅啟用SNMPv3：\n#systemctl start snmpd",
+          "停用SNMP服務或僅啟用SNMPv3功能"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "定向 RPM 三態／停用服務／明確 authPriv SNMPv3 子集",
+      "caveats": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。來源允許 v3；自動候選限明確 rouser priv，禁 v1/v2 access/include；SHA/AES 金鑰建立與實際協商仍須人工證據，不讀取或輸出私密使用者金鑰。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900096",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "rpm_other_error"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。來源允許 v3；自動候選限明確 rouser priv，禁 v1/v2 access/include；SHA/AES 金鑰建立與實際協商仍須人工證據，不讀取或輸出私密使用者金鑰。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0097",
@@ -1199,6 +1428,120 @@
       "family": "systemd 服務",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0099",
+      "sca_id": 900099,
+      "source_sheet": "基本項目",
+      "source_row": 103,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "99",
+        "TWGCB-01-012-0099",
+        "系統服務",
+        "FTP伺服器",
+        "這項原則設定決定是否啟用FTP伺服器服務\nFTP(File Transfer Protocol，檔案傳輸協定)可透過網路連接在兩台電腦之間傳輸檔案，因使用明文傳輸方式，故有資料洩露風險\n停用FTP伺服器服務可減少系統被攻擊面\n如有FTP使用需求，建議改採SFTP，以保護資料傳輸安全",
+        "開啟終端機，執行以下指令停用FTP伺服器服務(vsftpd)：\n#systemctl --now mask vsftpd",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "99",
+          "TWGCB-01-012-0099",
+          "系統服務",
+          "FTP伺服器",
+          "這項原則設定決定是否啟用FTP伺服器服務\nFTP(File Transfer Protocol，檔案傳輸協定)可透過網路連接在兩台電腦之間傳輸檔案，因使用明文傳輸方式，故有資料洩露風險\n停用FTP伺服器服務可減少系統被攻擊面\n如有FTP使用需求，建議改採SFTP，以保護資料傳輸安全",
+          "開啟終端機，執行以下指令停用FTP伺服器服務(vsftpd)：\n#systemctl --now mask vsftpd",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "定向 RPM 三態＋FIX-1 停用 vsftpd",
+      "caveats": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900099",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "rpm_other_error"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0100",
+      "sca_id": 900100,
+      "source_sheet": "基本項目",
+      "source_row": 104,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "100",
+        "TWGCB-01-012-0100",
+        "系統服務",
+        "NIS伺服器",
+        "這項原則設定決定是否啟用NIS伺服器服務\nNIS(Network Information System，網路資訊服務)可提供帳號、通行碼、主機名稱或群組等資訊進行登入鑑別，NIS使用較不嚴謹之身分鑑別機制，易受到服務阻斷攻擊\n停用NIS伺服器服務可減少系統被攻擊面",
+        "開啟終端機，執行以下指令停用NIS伺服器服務(ypserv)：\n#systemctl --now mask ypserv",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "100",
+          "TWGCB-01-012-0100",
+          "系統服務",
+          "NIS伺服器",
+          "這項原則設定決定是否啟用NIS伺服器服務\nNIS(Network Information System，網路資訊服務)可提供帳號、通行碼、主機名稱或群組等資訊進行登入鑑別，NIS使用較不嚴謹之身分鑑別機制，易受到服務阻斷攻擊\n停用NIS伺服器服務可減少系統被攻擊面",
+          "開啟終端機，執行以下指令停用NIS伺服器服務(ypserv)：\n#systemctl --now mask ypserv",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "定向 RPM 三態＋FIX-1 停用 ypserv",
+      "caveats": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900100",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "rpm_other_error"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0101",
@@ -1756,6 +2099,398 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0134",
+      "sca_id": 900134,
+      "source_sheet": "基本項目",
+      "source_row": 138,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "134",
+        "TWGCB-01-012-0134",
+        "日誌與稽核",
+        "稽核auditd服務啟動前之程序",
+        "這項原則設定決定是否針對auditd服務啟動前之程序(Process)進行稽核\n記錄auditd服務啟動前之程序(Process)所產生之事件，有助於發現潛在惡意行為",
+        "編輯/etc/default/grub檔案，在GRUB_CMDLINE_LINUX參數設定加入「audit=1」，範例如下：\nGRUB_CMDLINE_LINUX=\"audit=1\"\n開啟終端機，執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "134",
+          "TWGCB-01-012-0134",
+          "日誌與稽核",
+          "稽核auditd服務啟動前之程序",
+          "這項原則設定決定是否針對auditd服務啟動前之程序(Process)進行稽核\n記錄auditd服務啟動前之程序(Process)所產生之事件，有助於發現潛在惡意行為",
+          "編輯/etc/default/grub檔案，在GRUB_CMDLINE_LINUX參數設定加入「audit=1」，範例如下：\nGRUB_CMDLINE_LINUX=\"audit=1\"\n開啟終端機，執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "GRUB audit 開機參數",
+      "caveats": "僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900134",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0135",
+      "sca_id": 900135,
+      "source_sheet": "基本項目",
+      "source_row": 139,
+      "expected": "8,192以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "135",
+        "TWGCB-01-012-0135",
+        "日誌與稽核",
+        "稽核待辦事項數量限制",
+        "這項原則設定決定是否設定稽核待辦事項數量限制\n稽核待辦事項數量限制(audit_backlog_limit)為設定開機過程中所建立稽核紀錄之保留數量限制，預設值為64\n設定audit_backlog_limit為8,192以上，以完整保留開機過程中所建立稽核紀錄，避免因稽核紀錄遺失導致無法發現潛在惡意行為",
+        "編輯/etc/default/grub檔案，在GRUB_CMDLINE_LINUX參數設定加入「audit_backlog_limit=(BACKLOG SIZE)」，將BACKLOG SIZE設定為8,192以上，範例如下：\nGRUB_CMDLINE_LINUX=\"audit_backlog_limit=8192\"\n開啟終端機，執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
+        "8,192以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "135",
+          "TWGCB-01-012-0135",
+          "日誌與稽核",
+          "稽核待辦事項數量限制",
+          "這項原則設定決定是否設定稽核待辦事項數量限制\n稽核待辦事項數量限制(audit_backlog_limit)為設定開機過程中所建立稽核紀錄之保留數量限制，預設值為64\n設定audit_backlog_limit為8,192以上，以完整保留開機過程中所建立稽核紀錄，避免因稽核紀錄遺失導致無法發現潛在惡意行為",
+          "編輯/etc/default/grub檔案，在GRUB_CMDLINE_LINUX參數設定加入「audit_backlog_limit=(BACKLOG SIZE)」，將BACKLOG SIZE設定為8,192以上，範例如下：\nGRUB_CMDLINE_LINUX=\"audit_backlog_limit=8192\"\n開啟終端機，執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
+          "8,192以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "GRUB backlog 數值下界",
+      "caveats": "僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900135",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0136",
+      "sca_id": 900136,
+      "source_sheet": "基本項目",
+      "source_row": 140,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "136",
+        "TWGCB-01-012-0136",
+        "日誌與稽核",
+        "稽核處理失敗時通知系統管理者",
+        "這項原則設定決定稽核處理失敗時是否通知系統管理者\n對於系統管理者而言，了解系統是否依設定處理稽核日誌至關重要，稽核處理失敗原因包含軟體或硬體出錯，以及稽核日誌儲存磁碟空間異常等情況\n啟用此通知讓系統管理者得知系統稽核功能異常並儘速處理，避免因稽核功能異常導致無法發現潛在惡意行為",
+        "編輯/etc/aliases檔案，新增或修改成以下內容，設定在稽核失敗時通知系統管理者：\npostmaster: root",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "136",
+          "TWGCB-01-012-0136",
+          "日誌與稽核",
+          "稽核處理失敗時通知系統管理者",
+          "這項原則設定決定稽核處理失敗時是否通知系統管理者\n對於系統管理者而言，了解系統是否依設定處理稽核日誌至關重要，稽核處理失敗原因包含軟體或硬體出錯，以及稽核日誌儲存磁碟空間異常等情況\n啟用此通知讓系統管理者得知系統稽核功能異常並儘速處理，避免因稽核功能異常導致無法發現潛在惡意行為",
+          "編輯/etc/aliases檔案，新增或修改成以下內容，設定在稽核失敗時通知系統管理者：\npostmaster: root",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "aliases postmaster root",
+      "caveats": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900136",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0137",
+      "sca_id": 900137,
+      "source_sheet": "基本項目",
+      "source_row": 141,
+      "expected": "root:root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "137",
+        "TWGCB-01-012-0137",
+        "日誌與稽核",
+        "稽核日誌檔案所有權",
+        "這項原則設定決定是否設定稽核日誌檔案之所有權\n稽核日誌檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌檔案所有權，避免因未經授權存取而洩露稽核記錄，讓攻擊者取得系統與組態設定等機敏資訊",
+        "開啟終端機，執行以下指令，尋找稽核日誌檔案：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌檔案擁有者與群組：\n#chown root:root (稽核日誌檔案名稱)\n設定稽核日誌檔案「/var/log/audit/audit.log」之指令範例如下：\n#chown root:root /var/log/audit/audit.log",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "137",
+          "TWGCB-01-012-0137",
+          "日誌與稽核",
+          "稽核日誌檔案所有權",
+          "這項原則設定決定是否設定稽核日誌檔案之所有權\n稽核日誌檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌檔案所有權，避免因未經授權存取而洩露稽核記錄，讓攻擊者取得系統與組態設定等機敏資訊",
+          "開啟終端機，執行以下指令，尋找稽核日誌檔案：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌檔案擁有者與群組：\n#chown root:root (稽核日誌檔案名稱)\n設定稽核日誌檔案「/var/log/audit/audit.log」之指令範例如下：\n#chown root:root /var/log/audit/audit.log",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "有效 log_file 檔案 owner",
+      "caveats": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900137",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0138",
+      "sca_id": 900138,
+      "source_sheet": "基本項目",
+      "source_row": 142,
+      "expected": "600或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "138",
+        "TWGCB-01-012-0138",
+        "日誌與稽核",
+        "稽核日誌檔案權限",
+        "這項原則設定決定是否設定稽核日誌檔案之權限\n稽核日誌檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌檔案權限，避免因未經授權存取而洩露稽核記錄，讓攻擊者取得系統與組態設定等機敏資訊",
+        "開啟終端機，執行以下指令，尋找稽核日誌檔案：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌檔案權限為600或更低權限：\n#chmod 600 (稽核日誌檔案名稱)\n設定稽核日誌檔案「/var/log/audit/audit.log」之指令範例如下：\n#chmod 600 /var/log/audit/audit.log",
+        "600或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "138",
+          "TWGCB-01-012-0138",
+          "日誌與稽核",
+          "稽核日誌檔案權限",
+          "這項原則設定決定是否設定稽核日誌檔案之權限\n稽核日誌檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌檔案權限，避免因未經授權存取而洩露稽核記錄，讓攻擊者取得系統與組態設定等機敏資訊",
+          "開啟終端機，執行以下指令，尋找稽核日誌檔案：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌檔案權限為600或更低權限：\n#chmod 600 (稽核日誌檔案名稱)\n設定稽核日誌檔案「/var/log/audit/audit.log」之指令範例如下：\n#chmod 600 /var/log/audit/audit.log",
+          "600或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "有效 log_file 檔案 mode 位元遮罩",
+      "caveats": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900138",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0139",
+      "sca_id": 900139,
+      "source_sheet": "基本項目",
+      "source_row": 143,
+      "expected": "root:root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "139",
+        "TWGCB-01-012-0139",
+        "日誌與稽核",
+        "稽核日誌目錄所有權",
+        "這項原則設定決定是否設定稽核日誌目錄所有權\n稽核日誌目錄存有稽核日誌檔案，該檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌目錄所有權，避免因未經授權存取而洩露稽核紀錄，遭攻擊者取得系統與組態設定等機敏資訊",
+        "開啟終端機，執行以下指令，尋找稽核日誌目錄：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌目錄擁有者與群組：\n#chown root:root (稽核日誌目錄名稱)\n設定稽核日誌目錄「/var/log/audit」之指令範例如下：\n#chown root:root /var/log/audit",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "139",
+          "TWGCB-01-012-0139",
+          "日誌與稽核",
+          "稽核日誌目錄所有權",
+          "這項原則設定決定是否設定稽核日誌目錄所有權\n稽核日誌目錄存有稽核日誌檔案，該檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌目錄所有權，避免因未經授權存取而洩露稽核紀錄，遭攻擊者取得系統與組態設定等機敏資訊",
+          "開啟終端機，執行以下指令，尋找稽核日誌目錄：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌目錄擁有者與群組：\n#chown root:root (稽核日誌目錄名稱)\n設定稽核日誌目錄「/var/log/audit」之指令範例如下：\n#chown root:root /var/log/audit",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "有效 log_file 目錄 owner/type",
+      "caveats": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900139",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0140",
+      "sca_id": 900140,
+      "source_sheet": "基本項目",
+      "source_row": 144,
+      "expected": "700或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "140",
+        "TWGCB-01-012-0140",
+        "日誌與稽核",
+        "稽核日誌目錄權限",
+        "這項原則設定決定是否設定稽核日誌目錄之權限\n稽核日誌目錄存有稽核日誌檔案，該檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌目錄權限，避免因未經授權存取而洩露稽核紀錄，遭攻擊者取得系統與組態設定等機敏資訊",
+        "開啟終端機，執行以下指令，尋找稽核日誌目錄：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌目錄權限為700或更低權限：\n#chmod 700 (稽核日誌目錄名稱)\n設定稽核日誌目錄「/var/log/audit」之指令範例如下：\n#chmod 700 /var/log/audit",
+        "700或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "140",
+          "TWGCB-01-012-0140",
+          "日誌與稽核",
+          "稽核日誌目錄權限",
+          "這項原則設定決定是否設定稽核日誌目錄之權限\n稽核日誌目錄存有稽核日誌檔案，該檔案包含系統之稽核紀錄、稽核設定及稽核結果等資訊\n設定稽核日誌目錄權限，避免因未經授權存取而洩露稽核紀錄，遭攻擊者取得系統與組態設定等機敏資訊",
+          "開啟終端機，執行以下指令，尋找稽核日誌目錄：\n#grep -iw log_file /etc/audit/auditd.conf\n執行以下指令，設定稽核日誌目錄權限為700或更低權限：\n#chmod 700 (稽核日誌目錄名稱)\n設定稽核日誌目錄「/var/log/audit」之指令範例如下：\n#chmod 700 /var/log/audit",
+          "700或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "有效 log_file 目錄 mode/type",
+      "caveats": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900140",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0141",
       "sca_id": 900141,
       "source_sheet": "基本項目",
@@ -1870,6 +2605,1811 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0143",
+      "sca_id": 900143,
+      "source_sheet": "基本項目",
+      "source_row": 147,
+      "expected": "750或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "143",
+        "TWGCB-01-012-0143",
+        "日誌與稽核",
+        "稽核工具權限",
+        "這項原則設定決定是否設定稽核工具權限\n稽核工具可用以查看日誌資料、操作稽核系統及記錄稽核資訊，以及自訂查詢與產生報告\n設定稽核工具權限，避免稽核紀錄遭未經授權修改",
+        "開啟終端機，執行以下指令，檢查稽核工具權限：\n#stat -c \"%a %n\" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2>/dev/null\n若有稽核工具權限高於750，則執行以下指令，設定稽核工具權限為750或更低權限：\n#chmod 750 (稽核工具名稱)",
+        "750或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "143",
+          "TWGCB-01-012-0143",
+          "日誌與稽核",
+          "稽核工具權限",
+          "這項原則設定決定是否設定稽核工具權限\n稽核工具可用以查看日誌資料、操作稽核系統及記錄稽核資訊，以及自訂查詢與產生報告\n設定稽核工具權限，避免稽核紀錄遭未經授權修改",
+          "開啟終端機，執行以下指令，檢查稽核工具權限：\n#stat -c \"%a %n\" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2>/dev/null\n若有稽核工具權限高於750，則執行以下指令，設定稽核工具權限為750或更低權限：\n#chmod 750 (稽核工具名稱)",
+          "750或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "九個來源工具 mode 位元遮罩",
+      "caveats": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900143",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0144",
+      "sca_id": 900144,
+      "source_sheet": "基本項目",
+      "source_row": 148,
+      "expected": "root:root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "144",
+        "TWGCB-01-012-0144",
+        "日誌與稽核",
+        "稽核工具所有權",
+        "這項原則設定決定是否設定稽核工具所有權\n稽核工具可用以查看日誌資料、操作稽核系統及記錄稽核資訊，以及自訂查詢與產生報告\n設定稽核工具所有權，避免稽核紀錄遭未經授權修改",
+        "開啟終端機，執行以下指令，檢查稽核工具擁有者與群組：\n#ls -al /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2>/dev/null\n若有稽核工具擁有者與群組非root，則執行以下指令，設定稽核工具擁有者與群組為root：\n#chown root:root (稽核工具名稱)",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "144",
+          "TWGCB-01-012-0144",
+          "日誌與稽核",
+          "稽核工具所有權",
+          "這項原則設定決定是否設定稽核工具所有權\n稽核工具可用以查看日誌資料、操作稽核系統及記錄稽核資訊，以及自訂查詢與產生報告\n設定稽核工具所有權，避免稽核紀錄遭未經授權修改",
+          "開啟終端機，執行以下指令，檢查稽核工具擁有者與群組：\n#ls -al /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2>/dev/null\n若有稽核工具擁有者與群組非root，則執行以下指令，設定稽核工具擁有者與群組為root：\n#chown root:root (稽核工具名稱)",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "九個來源工具 UID/GID",
+      "caveats": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900144",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0145",
+      "sca_id": 900145,
+      "source_sheet": "基本項目",
+      "source_row": 149,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "145",
+        "TWGCB-01-012-0145",
+        "日誌與稽核",
+        "保護稽核工具",
+        "這項原則設定決定是否啟用稽核工具保護功能，以保護稽核工具之完整性\n稽核工具可用以查看日誌資料、操作稽核系統及記錄稽核資訊，以及自訂查詢與產生報告\n保護稽核工具之完整性，避免稽核工具被攻擊者替換或竄改，以降低稽核紀錄被竄改之風險",
+        "編輯/etc/aide.conf檔案，新增或修改為以下內容，以保護稽核工具之完整性：\n#Audit Tools\n/usr/sbin/auditctl p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/auditd p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/audisp-remote p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/audisp-syslog p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "145",
+          "TWGCB-01-012-0145",
+          "日誌與稽核",
+          "保護稽核工具",
+          "這項原則設定決定是否啟用稽核工具保護功能，以保護稽核工具之完整性\n稽核工具可用以查看日誌資料、操作稽核系統及記錄稽核資訊，以及自訂查詢與產生報告\n保護稽核工具之完整性，避免稽核工具被攻擊者替換或竄改，以降低稽核紀錄被竄改之風險",
+          "編輯/etc/aide.conf檔案，新增或修改為以下內容，以保護稽核工具之完整性：\n#Audit Tools\n/usr/sbin/auditctl p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/auditd p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/audisp-remote p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/audisp-syslog p+i+n+u+g+s+b+acl+xattrs+sha512\n/usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "八個 AIDE 工具完整屬性正則",
+      "caveats": "逐工具要求來源完整屬性序列；AIDE macro/Include 與資料庫初始化待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900145",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐工具要求來源完整屬性序列；AIDE macro/Include 與資料庫初始化待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0146",
+      "sca_id": 900146,
+      "source_sheet": "基本項目",
+      "source_row": 150,
+      "expected": "32以上",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "146",
+        "TWGCB-01-012-0146",
+        "日誌與稽核",
+        "稽核日誌檔案大小上限",
+        "這項原則設定決定是否設定稽核日誌檔案大小上限\nmax_log_file參數可設定稽核日誌檔案大小上限值(MB)，以避免影響系統運作與遺失稽核紀錄",
+        "編輯/etc/audit/auditd.conf檔案，設定以下參數，將稽核日誌檔案大小上限值設為32(MB)：\nmax_log_file = 32",
+        "32以上"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "146",
+          "TWGCB-01-012-0146",
+          "日誌與稽核",
+          "稽核日誌檔案大小上限",
+          "這項原則設定決定是否設定稽核日誌檔案大小上限\nmax_log_file參數可設定稽核日誌檔案大小上限值(MB)，以避免影響系統運作與遺失稽核紀錄",
+          "編輯/etc/audit/auditd.conf檔案，設定以下參數，將稽核日誌檔案大小上限值設為32(MB)：\nmax_log_file = 32",
+          "32以上"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "auditd.conf 最後有效值 >=32",
+      "caveats": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900146",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0147",
+      "sca_id": 900147,
+      "source_sheet": "基本項目",
+      "source_row": 151,
+      "expected": "keep_logs",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "147",
+        "TWGCB-01-012-0147",
+        "日誌與稽核",
+        "稽核日誌達到其檔案大小上限之行為",
+        "這項原則設定決定是否設定稽核日誌達到其檔案大小上限之行為\nmax_log_file_action參數可設定稽核日誌檔案達到檔案大小上限時，系統要如何處理稽核日誌檔案，將參數設為keep_logs，則系統將輪替日誌，且不會刪除舊日誌\n注意：請定期備份日誌檔案，以及清理與維護系統磁碟空間，以確保有足夠空間可保存稽核日誌檔案",
+        "編輯/etc/audit/auditd.conf檔案，設定參數如下：\nmax_log_file_action = keep_logs",
+        "keep_logs"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "147",
+          "TWGCB-01-012-0147",
+          "日誌與稽核",
+          "稽核日誌達到其檔案大小上限之行為",
+          "這項原則設定決定是否設定稽核日誌達到其檔案大小上限之行為\nmax_log_file_action參數可設定稽核日誌檔案達到檔案大小上限時，系統要如何處理稽核日誌檔案，將參數設為keep_logs，則系統將輪替日誌，且不會刪除舊日誌\n注意：請定期備份日誌檔案，以及清理與維護系統磁碟空間，以確保有足夠空間可保存稽核日誌檔案",
+          "編輯/etc/audit/auditd.conf檔案，設定參數如下：\nmax_log_file_action = keep_logs",
+          "keep_logs"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "auditd.conf 最後有效值 keep_logs",
+      "caveats": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900147",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0148",
+      "sca_id": 900148,
+      "source_sheet": "基本項目",
+      "source_row": 152,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "148",
+        "TWGCB-01-012-0148",
+        "日誌與稽核",
+        "記錄系統管理者活動",
+        "這項原則設定決定是否記錄系統管理者活動\n/etc/sudoers檔案為sudo套件之預設設定檔，可設定授予使用者帳號之權限，當使用者執行sudo時，系統會自動根據/etc/sudoers檔案，判斷該使用者是否具有執行sudo之權限\n當/etc/sudoers檔案變更或檔案屬性變更時，將記錄至稽核紀錄中，並標記為「scope」，以及早發現未經授權之行為",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/sudoers -p wa -k scope\n-w /etc/sudoers.d/ -p wa -k scope \n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "148",
+          "TWGCB-01-012-0148",
+          "日誌與稽核",
+          "記錄系統管理者活動",
+          "這項原則設定決定是否記錄系統管理者活動\n/etc/sudoers檔案為sudo套件之預設設定檔，可設定授予使用者帳號之權限，當使用者執行sudo時，系統會自動根據/etc/sudoers檔案，判斷該使用者是否具有執行sudo之權限\n當/etc/sudoers檔案變更或檔案屬性變更時，將記錄至稽核紀錄中，並標記為「scope」，以及早發現未經授權之行為",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/sudoers -p wa -k scope\n-w /etc/sudoers.d/ -p wa -k scope \n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900148",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0149",
+      "sca_id": 900149,
+      "source_sheet": "基本項目",
+      "source_row": 153,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "149",
+        "TWGCB-01-012-0149",
+        "日誌與稽核",
+        "記錄變更登入與登出資訊事件",
+        "這項原則設定決定是否記錄變更登入與登出資訊之事件\n下列為登入與登出資訊相關檔案，若遭非預期變更代表系統可能已被入侵、入侵者想要隱藏蹤跡或入侵其他使用者帳號：\n/var/run/faillock/：此目錄保存登入失敗紀錄\n/var/log/lastlog：記錄使用者最近一次成功登入\n建議系統記錄變更登入與登出資訊之事件於/var/log/audit/audit.log，並標記為「logins」，以監控登入與登出行為",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /var/run/faillock/ -p wa -k logins\n-w /var/log/lastlog -p wa -k logins\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：。\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "149",
+          "TWGCB-01-012-0149",
+          "日誌與稽核",
+          "記錄變更登入與登出資訊事件",
+          "這項原則設定決定是否記錄變更登入與登出資訊之事件\n下列為登入與登出資訊相關檔案，若遭非預期變更代表系統可能已被入侵、入侵者想要隱藏蹤跡或入侵其他使用者帳號：\n/var/run/faillock/：此目錄保存登入失敗紀錄\n/var/log/lastlog：記錄使用者最近一次成功登入\n建議系統記錄變更登入與登出資訊之事件於/var/log/audit/audit.log，並標記為「logins」，以監控登入與登出行為",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /var/run/faillock/ -p wa -k logins\n-w /var/log/lastlog -p wa -k logins\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：。\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900149",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0150",
+      "sca_id": 900150,
+      "source_sheet": "基本項目",
+      "source_row": 154,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "150",
+        "TWGCB-01-012-0150",
+        "日誌與稽核",
+        "記錄會談啟始資訊",
+        "這項原則設定決定是否記錄變更會談(Session)啟始資訊之事件\n下列為會談啟始資訊相關檔案，包含所有使用者登入、登出、重新開機或關機等資訊\n/var/run/utmp：記錄目前登入到系統之使用者訊息\n/var/log/wtmp：記錄登入、登出、重新開機及關機等資訊\n/var/log/btmp：記錄錯誤之登入嘗試\n建議系統記錄變更所有使用者登入、登出、重新開機或關機等資訊之事件，並標記為「session」或「logins」，以監控會談啟始資訊相關檔案之變更",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /var/run/utmp -p wa -k session\n-w /var/log/wtmp -p wa -k logins\n-w /var/log/btmp -p wa -k logins\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "150",
+          "TWGCB-01-012-0150",
+          "日誌與稽核",
+          "記錄會談啟始資訊",
+          "這項原則設定決定是否記錄變更會談(Session)啟始資訊之事件\n下列為會談啟始資訊相關檔案，包含所有使用者登入、登出、重新開機或關機等資訊\n/var/run/utmp：記錄目前登入到系統之使用者訊息\n/var/log/wtmp：記錄登入、登出、重新開機及關機等資訊\n/var/log/btmp：記錄錯誤之登入嘗試\n建議系統記錄變更所有使用者登入、登出、重新開機或關機等資訊之事件，並標記為「session」或「logins」，以監控會談啟始資訊相關檔案之變更",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /var/run/utmp -p wa -k session\n-w /var/log/wtmp -p wa -k logins\n-w /var/log/btmp -p wa -k logins\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900150",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0151",
+      "sca_id": 900151,
+      "source_sheet": "基本項目",
+      "source_row": 155,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "151",
+        "TWGCB-01-012-0151",
+        "日誌與稽核",
+        "記錄變更日期與時間事件",
+        "這項原則設定決定是否記錄變更日期或時間資訊之事件\n下列為系統日期與時間相關參數：\nadjtimex：調整系統核心時間\nsettimeofday：以時區方式設定系統時間\nstime：以秒為單位設定系統時間(從1970年1月1日到現在之秒數)\nclock_settime：設定內部時鐘與計時器\n建議系統記錄包含adjtimex、settimeofday、stime及clock_settime等系統呼叫(System calls)進行日期與時間變更之事件於/var/log/audit.log檔案中，並標記為「time-change」\n非預期之系統日期與時間變更，可能為惡意活動跡象，有助於發現異常行為",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change\n-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change\n-a always,exit -F arch=b64 -S clock_settime -k time-change\n-a always,exit -F arch=b32 -S clock_settime -k time-change\n-w /etc/localtime -p wa -k time-change\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "151",
+          "TWGCB-01-012-0151",
+          "日誌與稽核",
+          "記錄變更日期與時間事件",
+          "這項原則設定決定是否記錄變更日期或時間資訊之事件\n下列為系統日期與時間相關參數：\nadjtimex：調整系統核心時間\nsettimeofday：以時區方式設定系統時間\nstime：以秒為單位設定系統時間(從1970年1月1日到現在之秒數)\nclock_settime：設定內部時鐘與計時器\n建議系統記錄包含adjtimex、settimeofday、stime及clock_settime等系統呼叫(System calls)進行日期與時間變更之事件於/var/log/audit.log檔案中，並標記為「time-change」\n非預期之系統日期與時間變更，可能為惡意活動跡象，有助於發現異常行為",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change\n-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change\n-a always,exit -F arch=b64 -S clock_settime -k time-change\n-a always,exit -F arch=b32 -S clock_settime -k time-change\n-w /etc/localtime -p wa -k time-change\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900151",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0152",
+      "sca_id": 900152,
+      "source_sheet": "基本項目",
+      "source_row": 156,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "152",
+        "TWGCB-01-012-0152",
+        "日誌與稽核",
+        "記錄變更系統強制存取控制事件",
+        "這項原則設定決定是否記錄變更系統強制存取控制(Mandatory access controls)事件，包含/etc/selinux與/usr/share/selinux/目錄屬性變更，以及在目錄內新增、刪除或修改檔案之事件\n當/etc/selinux與/usr/share/selinux/目錄屬性或檔案遭非預期變更，代表未授權使用者嘗試變更存取控制或改變安全設定，將可能導致系統被入侵，應進行記錄，並標記為「MAC-policy」",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/selinux/ -p wa -k MAC-policy\n-w /usr/share/selinux/ -p wa -k MAC-policy\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "152",
+          "TWGCB-01-012-0152",
+          "日誌與稽核",
+          "記錄變更系統強制存取控制事件",
+          "這項原則設定決定是否記錄變更系統強制存取控制(Mandatory access controls)事件，包含/etc/selinux與/usr/share/selinux/目錄屬性變更，以及在目錄內新增、刪除或修改檔案之事件\n當/etc/selinux與/usr/share/selinux/目錄屬性或檔案遭非預期變更，代表未授權使用者嘗試變更存取控制或改變安全設定，將可能導致系統被入侵，應進行記錄，並標記為「MAC-policy」",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/selinux/ -p wa -k MAC-policy\n-w /usr/share/selinux/ -p wa -k MAC-policy\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900152",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0153",
+      "sca_id": 900153,
+      "source_sheet": "基本項目",
+      "source_row": 157,
+      "expected": "啟用",
+      "docx_historical_cells": [
+        [
+          "1",
+          "修改前",
+          "TWGCB-01-012-0153",
+          "日誌與稽核",
+          "記錄變更系統網路環境事件",
+          "這項原則設定決定是否記錄變更系統網路環境之事件\n當主機名稱與網域名稱變更時，將可能破壞以這2個參數為基礎之安全設定\n/etc/hosts定義主機名稱與IP位置對應檔案，入侵者可變更此檔案將連線導至其他主機\n入侵者可利用/etc/issue與/etc/issue.net放置錯誤訊息登入畫面，誘騙使用者提供資訊給入侵者\n/etc/sysconfig/network-scripts/目錄包含網路介面腳本與設定檔，當入侵者變更目錄內之檔案，可能導至服務中斷或系統資訊洩漏\n當/etc/issue、/etc/issue.net、 /etc/hosts及/etc/sysconfig/network-scripts等檔案被變更時，以及使用sethostname與setdomainname可變更名稱之系統呼叫，應進行記錄並標記為「system-locale」",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale\n-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale\n-w /etc/issue -p wa -k system-locale\n-w /etc/issue.net -p wa -k system-locale\n-w /etc/hosts -p wa -k system-locale\n-w /etc/sysconfig/network-scripts/ -p wa -k system-locale\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_cells": [
+        "153",
+        "TWGCB-01-012-0153",
+        "日誌與稽核",
+        "記錄變更系統網路環境事件",
+        "這項原則設定決定是否記錄變更系統網路環境之事件\n當主機名稱與網域名稱變更時，將可能破壞以這2個參數為基礎之安全設定\n/etc/hosts定義主機名稱與IP位置對應檔案，入侵者可變更此檔案將連線導至其他主機\n入侵者可利用/etc/issue與/etc/issue.net放置錯誤訊息登入畫面，誘騙使用者提供資訊給入侵者\n/etc/sysconfig/network-scripts/目錄包含網路介面腳本與設定檔，當入侵者變更目錄內之檔案，可能導致服務中斷或系統資訊洩漏\n當/etc/issue、/etc/issue.net、 /etc/hosts及/etc/sysconfig/network-scripts/等檔案或目錄被變更時，以及使用sethostname與setdomainname可變更名稱之系統呼叫，應進行記錄並標記為「system-locale」",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale\n-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale\n-w /etc/issue -p wa -k system-locale\n-w /etc/issue.net -p wa -k system-locale\n-w /etc/hosts -p wa -k system-locale\n-w /etc/sysconfig/network-scripts -p wa -k system-locale\n-w /etc/NetworkManager -p wa -k system-locale\n-w /etc/sysconfig/network -p wa -k system-locale\n-w /etc/hostname -p wa -k system-locale\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "153",
+          "TWGCB-01-012-0153",
+          "日誌與稽核",
+          "記錄變更系統網路環境事件",
+          "這項原則設定決定是否記錄變更系統網路環境之事件\n當主機名稱與網域名稱變更時，將可能破壞以這2個參數為基礎之安全設定\n/etc/hosts定義主機名稱與IP位置對應檔案，入侵者可變更此檔案將連線導至其他主機\n入侵者可利用/etc/issue與/etc/issue.net放置錯誤訊息登入畫面，誘騙使用者提供資訊給入侵者\n/etc/sysconfig/network-scripts/目錄包含網路介面腳本與設定檔，當入侵者變更目錄內之檔案，可能導致服務中斷或系統資訊洩漏\n當/etc/issue、/etc/issue.net、 /etc/hosts及/etc/sysconfig/network-scripts/等檔案或目錄被變更時，以及使用sethostname與setdomainname可變更名稱之系統呼叫，應進行記錄並標記為「system-locale」",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale\n-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale\n-w /etc/issue -p wa -k system-locale\n-w /etc/issue.net -p wa -k system-locale\n-w /etc/hosts -p wa -k system-locale\n-w /etc/sysconfig/network-scripts -p wa -k system-locale\n-w /etc/NetworkManager -p wa -k system-locale\n-w /etc/sysconfig/network -p wa -k system-locale\n-w /etc/hostname -p wa -k system-locale\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ],
+        [
+          "",
+          "修改後",
+          "TWGCB-01-012-0153",
+          "日誌與稽核",
+          "記錄變更系統網路環境事件",
+          "這項原則設定決定是否記錄變更系統網路環境之事件\n當主機名稱與網域名稱變更時，將可能破壞以這2個參數為基礎之安全設定\n/etc/hosts定義主機名稱與IP位置對應檔案，入侵者可變更此檔案將連線導至其他主機\n入侵者可利用/etc/issue與/etc/issue.net放置錯誤訊息登入畫面，誘騙使用者提供資訊給入侵者\n/etc/sysconfig/network-scripts/目錄包含網路介面腳本與設定檔，當入侵者變更目錄內之檔案，可能導致服務中斷或系統資訊洩漏\n當/etc/issue、/etc/issue.net、 /etc/hosts及/etc/sysconfig/network-scripts/等檔案或目錄被變更時，以及使用sethostname與setdomainname可變更名稱之系統呼叫，應進行記錄並標記為「system-locale」",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale\n-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale\n-w /etc/issue -p wa -k system-locale\n-w /etc/issue.net -p wa -k system-locale\n-w /etc/hosts -p wa -k system-locale\n-w /etc/sysconfig/network-scripts -p wa -k system-locale\n-w /etc/NetworkManager -p wa -k system-locale\n-w /etc/sysconfig/network -p wa -k system-locale\n-w /etc/hostname -p wa -k system-locale\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900153",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0154",
+      "sca_id": 900154,
+      "source_sheet": "基本項目",
+      "source_row": 158,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "154",
+        "TWGCB-01-012-0154",
+        "日誌與稽核",
+        "記錄變更自主存取控制權限事件",
+        "這項原則設定決定是否記錄變更自主存取控制(Discretionary access control)權限之事件\n記錄變更檔案權限(例如：chmod、fchmod及fchmodat)、檔案延伸屬性(例如：setxattr、lsetxattr、fsetxattr、removexattr、lremovexattr及fremovexattr)、擁有者及擁有群組(例如：chown、fchown、fchownat及lchown)之事件\n稽核紀錄僅記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)所產生之事件，並標記為「perm_mod」\n監控檔案屬性之變更，可為系統管理者提供入侵者跡象或違反原則行為\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "154",
+          "TWGCB-01-012-0154",
+          "日誌與稽核",
+          "記錄變更自主存取控制權限事件",
+          "這項原則設定決定是否記錄變更自主存取控制(Discretionary access control)權限之事件\n記錄變更檔案權限(例如：chmod、fchmod及fchmodat)、檔案延伸屬性(例如：setxattr、lsetxattr、fsetxattr、removexattr、lremovexattr及fremovexattr)、擁有者及擁有群組(例如：chown、fchown、fchownat及lchown)之事件\n稽核紀錄僅記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)所產生之事件，並標記為「perm_mod」\n監控檔案屬性之變更，可為系統管理者提供入侵者跡象或違反原則行為\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod\n-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900154",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0155",
+      "sca_id": 900155,
+      "source_sheet": "基本項目",
+      "source_row": 159,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "155",
+        "TWGCB-01-012-0155",
+        "日誌與稽核",
+        "記錄不成功之未經授權檔案存取",
+        "這項原則設定決定是否記錄所有使用者未經授權存取檔案之行為\n建議設定系統監控包含控制建立(creat)、開啟(open、openat)及截斷(truncate、ftruncate)等系統呼叫存取檔案之行為，並針對系統使用者(auid>=1000，並忽略守護程序auid=4294967295)，且顯示對此檔案無權限(EACCES)或系統呼叫參數錯誤(EPERM)等事件進行記錄，並標記為「access」\n開啟、建立或截斷檔案之失敗嘗試，代表可能有使用者或程序試圖對系統進行未授權存取\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access\n-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access\n-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access\n-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "155",
+          "TWGCB-01-012-0155",
+          "日誌與稽核",
+          "記錄不成功之未經授權檔案存取",
+          "這項原則設定決定是否記錄所有使用者未經授權存取檔案之行為\n建議設定系統監控包含控制建立(creat)、開啟(open、openat)及截斷(truncate、ftruncate)等系統呼叫存取檔案之行為，並針對系統使用者(auid>=1000，並忽略守護程序auid=4294967295)，且顯示對此檔案無權限(EACCES)或系統呼叫參數錯誤(EPERM)等事件進行記錄，並標記為「access」\n開啟、建立或截斷檔案之失敗嘗試，代表可能有使用者或程序試圖對系統進行未授權存取\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access\n-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access\n-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access\n-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900155",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0156",
+      "sca_id": 900156,
+      "source_sheet": "基本項目",
+      "source_row": 160,
+      "expected": "啟用",
+      "docx_historical_cells": [
+        [
+          "2",
+          "修改前",
+          "TWGCB-01-012-0156",
+          "日誌與稽核",
+          "記錄變更使用者或群組資訊事件",
+          "這項原則設定決定是否記錄變更使用者或群組資訊之事件\n當/etc目錄下group、passwd、gshadow、shadow及opasswd等檔案被修改或變更檔案屬性(例如權限)時，應進行記錄並標記為「identity」\n此類檔案遭非預期變更，代表系統可能已被入侵，或入侵者想要隱藏蹤跡，或入侵其他使用者帳號",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/group -p wa -k identity\n-w /etc/passwd -p wa -k identity\n-w /etc/gshadow -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/security/opasswd -p wa -k identity\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_cells": [
+        "156",
+        "TWGCB-01-012-0156",
+        "日誌與稽核",
+        "記錄變更使用者或群組資訊事件",
+        "這項原則設定決定是否記錄變更使用者或群組資訊之事件\n當/etc目錄下group、passwd、gshadow、shadow及opasswd等檔案被修改或變更檔案屬性(例如權限)時，應進行記錄並標記為「identity」\n此類檔案遭非預期變更，代表系統可能已被入侵，或入侵者想要隱藏蹤跡，或入侵其他使用者帳號",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/group -p wa -k identity\n-w /etc/passwd -p wa -k identity\n-w /etc/gshadow -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/security/opasswd -p wa -k identity\n-w /etc/nsswitch.conf -p wa -k identity \n-w /etc/pam.conf -p wa -k identity \n-w /etc/pam.d -p wa -k identity\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "156",
+          "TWGCB-01-012-0156",
+          "日誌與稽核",
+          "記錄變更使用者或群組資訊事件",
+          "這項原則設定決定是否記錄變更使用者或群組資訊之事件\n當/etc目錄下group、passwd、gshadow、shadow及opasswd等檔案被修改或變更檔案屬性(例如權限)時，應進行記錄並標記為「identity」\n此類檔案遭非預期變更，代表系統可能已被入侵，或入侵者想要隱藏蹤跡，或入侵其他使用者帳號",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/group -p wa -k identity\n-w /etc/passwd -p wa -k identity\n-w /etc/gshadow -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/security/opasswd -p wa -k identity\n-w /etc/nsswitch.conf -p wa -k identity \n-w /etc/pam.conf -p wa -k identity \n-w /etc/pam.d -p wa -k identity\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ],
+        [
+          "",
+          "修改後",
+          "TWGCB-01-012-0156",
+          "日誌與稽核",
+          "記錄變更使用者或群組資訊事件",
+          "這項原則設定決定是否記錄變更使用者或群組資訊之事件\n當/etc目錄下group、passwd、gshadow、shadow、opasswd、nsswitch及pam等檔案被修改或變更檔案屬性(例如權限)時，應進行記錄並標記為「identity」\n此類檔案遭非預期變更，代表系統可能已被入侵，或入侵者想要隱藏蹤跡，或入侵其他使用者帳號",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /etc/group -p wa -k identity\n-w /etc/passwd -p wa -k identity\n-w /etc/gshadow -p wa -k identity\n-w /etc/shadow -p wa -k identity\n-w /etc/security/opasswd -p wa -k identity\n-w /etc/nsswitch.conf -p wa -k identity \n-w /etc/pam.conf -p wa -k identity \n-w /etc/pam.d -p wa -k identity\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900156",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0157",
+      "sca_id": 900157,
+      "source_sheet": "基本項目",
+      "source_row": 161,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "157",
+        "TWGCB-01-012-0157",
+        "日誌與稽核",
+        "記錄變更檔案系統掛載事件",
+        "這項原則設定決定是否記錄檔案系統掛載之事件\n對於非系統管理者而言，將檔案系統掛載到系統為異常行為，潛在有資料未經授權匯出至外部儲存裝置之風險\n建議設定系統監控mount與umount系統呼叫檔案系統掛載之行為，針對系統使用者(auid>=1000，並忽略守護程序auid=4294967295)所產生之事件，並標記為「mounts」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts\n-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "157",
+          "TWGCB-01-012-0157",
+          "日誌與稽核",
+          "記錄變更檔案系統掛載事件",
+          "這項原則設定決定是否記錄檔案系統掛載之事件\n對於非系統管理者而言，將檔案系統掛載到系統為異常行為，潛在有資料未經授權匯出至外部儲存裝置之風險\n建議設定系統監控mount與umount系統呼叫檔案系統掛載之行為，針對系統使用者(auid>=1000，並忽略守護程序auid=4294967295)所產生之事件，並標記為「mounts」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts\n-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900157",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0158",
+      "sca_id": 900158,
+      "source_sheet": "基本項目",
+      "source_row": 162,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "158",
+        "TWGCB-01-012-0158",
+        "日誌與稽核",
+        "記錄特權指令使用情形",
+        "這項原則設定決定是否記錄特權指令使用情形\n特權指令是指具有setuid或setgid特權之程式，任何人執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案。因此須監控特權指令使用狀況，以及早發現使用者非法存取未授權資源之情形\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用特權指令所產生之事件，並標記為「privileged」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)中的特權程式，並為每個特權程序之執行，建立稽核規則：\n#find (partition) -xdev \\( -perm -4000 -o -perm -2000 \\) -type f | awk '{print \"-a always,exit -F path=\" $1 \" -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged\" }'\n在/etc/audit/rules.d/目錄，新增或編輯「privileged.rules」檔案，將根磁區(root partition)之特權程式稽核規則加入到該檔案，指令範例如下：\n#find / -xdev \\( -perm -4000 -o -perm -2000 \\) -type f | awk '{print \"-a always,exit -F path=\" $1 \" -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged\" }' >> /etc/audit/rules.d/privileged.rules\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "158",
+          "TWGCB-01-012-0158",
+          "日誌與稽核",
+          "記錄特權指令使用情形",
+          "這項原則設定決定是否記錄特權指令使用情形\n特權指令是指具有setuid或setgid特權之程式，任何人執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案。因此須監控特權指令使用狀況，以及早發現使用者非法存取未授權資源之情形\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用特權指令所產生之事件，並標記為「privileged」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)中的特權程式，並為每個特權程序之執行，建立稽核規則：\n#find (partition) -xdev \\( -perm -4000 -o -perm -2000 \\) -type f | awk '{print \"-a always,exit -F path=\" $1 \" -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged\" }'\n在/etc/audit/rules.d/目錄，新增或編輯「privileged.rules」檔案，將根磁區(root partition)之特權程式稽核規則加入到該檔案，指令範例如下：\n#find / -xdev \\( -perm -4000 -o -perm -2000 \\) -type f | awk '{print \"-a always,exit -F path=\" $1 \" -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged\" }' >> /etc/audit/rules.d/privileged.rules\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "所有實體掛載點 xdev 特權程式逐一對 privileged.rules",
+      "caveats": "列舉 mountinfo 實體檔案系統（排除 proc/sysfs 等虛擬介面），每掛載點 xdev 查所有 regular setuid/setgid；空集合為全稱真但 privileged.rules 仍須可讀。大型/網路檔案系統成本與競態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900158",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "列舉 mountinfo 實體檔案系統（排除 proc/sysfs 等虛擬介面），每掛載點 xdev 查所有 regular setuid/setgid；空集合為全稱真但 privileged.rules 仍須可讀。大型/網路檔案系統成本與競態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0159",
+      "sca_id": 900159,
+      "source_sheet": "基本項目",
+      "source_row": 163,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "159",
+        "TWGCB-01-012-0159",
+        "日誌與稽核",
+        "記錄檔案刪除事件",
+        "這項原則設定決定是否蒐集使用者利用unlink、unlinkat、rename或renameat等系統呼叫進行刪除檔案、移除檔案屬性、更換檔名或路徑等事件\nunlink：刪除檔案\nunlinkat：刪除檔案或目錄\nrename：變更檔名\nrenameat：變更檔名或路徑\nrmdir：刪除空資料夾\n建議系統監控並記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)所產生之事件，並標記為「delete」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete\n-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat-S rmdir -F auid>=1000 -F auid!=4294967295 -k delete\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "159",
+          "TWGCB-01-012-0159",
+          "日誌與稽核",
+          "記錄檔案刪除事件",
+          "這項原則設定決定是否蒐集使用者利用unlink、unlinkat、rename或renameat等系統呼叫進行刪除檔案、移除檔案屬性、更換檔名或路徑等事件\nunlink：刪除檔案\nunlinkat：刪除檔案或目錄\nrename：變更檔名\nrenameat：變更檔名或路徑\nrmdir：刪除空資料夾\n建議系統監控並記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)所產生之事件，並標記為「delete」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete\n-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat-S rmdir -F auid>=1000 -F auid!=4294967295 -k delete\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。來源 renameat-S 排版錯誤解讀為 renameat -S，保留五個 syscall，待人工核准。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900159",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。來源 renameat-S 排版錯誤解讀為 renameat -S，保留五個 syscall，待人工核准。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0160",
+      "sca_id": 900160,
+      "source_sheet": "基本項目",
+      "source_row": 164,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "160",
+        "TWGCB-01-012-0160",
+        "日誌與稽核",
+        "記錄核心模組掛載與卸載事件",
+        "這項原則設定決定是否記錄核心模組掛載與卸載事件\n核心模組掛載與卸載事件包含安裝核心模組(insmod)、移除核心模組(rmmod)、控制載入與卸載核心模組(modprobe)、掛載模組(init_module)及刪除模組( delete_module)，以及init_module與delete_module系統呼叫可用於起其他程序掛載與卸載核心模組\n建議系統監控與記錄核心模組掛載與卸載事件，並標記為「modules」\n核心模組掛載與卸載事件紀錄反映系統有未經授權之使用者掛載與卸載核心模組，可能損害系統安全性",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /sbin/insmod -p x -k modules\n-w /sbin/rmmod -p x -k modules\n-w /sbin/modprobe -p x -k modules\n-a always,exit -F arch=b64 -S init_module -S delete_module -k modules\n-a always,exit -F arch=b32 -S init_module -S delete_module -k modules\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "160",
+          "TWGCB-01-012-0160",
+          "日誌與稽核",
+          "記錄核心模組掛載與卸載事件",
+          "這項原則設定決定是否記錄核心模組掛載與卸載事件\n核心模組掛載與卸載事件包含安裝核心模組(insmod)、移除核心模組(rmmod)、控制載入與卸載核心模組(modprobe)、掛載模組(init_module)及刪除模組( delete_module)，以及init_module與delete_module系統呼叫可用於起其他程序掛載與卸載核心模組\n建議系統監控與記錄核心模組掛載與卸載事件，並標記為「modules」\n核心模組掛載與卸載事件紀錄反映系統有未經授權之使用者掛載與卸載核心模組，可能損害系統安全性",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /sbin/insmod -p x -k modules\n-w /sbin/rmmod -p x -k modules\n-w /sbin/modprobe -p x -k modules\n-a always,exit -F arch=b64 -S init_module -S delete_module -k modules\n-a always,exit -F arch=b32 -S init_module -S delete_module -k modules\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900160",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0161",
+      "sca_id": 900161,
+      "source_sheet": "基本項目",
+      "source_row": 165,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "161",
+        "TWGCB-01-012-0161",
+        "日誌與稽核",
+        "記錄系統管理者活動日誌變更",
+        "這項原則設定決定是否記錄系統管理者活動日誌(sudo.log)變更之事件\n當使用者以sudo執行特權指令，系統會自動根據/etc/sudoers檔案，判斷該使用者是否具有執行sudo之權限，並將所有管理者指令都記錄到/var/log/sudo.log\n建議系統監控與記錄/var/log/sudo.log檔案寫入狀況或屬性變更情形，並標記為「actions」\n/var/log/sudo.log檔案若遭修改，代表系統管理員已執行sudo指令，或是檔案遭未經授權竄改\n系統管理者可將稽核事件與/var/log/sudo.log紀錄內容進行比對，以驗證是否有未經授權指令被執行",
+        "開啟終端機，執行指令如下，尋找sudo日誌檔案路徑\n#grep -r logfile /etc/sudoers* | sed -e 's/.*logfile=//;s/,? .*//'\n執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「actions.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/actions.rules\n在檔案中加入以下內容：\n-w (sudo日誌檔案路徑) -p wa -k actions\n以系統預設路徑「/var/log/sudo.log」為例，在「actions.rules」檔案中加入以下內容：\n-w /var/log/sudo.log -p wa -k actions\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "161",
+          "TWGCB-01-012-0161",
+          "日誌與稽核",
+          "記錄系統管理者活動日誌變更",
+          "這項原則設定決定是否記錄系統管理者活動日誌(sudo.log)變更之事件\n當使用者以sudo執行特權指令，系統會自動根據/etc/sudoers檔案，判斷該使用者是否具有執行sudo之權限，並將所有管理者指令都記錄到/var/log/sudo.log\n建議系統監控與記錄/var/log/sudo.log檔案寫入狀況或屬性變更情形，並標記為「actions」\n/var/log/sudo.log檔案若遭修改，代表系統管理員已執行sudo指令，或是檔案遭未經授權竄改\n系統管理者可將稽核事件與/var/log/sudo.log紀錄內容進行比對，以驗證是否有未經授權指令被執行",
+          "開啟終端機，執行指令如下，尋找sudo日誌檔案路徑\n#grep -r logfile /etc/sudoers* | sed -e 's/.*logfile=//;s/,? .*//'\n執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「actions.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/actions.rules\n在檔案中加入以下內容：\n-w (sudo日誌檔案路徑) -p wa -k actions\n以系統預設路徑「/var/log/sudo.log」為例，在「actions.rules」檔案中加入以下內容：\n-w /var/log/sudo.log -p wa -k actions\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "sudoers logfile 路徑逐一對 actions.rules",
+      "caveats": "只辨識 /etc/sudoers 與 sudoers.d 的明確 Defaults logfile；不假定 /var/log/sudo.log；條件 Defaults、外部 include 與覆寫完整語意待人工審查。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900161",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只辨識 /etc/sudoers 與 sudoers.d 的明確 Defaults logfile；不假定 /var/log/sudo.log；條件 Defaults、外部 include 與覆寫完整語意待人工審查。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0162",
+      "sca_id": 900162,
+      "source_sheet": "基本項目",
+      "source_row": 166,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "162",
+        "TWGCB-01-012-0162",
+        "日誌與稽核",
+        "記錄chcon指令使用情形",
+        "這項原則設定決定是否記錄chcon指令使用情形\nchcon指令用於更改檔案之SELinux安全性本文(security context)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用chcon指令所產生之事件，並標記為「perm_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "162",
+          "TWGCB-01-012-0162",
+          "日誌與稽核",
+          "記錄chcon指令使用情形",
+          "這項原則設定決定是否記錄chcon指令使用情形\nchcon指令用於更改檔案之SELinux安全性本文(security context)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用chcon指令所產生之事件，並標記為「perm_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900162",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0163",
+      "sca_id": 900163,
+      "source_sheet": "基本項目",
+      "source_row": 167,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "163",
+        "TWGCB-01-012-0163",
+        "日誌與稽核",
+        "記錄ssh-agent程序使用情形",
+        "這項原則設定決定是否記錄ssh-agent程序使用情形\nssh-agent程序用於保存驗證公鑰所使用之私鑰，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用ssh-agent程序所產生之事件，並標記為「privileged-ssh」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-ssh\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "163",
+          "TWGCB-01-012-0163",
+          "日誌與稽核",
+          "記錄ssh-agent程序使用情形",
+          "這項原則設定決定是否記錄ssh-agent程序使用情形\nssh-agent程序用於保存驗證公鑰所使用之私鑰，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用ssh-agent程序所產生之事件，並標記為「privileged-ssh」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-ssh\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900163",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0164",
+      "sca_id": 900164,
+      "source_sheet": "基本項目",
+      "source_row": 168,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "164",
+        "TWGCB-01-012-0164",
+        "日誌與稽核",
+        "記錄unix_update程序使用情形",
+        "這項原則設定決定是否記錄unix_update程序使用情形\nunix_update程序是pam_unix模組之輔助程序，用於更新使用者通行碼，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用unix_update程序所產生之事件，並標記為「privileged-unix-update」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/sbin/unix_update -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-unix-update\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "164",
+          "TWGCB-01-012-0164",
+          "日誌與稽核",
+          "記錄unix_update程序使用情形",
+          "這項原則設定決定是否記錄unix_update程序使用情形\nunix_update程序是pam_unix模組之輔助程序，用於更新使用者通行碼，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用unix_update程序所產生之事件，並標記為「privileged-unix-update」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/sbin/unix_update -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-unix-update\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900164",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0165",
+      "sca_id": 900165,
+      "source_sheet": "基本項目",
+      "source_row": 169,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "165",
+        "TWGCB-01-012-0165",
+        "日誌與稽核",
+        "記錄setfacl指令使用情形",
+        "這項原則設定決定是否記錄setfacl指令使用情形\nsetfacl指令用於設定檔案之存取控制表(ACL)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用setfacl指令所產生之事件，並標記為「perm_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "165",
+          "TWGCB-01-012-0165",
+          "日誌與稽核",
+          "記錄setfacl指令使用情形",
+          "這項原則設定決定是否記錄setfacl指令使用情形\nsetfacl指令用於設定檔案之存取控制表(ACL)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用setfacl指令所產生之事件，並標記為「perm_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900165",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0166",
+      "sca_id": 900166,
+      "source_sheet": "基本項目",
+      "source_row": 170,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "166",
+        "TWGCB-01-012-0166",
+        "日誌與稽核",
+        "記錄finit_module指令使用情形",
+        "這項原則設定決定是否記錄finit_module指令使用情形\nfinit_module指令用於載入核心模組，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用finit_module指令所產生之事件，並標記為「module_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b32 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng\n-a always,exit -F arch=b64 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng \n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "166",
+          "TWGCB-01-012-0166",
+          "日誌與稽核",
+          "記錄finit_module指令使用情形",
+          "這項原則設定決定是否記錄finit_module指令使用情形\nfinit_module指令用於載入核心模組，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用finit_module指令所產生之事件，並標記為「module_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b32 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng\n-a always,exit -F arch=b64 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng \n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900166",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0167",
+      "sca_id": 900167,
+      "source_sheet": "基本項目",
+      "source_row": 171,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "167",
+        "TWGCB-01-012-0167",
+        "日誌與稽核",
+        "記錄open_by_handle_at系統呼叫使用情形",
+        "這項原則設定決定是否記錄open_by_handle_at系統呼叫使用情形\nopen_by_handle_at系統呼叫可透過檔案描述符(File descriptor)開啟所指定之檔案，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用open_by_handle_at系統呼叫所產生之事件，並標記為「perm_access」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access\n-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access\n-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access\n-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "167",
+          "TWGCB-01-012-0167",
+          "日誌與稽核",
+          "記錄open_by_handle_at系統呼叫使用情形",
+          "這項原則設定決定是否記錄open_by_handle_at系統呼叫使用情形\nopen_by_handle_at系統呼叫可透過檔案描述符(File descriptor)開啟所指定之檔案，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用open_by_handle_at系統呼叫所產生之事件，並標記為「perm_access」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access\n-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access\n-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access\n-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900167",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0168",
+      "sca_id": 900168,
+      "source_sheet": "基本項目",
+      "source_row": 172,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "168",
+        "TWGCB-01-012-0168",
+        "日誌與稽核",
+        "記錄usermod指令使用情形",
+        "這項原則設定決定是否記錄usermod指令使用情形\nusermod指令可用於修改使用者帳號設定，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用usermod指令所產生之事件，並標記為「privileged-usermod」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-usermod\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "168",
+          "TWGCB-01-012-0168",
+          "日誌與稽核",
+          "記錄usermod指令使用情形",
+          "這項原則設定決定是否記錄usermod指令使用情形\nusermod指令可用於修改使用者帳號設定，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用usermod指令所產生之事件，並標記為「privileged-usermod」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-usermod\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900168",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0169",
+      "sca_id": 900169,
+      "source_sheet": "基本項目",
+      "source_row": 173,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "169",
+        "TWGCB-01-012-0169",
+        "日誌與稽核",
+        "記錄chacl指令使用情形",
+        "這項原則設定決定是否記錄chacl指令使用情形\nchacl指令用於更改檔案或目錄之存取控制表(ACL)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用chacl指令指令所產生之事件，並標記為「perm_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "169",
+          "TWGCB-01-012-0169",
+          "日誌與稽核",
+          "記錄chacl指令使用情形",
+          "這項原則設定決定是否記錄chacl指令使用情形\nchacl指令用於更改檔案或目錄之存取控制表(ACL)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄系統使用者(auid>=1000，並忽略守護程序auid=4294967295)使用chacl指令指令所產生之事件，並標記為「perm_chng」\n設定時，如系統曾變更UID_MIN參數，請執行下列指令取得UID_MIN數值，並將auid>=1000調整為auid>=UID_MIN數值：\nawk '/^\\s*UID_MIN/{print $2}' /etc/login.defs",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900169",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0170",
+      "sca_id": 900170,
+      "source_sheet": "基本項目",
+      "source_row": 174,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "170",
+        "TWGCB-01-012-0170",
+        "日誌與稽核",
+        "記錄kmod指令使用情形",
+        "這項原則設定決定是否記錄kmod指令使用情形\nkmod指令用於控制Linux核心模組，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄使用kmod指令所產生之事件，並標記為「modules」",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /bin/kmod -p x -k modules\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "170",
+          "TWGCB-01-012-0170",
+          "日誌與稽核",
+          "記錄kmod指令使用情形",
+          "這項原則設定決定是否記錄kmod指令使用情形\nkmod指令用於控制Linux核心模組，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄使用kmod指令所產生之事件，並標記為「modules」",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /bin/kmod -p x -k modules\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900170",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0171",
+      "sca_id": 900171,
+      "source_sheet": "基本項目",
+      "source_row": 175,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "171",
+        "TWGCB-01-012-0171",
+        "日誌與稽核",
+        "記錄Pam_Faillock日誌檔案",
+        "這項原則設定決定是否記錄Pam_Faillock日誌檔案\nPam_Faillock用於指定之時間間隔內對帳號認證失敗進行計數與鎖定，並將登入嘗試失敗之資料儲存在日誌檔案，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄Pam_Faillock日誌檔案，並標記為「logins」",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /var/log/faillock -p wa -k logins\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "171",
+          "TWGCB-01-012-0171",
+          "日誌與稽核",
+          "記錄Pam_Faillock日誌檔案",
+          "這項原則設定決定是否記錄Pam_Faillock日誌檔案\nPam_Faillock用於指定之時間間隔內對帳號認證失敗進行計數與鎖定，並將登入嘗試失敗之資料儲存在日誌檔案，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄Pam_Faillock日誌檔案，並標記為「logins」",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-w /var/log/faillock -p wa -k logins\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900171",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0172",
+      "sca_id": 900172,
+      "source_sheet": "基本項目",
+      "source_row": 176,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "172",
+        "TWGCB-01-012-0172",
+        "日誌與稽核",
+        "記錄execve系統呼叫使用情形",
+        "這項原則設定決定是否記錄execve系統呼叫使用情形\nexecve系統呼叫可建立新程序取代執行中之程序並保持相同PID(Process ID)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄execve系統呼叫使用情形並忽略守護程序auid=unset，以避免程序使用比使用者更高權限執行而產生安全漏洞",
+        "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv \n-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv\n-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv \n-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "172",
+          "TWGCB-01-012-0172",
+          "日誌與稽核",
+          "記錄execve系統呼叫使用情形",
+          "這項原則設定決定是否記錄execve系統呼叫使用情形\nexecve系統呼叫可建立新程序取代執行中之程序並保持相同PID(Process ID)，建立使用系統重要指令、程序或系統呼叫之稽核紀錄，可提供系統管理者用於調查與分析資安事件\n建議系統監控與記錄execve系統呼叫使用情形並忽略守護程序auid=unset，以避免程序使用比使用者更高權限執行而產生安全漏洞",
+          "開啟終端機，執行vim指令，在/etc/audit/rules.d/目錄，新增或編輯「audit.rules」檔案，範例如下：\n#vim /etc/audit/rules.d/audit.rules\n在檔案中加入以下內容：\n-a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv \n-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv\n-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv \n-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv\n開啟終端機，執行以下指令，載入修改後之設定檔：\n#augenrules --load\n開啟終端機，執行以下指令，若指令輸出enabled 2，表示稽核組態已鎖定，需重新開機才能載入修改後之設定檔：\n#auditctl -s | grep enabled",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久 audit.rules 全行正則，逐條 all；UID_MIN 取最後有效值",
+      "caveats": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900172",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0173",
+      "sca_id": 900173,
+      "source_sheet": "基本項目",
+      "source_row": 177,
+      "expected": "2",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "173",
+        "TWGCB-01-012-0173",
+        "日誌與稽核",
+        "auditd設定不變模式",
+        "這項原則設定決定是否啟用auditd設定不變模式(Immutable mode)\n如果設為不變模式，使用者即使使用auditctl指令變更稽核規則，新稽核規則不會立即作用，必須重新開機後才能生效\n設為不變模式後，任何稽核規則變更必須重新開機後才會生效，藉此可防止惡意使用者利用變更稽核規則來隱藏惡意活動，亦可協助系統管理者藉由觀察非預期之重新開機，研判系統是否存在惡意活動\n「-e」可設定參數如下；\n設為0：停用稽核\n設為1：啟用稽核\n設為2：稽核設定不變模式\n「--loginuid-immutable」，代表一旦loginuid被設定之後就無法被變更，這可能使得某些容器(container)無法正常運作",
+        "在/etc/audit/rules.d/目錄，新增或編輯稽核規則中最後被執行之「.rules」檔案：\n在該檔案最後一行加入以下2行內容：\n-e 2--loginuid-immutable\n執行以下終端機指令，若輸出結果出現「-e 2」與「--loginuid-immutable」，代表設定完成：\n#grep -h \"^\\s*[^#]\" /etc/audit/rules.d/*.rules | egrep \"(-e 2)|(--loginuid-immutable)\"",
+        "2"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "173",
+          "TWGCB-01-012-0173",
+          "日誌與稽核",
+          "auditd設定不變模式",
+          "這項原則設定決定是否啟用auditd設定不變模式(Immutable mode)\n如果設為不變模式，使用者即使使用auditctl指令變更稽核規則，新稽核規則不會立即作用，必須重新開機後才能生效\n設為不變模式後，任何稽核規則變更必須重新開機後才會生效，藉此可防止惡意使用者利用變更稽核規則來隱藏惡意活動，亦可協助系統管理者藉由觀察非預期之重新開機，研判系統是否存在惡意活動\n「-e」可設定參數如下；\n設為0：停用稽核\n設為1：啟用稽核\n設為2：稽核設定不變模式\n「--loginuid-immutable」，代表一旦loginuid被設定之後就無法被變更，這可能使得某些容器(container)無法正常運作",
+          "在/etc/audit/rules.d/目錄，新增或編輯稽核規則中最後被執行之「.rules」檔案：\n在該檔案最後一行加入以下2行內容：\n-e 2--loginuid-immutable\n執行以下終端機指令，若輸出結果出現「-e 2」與「--loginuid-immutable」，代表設定完成：\n#grep -h \"^\\s*[^#]\" /etc/audit/rules.d/*.rules | egrep \"(-e 2)|(--loginuid-immutable)\"",
+          "2"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "持久規則最後有效 -e 2 與 loginuid immutable",
+      "caveats": "來源 -e 2--loginuid-immutable 排版解讀為兩條指令；自然數字排序規則檔，最後 -e 必須為 2 且最後有效行為鎖定指令；核心狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900173",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching",
+        "commented"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 -e 2--loginuid-immutable 排版解讀為兩條指令；自然數字排序規則檔，最後 -e 必須為 2 且最後有效行為鎖定指令；核心狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0174",
       "sca_id": 900174,
       "source_sheet": "基本項目",
@@ -1977,6 +4517,118 @@
       "family": "systemd 服務",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0176",
+      "sca_id": 900176,
+      "source_sheet": "基本項目",
+      "source_row": 180,
+      "expected": "0640或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "176",
+        "TWGCB-01-012-0176",
+        "日誌與稽核",
+        "設定rsyslog日誌檔案預設權限",
+        "這項原則決定是否設定rsyslog日誌檔案預設權限\nrsyslog在有需求時會為系統建立新日誌檔案，「$FileCreateMode」參數用於控制新增日誌檔案之預設權限\n為日誌檔案設定預設權限，以保護系統機敏資料",
+        "編輯/etc/rsyslog.conf檔案與 /etc/rsyslog.d/目錄下之「.conf」檔案，設定參數「$FileCreateMode」為0640或更低權限，範例如下：\n$FileCreateMode 0640",
+        "0640或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "176",
+          "TWGCB-01-012-0176",
+          "日誌與稽核",
+          "設定rsyslog日誌檔案預設權限",
+          "這項原則決定是否設定rsyslog日誌檔案預設權限\nrsyslog在有需求時會為系統建立新日誌檔案，「$FileCreateMode」參數用於控制新增日誌檔案之預設權限\n為日誌檔案設定預設權限，以保護系統機敏資料",
+          "編輯/etc/rsyslog.conf檔案與 /etc/rsyslog.d/目錄下之「.conf」檔案，設定參數「$FileCreateMode」為0640或更低權限，範例如下：\n$FileCreateMode 0640",
+          "0640或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "rsyslog 舊式預設與新式 action fileCreateMode 位元遮罩",
+      "caveats": "保守要求所有明確 $FileCreateMode 與 action fileCreateMode 均不超過 0640；未設定不假定預設合格；複雜模板/include 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900176",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "保守要求所有明確 $FileCreateMode 與 action fileCreateMode 均不超過 0640；未設定不假定預設合格；複雜模板/include 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0177",
+      "sca_id": 900177,
+      "source_sheet": "基本項目",
+      "source_row": 181,
+      "expected": "auth、authpriv及daemon",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "177",
+        "TWGCB-01-012-0177",
+        "日誌與稽核",
+        "設定rsyslog日誌記錄規則",
+        "這項原則決定是否設定rsyslog日誌記錄規則，以記錄認證、授權及系統服務等重要系統資訊\n/etc/rsyslog.conf與/etc/rsyslog.d/*.conf檔案可設定日誌記錄規則，以及將指定之類別資訊儲存至日誌檔案\n啟用rsyslog保存認證、授權及系統服務日誌，以供系統管理者監控是否有未經授權存取行為",
+        "編輯/etc/rsyslog.conf檔案與 /etc/rsyslog.d/目錄下之「.conf」檔案，新增或修改成以下內容：\nauth.*,authpriv.* ,daemon.* /var/log/secure\n開啟終端機，執行以下指令重新啟動rsyslog服務：\n#systemctl restart rsyslog.service",
+        "auth、authpriv及daemon"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "177",
+          "TWGCB-01-012-0177",
+          "日誌與稽核",
+          "設定rsyslog日誌記錄規則",
+          "這項原則決定是否設定rsyslog日誌記錄規則，以記錄認證、授權及系統服務等重要系統資訊\n/etc/rsyslog.conf與/etc/rsyslog.d/*.conf檔案可設定日誌記錄規則，以及將指定之類別資訊儲存至日誌檔案\n啟用rsyslog保存認證、授權及系統服務日誌，以供系統管理者監控是否有未經授權存取行為",
+          "編輯/etc/rsyslog.conf檔案與 /etc/rsyslog.d/目錄下之「.conf」檔案，新增或修改成以下內容：\nauth.*,authpriv.* ,daemon.* /var/log/secure\n開啟終端機，執行以下指令重新啟動rsyslog服務：\n#systemctl restart rsyslog.service",
+          "auth、authpriv及daemon"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "rsyslog 三類 selector 與 secure 目的地",
+      "caveats": "接受來源逗號與分號 selector，舊式 secure 路徑與新式 omfile action；複雜多行 action/模板/ruleset 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900177",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "接受來源逗號與分號 selector，舊式 secure 路徑與新式 omfile action；複雜多行 action/模板/ruleset 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0178",
@@ -2090,6 +4742,118 @@
       "family": "檔案 metadata",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0181",
+      "sca_id": 900181,
+      "source_sheet": "基本項目",
+      "source_row": 184,
+      "expected": "yes",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "180",
+        "TWGCB-01-012-0181",
+        "日誌與稽核",
+        "設定journald壓縮日誌檔案",
+        "這項原則設定決定是否設定journald壓縮日誌檔案\nsystemd是Linux系統設定管理程式，並提供journald做為自身之日誌系統，journald之資料可以暫存於記憶體或永久保存在伺服器上，並允許將日誌從journald匯出至rsyslog\njournald可壓縮過大日誌檔案，啟用此功能可避免日誌檔案占用空間與資源，導致系統異常",
+        "編輯/etc/systemd/journald.conf檔案，新增以下內容：\nCompress=yes\n開啟終端機，執行以下指令重新啟動systemd-journald服務：\n#systemctl restart systemd-journald",
+        "yes"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "180",
+          "TWGCB-01-012-0181",
+          "日誌與稽核",
+          "設定journald壓縮日誌檔案",
+          "這項原則設定決定是否設定journald壓縮日誌檔案\nsystemd是Linux系統設定管理程式，並提供journald做為自身之日誌系統，journald之資料可以暫存於記憶體或永久保存在伺服器上，並允許將日誌從journald匯出至rsyslog\njournald可壓縮過大日誌檔案，啟用此功能可避免日誌檔案占用空間與資源，導致系統異常",
+          "編輯/etc/systemd/journald.conf檔案，新增以下內容：\nCompress=yes\n開啟終端機，執行以下指令重新啟動systemd-journald服務：\n#systemctl restart systemd-journald",
+          "yes"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "Journal Compress 最後有效值與排序 drop-in",
+      "caveats": "來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900181",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0182",
+      "sca_id": 900182,
+      "source_sheet": "基本項目",
+      "source_row": 185,
+      "expected": "persistent",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "181",
+        "TWGCB-01-012-0182",
+        "日誌與稽核",
+        "設定journald將日誌檔案永久保存於磁碟",
+        "這項原則設定決定是否設定journald將日誌檔案永久保存於磁碟\nsystemd是Linux系統設定管理程式，並提供journald做為自身之日誌系統，journald之資料可以暫存於記憶體或永久保存在伺服器上，並允許將日誌從journald匯出至rsyslog\n設定將日誌檔案永久保存於磁諜中，可提供系統管理者分析資安事件發生原因",
+        "編輯/etc/systemd/journald.conf檔案，新增以下內容：\nStorage=persistent \n開啟終端機，執行以下指令重新啟動systemd-journald服務：\n#systemctl restart systemd-journald",
+        "persistent"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "181",
+          "TWGCB-01-012-0182",
+          "日誌與稽核",
+          "設定journald將日誌檔案永久保存於磁碟",
+          "這項原則設定決定是否設定journald將日誌檔案永久保存於磁碟\nsystemd是Linux系統設定管理程式，並提供journald做為自身之日誌系統，journald之資料可以暫存於記憶體或永久保存在伺服器上，並允許將日誌從journald匯出至rsyslog\n設定將日誌檔案永久保存於磁諜中，可提供系統管理者分析資安事件發生原因",
+          "編輯/etc/systemd/journald.conf檔案，新增以下內容：\nStorage=persistent \n開啟終端機，執行以下指令重新啟動systemd-journald服務：\n#systemctl restart systemd-journald",
+          "persistent"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "Journal Storage 最後有效值與排序 drop-in",
+      "caveats": "來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900182",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0183",
@@ -3508,6 +6272,72 @@
       "family": "檔案 metadata",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0308",
+      "sca_id": 900308,
+      "source_sheet": "基本項目",
+      "source_row": 268,
+      "expected": "啟用",
+      "docx_historical_cells": [
+        [
+          "24",
+          "TWGCB-01-012-0308",
+          "日誌與稽核",
+          "rsyslog logrotate",
+          "這項原則設定決定是否啟用rsyslog logrotate\nrsyslog logrotate用於管理系統日誌輪替，可自動定期壓縮、刪除或歸檔舊日誌檔案，以防止日誌過度佔用磁碟空間",
+          "開啟終端機，執行以下指令，建立/var/log/rsyslog，範例如下：\n#mkdir -p /var/log/rsyslog\n#chmod 750 /var/log/rsyslog\n開啟終端機，執行vim指令，編輯/etc/ logrotate.d/rsyslog，新增或修改以下內容：\n/var/log/rsyslog/*.log {\n weekly\n rotate 4\n compress\n missingok\n notifempty\n postrotate /usr/bin/systemctl reload rsyslog.service >/dev/null || true\n endscript\n}",
+          "啟用"
+        ]
+      ],
+      "docx_cells": [
+        "264",
+        "TWGCB-01-012-0308",
+        "日誌與稽核",
+        "rsyslog logrotate",
+        "這項原則設定決定是否啟用rsyslog logrotate\nrsyslog logrotate用於管理系統日誌輪替，可自動定期壓縮、刪除或歸檔舊日誌檔案，以防止日誌過度佔用磁碟空間",
+        "開啟終端機，執行以下指令，建立/var/log/rsyslog，範例如下：\n#mkdir -p /var/log/rsyslog\n#chmod 750 /var/log/rsyslog\n開啟終端機，執行vim指令，編輯/etc/logrotate.d/rsyslog，新增或修改以下內容：\n/var/log/rsyslog/*.log {\n weekly\n rotate 4\n compress\n missingok\n notifempty\n postrotate /usr/bin/systemctl reload rsyslog.service >/dev/null || true\n endscript\n}",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "264",
+          "TWGCB-01-012-0308",
+          "日誌與稽核",
+          "rsyslog logrotate",
+          "這項原則設定決定是否啟用rsyslog logrotate\nrsyslog logrotate用於管理系統日誌輪替，可自動定期壓縮、刪除或歸檔舊日誌檔案，以防止日誌過度佔用磁碟空間",
+          "開啟終端機，執行以下指令，建立/var/log/rsyslog，範例如下：\n#mkdir -p /var/log/rsyslog\n#chmod 750 /var/log/rsyslog\n開啟終端機，執行vim指令，編輯/etc/logrotate.d/rsyslog，新增或修改以下內容：\n/var/log/rsyslog/*.log {\n weekly\n rotate 4\n compress\n missingok\n notifempty\n postrotate /usr/bin/systemctl reload rsyslog.service >/dev/null || true\n endscript\n}",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "指定 rsyslog logrotate 完整 stanza 與日誌目錄權限",
+      "caveats": "依來源 /etc/logrotate.d/rsyslog 指定路徑、weekly/rotate 4/compress/missingok/notifempty/postrotate 及目錄 <=0750；不是任意 rsyslog 字樣即合格；複雜多 stanza、實際輪替待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "tests": [
+        "tests/fixtures/p2b3/cases.json#900308",
+        "tests/test_p2b3.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B3-ENGINE",
+        "B3-SCOPE"
+      ],
+      "family": "P2B3 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 /etc/logrotate.d/rsyslog 指定路徑、weekly/rotate 4/compress/missingok/notifempty/postrotate 及目錄 <=0750；不是任意 rsyslog 字樣即合格；複雜多 stanza、實際輪替待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0242",

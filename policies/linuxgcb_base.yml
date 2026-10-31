@@ -325,6 +325,40 @@
       ]
     },
     {
+      "id": 900092,
+      "title": "TWGCB-01-012-0092 xinetd套件",
+      "description": "合規值: xinetd 未安裝 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0092"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"out=$(rpm -q xinetd 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac\" -> r:^ABSENT$"
+      ]
+    },
+    {
+      "id": 900093,
+      "title": "TWGCB-01-012-0093 chrony校時設定",
+      "description": "合規值: 至少一個有效 server 或 pool ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0093"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ntry:\n    ok = any(re.fullmatch(r'\\\"'\\\"'(server|pool)\\\\s+[^\\\\s#()]+(?:\\\\s+[^#]+)?'\\\"'\\\"', line) for line in active(read('\\\"'\\\"'/etc/chrony.conf'\\\"'\\\"')))\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
       "id": 900094,
       "title": "TWGCB-01-012-0094 rsyncd服務",
       "description": "合規值: rsyncd masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
@@ -341,6 +375,40 @@
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState -> r:^ActiveState=inactive$",
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900095,
+      "title": "TWGCB-01-012-0095 avahi-daemon服務",
+      "description": "合規值: avahi-daemon.service/socket disabled/masked 且 inactive ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0095"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef service(unit):\n    result = subprocess.run(['\\\"'\\\"'/usr/bin/systemctl'\\\"'\\\"', '\\\"'\\\"'show'\\\"'\\\"', unit,\n                             '\\\"'\\\"'--property=LoadState'\\\"'\\\"', '\\\"'\\\"'--property=ActiveState'\\\"'\\\"',\n                             '\\\"'\\\"'--property=UnitFileState'\\\"'\\\"'], capture_output=True, text=True)\n    if result.returncode:\n        raise ValueError('\\\"'\\\"'systemctl failed'\\\"'\\\"')\n    props = dict(line.split('\\\"'\\\"'='\\\"'\\\"', 1) for line in result.stdout.splitlines() if '\\\"'\\\"'='\\\"'\\\"' in line)\n    # Source asks to disable; explicit not-found + inactive is also disabled.\n    return (props.get('\\\"'\\\"'ActiveState'\\\"'\\\"') == '\\\"'\\\"'inactive'\\\"'\\\"' and\n            (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') == '\\\"'\\\"'not-found'\\\"'\\\"' or\n             (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') in ('\\\"'\\\"'loaded'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"') and\n              props.get('\\\"'\\\"'UnitFileState'\\\"'\\\"') in ('\\\"'\\\"'disabled'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"'))))\n\ntry:\n    ok = service('\\\"'\\\"'avahi-daemon.service'\\\"'\\\"') and service('\\\"'\\\"'avahi-daemon.socket'\\\"'\\\"')\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900096,
+      "title": "TWGCB-01-012-0096 SNMP服務",
+      "description": "合規值: SNMP 停用或僅 SNMPv3（SHA/AES 需人工證據） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。來源允許 v3；自動候選限明確 rouser priv，禁 v1/v2 access/include；SHA/AES 金鑰建立與實際協商仍須人工證據，不讀取或輸出私密使用者金鑰。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0096"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef package_state(package):\n    command = '\\\"'\\\"'out=$(rpm -q '\\\"'\\\"' + package + '\\\"'\\\"' 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac'\\\"'\\\"'\n    result = subprocess.run(['\\\"'\\\"'/bin/sh'\\\"'\\\"', '\\\"'\\\"'-c'\\\"'\\\"', command], capture_output=True, text=True)\n    if result.returncode or result.stdout.strip() not in ('\\\"'\\\"'INSTALLED'\\\"'\\\"', '\\\"'\\\"'ABSENT'\\\"'\\\"'):\n        raise ValueError('\\\"'\\\"'rpm failed'\\\"'\\\"')\n    return result.stdout.strip()\n\ndef service(unit):\n    result = subprocess.run(['\\\"'\\\"'/usr/bin/systemctl'\\\"'\\\"', '\\\"'\\\"'show'\\\"'\\\"', unit,\n                             '\\\"'\\\"'--property=LoadState'\\\"'\\\"', '\\\"'\\\"'--property=ActiveState'\\\"'\\\"',\n                             '\\\"'\\\"'--property=UnitFileState'\\\"'\\\"'], capture_output=True, text=True)\n    if result.returncode:\n        raise ValueError('\\\"'\\\"'systemctl failed'\\\"'\\\"')\n    props = dict(line.split('\\\"'\\\"'='\\\"'\\\"', 1) for line in result.stdout.splitlines() if '\\\"'\\\"'='\\\"'\\\"' in line)\n    # Source asks to disable; explicit not-found + inactive is also disabled.\n    return (props.get('\\\"'\\\"'ActiveState'\\\"'\\\"') == '\\\"'\\\"'inactive'\\\"'\\\"' and\n            (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') == '\\\"'\\\"'not-found'\\\"'\\\"' or\n             (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') in ('\\\"'\\\"'loaded'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"') and\n              props.get('\\\"'\\\"'UnitFileState'\\\"'\\\"') in ('\\\"'\\\"'disabled'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"'))))\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef optional_service(package, unit, snmp=False):\n    state = package_state(package)\n    if service(unit):\n        return True\n    if state == '\\\"'\\\"'ABSENT'\\\"'\\\"' or not snmp:\n        return False\n    lines = active(read('\\\"'\\\"'/etc/snmp/snmpd.conf'\\\"'\\\"'))\n    # A conservative, explicit authPriv-only subset of the source'\\\"'\\\"'s v3 branch.\n    forbidden = ('\\\"'\\\"'com2sec'\\\"'\\\"', '\\\"'\\\"'com2sec6'\\\"'\\\"', '\\\"'\\\"'group'\\\"'\\\"', '\\\"'\\\"'view'\\\"'\\\"', '\\\"'\\\"'access'\\\"'\\\"', '\\\"'\\\"'rocommunity'\\\"'\\\"',\n                 '\\\"'\\\"'rwcommunity'\\\"'\\\"', '\\\"'\\\"'rocommunity6'\\\"'\\\"', '\\\"'\\\"'rwcommunity6'\\\"'\\\"', '\\\"'\\\"'includeFile'\\\"'\\\"',\n                 '\\\"'\\\"'includeDir'\\\"'\\\"', '\\\"'\\\"'includefile'\\\"'\\\"', '\\\"'\\\"'includedir'\\\"'\\\"', '\\\"'\\\"'rwuser'\\\"'\\\"')\n    if any(line.split()[0] in forbidden for line in lines):\n        return False\n    users = [line for line in lines if line.split()[0] == '\\\"'\\\"'rouser'\\\"'\\\"']\n    return bool(users) and all(re.fullmatch(r'\\\"'\\\"'rouser\\\\s+\\\\S+\\\\s+priv(?:\\\\s+\\\\S+)?'\\\"'\\\"', line,\n                                          re.I) for line in users)\n\ntry:\n    ok = optional_service('\\\"'\\\"'net-snmp'\\\"'\\\"', '\\\"'\\\"'snmpd.service'\\\"'\\\"', True)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
       ]
     },
     {
@@ -382,6 +450,40 @@
         "c:/usr/bin/systemctl show nmb.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show nmb.service --property=ActiveState -> r:^ActiveState=inactive$",
         "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900099,
+      "title": "TWGCB-01-012-0099 FTP伺服器",
+      "description": "合規值: vsftpd disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0099"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef package_state(package):\n    command = '\\\"'\\\"'out=$(rpm -q '\\\"'\\\"' + package + '\\\"'\\\"' 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac'\\\"'\\\"'\n    result = subprocess.run(['\\\"'\\\"'/bin/sh'\\\"'\\\"', '\\\"'\\\"'-c'\\\"'\\\"', command], capture_output=True, text=True)\n    if result.returncode or result.stdout.strip() not in ('\\\"'\\\"'INSTALLED'\\\"'\\\"', '\\\"'\\\"'ABSENT'\\\"'\\\"'):\n        raise ValueError('\\\"'\\\"'rpm failed'\\\"'\\\"')\n    return result.stdout.strip()\n\ndef service(unit):\n    result = subprocess.run(['\\\"'\\\"'/usr/bin/systemctl'\\\"'\\\"', '\\\"'\\\"'show'\\\"'\\\"', unit,\n                             '\\\"'\\\"'--property=LoadState'\\\"'\\\"', '\\\"'\\\"'--property=ActiveState'\\\"'\\\"',\n                             '\\\"'\\\"'--property=UnitFileState'\\\"'\\\"'], capture_output=True, text=True)\n    if result.returncode:\n        raise ValueError('\\\"'\\\"'systemctl failed'\\\"'\\\"')\n    props = dict(line.split('\\\"'\\\"'='\\\"'\\\"', 1) for line in result.stdout.splitlines() if '\\\"'\\\"'='\\\"'\\\"' in line)\n    # Source asks to disable; explicit not-found + inactive is also disabled.\n    return (props.get('\\\"'\\\"'ActiveState'\\\"'\\\"') == '\\\"'\\\"'inactive'\\\"'\\\"' and\n            (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') == '\\\"'\\\"'not-found'\\\"'\\\"' or\n             (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') in ('\\\"'\\\"'loaded'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"') and\n              props.get('\\\"'\\\"'UnitFileState'\\\"'\\\"') in ('\\\"'\\\"'disabled'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"'))))\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef optional_service(package, unit, snmp=False):\n    state = package_state(package)\n    if service(unit):\n        return True\n    if state == '\\\"'\\\"'ABSENT'\\\"'\\\"' or not snmp:\n        return False\n    lines = active(read('\\\"'\\\"'/etc/snmp/snmpd.conf'\\\"'\\\"'))\n    # A conservative, explicit authPriv-only subset of the source'\\\"'\\\"'s v3 branch.\n    forbidden = ('\\\"'\\\"'com2sec'\\\"'\\\"', '\\\"'\\\"'com2sec6'\\\"'\\\"', '\\\"'\\\"'group'\\\"'\\\"', '\\\"'\\\"'view'\\\"'\\\"', '\\\"'\\\"'access'\\\"'\\\"', '\\\"'\\\"'rocommunity'\\\"'\\\"',\n                 '\\\"'\\\"'rwcommunity'\\\"'\\\"', '\\\"'\\\"'rocommunity6'\\\"'\\\"', '\\\"'\\\"'rwcommunity6'\\\"'\\\"', '\\\"'\\\"'includeFile'\\\"'\\\"',\n                 '\\\"'\\\"'includeDir'\\\"'\\\"', '\\\"'\\\"'includefile'\\\"'\\\"', '\\\"'\\\"'includedir'\\\"'\\\"', '\\\"'\\\"'rwuser'\\\"'\\\"')\n    if any(line.split()[0] in forbidden for line in lines):\n        return False\n    users = [line for line in lines if line.split()[0] == '\\\"'\\\"'rouser'\\\"'\\\"']\n    return bool(users) and all(re.fullmatch(r'\\\"'\\\"'rouser\\\\s+\\\\S+\\\\s+priv(?:\\\\s+\\\\S+)?'\\\"'\\\"', line,\n                                          re.I) for line in users)\n\ntry:\n    ok = optional_service('\\\"'\\\"'vsftpd'\\\"'\\\"', '\\\"'\\\"'vsftpd.service'\\\"'\\\"', False)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900100,
+      "title": "TWGCB-01-012-0100 NIS伺服器",
+      "description": "合規值: ypserv disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0100"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef package_state(package):\n    command = '\\\"'\\\"'out=$(rpm -q '\\\"'\\\"' + package + '\\\"'\\\"' 2>/dev/null); rc=$?; case $rc in 0) echo INSTALLED;; 1) echo ABSENT;; *) exit $rc;; esac'\\\"'\\\"'\n    result = subprocess.run(['\\\"'\\\"'/bin/sh'\\\"'\\\"', '\\\"'\\\"'-c'\\\"'\\\"', command], capture_output=True, text=True)\n    if result.returncode or result.stdout.strip() not in ('\\\"'\\\"'INSTALLED'\\\"'\\\"', '\\\"'\\\"'ABSENT'\\\"'\\\"'):\n        raise ValueError('\\\"'\\\"'rpm failed'\\\"'\\\"')\n    return result.stdout.strip()\n\ndef service(unit):\n    result = subprocess.run(['\\\"'\\\"'/usr/bin/systemctl'\\\"'\\\"', '\\\"'\\\"'show'\\\"'\\\"', unit,\n                             '\\\"'\\\"'--property=LoadState'\\\"'\\\"', '\\\"'\\\"'--property=ActiveState'\\\"'\\\"',\n                             '\\\"'\\\"'--property=UnitFileState'\\\"'\\\"'], capture_output=True, text=True)\n    if result.returncode:\n        raise ValueError('\\\"'\\\"'systemctl failed'\\\"'\\\"')\n    props = dict(line.split('\\\"'\\\"'='\\\"'\\\"', 1) for line in result.stdout.splitlines() if '\\\"'\\\"'='\\\"'\\\"' in line)\n    # Source asks to disable; explicit not-found + inactive is also disabled.\n    return (props.get('\\\"'\\\"'ActiveState'\\\"'\\\"') == '\\\"'\\\"'inactive'\\\"'\\\"' and\n            (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') == '\\\"'\\\"'not-found'\\\"'\\\"' or\n             (props.get('\\\"'\\\"'LoadState'\\\"'\\\"') in ('\\\"'\\\"'loaded'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"') and\n              props.get('\\\"'\\\"'UnitFileState'\\\"'\\\"') in ('\\\"'\\\"'disabled'\\\"'\\\"', '\\\"'\\\"'masked'\\\"'\\\"'))))\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef optional_service(package, unit, snmp=False):\n    state = package_state(package)\n    if service(unit):\n        return True\n    if state == '\\\"'\\\"'ABSENT'\\\"'\\\"' or not snmp:\n        return False\n    lines = active(read('\\\"'\\\"'/etc/snmp/snmpd.conf'\\\"'\\\"'))\n    # A conservative, explicit authPriv-only subset of the source'\\\"'\\\"'s v3 branch.\n    forbidden = ('\\\"'\\\"'com2sec'\\\"'\\\"', '\\\"'\\\"'com2sec6'\\\"'\\\"', '\\\"'\\\"'group'\\\"'\\\"', '\\\"'\\\"'view'\\\"'\\\"', '\\\"'\\\"'access'\\\"'\\\"', '\\\"'\\\"'rocommunity'\\\"'\\\"',\n                 '\\\"'\\\"'rwcommunity'\\\"'\\\"', '\\\"'\\\"'rocommunity6'\\\"'\\\"', '\\\"'\\\"'rwcommunity6'\\\"'\\\"', '\\\"'\\\"'includeFile'\\\"'\\\"',\n                 '\\\"'\\\"'includeDir'\\\"'\\\"', '\\\"'\\\"'includefile'\\\"'\\\"', '\\\"'\\\"'includedir'\\\"'\\\"', '\\\"'\\\"'rwuser'\\\"'\\\"')\n    if any(line.split()[0] in forbidden for line in lines):\n        return False\n    users = [line for line in lines if line.split()[0] == '\\\"'\\\"'rouser'\\\"'\\\"']\n    return bool(users) and all(re.fullmatch(r'\\\"'\\\"'rouser\\\\s+\\\\S+\\\\s+priv(?:\\\\s+\\\\S+)?'\\\"'\\\"', line,\n                                          re.I) for line in users)\n\ntry:\n    ok = optional_service('\\\"'\\\"'ypserv'\\\"'\\\"', '\\\"'\\\"'ypserv.service'\\\"'\\\"', False)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
       ]
     },
     {
@@ -564,6 +666,125 @@
       ]
     },
     {
+      "id": 900134,
+      "title": "TWGCB-01-012-0134 稽核auditd服務啟動前之程序",
+      "description": "合規值: audit=1 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0134"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef grub(key, minimum):\n    values = {}\n    for line in active(read('\\\"'\\\"'/etc/default/grub'\\\"'\\\"')):\n        match = re.fullmatch(r'\\\"'\\\"'(GRUB_CMDLINE_LINUX(?:_DEFAULT)?)\\\\s*=\\\\s*([\\\\'\\\"'\\\"'\\\"])(.*?)\\\\2'\\\"'\\\"', line)\n        if match:\n            values[match[1]] = match[3].split()\n    if '\\\"'\\\"'GRUB_CMDLINE_LINUX'\\\"'\\\"' not in values:\n        return False\n    options = [word.split('\\\"'\\\"'='\\\"'\\\"', 1)[1] for word in values['\\\"'\\\"'GRUB_CMDLINE_LINUX'\\\"'\\\"'] if word.startswith(key + '\\\"'\\\"'='\\\"'\\\"')]\n    if not options:\n        return False\n    options += [word.split('\\\"'\\\"'='\\\"'\\\"', 1)[1] for word in values.get('\\\"'\\\"'GRUB_CMDLINE_LINUX_DEFAULT'\\\"'\\\"', []) if word.startswith(key + '\\\"'\\\"'='\\\"'\\\"')]\n    return all(value.isdigit() and (int(value) == 1 if key == '\\\"'\\\"'audit'\\\"'\\\"' else int(value) >= minimum) for value in options)\n\ntry:\n    ok = grub('\\\"'\\\"'audit'\\\"'\\\"', 1)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900135,
+      "title": "TWGCB-01-012-0135 稽核待辦事項數量限制",
+      "description": "合規值: audit_backlog_limit>=8192 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0135"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef grub(key, minimum):\n    values = {}\n    for line in active(read('\\\"'\\\"'/etc/default/grub'\\\"'\\\"')):\n        match = re.fullmatch(r'\\\"'\\\"'(GRUB_CMDLINE_LINUX(?:_DEFAULT)?)\\\\s*=\\\\s*([\\\\'\\\"'\\\"'\\\"])(.*?)\\\\2'\\\"'\\\"', line)\n        if match:\n            values[match[1]] = match[3].split()\n    if '\\\"'\\\"'GRUB_CMDLINE_LINUX'\\\"'\\\"' not in values:\n        return False\n    options = [word.split('\\\"'\\\"'='\\\"'\\\"', 1)[1] for word in values['\\\"'\\\"'GRUB_CMDLINE_LINUX'\\\"'\\\"'] if word.startswith(key + '\\\"'\\\"'='\\\"'\\\"')]\n    if not options:\n        return False\n    options += [word.split('\\\"'\\\"'='\\\"'\\\"', 1)[1] for word in values.get('\\\"'\\\"'GRUB_CMDLINE_LINUX_DEFAULT'\\\"'\\\"', []) if word.startswith(key + '\\\"'\\\"'='\\\"'\\\"')]\n    return all(value.isdigit() and (int(value) == 1 if key == '\\\"'\\\"'audit'\\\"'\\\"' else int(value) >= minimum) for value in options)\n\ntry:\n    ok = grub('\\\"'\\\"'audit_backlog_limit'\\\"'\\\"', 8192)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900136,
+      "title": "TWGCB-01-012-0136 稽核處理失敗時通知系統管理者",
+      "description": "合規值: postmaster: root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0136"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ntry:\n    ok = (lambda lines: bool(lines) and re.fullmatch(r'\\\"'\\\"'postmaster:\\\\s*root'\\\"'\\\"', lines[-1]) is not None)([line for line in active(read('\\\"'\\\"'/etc/aliases'\\\"'\\\"')) if re.match(r'\\\"'\\\"'postmaster:'\\\"'\\\"', line)])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900137,
+      "title": "TWGCB-01-012-0137 稽核日誌檔案所有權",
+      "description": "合規值: 稽核日誌 root:root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0137"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ndef log_metadata(mask=None, directory=False):\n    path = setting(read('\\\"'\\\"'/etc/audit/auditd.conf'\\\"'\\\"'), '\\\"'\\\"'log_file'\\\"'\\\"')\n    if not path or not path.startswith('\\\"'\\\"'/'\\\"'\\\"'):\n        return False\n    if directory:\n        path = os.path.dirname(path)\n    return metadata(path, mask, directory)\n\ntry:\n    ok = log_metadata(None, False)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900138,
+      "title": "TWGCB-01-012-0138 稽核日誌檔案權限",
+      "description": "合規值: 稽核日誌 <=0600（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0138"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ndef log_metadata(mask=None, directory=False):\n    path = setting(read('\\\"'\\\"'/etc/audit/auditd.conf'\\\"'\\\"'), '\\\"'\\\"'log_file'\\\"'\\\"')\n    if not path or not path.startswith('\\\"'\\\"'/'\\\"'\\\"'):\n        return False\n    if directory:\n        path = os.path.dirname(path)\n    return metadata(path, mask, directory)\n\ntry:\n    ok = log_metadata(0o600, False)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900139,
+      "title": "TWGCB-01-012-0139 稽核日誌目錄所有權",
+      "description": "合規值: 稽核日誌目錄 root:root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0139"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ndef log_metadata(mask=None, directory=False):\n    path = setting(read('\\\"'\\\"'/etc/audit/auditd.conf'\\\"'\\\"'), '\\\"'\\\"'log_file'\\\"'\\\"')\n    if not path or not path.startswith('\\\"'\\\"'/'\\\"'\\\"'):\n        return False\n    if directory:\n        path = os.path.dirname(path)\n    return metadata(path, mask, directory)\n\ntry:\n    ok = log_metadata(None, True)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900140,
+      "title": "TWGCB-01-012-0140 稽核日誌目錄權限",
+      "description": "合規值: 稽核日誌目錄 <=0700（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0140"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ndef log_metadata(mask=None, directory=False):\n    path = setting(read('\\\"'\\\"'/etc/audit/auditd.conf'\\\"'\\\"'), '\\\"'\\\"'log_file'\\\"'\\\"')\n    if not path or not path.startswith('\\\"'\\\"'/'\\\"'\\\"'):\n        return False\n    if directory:\n        path = os.path.dirname(path)\n    return metadata(path, mask, directory)\n\ntry:\n    ok = log_metadata(0o700, True)\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
       "id": 900141,
       "title": "TWGCB-01-012-0141 稽核規則檔案權限",
       "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05,Q1-08；raw PASS 非已驗證符合。僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋",
@@ -595,6 +816,533 @@
       "condition": "all",
       "rules": [
         "c:/usr/bin/stat -c %a /etc/audit/auditd.conf -> r:^(0|40|200|240|400|440|600|640)$"
+      ]
+    },
+    {
+      "id": 900143,
+      "title": "TWGCB-01-012-0143 稽核工具權限",
+      "description": "合規值: 九個稽核工具 <=0750（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0143"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ntry:\n    ok = all(metadata(path, 0o750) for path in ['\\\"'\\\"'/sbin/auditctl'\\\"'\\\"', '\\\"'\\\"'/sbin/aureport'\\\"'\\\"', '\\\"'\\\"'/sbin/ausearch'\\\"'\\\"', '\\\"'\\\"'/sbin/autrace'\\\"'\\\"', '\\\"'\\\"'/sbin/auditd'\\\"'\\\"', '\\\"'\\\"'/sbin/audisp-remote'\\\"'\\\"', '\\\"'\\\"'/sbin/audisp-syslog'\\\"'\\\"', '\\\"'\\\"'/sbin/augenrules'\\\"'\\\"', '\\\"'\\\"'/sbin/rsyslogd'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900144,
+      "title": "TWGCB-01-012-0144 稽核工具所有權",
+      "description": "合規值: 九個稽核工具 root:root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0144"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ntry:\n    ok = all(metadata(path, None) for path in ['\\\"'\\\"'/sbin/auditctl'\\\"'\\\"', '\\\"'\\\"'/sbin/aureport'\\\"'\\\"', '\\\"'\\\"'/sbin/ausearch'\\\"'\\\"', '\\\"'\\\"'/sbin/autrace'\\\"'\\\"', '\\\"'\\\"'/sbin/auditd'\\\"'\\\"', '\\\"'\\\"'/sbin/audisp-remote'\\\"'\\\"', '\\\"'\\\"'/sbin/audisp-syslog'\\\"'\\\"', '\\\"'\\\"'/sbin/augenrules'\\\"'\\\"', '\\\"'\\\"'/sbin/rsyslogd'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900145,
+      "title": "TWGCB-01-012-0145 保護稽核工具",
+      "description": "合規值: 八個稽核工具 p+i+n+u+g+s+b+acl+xattrs+sha512 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。逐工具要求來源完整屬性序列；AIDE macro/Include 與資料庫初始化待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0145"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ntry:\n    ok = audit_matches('\\\"'\\\"'/etc/aide.conf'\\\"'\\\"', [path + '\\\"'\\\"' p+i+n+u+g+s+b+acl+xattrs+sha512'\\\"'\\\"' for path in ['\\\"'\\\"'/usr/sbin/auditctl'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/auditd'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/ausearch'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/aureport'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/autrace'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/audisp-remote'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/audisp-syslog'\\\"'\\\"', '\\\"'\\\"'/usr/sbin/augenrules'\\\"'\\\"']])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900146,
+      "title": "TWGCB-01-012-0146 稽核日誌檔案大小上限",
+      "description": "合規值: max_log_file>=32 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0146"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ntry:\n    ok = (lambda v: v is not None and v.isdigit() and int(v) >= 32)(setting(read('\\\"'\\\"'/etc/audit/auditd.conf'\\\"'\\\"'), '\\\"'\\\"'max_log_file'\\\"'\\\"'))\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900147,
+      "title": "TWGCB-01-012-0147 稽核日誌達到其檔案大小上限之行為",
+      "description": "合規值: max_log_file_action=keep_logs ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0147"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ntry:\n    ok = setting(read('\\\"'\\\"'/etc/audit/auditd.conf'\\\"'\\\"'), '\\\"'\\\"'max_log_file_action'\\\"'\\\"') == '\\\"'\\\"'keep_logs'\\\"'\\\"'\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900148,
+      "title": "TWGCB-01-012-0148 記錄系統管理者活動",
+      "description": "合規值: -w /etc/sudoers -p wa -k scope；-w /etc/sudoers.d/ -p wa -k scope ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0148"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /etc/sudoers -p wa -k scope'\\\"'\\\"', '\\\"'\\\"'-w /etc/sudoers.d/ -p wa -k scope'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900149,
+      "title": "TWGCB-01-012-0149 記錄變更登入與登出資訊事件",
+      "description": "合規值: -w /var/run/faillock/ -p wa -k logins；-w /var/log/lastlog -p wa -k logins ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0149"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /var/run/faillock/ -p wa -k logins'\\\"'\\\"', '\\\"'\\\"'-w /var/log/lastlog -p wa -k logins'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900150,
+      "title": "TWGCB-01-012-0150 記錄會談啟始資訊",
+      "description": "合規值: -w /var/run/utmp -p wa -k session；-w /var/log/wtmp -p wa -k logins；-w /var/log/btmp -p wa -k logins ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0150"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /var/run/utmp -p wa -k session'\\\"'\\\"', '\\\"'\\\"'-w /var/log/wtmp -p wa -k logins'\\\"'\\\"', '\\\"'\\\"'-w /var/log/btmp -p wa -k logins'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900151,
+      "title": "TWGCB-01-012-0151 記錄變更日期與時間事件",
+      "description": "合規值: -a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change；-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change；-a always,exit -F arch=b64 -S clock_settime -k time-change；-a always,exit -F arch=b32 -S clock_settime -k time-change；-w /etc/localtime -p wa -k time-change ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0151"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S clock_settime -k time-change'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S clock_settime -k time-change'\\\"'\\\"', '\\\"'\\\"'-w /etc/localtime -p wa -k time-change'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900152,
+      "title": "TWGCB-01-012-0152 記錄變更系統強制存取控制事件",
+      "description": "合規值: -w /etc/selinux/ -p wa -k MAC-policy；-w /usr/share/selinux/ -p wa -k MAC-policy ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0152"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /etc/selinux/ -p wa -k MAC-policy'\\\"'\\\"', '\\\"'\\\"'-w /usr/share/selinux/ -p wa -k MAC-policy'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900153,
+      "title": "TWGCB-01-012-0153 記錄變更系統網路環境事件",
+      "description": "合規值: -a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale；-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale；-w /etc/issue -p wa -k system-locale；-w /etc/issue.net -p wa -k system-locale；-w /etc/hosts -p wa -k system-locale；-w /etc/sysconfig/network-scripts -p wa -k system-locale；-w /etc/NetworkManager -p wa -k system-locale；-w /etc/sysconfig/network -p wa -k system-locale；-w /etc/hostname -p wa -k system-locale ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0153"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/issue -p wa -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/issue.net -p wa -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/hosts -p wa -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/sysconfig/network-scripts -p wa -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/NetworkManager -p wa -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/sysconfig/network -p wa -k system-locale'\\\"'\\\"', '\\\"'\\\"'-w /etc/hostname -p wa -k system-locale'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900154,
+      "title": "TWGCB-01-012-0154 記錄變更自主存取控制權限事件",
+      "description": "合規值: -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0154"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900155,
+      "title": "TWGCB-01-012-0155 記錄不成功之未經授權檔案存取",
+      "description": "合規值: -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0155"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900156,
+      "title": "TWGCB-01-012-0156 記錄變更使用者或群組資訊事件",
+      "description": "合規值: -w /etc/group -p wa -k identity；-w /etc/passwd -p wa -k identity；-w /etc/gshadow -p wa -k identity；-w /etc/shadow -p wa -k identity；-w /etc/security/opasswd -p wa -k identity；-w /etc/nsswitch.conf -p wa -k identity；-w /etc/pam.conf -p wa -k identity；-w /etc/pam.d -p wa -k identity ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0156"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /etc/group -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/passwd -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/gshadow -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/shadow -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/security/opasswd -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/nsswitch.conf -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/pam.conf -p wa -k identity'\\\"'\\\"', '\\\"'\\\"'-w /etc/pam.d -p wa -k identity'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900157,
+      "title": "TWGCB-01-012-0157 記錄變更檔案系統掛載事件",
+      "description": "合規值: -a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts；-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0157"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900158,
+      "title": "TWGCB-01-012-0158 記錄特權指令使用情形",
+      "description": "合規值: 每個磁區所有特權程式都有 privileged.rules 執行稽核 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。列舉 mountinfo 實體檔案系統（排除 proc/sysfs 等虛擬介面），每掛載點 xdev 查所有 regular setuid/setgid；空集合為全稱真但 privileged.rules 仍須可讀。大型/網路檔案系統成本與競態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0158"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef privileged():\n    # Traverse each mounted real filesystem separately, preserving find -xdev.\n    pseudo = {'\\\"'\\\"'proc'\\\"'\\\"', '\\\"'\\\"'sysfs'\\\"'\\\"', '\\\"'\\\"'devtmpfs'\\\"'\\\"', '\\\"'\\\"'devpts'\\\"'\\\"', '\\\"'\\\"'cgroup'\\\"'\\\"', '\\\"'\\\"'cgroup2'\\\"'\\\"', '\\\"'\\\"'securityfs'\\\"'\\\"',\n              '\\\"'\\\"'debugfs'\\\"'\\\"', '\\\"'\\\"'tracefs'\\\"'\\\"', '\\\"'\\\"'configfs'\\\"'\\\"', '\\\"'\\\"'pstore'\\\"'\\\"', '\\\"'\\\"'mqueue'\\\"'\\\"', '\\\"'\\\"'hugetlbfs'\\\"'\\\"',\n              '\\\"'\\\"'fusectl'\\\"'\\\"', '\\\"'\\\"'autofs'\\\"'\\\"', '\\\"'\\\"'binfmt_misc'\\\"'\\\"', '\\\"'\\\"'rpc_pipefs'\\\"'\\\"'}\n    mounts = set()\n    for line in read('\\\"'\\\"'/proc/self/mountinfo'\\\"'\\\"').splitlines():\n        left, right = line.split('\\\"'\\\"' - '\\\"'\\\"', 1)\n        if right.split()[0] not in pseudo:\n            mount = re.sub(r'\\\"'\\\"'\\\\\\\\([0-7]{3})'\\\"'\\\"', lambda m: chr(int(m[1], 8)), left.split()[4])\n            mounts.add(mount)\n    if not mounts:\n        return False\n    required = set()\n    def fail(error):\n        raise error\n    for mount in sorted(mounts):\n        device = os.stat(ROOT + mount).st_dev\n        for folder, dirs, names in os.walk(ROOT + mount, onerror=fail, followlinks=False):\n            dirs[:] = [name for name in dirs if not os.path.islink(folder + '\\\"'\\\"'/'\\\"'\\\"' + name)\n                       and os.stat(folder + '\\\"'\\\"'/'\\\"'\\\"' + name).st_dev == device\n                       and (folder + '\\\"'\\\"'/'\\\"'\\\"' + name)[len(ROOT):] not in mounts]\n            for name in names:\n                path = folder + '\\\"'\\\"'/'\\\"'\\\"' + name\n                info = os.lstat(path)\n                if stat.S_ISREG(info.st_mode) and info.st_mode & 0o6000:\n                    required.add('\\\"'\\\"'-a always,exit -F path='\\\"'\\\"' + path[len(ROOT):] +\n                                 '\\\"'\\\"' -F perm=x -F auid>='\\\"'\\\"' + uid_min() +\n                                 '\\\"'\\\"' -F auid!=4294967295 -k privileged'\\\"'\\\"')\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/privileged.rules'\\\"'\\\"', sorted(required))\n\ntry:\n    ok = privileged()\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900159,
+      "title": "TWGCB-01-012-0159 記錄檔案刪除事件",
+      "description": "合規值: -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete；-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。來源 renameat-S 排版錯誤解讀為 renameat -S，保留五個 syscall，待人工核准。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0159"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900160,
+      "title": "TWGCB-01-012-0160 記錄核心模組掛載與卸載事件",
+      "description": "合規值: -w /sbin/insmod -p x -k modules；-w /sbin/rmmod -p x -k modules；-w /sbin/modprobe -p x -k modules；-a always,exit -F arch=b64 -S init_module -S delete_module -k modules；-a always,exit -F arch=b32 -S init_module -S delete_module -k modules ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0160"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /sbin/insmod -p x -k modules'\\\"'\\\"', '\\\"'\\\"'-w /sbin/rmmod -p x -k modules'\\\"'\\\"', '\\\"'\\\"'-w /sbin/modprobe -p x -k modules'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S init_module -S delete_module -k modules'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S init_module -S delete_module -k modules'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900161,
+      "title": "TWGCB-01-012-0161 記錄系統管理者活動日誌變更",
+      "description": "合規值: sudo 實際 logfile 有 actions.rules wa/actions 稽核 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。只辨識 /etc/sudoers 與 sudoers.d 的明確 Defaults logfile；不假定 /var/log/sudo.log；條件 Defaults、外部 include 與覆寫完整語意待人工審查。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0161"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef files(pattern):\n    parent = os.path.dirname(ROOT + pattern)\n    try:\n        os.stat(parent)\n    except FileNotFoundError:\n        return []\n    with os.scandir(parent) as entries:\n        list(entries)\n    return sorted(p[len(ROOT):] for p in glob.glob(ROOT + pattern))\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef sudo_log():\n    paths = ['\\\"'\\\"'/etc/sudoers'\\\"'\\\"'] + files('\\\"'\\\"'/etc/sudoers.d/*'\\\"'\\\"')\n    logs = set()\n    for path in paths:\n        text = read(path)\n        for raw in text.splitlines():\n            include = re.match(r'\\\"'\\\"'\\\\s*(?:#|@)include(dir)?\\\\s+(.+)'\\\"'\\\"', raw)\n            if include and not (include[1] == '\\\"'\\\"'dir'\\\"'\\\"' and include[2].strip() == '\\\"'\\\"'/etc/sudoers.d'\\\"'\\\"'):\n                return False\n        for line in active(text):\n            if line.startswith('\\\"'\\\"'Defaults'\\\"'\\\"'):\n                if re.search(r'\\\"'\\\"'!logfile\\\\b'\\\"'\\\"', line):\n                    return False\n                values = re.findall(r\\\"\\\\blogfile\\\\s*=\\\\s*(?:\\\\\\\"([^\\\\\\\"]+)\\\\\\\"|'\\\"'\\\"'([^'\\\"'\\\"']+)'\\\"'\\\"'|([^\\\\s,]+))\\\", line)\n                for parts in values:\n                    value = next(part for part in parts if part)\n                    if not value.startswith('\\\"'\\\"'/'\\\"'\\\"') or any(char.isspace() for char in value):\n                        return False\n                    logs.add(value)\n    return bool(logs) and all(audit_matches('\\\"'\\\"'/etc/audit/rules.d/actions.rules'\\\"'\\\"',\n                                          ['\\\"'\\\"'-w '\\\"'\\\"' + path + '\\\"'\\\"' -p wa -k actions'\\\"'\\\"']) for path in logs)\n\ntry:\n    ok = sudo_log()\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900162,
+      "title": "TWGCB-01-012-0162 記錄chcon指令使用情形",
+      "description": "合規值: -a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0162"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900163,
+      "title": "TWGCB-01-012-0163 記錄ssh-agent程序使用情形",
+      "description": "合規值: -a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-ssh ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0163"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-ssh'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900164,
+      "title": "TWGCB-01-012-0164 記錄unix_update程序使用情形",
+      "description": "合規值: -a always,exit -F path=/sbin/unix_update -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-unix-update ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0164"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F path=/sbin/unix_update -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-unix-update'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900165,
+      "title": "TWGCB-01-012-0165 記錄setfacl指令使用情形",
+      "description": "合規值: -a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0165"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900166,
+      "title": "TWGCB-01-012-0166 記錄finit_module指令使用情形",
+      "description": "合規值: -a always,exit -F arch=b32 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng；-a always,exit -F arch=b64 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0166"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b32 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900167,
+      "title": "TWGCB-01-012-0167 記錄open_by_handle_at系統呼叫使用情形",
+      "description": "合規值: -a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0167"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900168,
+      "title": "TWGCB-01-012-0168 記錄usermod指令使用情形",
+      "description": "合規值: -a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-usermod ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0168"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-usermod'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900169,
+      "title": "TWGCB-01-012-0169 記錄chacl指令使用情形",
+      "description": "合規值: -a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0169"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900170,
+      "title": "TWGCB-01-012-0170 記錄kmod指令使用情形",
+      "description": "合規值: -w /bin/kmod -p x -k modules ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0170"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /bin/kmod -p x -k modules'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900171,
+      "title": "TWGCB-01-012-0171 記錄Pam_Faillock日誌檔案",
+      "description": "合規值: -w /var/log/faillock -p wa -k logins ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0171"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-w /var/log/faillock -p wa -k logins'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900172,
+      "title": "TWGCB-01-012-0172 記錄execve系統呼叫使用情形",
+      "description": "合規值: -a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0172"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef uid_min():\n    values = [line.split()[1] for line in active(read('\\\"'\\\"'/etc/login.defs'\\\"'\\\"'))\n              if line.split()[0] == '\\\"'\\\"'UID_MIN'\\\"'\\\"']\n    if not values or not values[-1].isdigit():\n        raise ValueError('\\\"'\\\"'UID_MIN unresolved'\\\"'\\\"')\n    return str(int(values[-1]))\n\ndef audit_matches(path, required):\n    lines = active(read(path))\n    for item in required:\n        pattern = r'\\\"'\\\"'\\\\s*'\\\"'\\\"' + r'\\\"'\\\"'\\\\s+'\\\"'\\\"'.join(re.escape(t) for t in item.split()) + r'\\\"'\\\"'\\\\s*'\\\"'\\\"'\n        if not any(re.fullmatch(pattern, line) for line in lines):\n            return False\n    return True\n\ndef audit_rules(required):\n    if any('\\\"'\\\"'auid>=1000'\\\"'\\\"' in line for line in required):\n        required = [line.replace('\\\"'\\\"'auid>=1000'\\\"'\\\"', '\\\"'\\\"'auid>='\\\"'\\\"' + uid_min()) for line in required]\n    return audit_matches('\\\"'\\\"'/etc/audit/rules.d/audit.rules'\\\"'\\\"', required)\n\ntry:\n    ok = audit_rules(['\\\"'\\\"'-a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv'\\\"'\\\"', '\\\"'\\\"'-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv'\\\"'\\\"'])\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900173,
+      "title": "TWGCB-01-012-0173 auditd設定不變模式",
+      "description": "合規值: -e 2；--loginuid-immutable ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源 -e 2--loginuid-immutable 排版解讀為兩條指令；自然數字排序規則檔，最後 -e 必須為 2 且最後有效行為鎖定指令；核心狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0173"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef files(pattern):\n    parent = os.path.dirname(ROOT + pattern)\n    try:\n        os.stat(parent)\n    except FileNotFoundError:\n        return []\n    with os.scandir(parent) as entries:\n        list(entries)\n    return sorted(p[len(ROOT):] for p in glob.glob(ROOT + pattern))\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef immutable():\n    paths = sorted(files('\\\"'\\\"'/etc/audit/rules.d/*.rules'\\\"'\\\"'),\n                   key=lambda path: [int(part) if part.isdigit() else part for part in re.split(r'\\\"'\\\"'(\\\\d+)'\\\"'\\\"', path)])\n    lines = [line for path in paths for line in active(read(path))]\n    controls = [line for line in lines if re.match(r'\\\"'\\\"'-e(?:\\\\s|$)'\\\"'\\\"', line)]\n    return (bool(controls) and controls[-1] == '\\\"'\\\"'-e 2'\\\"'\\\"' and\n            '\\\"'\\\"'--loginuid-immutable'\\\"'\\\"' in lines and lines[-1] in ('\\\"'\\\"'-e 2'\\\"'\\\"', '\\\"'\\\"'--loginuid-immutable'\\\"'\\\"'))\n\ntry:\n    ok = immutable()\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
       ]
     },
     {
@@ -634,6 +1382,40 @@
       ]
     },
     {
+      "id": 900176,
+      "title": "TWGCB-01-012-0176 設定rsyslog日誌檔案預設權限",
+      "description": "合規值: $FileCreateMode/action fileCreateMode <=0640（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。保守要求所有明確 $FileCreateMode 與 action fileCreateMode 均不超過 0640；未設定不假定預設合格；複雜模板/include 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0176"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef files(pattern):\n    parent = os.path.dirname(ROOT + pattern)\n    try:\n        os.stat(parent)\n    except FileNotFoundError:\n        return []\n    with os.scandir(parent) as entries:\n        list(entries)\n    return sorted(p[len(ROOT):] for p in glob.glob(ROOT + pattern))\n\ndef rsyslog_text():\n    return '\\\"'\\\"'\\\\n'\\\"'\\\"'.join(read(path) for path in ['\\\"'\\\"'/etc/rsyslog.conf'\\\"'\\\"'] + files('\\\"'\\\"'/etc/rsyslog.d/*.conf'\\\"'\\\"'))\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef rsyslog_mode():\n    text = '\\\"'\\\"'\\\\n'\\\"'\\\"'.join(active(rsyslog_text()))\n    declarations = [line for line in text.splitlines() if re.match(r'\\\"'\\\"'^\\\\$FileCreateMode(?:\\\\s|$)'\\\"'\\\"', line)]\n    if any(not re.fullmatch(r'\\\"'\\\"'\\\\$FileCreateMode\\\\s+0?[0-7]{3}\\\\s*'\\\"'\\\"', line) for line in declarations):\n        return False\n    modes = [line.split()[1] for line in declarations]\n    overrides = re.findall(r'\\\"'\\\"'fileCreateMode\\\\s*=\\\\s*\\\"([^\\\"]*)\\\"'\\\"'\\\"', text, re.I)\n    return (bool(modes or overrides) and\n            all(re.fullmatch(r'\\\"'\\\"'0?[0-7]{3}'\\\"'\\\"', value) and int(value, 8) & ~0o640 == 0\n                for value in modes + overrides))\n\ntry:\n    ok = rsyslog_mode()\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900177,
+      "title": "TWGCB-01-012-0177 設定rsyslog日誌記錄規則",
+      "description": "合規值: auth.*、authpriv.*、daemon.* → /var/log/secure ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。接受來源逗號與分號 selector，舊式 secure 路徑與新式 omfile action；複雜多行 action/模板/ruleset 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0177"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef files(pattern):\n    parent = os.path.dirname(ROOT + pattern)\n    try:\n        os.stat(parent)\n    except FileNotFoundError:\n        return []\n    with os.scandir(parent) as entries:\n        list(entries)\n    return sorted(p[len(ROOT):] for p in glob.glob(ROOT + pattern))\n\ndef rsyslog_text():\n    return '\\\"'\\\"'\\\\n'\\\"'\\\"'.join(read(path) for path in ['\\\"'\\\"'/etc/rsyslog.conf'\\\"'\\\"'] + files('\\\"'\\\"'/etc/rsyslog.d/*.conf'\\\"'\\\"'))\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef rsyslog_rules():\n    lines = active(rsyslog_text())\n    # Accept source comma notation and conventional semicolon selector separators.\n    for facility in ('\\\"'\\\"'auth'\\\"'\\\"', '\\\"'\\\"'authpriv'\\\"'\\\"', '\\\"'\\\"'daemon'\\\"'\\\"'):\n        selector = r'\\\"'\\\"'(?:auth|authpriv|daemon)\\\\.\\\\*'\\\"'\\\"'\n        selectors = selector + r'\\\"'\\\"'(?:\\\\s*[,;]\\\\s*'\\\"'\\\"' + selector + r'\\\"'\\\"')*'\\\"'\\\"'\n        destination = r'\\\"'\\\"'(?:-?/var/log/secure|action\\\\(\\\\s*type=\\\"omfile\\\"\\\\s+file=\\\"/var/log/secure\\\"\\\\s*\\\\))'\\\"'\\\"'\n        if not any(re.fullmatch(selectors + r'\\\"'\\\"'\\\\s+'\\\"'\\\"' + destination, line) and\n                   re.search(r'\\\"'\\\"'(?:^|[,;])\\\\s*'\\\"'\\\"' + facility + r'\\\"'\\\"'\\\\.\\\\*(?:\\\\s*[,;]|\\\\s+)'\\\"'\\\"', line)\n                   for line in lines):\n            return False\n    return True\n\ntry:\n    ok = rsyslog_rules()\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
       "id": 900178,
       "title": "TWGCB-01-012-0178 /var/log/messages檔案所有權",
       "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
@@ -666,6 +1448,40 @@
       "rules": [
         "c:/usr/bin/stat -c %U:%G /var/log -> r:^root:root$",
         "c:/usr/bin/stat -c %f /var/log -> r:^4[0-9a-f]{3}$"
+      ]
+    },
+    {
+      "id": 900181,
+      "title": "TWGCB-01-012-0181 設定journald壓縮日誌檔案",
+      "description": "合規值: [Journal] Compress=yes（明確設定） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0181"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef files(pattern):\n    parent = os.path.dirname(ROOT + pattern)\n    try:\n        os.stat(parent)\n    except FileNotFoundError:\n        return []\n    with os.scandir(parent) as entries:\n        list(entries)\n    return sorted(p[len(ROOT):] for p in glob.glob(ROOT + pattern))\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef journal(key, expected):\n    # /etc drop-ins take priority over equal basenames in /run and vendor dirs.\n    paths = {}\n    for folder in ('\\\"'\\\"'/usr/lib'\\\"'\\\"', '\\\"'\\\"'/usr/local/lib'\\\"'\\\"', '\\\"'\\\"'/run'\\\"'\\\"', '\\\"'\\\"'/etc'\\\"'\\\"'):\n        for path in files(folder + '\\\"'\\\"'/systemd/journald.conf.d/*.conf'\\\"'\\\"'):\n            paths[os.path.basename(path)] = path\n    text = read('\\\"'\\\"'/etc/systemd/journald.conf'\\\"'\\\"')\n    value = setting(text, key, '\\\"'\\\"'Journal'\\\"'\\\"')\n    for name in sorted(paths):\n        path = paths[name]\n        if os.path.islink(ROOT + path) and os.readlink(ROOT + path) == '\\\"'\\\"'/dev/null'\\\"'\\\"':\n            continue\n        override = setting(read(path), key, '\\\"'\\\"'Journal'\\\"'\\\"')\n        if override is not None:\n            value = override\n    return value == expected\n\ntry:\n    ok = journal('\\\"'\\\"'Compress'\\\"'\\\"', '\\\"'\\\"'yes'\\\"'\\\"')\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
+      ]
+    },
+    {
+      "id": 900182,
+      "title": "TWGCB-01-012-0182 設定journald將日誌檔案永久保存於磁碟",
+      "description": "合規值: [Journal] Storage=persistent ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0182"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef files(pattern):\n    parent = os.path.dirname(ROOT + pattern)\n    try:\n        os.stat(parent)\n    except FileNotFoundError:\n        return []\n    with os.scandir(parent) as entries:\n        list(entries)\n    return sorted(p[len(ROOT):] for p in glob.glob(ROOT + pattern))\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef setting(text, key, section=None):\n    value = None\n    current = None\n    for line in active(text):\n        if line.startswith('\\\"'\\\"'['\\\"'\\\"'):\n            current = line\n        elif '\\\"'\\\"'='\\\"'\\\"' in line and (section is None or current == '\\\"'\\\"'['\\\"'\\\"' + section + '\\\"'\\\"']'\\\"'\\\"'):\n            name, content = line.split('\\\"'\\\"'='\\\"'\\\"', 1)\n            if name.strip().lower() == key.lower():\n                value = content.split('\\\"'\\\"'#'\\\"'\\\"', 1)[0].strip()\n    return value\n\ndef journal(key, expected):\n    # /etc drop-ins take priority over equal basenames in /run and vendor dirs.\n    paths = {}\n    for folder in ('\\\"'\\\"'/usr/lib'\\\"'\\\"', '\\\"'\\\"'/usr/local/lib'\\\"'\\\"', '\\\"'\\\"'/run'\\\"'\\\"', '\\\"'\\\"'/etc'\\\"'\\\"'):\n        for path in files(folder + '\\\"'\\\"'/systemd/journald.conf.d/*.conf'\\\"'\\\"'):\n            paths[os.path.basename(path)] = path\n    text = read('\\\"'\\\"'/etc/systemd/journald.conf'\\\"'\\\"')\n    value = setting(text, key, '\\\"'\\\"'Journal'\\\"'\\\"')\n    for name in sorted(paths):\n        path = paths[name]\n        if os.path.islink(ROOT + path) and os.readlink(ROOT + path) == '\\\"'\\\"'/dev/null'\\\"'\\\"':\n            continue\n        override = setting(read(path), key, '\\\"'\\\"'Journal'\\\"'\\\"')\n        if override is not None:\n            value = override\n    return value == expected\n\ntry:\n    ok = journal('\\\"'\\\"'Storage'\\\"'\\\"', '\\\"'\\\"'persistent'\\\"'\\\"')\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
       ]
     },
     {
@@ -1124,6 +1940,23 @@
       "condition": "all",
       "rules": [
         "c:/usr/bin/stat -c %a /etc/shells -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$"
+      ]
+    },
+    {
+      "id": 900308,
+      "title": "TWGCB-01-012-0308 rsyslog logrotate",
+      "description": "合規值: 指定 rsyslog logrotate weekly/rotate 4/compress/missingok/notifempty/postrotate；目錄 <=0750 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 /etc/logrotate.d/rsyslog 指定路徑、weekly/rotate 4/compress/missingok/notifempty/postrotate 及目錄 <=0750；不是任意 rsyslog 字樣即合格；複雜多 stanza、實際輪替待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0308"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/bin/sh -c \"/usr/bin/python3 -c 'import glob, os, re, stat, subprocess\nROOT = '\\\"'\\\"''\\\"'\\\"'\ndef active(text):\n    return [line.strip() for line in text.splitlines()\n            if line.strip() and not line.lstrip().startswith(('\\\"'\\\"'#'\\\"'\\\"', '\\\"'\\\"';'\\\"'\\\"'))]\n\ndef read(path):\n    with open(ROOT + path, encoding='\\\"'\\\"'utf-8'\\\"'\\\"') as stream:\n        return stream.read()\n\ndef metadata(path, mask=None, directory=False):\n    info = os.stat(ROOT + path)\n    if directory and not stat.S_ISDIR(info.st_mode):\n        return False\n    return ((info.st_uid == 0 and info.st_gid == 0) if mask is None\n            else stat.S_IMODE(info.st_mode) & ~mask == 0)\n\ndef logrotate():\n    text = '\\\"'\\\"'\\\\n'\\\"'\\\"'.join(active(read('\\\"'\\\"'/etc/logrotate.d/rsyslog'\\\"'\\\"')))\n    match = re.fullmatch(r'\\\"'\\\"'/var/log/rsyslog/\\\\*\\\\.log\\\\s*\\\\{(.*?)\\\\}'\\\"'\\\"', text, re.S)\n    if not match:\n        return False\n    lines = active(match[1])\n    required = {'\\\"'\\\"'weekly'\\\"'\\\"', '\\\"'\\\"'rotate 4'\\\"'\\\"', '\\\"'\\\"'compress'\\\"'\\\"', '\\\"'\\\"'missingok'\\\"'\\\"', '\\\"'\\\"'notifempty'\\\"'\\\"', '\\\"'\\\"'endscript'\\\"'\\\"'}\n    return (required.issubset(set(lines)) and\n            any(re.fullmatch(r'\\\"'\\\"'postrotate\\\\s+/usr/bin/systemctl reload rsyslog.service\\\\s*>/dev/null\\\\s*\\\\|\\\\|\\\\s*true'\\\"'\\\"', line)\n                for line in lines) and metadata('\\\"'\\\"'/var/log/rsyslog'\\\"'\\\"', 0o750, True))\n\ntry:\n    ok = logrotate()\nexcept (OSError, ValueError, IndexError, KeyError):\n    ok = False\nif ok:\n    print('\\\"'\\\"'PASS'\\\"'\\\"')\n'\" -> r:^PASS$"
       ]
     }
   ]

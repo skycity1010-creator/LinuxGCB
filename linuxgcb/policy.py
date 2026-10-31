@@ -6,12 +6,13 @@ from .catalog import ROOT, registry, digest
 from .batch1 import rules as batch_rules, disabled_service_rules
 from .expected import PREFIX, values, parse_description
 from .batch2 import rules as batch2_rules, ADDED as BATCH2
+from .batch3 import rules as batch3_rules, ADDED as BATCH3
 from .argv import w_strtok
 
 
 def definitions():
     modes = '|'.join(format(n, 'o') for n in range(0o1000) if n & ~0o644 == 0)
-    return {**batch_rules(), **batch2_rules(),
+    return {**batch_rules(), **batch2_rules(), **batch3_rules(),
         45: [('c:/usr/bin/stat -c %u:%g /etc/passwd', '^0:0$')],
         46: [('c:/usr/bin/stat -c %a /etc/passwd', '^('+modes+')$')],
         108: [('c:/usr/sbin/sysctl -n net.ipv4.ip_forward', '^0$'),
@@ -35,7 +36,7 @@ def build():
             if row['implementation'] != 'candidate' or row['profile'] != profile:
                 continue
             checks.append(dict(id=row['sca_id'], title=row['gcb_id']+' '+row['title'],
-                description=PREFIX+expected[row['gcb_id']]+(' ｜ BATCH2 執行審查 ' if row['sca_id']-900000 in BATCH2 else ' ｜ Q1 執行審查 ')+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
+                description=PREFIX+expected[row['gcb_id']]+(' ｜ P2B3 執行審查 ' if row['sca_id']-900000 in BATCH3 else ' ｜ BATCH2 執行審查 ' if row['sca_id']-900000 in BATCH2 else ' ｜ Q1 執行審查 ')+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
                 rules=[emit_rule(target, pattern) for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,
@@ -71,7 +72,7 @@ def validate():
             require(c['id'] not in seen and rows[c['id']]['included'])
             seen.add(c['id'])
             require(parse_description(c.get('description')) == values()[rows[c['id']]['gcb_id']])
-            require((' ｜ BATCH2 ' if c['id']-900000 in BATCH2 else ' ｜ Q1 ') in c['description'])
+            require((' ｜ P2B3 ' if c['id']-900000 in BATCH3 else ' ｜ BATCH2 ' if c['id']-900000 in BATCH2 else ' ｜ Q1 ') in c['description'])
             require(c['regex_type'] == 'pcre2' and c['condition'] == 'all')
             require(c['compliance'] == [{'twgcb': [rows[c['id']]['gcb_id']]}])
             require(rows[c['id']]['policy_id'] == p['policy']['id'])
@@ -79,7 +80,7 @@ def validate():
             for rule in c['rules']:
                 target, _ = rule.split(' -> ', 1)
                 require(target.removeprefix('not ').startswith('c:/'))
-                if c['id']-900000 not in BATCH2:
+                if c['id']-900000 not in BATCH2 | BATCH3:
                     require(not any(x in target for x in ('|',';', '&&', '$', '`')))
                 parse_rule(rule)
     require(seen == {900000+n for n in definitions()})
@@ -106,11 +107,16 @@ def batch2_emitted():
     return {emit_rule(t,p) for rules in batch2_rules().values() for t,p in rules}
 
 
+@lru_cache(maxsize=1)
+def batch3_emitted():
+    return {emit_rule(t,p) for rules in batch3_rules().values() for t,p in rules}
+
+
 def parse_rule(rule):
     """Legacy bounded grammar plus exact allowlist of BATCH2 emitted rules."""
     if not isinstance(rule, str):
         raise ValueError('不支援的規則語法')
-    if rule in batch2_emitted():
+    if rule in batch2_emitted() or rule in batch3_emitted():
         target, expression = rule.split(' -> ', 1)
         argv = w_strtok(target.removeprefix('not ')[2:])
         if len(argv) != 3 or argv[:2] != ['/bin/sh', '-c']:

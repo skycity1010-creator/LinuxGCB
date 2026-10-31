@@ -23,7 +23,7 @@ class Fix3Tests(unittest.TestCase):
     def test_exact_seven_rules_changed_and_ninety_checks_untouched(self):
         before = {c['id']: c for c in self.before['checks']}
         self.assertEqual(len(before), 97)
-        self.assertEqual(before.keys(), self.checks.keys())
+        self.assertTrue(before.keys() <= self.checks.keys())
         self.assertEqual({n for n in before if before[n]['rules'] != self.checks[n]['rules']}, CHANGED)
         for n, check in before.items():
             actual = dict(self.checks[n])

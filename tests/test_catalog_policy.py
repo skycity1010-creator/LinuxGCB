@@ -5,6 +5,7 @@ from linuxgcb.catalog import ROOT, registry, digest, XLSX_HASH
 from linuxgcb.policy import validate, simulate, definitions
 from linuxgcb.batch1 import FILES, ADDED
 from linuxgcb.coverage import manifest
+from linuxgcb.batch3 import ADDED as BATCH3
 from linuxgcb.batch2 import ADDED as BATCH2
 from scripts.inventory import extract
 
@@ -36,6 +37,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_all_positive_negative_missing_error(self):
         fixtures=json.loads((ROOT/'tests/fixtures/rule_outputs.json').read_text())
+        fixtures['checks'].update(json.loads((ROOT/'tests/fixtures/p2b3/cases.json').read_text())['checks'])
         self.assertEqual(fixtures['label'],'SYNTHETIC TEST ONLY')
         checked = set()
         for p in (ROOT/'policies').glob('*.yml'):
@@ -64,7 +66,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(m['counts']['implemented'],len(definitions()))
         self.assertEqual(m['counts']['remaining'],307-len(definitions()))
         self.assertEqual(m['counts']['full']+m['counts']['partial']+m['counts']['blocked'],len(definitions()))
-        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48+len(BATCH2),5))
+        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48+len(BATCH2)+len(BATCH3),5))
         for e in m['reviewed']:
             self.assertTrue(all(e['expected'] == c[-1] for c in e['docx_all_cells']))
             self.assertTrue(all(e['gcb_id'] in c for c in e['docx_all_cells']))

@@ -12,6 +12,7 @@ import subprocess
 import unittest
 
 from linuxgcb.argv import w_strtok
+from linuxgcb.batch3 import ADDED as BATCH3
 from linuxgcb.batch2 import ABSENT_PACKAGES, ADDED, CATEGORIES, MARKER, specs, guarded, expected
 from linuxgcb.catalog import ROOT, registry
 from linuxgcb.policy import emit_rule, parse_rule, simulate
@@ -34,13 +35,13 @@ class Batch2Tests(unittest.TestCase):
         wanted={r['sca_id'] for r in rows if r['category'] in CATEGORIES and r['sca_id'] not in before}
         self.assertEqual(wanted,{900000+n for n in ADDED})
         self.assertEqual(len(ADDED),44)
-        self.assertEqual(len(self.checks),97)
+        self.assertEqual(len(self.checks),146)
         self.assertFalse(any(r['coverage']=='unimplemented' for r in rows if r['category'] in CATEGORIES))
         self.assertEqual({c['id']:c for c in self.baseline['checks']}, {n:self.checks[n] for n in before})
         for filename,digest in self.baseline['hashes'].items():
             self.assertEqual(hashlib.sha256((ROOT/filename).read_bytes()).hexdigest(),digest)
         for row in rows:
-            if row['sca_id'] not in before and row['category'] not in CATEGORIES:
+            if row['sca_id'] not in before and row['category'] not in CATEGORIES and row['sca_id']-900000 not in BATCH3:
                 self.assertNotEqual(row['implementation'],'candidate')
         # Existing synthetic fixtures are also preserved field for field.
         for key,digest in self.baseline['legacy_fixture_hashes'].items():
