@@ -31,7 +31,7 @@ def audit_lines(n):
 
 
 DEPS = {
-    'active':[], 'setting':['active'], 'metadata':[], 'read':[], 'files':[],
+    'optional_tool_metadata':['metadata'], 'active':[], 'setting':['active'], 'metadata':[], 'read':[], 'files':[],
     'audit_matches':['active','read'], 'uid_min':['active','read'],
     'audit_rules':['uid_min','audit_matches'], 'log_metadata':['setting','read','metadata'],
     'service':[], 'package_state':[], 'optional_service':['package_state','service','active','read'],
@@ -62,7 +62,7 @@ def spec(n):
         return ['log_metadata'], 'log_metadata('+{137:'None',138:'0o600',139:'None',140:'0o700'}[n]+', '+repr(n in (139,140))+')'
     if n in (143,144):
         paths=['/sbin/'+name for name in ('auditctl','aureport','ausearch','autrace','auditd','audisp-remote','audisp-syslog','augenrules','rsyslogd')]
-        return ['metadata'], 'all(metadata(path, '+('0o750' if n==143 else 'None')+') for path in '+repr(paths)+')'
+        return ['optional_tool_metadata'], 'all(optional_tool_metadata(path, '+('0o750' if n==143 else 'None')+') for path in '+repr(paths)+')'
     if n == 145:
         paths=['/usr/sbin/'+name for name in ('auditctl','auditd','ausearch','aureport','autrace','audisp-remote','audisp-syslog','augenrules')]
         return ['audit_matches'], "audit_matches('/etc/aide.conf', [path + ' p+i+n+u+g+s+b+acl+xattrs+sha512' for path in "+repr(paths)+'])'
@@ -124,7 +124,7 @@ def caveat(n):
     if n==159: detail+='來源 renameat-S 排版錯誤解讀為 renameat -S，保留五個 syscall，待人工核准。'
     if n in (134,135): detail='僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。'
     if n in (137,138,139,140): detail='使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。'
-    if n in (143,144): detail='來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。'
+    if n in (143,144): detail='RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。'
     if n==145: detail='逐工具要求來源完整屬性序列；AIDE macro/Include 與資料庫初始化待審。'
     if n in (95,96,99,100): detail='FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。'
     if n==96: detail+='來源允許 v3；自動候選限明確 rouser priv，禁 v1/v2 access/include；SHA/AES 金鑰建立與實際協商仍須人工證據，不讀取或輸出私密使用者金鑰。'

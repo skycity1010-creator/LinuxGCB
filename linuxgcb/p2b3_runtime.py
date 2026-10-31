@@ -126,6 +126,13 @@ def optional_service(package, unit, snmp=False):
                                           re.I) for line in users)
 
 
+def optional_tool_metadata(path, mask=None):
+    try:
+        return metadata(path, mask)
+    except FileNotFoundError:
+        return True
+
+
 def rsyslog_text():
     return '\n'.join(read(path) for path in ['/etc/rsyslog.conf'] + files('/etc/rsyslog.d/*.conf'))
 
@@ -136,7 +143,11 @@ def rsyslog_mode():
     if any(not re.fullmatch(r'\$FileCreateMode\s+0?[0-7]{3}\s*', line) for line in declarations):
         return False
     modes = [line.split()[1] for line in declarations]
-    overrides = re.findall(r'fileCreateMode\s*=\s*"([^"]*)"', text, re.I)
+    action_lines = '\n'.join(line for line in text.splitlines()
+                             if re.search(r'\baction\s*\(', line, re.I)
+                             and re.search(r'\bomfile\b', line, re.I)
+                             and not re.search(r'\bmodule\s*\(', line, re.I))
+    overrides = re.findall(r'fileCreateMode\s*=\s*"([^"]*)"', action_lines, re.I)
     return (bool(modes or overrides) and
             all(re.fullmatch(r'0?[0-7]{3}', value) and int(value, 8) & ~0o640 == 0
                 for value in modes + overrides))

@@ -2634,7 +2634,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "九個來源工具 mode 位元遮罩",
-      "caveats": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "caveats": "RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
       "tests": [
         "tests/fixtures/p2b3/cases.json#900143",
         "tests/test_p2b3.py"
@@ -2658,7 +2658,7 @@
       "family": "P2B3 embedded read-only",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED",
-      "pending": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+      "pending": "RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0144",
@@ -2690,7 +2690,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "九個來源工具 UID/GID",
-      "caveats": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "caveats": "RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
       "tests": [
         "tests/fixtures/p2b3/cases.json#900144",
         "tests/test_p2b3.py"
@@ -2714,7 +2714,7 @@
       "family": "P2B3 embedded read-only",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED",
-      "pending": "來源明列九個工具皆須存在；缺失不自動 N/A；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
+      "pending": "RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。"
     },
     {
       "gcb_id": "TWGCB-01-012-0145",

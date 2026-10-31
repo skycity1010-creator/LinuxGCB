@@ -44,6 +44,8 @@ class P2B3Tests(unittest.TestCase):
                 if path.is_file(): path.chmod(mode)
             real_stat=os.stat
             def fake_stat(path,*args,**kwargs):
+                if data.get('stat_error') and os.fspath(path) == folder + data['stat_error']:
+                    raise PermissionError('test-only stat denied')
                 info=real_stat(path,*args,**kwargs)
                 name=os.fspath(path)
                 owner=data['owners'].get(name[len(folder):]) if isinstance(name,str) and name.startswith(folder) else None
@@ -117,8 +119,9 @@ class P2B3Tests(unittest.TestCase):
                 elif name=='empty': data['files']={p:'' for p in data['files']};data['commands']={}
                 else: data['commands']={'rpm':2,'systemctl_error':1}
                 # Metadata-only checks need an explicit stat error, rather than empty file data.
-                if n in (143,144) and name in ('empty','error'): data['files']={};data['modes']={}
-                with self.subTest(n=n,case=name): self.assertEqual(self.run_tree(n,data,fail_read=name=='error' and n not in (95,96,99,100,143,144)), '')
+                if n in (143,144) and name=='empty': data['files']={};data['modes']={}
+                if n in (143,144) and name=='error': data['stat_error']='/sbin/auditctl'
+                with self.subTest(n=n,case=name): self.assertEqual(self.run_tree(n,data,fail_read=name=='error' and n not in (95,96,99,100,143,144)), 'PASS\n' if n in (143,144) and name in ('missing','empty') else '')
 
     def test_every_audit_predicate_comments_tokens_boundaries_uid_min(self):
         for n in sorted(AUDIT):
