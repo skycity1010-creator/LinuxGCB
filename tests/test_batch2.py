@@ -11,6 +11,7 @@ import shlex
 import subprocess
 import unittest
 
+from linuxgcb.argv import w_strtok
 from linuxgcb.batch2 import ADDED, CATEGORIES, MARKER, specs, guarded, expected
 from linuxgcb.catalog import ROOT, registry
 from linuxgcb.policy import emit_rule, parse_rule, simulate
@@ -52,7 +53,7 @@ class Batch2Tests(unittest.TestCase):
             check=self.check(n)
             self.assertEqual(check['regex_type'],'pcre2')
             self.assertEqual(check['compliance'],[{'twgcb':['TWGCB-01-012-'+format(n,'04d')]}])
-            for name,want in [('positive','PASS'),('negative','FAIL'),('missing','UNRESOLVED'),('empty','FAIL'),('error','UNRESOLVED'),('nonzero_matching','UNRESOLVED')]:
+            for name,want in [('positive','PASS'),('negative','FAIL'),('missing','UNRESOLVED'),('empty','FAIL'),('error','UNRESOLVED'),('nonzero_matching','PASS')]:
                 with self.subTest(n=n,case=name): self.assertEqual(simulate(check,cases[name]),want)
             for case in cases['predicate_negatives']:
                 with self.subTest(n=n,rule=case['rule']):
@@ -63,7 +64,7 @@ class Batch2Tests(unittest.TestCase):
                 no_marker=self.positive(n)
                 no_marker[target]['stdout']=no_marker[target]['stdout'].replace(MARKER,'')
                 self.assertNotEqual(simulate(check,no_marker),'PASS')
-                for variant in (None,dict(error='permission denied'),dict(stdout=cases['positive'][target]['stdout'],exit_code=127)):
+                for variant in (None,dict(error='permission denied')):
                     obs=self.positive(n)
                     if variant is None: del obs[target]
                     else: obs[target]=variant
@@ -77,7 +78,7 @@ class Batch2Tests(unittest.TestCase):
                 # Obtain the actual emitted wrapper then replace its full inner
                 # inventory command with a shell containing only printf/exit.
                 self.assertIn(target,{parse_rule(rule)[0] for rule in self.check(n)['rules']})
-                argv=shlex.split(target[2:])
+                argv=w_strtok(target[2:])
                 self.assertEqual(argv[:2],['/bin/sh','-c'])
                 prefix='out=$('+command+')'
                 self.assertTrue(argv[2].startswith(prefix))

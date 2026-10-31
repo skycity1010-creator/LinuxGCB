@@ -417,8 +417,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ypbind$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ypbind$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -435,8 +435,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^telnet$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^telnet$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -453,8 +453,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^telnet-server$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^telnet-server$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -471,8 +471,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^rsh-server$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^rsh-server$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -489,8 +489,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^tftp-server$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^tftp-server$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -507,10 +507,10 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*clean_requirements_on_remove[ \\t]*=[ \\t]*[Tt]rue[ \\t]*$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/yum.conf); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/dnf/dnf.conf); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -704,8 +704,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*GRUB_CMDLINE_LINUX[^=]*=.*(selinux=0|enforcing=0)",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*GRUB_CMDLINE_LINUX[^=]*=.*(selinux=0|enforcing=0)",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/default/grub); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -722,8 +722,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*SELINUXTYPE=(targeted|mls)[ \\t]*$",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*SELINUXTYPE=(targeted|mls)[ \\t]*$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -740,10 +740,10 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*SELINUX=enforcing[ \\t]*$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^Enforcing$",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/getenforce); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*SELINUX=enforcing[ \\t]*$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/getenforce); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^Enforcing$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/selinux/config); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/getenforce); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -760,8 +760,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:unconfined_service_t",
-        "c:/bin/sh -c 'out=$(/usr/bin/ps -eZf); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/ps -eZf); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:unconfined_service_t",
+        "c:/bin/sh -c \"out=$(/usr/bin/ps -eZf); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -778,8 +778,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^setroubleshoot$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^setroubleshoot$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -796,8 +796,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^mcstrans$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -qa --queryformat '\"'\"'%{NAME}\\n'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^mcstrans$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -qa --queryformat '%{NAME}\\\\n'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -814,12 +814,12 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LoadState=loaded$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ActiveState=active$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^UnitFileState=enabled$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LoadState=loaded$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ActiveState=active$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^UnitFileState=enabled$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show crond.service --property=LoadState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show crond.service --property=ActiveState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show crond.service --property=UnitFileState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -1050,12 +1050,12 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:root$",
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:root$",
-        "not c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/etc/(at|cron)[.]deny$",
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^root:root$",
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^root:root$",
+        "not c:/bin/sh -c \"out=$(/usr/bin/find /etc -maxdepth 1 -name '*.deny'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/etc/(at|cron)[.]deny$",
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %U:%G /etc/at.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %U:%G /etc/cron.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc -maxdepth 1 -name '*.deny'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -1072,12 +1072,12 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|200|400|600)$",
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|200|400|600)$",
-        "not c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/etc/(at|cron)[.]deny$",
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc -maxdepth 1 -name '\"'\"'*.deny'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(0|200|400|600)$",
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(0|200|400|600)$",
+        "not c:/bin/sh -c \"out=$(/usr/bin/find /etc -maxdepth 1 -name '*.deny'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/etc/(at|cron)[.]deny$",
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %a /etc/at.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/stat -c %a /etc/cron.allow); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc -maxdepth 1 -name '*.deny'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -1094,8 +1094,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*cron[.][*][ \\t]+/var/log/cron[ \\t]*$",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '\"'\"'*.conf'\"'\"' -exec /usr/bin/cat {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*cron[.][*][ \\t]+/var/log/cron[ \\t]*$",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/rsyslog.conf && /usr/bin/find /etc/rsyslog.d -maxdepth 1 -type f -name '*.conf' -exec /usr/bin/cat {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {

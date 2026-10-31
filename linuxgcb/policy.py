@@ -6,6 +6,7 @@ from .catalog import ROOT, registry, digest
 from .batch1 import rules as batch_rules, disabled_service_rules
 from .expected import PREFIX, values, parse_description
 from .batch2 import rules as batch2_rules, ADDED as BATCH2
+from .argv import w_strtok
 
 
 def definitions():
@@ -111,6 +112,9 @@ def parse_rule(rule):
         raise ValueError('不支援的規則語法')
     if rule in batch2_emitted():
         target, expression = rule.split(' -> ', 1)
+        argv = w_strtok(target.removeprefix('not ')[2:])
+        if len(argv) != 3 or argv[:2] != ['/bin/sh', '-c']:
+            raise ValueError('Invalid wm_exec shell argv')
         return target.removeprefix('not '), re.compile(expression.split(':',1)[1], re.ASCII)
     if rule.count(' -> r:') != 1:
         raise ValueError('不支援的規則語法')
@@ -130,7 +134,7 @@ def simulate(check, observations):
 
     FIX-1 同一 command 的多行輸出仍按逐行存在匹配；alternation 是單一
     正向 regex，規則間維持 all，不以空輸出或 stderr 推論 not-found。
-    舊 53 項保留 exit_code 不參與輸出匹配；BATCH2 非零則 UNRESOLVED，
+    所有項目 exit_code 不參與輸出匹配（wm_exec 正常結束仍回 0），
     並以 emitted shell guard 確保失敗不發布輸出或成功標記。
     明確 engine_result 可表示真機／fixture
     的 Not applicable；error 只表示未取得可靠輸出，不能預測引擎結果。
@@ -149,8 +153,6 @@ def simulate(check, observations):
             outcomes.append('NOT_APPLICABLE')
             continue
         if obs is None or obs.get('error'):
-            outcomes.append('UNRESOLVED')
-        elif rule in batch2_emitted() and obs.get('exit_code', 0) != 0:
             outcomes.append('UNRESOLVED')
         elif obs.get('engine_result') == 'NOT_APPLICABLE':
             outcomes.append('NOT_APPLICABLE')

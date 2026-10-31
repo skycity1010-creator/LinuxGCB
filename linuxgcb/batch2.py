@@ -6,6 +6,7 @@ Wazuh argv/quoting and RHEL9 runtime remain UNVALIDATED.
 """
 import shlex
 from .batch1 import mode_pattern
+from .argv import quote_argument
 
 CATEGORIES = {'SSH設定', 'cron設定', 'SELinux', '安裝與維護軟體'}
 ADDED = set(range(102,108)) | set(range(184,190)) | {190,203,204,205,254,255,258,259,260,261,262,263,264,265,266,267,268,271,272,273,274,275,276,277,278,279,280,281,282,283,284,315}
@@ -14,8 +15,8 @@ MARKER = 'LINUXGCB_COMMAND_OK'
 
 def guarded(command):
     script = ('out=$('+command+'); rc=$?; if [ "$rc" -eq 0 ]; then '
-              'printf "%s\\n" "$out" "'+MARKER+'"; else exit "$rc"; fi')
-    return 'c:/bin/sh -c '+shlex.quote(script)
+              "printf '%s\\n' \"$out\" '"+MARKER+"'; else exit $rc; fi")
+    return 'c:/bin/sh -c '+quote_argument(script)
 
 
 # command, predicate, compliant stdout, noncompliant stdout. These are authored

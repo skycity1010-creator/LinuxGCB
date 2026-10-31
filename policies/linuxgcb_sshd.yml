@@ -30,14 +30,14 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LoadState=loaded$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ActiveState=active$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^UnitFileState=enabled$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^openssh-server:installed$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$",
-        "c:/bin/sh -c 'out=$(/usr/bin/rpm -q --queryformat '\"'\"'%{NAME}:installed'\"'\"' openssh-server); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LoadState=loaded$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ActiveState=active$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^UnitFileState=enabled$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -q --queryformat '%{NAME}:installed' openssh-server); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^openssh-server:installed$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show sshd.service --property=LoadState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show sshd.service --property=ActiveState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/systemctl show sshd.service --property=UnitFileState); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$",
+        "c:/bin/sh -c \"out=$(/usr/bin/rpm -q --queryformat '%{NAME}:installed' openssh-server); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -54,8 +54,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^protocol (?!2$).+",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^protocol (?!2$).+",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -106,8 +106,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(allowusers|allowgroups|denyusers|denygroups) .+",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(allowusers|allowgroups|denyusers|denygroups) .+",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -124,9 +124,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:ssh_keys$",
-        "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!root:ssh_keys$|LINUXGCB_COMMAND_OK$).+",
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^root:ssh_keys$",
+        "not c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(?!root:ssh_keys$|LINUXGCB_COMMAND_OK$).+",
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -143,9 +143,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|40|200|240|400|440|600|640)$",
-        "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!(0|40|200|240|400|440|600|640)$|LINUXGCB_COMMAND_OK$).+",
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(0|40|200|240|400|440|600|640)$",
+        "not c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(?!(0|40|200|240|400|440|600|640)$|LINUXGCB_COMMAND_OK$).+",
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -162,9 +162,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^root:root$",
-        "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!root:root$|LINUXGCB_COMMAND_OK$).+",
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^root:root$",
+        "not c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(?!root:root$|LINUXGCB_COMMAND_OK$).+",
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec /usr/bin/stat -c %U:%G {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -181,9 +181,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$",
-        "not c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^(?!(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$|LINUXGCB_COMMAND_OK$).+",
-        "c:/bin/sh -c 'out=$(/usr/bin/find /etc/ssh -xdev -type f -name '\"'\"'ssh_host_*_key.pub'\"'\"' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$",
+        "not c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^(?!(0|4|40|44|200|204|240|244|400|404|440|444|600|604|640|644)$|LINUXGCB_COMMAND_OK$).+",
+        "c:/bin/sh -c \"out=$(/usr/bin/find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec /usr/bin/stat -c %a {} +); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -200,10 +200,10 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ciphers aes128-ctr,aes192-ctr,aes256-ctr$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^macs hmac-sha2-512,hmac-sha2-256$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^kexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ciphers aes128-ctr,aes192-ctr,aes256-ctr$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^macs hmac-sha2-512,hmac-sha2-256$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^kexalgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -220,8 +220,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^loglevel (VERBOSE|INFO)$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^loglevel (VERBOSE|INFO)$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -238,8 +238,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^x11forwarding no$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^x11forwarding no$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -256,8 +256,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^maxauthtries [1-4]$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^maxauthtries [1-4]$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -274,8 +274,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ignorerhosts yes$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ignorerhosts yes$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -292,8 +292,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^hostbasedauthentication no$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^hostbasedauthentication no$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -344,8 +344,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^permituserenvironment no$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^permituserenvironment no$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -362,9 +362,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^clientaliveinterval ([1-9]|[1-9][0-9]|[1-5][0-9]{2}|600)$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^clientalivecountmax 1$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^clientaliveinterval ([1-9]|[1-9][0-9]|[1-5][0-9]{2}|600)$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^clientalivecountmax 1$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -381,8 +381,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^logingracetime ([1-9]|[1-5][0-9]|60)$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^logingracetime ([1-9]|[1-5][0-9]|60)$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -399,8 +399,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^usepam yes$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^usepam yes$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -417,8 +417,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^allowtcpforwarding no$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^allowtcpforwarding no$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -435,8 +435,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^maxstartups 10:30:60$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^maxstartups 10:30:60$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -453,8 +453,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^maxsessions [1-4]$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^maxsessions [1-4]$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -471,8 +471,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^strictmodes yes$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^strictmodes yes$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -489,8 +489,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^compression (delayed|no|yes)$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^compression (delayed|no|yes)$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -507,8 +507,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^ignoreuserknownhosts yes$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^ignoreuserknownhosts yes$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -525,8 +525,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^printlastlog yes$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^printlastlog yes$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -543,8 +543,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/",
-        "c:/bin/sh -c 'out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/",
+        "c:/bin/sh -c \"out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -561,8 +561,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^/",
-        "c:/bin/sh -c 'out=$(/usr/bin/find / -name '\"'\"'*.shosts'\"'\"'); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/find / -name '*.shosts'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/",
+        "c:/bin/sh -c \"out=$(/usr/bin/find / -name '*.shosts'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -579,8 +579,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^[ \\t]*CRYPTO_POLICY[ \\t]*=",
-        "c:/bin/sh -c 'out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^[ \\t]*CRYPTO_POLICY[ \\t]*=",
+        "c:/bin/sh -c \"out=$(/usr/bin/cat /etc/sysconfig/sshd); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -597,8 +597,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^gssapiauthentication no$",
-        "c:/bin/sh -c 'out=$(/usr/sbin/sshd -T); rc=$?; if [ \"$rc\" -eq 0 ]; then printf \"%s\\n\" \"$out\" \"LINUXGCB_COMMAND_OK\"; else exit \"$rc\"; fi' -> r:^LINUXGCB_COMMAND_OK$"
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^gssapiauthentication no$",
+        "c:/bin/sh -c \"out=$(/usr/sbin/sshd -T); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     }
   ]

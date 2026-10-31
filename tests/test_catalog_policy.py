@@ -43,7 +43,7 @@ class CatalogTests(unittest.TestCase):
                 checked.add(str(c['id']))
                 for name, state in [('positive','PASS'),('negative','FAIL'),('missing','UNRESOLVED'),('empty','FAIL'),('error','UNRESOLVED'),('nonzero_matching','PASS')]:
                     with self.subTest(id=c['id'],case=name):
-                        self.assertEqual(simulate(c,fixtures['checks'][str(c['id'])][name]), 'UNRESOLVED' if name=='nonzero_matching' and c['id']-900000 in BATCH2 else state)
+                        self.assertEqual(simulate(c,fixtures['checks'][str(c['id'])][name]), state)
         self.assertEqual(checked,set(fixtures['checks']))
 
     def test_permission_bit_subset_and_special_bits(self):
