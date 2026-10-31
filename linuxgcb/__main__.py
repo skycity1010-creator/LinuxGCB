@@ -7,6 +7,7 @@ from .catalog import write_registry
 from .policy import build, validate
 from .report import render
 from .collector import timestamp
+from .snapshot import convert
 
 
 def main():
@@ -18,6 +19,10 @@ def main():
     report.add_argument('snapshot')
     report.add_argument('--out', required=True)
     report.add_argument('--now', help='固定報表時間，ISO8601 含時區')
+    snapshot = sub.add_parser('snapshot', help='離線 Manager DB JSON 轉 snapshot v1')
+    snapshot.add_argument('manager_dump')
+    snapshot.add_argument('--out', required=True)
+    snapshot.add_argument('--scan-info', help='同次離線 sca_scan_info JSON，依 policy_id 對應 end_scan')
     args = parser.parse_args()
     if args.command == 'build':
         rows = write_registry()
@@ -25,6 +30,13 @@ def main():
         print(f'314 項；307 候選／7 排除；{validate()} 項候選規則，UNVALIDATED／人工審查待完成')
     elif args.command == 'validate':
         print('UNVALIDATED：離線結構檢查通過，候選控制項數', validate())
+    elif args.command == 'snapshot':
+        validate()
+        result = convert(args.manager_dump, json.loads(Path(args.scan_info).read_text()) if args.scan_info else None)
+        target = Path(args.out)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
+        print(json.dumps(result['warnings'], ensure_ascii=False))
     else:
         validate()
         result = render(json.loads(Path(args.snapshot).read_text()), args.out,

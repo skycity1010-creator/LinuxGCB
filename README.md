@@ -24,3 +24,16 @@ CLI 不執行政策命令。build 核對 XLSX/DOCX hash，重建 registry、三�
 有效 Wazuh 依據為 docs/references 內 creating-custom-policies、how-it-works、how-to-configure、internal-options 快照；sca-custom-policies 是 soft404，不作依據。本次無外網查詢、SSH、生產 API、秘密、sudo、安裝、服務變更或 Excel remediation。`sca.remote_commands=1` 沿用已核准的一次性 Agent 安裝 bootstrap，並非集中 agent.conf 開關。
 
 Hermes 負責獨立驗收、整合與溝通。本次留下未提交 diff，不主張父代理接受；後續限 [NEXT_STEPS](NEXT_STEPS.md) 的 Q1 驗收。
+
+## REPORT-1：Manager DB 真實快照（離線）
+
+`tests/fixtures/realhost_r2.json` 為 **REAL EVIDENCE agent010**，逐位元複製 R2 原始匯出，非合成資料。53 筆觀察為 46 passed／7 failed；label 由 snapshot 加入，不改寫 fixture。其他合成 fixture 僅供 test-only。
+
+```bash
+python3 -m linuxgcb snapshot tests/fixtures/realhost_r2.json --out out/report1-r2/snapshot.json
+python3 -m linuxgcb report out/report1-r2/snapshot.json --out out/report1-r2/report
+```
+
+輸入為 `{policy_id: {scan_id, checks: [...]}}`。若另有同次離線 `sca_scan_info`，使用 `--scan-info path.json`，格式為 `{policy_id: {"end_scan": "2026-10-31T04:03:00Z"}}`（此為格式範例，不能冒作本次實測時間），也接受 UTC epoch 秒。時間僅按 policy_id 對應；不得將 sca_scan_info.hash join sca_check.scan_id。匯出應使用各政策最新 scan：`select scan_id from sca_check where policy_id=? group by scan_id order by max(rowid) desc limit 1`。Manager 4.14 不使用已移除的 `/sca/{agent}/checks`。
+
+目前 R2 原始檔沒有 sca_scan_info，故 scanned_at=null、stale=true 並顯示警示；必須提供離線時間證據才能補齊。現有 policies/*.yml 沒有 remediation，原始匯出同欄為 null；報表保留空值並明示「政策未提供 remediation」，不產生修復指令。本批未修改政策。7 FAIL 仍逐項顯示 TWGCB ID、title、command 與 remediation 欄；UNVALIDATED 的 raw passed 不算已驗證符合。詳見 [REPORT-1 審查](docs/REPORT1_REVIEW.md)。

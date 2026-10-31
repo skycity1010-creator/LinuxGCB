@@ -23,6 +23,9 @@ def normalize(snapshot, now):
         raise ValueError('來源 hash 不符')
     if snapshot.get('policy_hashes') != json.loads((ROOT/'data/policy_hashes.json').read_text()):
         raise ValueError('政策 hash 不符')
+    policy_checks = {}
+    for path in (ROOT/'policies').glob('*.yml'):
+        policy_checks.update({c['id']: c for c in json.loads(path.read_text())['checks']})
     all_rows, host_ids = [], set()
     for host in snapshot['hosts']:
         agent = host['agent_id']
@@ -80,6 +83,10 @@ def normalize(snapshot, now):
             else:
                 state = 'NOT_SCANNED'
             all_rows.append(dict(agent_id=agent, gcb_id=control['gcb_id'], sca_id=control['sca_id'],
+                command=c.get('command', ','.join(r.split(' -> r:')[0][2:] for r in policy_checks.get(control['sca_id'], {}).get('rules', []))),
+                remediation=policy_checks.get(control['sca_id'], {}).get('remediation'),
+                raw_remediation=c.get('remediation'),
+                remediation_status='provided' if policy_checks.get(control['sca_id'], {}).get('remediation') else '政策未提供 remediation',
                 category=control['category'], title=control['title'], expected=control['expected'],
                 policy_id=control['policy_id'], policy_hash=snapshot['policy_hashes'].get('linuxgcb_'+control['profile']+'.yml'),
                 source_sha256=control['source_sha256'],
@@ -131,6 +138,8 @@ def render(snapshot, output, now):
     esc = lambda x: html.escape('' if x is None else str(x), quote=True)
     page = '<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>LinuxGCB 離線報表</title>'
     page += '<h1>LinuxGCB 離線候選結果</h1><p>'+('SYNTHETIC／僅供測試，非真實掃描證據' if snapshot.get('synthetic') else '未完成 RHEL9 真機驗收；請核對原始快照與政策版本')+'</p>'
+    page += '<p>'+esc(snapshot.get('label', ''))+'</p>'
+    page += '<p>'+esc('; '.join(snapshot.get('warnings', [])))+'</p>'
     page += '<p>raw_result 是原始輸出；FAIL 可為候選失敗觀察。完整率只計 verified_compliance，部分／阻擋控制不計完整判定。None 表示 N/A；核准例外不改寫 FAIL。UNVALIDATED 政策結果不代表完整符合性。</p>'
     page += '<pre>'+esc(json.dumps(summary, ensure_ascii=False, indent=2))+'</pre><table><thead><tr>'
     page += ''.join('<th>'+esc(k)+'</th>' for k in fields)+'</tr></thead><tbody>'
