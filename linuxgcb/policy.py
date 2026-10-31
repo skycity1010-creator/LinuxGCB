@@ -3,7 +3,7 @@ import json
 import re
 from functools import lru_cache
 from .catalog import ROOT, registry, digest
-from .batch1 import rules as batch_rules
+from .batch1 import rules as batch_rules, disabled_service_rules
 
 
 def definitions():
@@ -16,9 +16,7 @@ def definitions():
         243: [('c:/usr/bin/systemctl show firewalld.service --property=LoadState', '^LoadState=loaded$'),
               ('c:/usr/bin/systemctl show firewalld.service --property=ActiveState', '^ActiveState=active$'),
               ('c:/usr/bin/systemctl show firewalld.service --property=UnitFileState', '^UnitFileState=enabled$')],
-        245: [('c:/usr/bin/systemctl show nftables.service --property=LoadState', '^LoadState=masked$'),
-              ('c:/usr/bin/systemctl show nftables.service --property=ActiveState', '^ActiveState=inactive$'),
-              ('c:/usr/bin/systemctl show nftables.service --property=UnitFileState', '^UnitFileState=masked$')],
+        245: disabled_service_rules('nftables'),
         269: [('c:/usr/sbin/sshd -T', '^permitrootlogin no$')],
         270: [('c:/usr/sbin/sshd -T', '^permitemptypasswords no$')],
     }
@@ -110,6 +108,8 @@ def parse_rule(rule):
 def simulate(check, observations):
     """僅輸出匹配模型；執行失敗資訊不足回 UNRESOLVED，不冒充 Wazuh。
 
+    FIX-1 同一 command 的多行輸出仍按逐行存在匹配；alternation 是單一
+    正向 regex，規則間維持 all，不以空輸出或 stderr 推論 not-found。
     exit_code 不參與 SCA 輸出匹配。明確 engine_result 可表示真機／fixture
     的 Not applicable；error 只表示未取得可靠輸出，不能預測引擎結果。
     """

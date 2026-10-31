@@ -22,12 +22,25 @@ FILES = {
 PACKAGES = {33:['sudo'],132:['audit','audit-libs'],174:['rsyslog'],183:['libselinux'],242:['firewalld']}
 # 0036 AIDE 初始化另有要求，0231 架構需審查，本批不以套件存在充當完整實作。
 SERVICES = {30:('autofs','disabled'),94:('rsyncd','masked'),97:('squid','masked'),
-            98:('smb','masked'),101:('kdump','enabled'),133:('auditd','enabled'),
+            98:('smb','masked'),101:('kdump','disabled'),133:('auditd','enabled'),
             175:('rsyslog','enabled')}
 ADDED = set(FILES) | set(PACKAGES) | set(SERVICES)
 
 def mode_pattern(mask):
     return '^('+'|'.join(format(n,'o') for n in range(0o10000) if n & ~mask == 0)+')$'
+
+# FIX-1: positive predicates only; no stderr/exit-code or negative-match inference.
+DISABLED_SERVICES = {30: ('autofs',), 94: ('rsyncd',), 97: ('squid',),
+                     98: ('smb', 'nmb'), 101: ('kdump',), 245: ('nftables',)}
+
+def disabled_service_rules(unit):
+    command = 'c:/usr/bin/systemctl show '+unit+'.service'
+    return [(command+' --property=LoadState', '^LoadState=(loaded|masked|not-found)$'),
+            (command+' --property=ActiveState', '^ActiveState=inactive$'),
+            # Same output contains either explicit absence or a safe unit-file state.
+            # Empty UnitFileState on absent units is never itself a PASS marker.
+            (command+' --property=LoadState --property=UnitFileState',
+             '^(LoadState=not-found|UnitFileState=(disabled|masked))$')]
 
 def rules():
     result = {}
@@ -42,6 +55,9 @@ def rules():
         # RPM 的成功輸出必須含正向標記；不依賴退出碼或空輸出。
         result[n] = [('c:/usr/bin/rpm -q --queryformat %{NAME}:installed '+p,'^'+p+':installed$') for p in packages]
     for n,(unit,state) in SERVICES.items():
+        if n in DISABLED_SERVICES:
+            result[n] = [rule for service in DISABLED_SERVICES[n] for rule in disabled_service_rules(service)]
+            continue
         props = [('LoadState','loaded' if state!='masked' else 'masked'),
                  ('ActiveState','active' if state=='enabled' else 'inactive'),('UnitFileState',state)]
         result[n] = [('c:/usr/bin/systemctl show '+unit+'.service --property='+k,'^'+k+'='+v+'$') for k,v in props]
@@ -57,4 +73,9 @@ def caveat(n):
         if n in (256,257): text+='僅 sshd_config metadata，不代表 Include 或 SSH 內容符合。'
         return text+common
     if n in PACKAGES: return '僅 RPM 資料庫套件存在；不代表服務或內容規則通過。RPM 資料庫錯誤不得以未安裝推論。'+common
+    if n in DISABLED_SERVICES:
+        detail = 'Samba 同查 smb/nmb。' if n == 98 else ''
+        if n == 101:
+            detail += '0101 依 FIX-1 任務改為停用意圖，來源啟用差異待核准。'
+        return 'FIX-1：明確 not-found 或 disabled/masked 且 inactive；'+detail+'多次查詢非原子、socket/alias 未覆蓋；UNVALIDATED。'+common
     return '分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。'+common

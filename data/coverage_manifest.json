@@ -46,7 +46,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "caveats": "FIX-1：明確 not-found 或 disabled/masked 且 inactive；多次查詢非原子、socket/alias 未覆蓋；UNVALIDATED。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
       "tests": [
         "tests/fixtures/rule_outputs.json#900030",
         "tests/test_quality_q1.py"
@@ -1042,7 +1042,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "caveats": "FIX-1：明確 not-found 或 disabled/masked 且 inactive；多次查詢非原子、socket/alias 未覆蓋；UNVALIDATED。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
       "tests": [
         "tests/fixtures/rule_outputs.json#900094",
         "tests/test_quality_q1.py"
@@ -1097,7 +1097,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "caveats": "FIX-1：明確 not-found 或 disabled/masked 且 inactive；多次查詢非原子、socket/alias 未覆蓋；UNVALIDATED。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
       "tests": [
         "tests/fixtures/rule_outputs.json#900097",
         "tests/test_quality_q1.py"
@@ -1152,7 +1152,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "caveats": "FIX-1：明確 not-found 或 disabled/masked 且 inactive；Samba 同查 smb/nmb。多次查詢非原子、socket/alias 未覆蓋；UNVALIDATED。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
       "tests": [
         "tests/fixtures/rule_outputs.json#900098",
         "tests/test_quality_q1.py"
@@ -1207,7 +1207,7 @@
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "caveats": "FIX-1：明確 not-found 或 disabled/masked 且 inactive；0101 依 FIX-1 任務改為停用意圖，來源啟用差異待核准。多次查詢非原子、socket/alias 未覆蓋；UNVALIDATED。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
       "tests": [
         "tests/fixtures/rule_outputs.json#900101",
         "tests/test_quality_q1.py"

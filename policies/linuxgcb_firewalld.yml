@@ -66,9 +66,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/usr/bin/systemctl show nftables.service --property=LoadState -> r:^LoadState=masked$",
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show nftables.service --property=ActiveState -> r:^ActiveState=inactive$",
-        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState -> r:^UnitFileState=masked$"
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
       ]
     }
   ]

@@ -30,9 +30,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/usr/bin/systemctl show autofs.service --property=LoadState -> r:^LoadState=loaded$",
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show autofs.service --property=ActiveState -> r:^ActiveState=inactive$",
-        "c:/usr/bin/systemctl show autofs.service --property=UnitFileState -> r:^UnitFileState=disabled$"
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
       ]
     },
     {
@@ -338,9 +338,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState -> r:^LoadState=masked$",
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState -> r:^ActiveState=inactive$",
-        "c:/usr/bin/systemctl show rsyncd.service --property=UnitFileState -> r:^UnitFileState=masked$"
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
       ]
     },
     {
@@ -357,9 +357,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/usr/bin/systemctl show squid.service --property=LoadState -> r:^LoadState=masked$",
+        "c:/usr/bin/systemctl show squid.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show squid.service --property=ActiveState -> r:^ActiveState=inactive$",
-        "c:/usr/bin/systemctl show squid.service --property=UnitFileState -> r:^UnitFileState=masked$"
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
       ]
     },
     {
@@ -376,9 +376,12 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/usr/bin/systemctl show smb.service --property=LoadState -> r:^LoadState=masked$",
+        "c:/usr/bin/systemctl show smb.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show smb.service --property=ActiveState -> r:^ActiveState=inactive$",
-        "c:/usr/bin/systemctl show smb.service --property=UnitFileState -> r:^UnitFileState=masked$"
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$",
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
       ]
     },
     {
@@ -395,9 +398,9 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "c:/usr/bin/systemctl show kdump.service --property=LoadState -> r:^LoadState=loaded$",
-        "c:/usr/bin/systemctl show kdump.service --property=ActiveState -> r:^ActiveState=active$",
-        "c:/usr/bin/systemctl show kdump.service --property=UnitFileState -> r:^UnitFileState=enabled$"
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
+        "c:/usr/bin/systemctl show kdump.service --property=ActiveState -> r:^ActiveState=inactive$",
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
       ]
     },
     {

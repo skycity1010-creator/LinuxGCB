@@ -106,13 +106,15 @@ class QualityQ1Tests(unittest.TestCase):
             self.assertIn('verified_compliance',(Path(directory)/'report.csv').read_text(encoding='utf-8-sig'))
 
     def test_all_service_states_preserve_raw_distinctions(self):
-        from linuxgcb.batch1 import SERVICES
+        from linuxgcb.batch1 import SERVICES, DISABLED_SERVICES
         fixtures=json.loads((ROOT/'tests/fixtures/rule_outputs.json').read_text())['checks']
         for n in set(SERVICES)|{243,245}:
             base=fixtures[str(900000+n)]['positive']
-            for prop,values in {'LoadState':['not-found','error','bad-setting'],
+            # FIX-1 停用組的完整狀態矩陣移至 test_fix1；此處保留啟用組。
+            states = {'LoadState':['not-found','error','bad-setting'],
                                 'ActiveState':['active','inactive','failed','activating'],
-                                'UnitFileState':['enabled','disabled','masked','masked-runtime','enabled-runtime','static','alias','indirect']}.items():
+                                'UnitFileState':['enabled','disabled','masked','masked-runtime','enabled-runtime','static','alias','indirect']}
+            for prop,values in ({} if n in DISABLED_SERVICES else states).items():
                 target=next(k for k in base if '--property='+prop in k)
                 expected=base[target]['stdout']
                 for value in values:

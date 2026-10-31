@@ -268,73 +268,125 @@
     "900245": {
       "positive": {
         "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
           "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
-          "stdout": "INVALID_SYNTHETIC_VALUE",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "ActiveState=active",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
           "exit_code": 0
         }
       },
       "missing": {},
-      "error": {
-        "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
-          "stdout": "LoadState=masked",
-          "exit_code": 0,
-          "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
-          "exit_code": 0
-        },
-        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
-          "exit_code": 0
-        }
-      },
       "empty": {
         "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
           "stdout": "",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
           "exit_code": 0
+        }
+      },
+      "error": {
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        }
+      },
+      "not_found": {
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
+          "exit_code": 0
         },
         "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show nftables.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
+          "exit_code": 0
+        }
+      },
+      "installed_enabled": {
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        }
+      },
+      "installed_disabled_inactive": {
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        }
+      },
+      "installed_masked": {
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
           "exit_code": 0
         }
       }
@@ -349,52 +401,49 @@
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show autofs.service --property=UnitFileState": {
-          "stdout": "UnitFileState=disabled",
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
           "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
-          "stdout": "INVALID_SYNTHETIC_VALUE",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "ActiveState=active",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show autofs.service --property=UnitFileState": {
-          "stdout": "UnitFileState=disabled",
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
           "exit_code": 0
         }
       },
+      "missing": {},
       "empty": {
         "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
           "stdout": "",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show autofs.service --property=UnitFileState": {
-          "stdout": "UnitFileState=disabled",
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
         "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
-          "stdout": "LoadState=loaded",
-          "exit_code": 0,
-          "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
         "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
-          "exit_code": 0
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
-        "c:/usr/bin/systemctl show autofs.service --property=UnitFileState": {
-          "stdout": "UnitFileState=disabled",
-          "exit_code": 0
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
         }
       },
       "nonzero_matching": {
@@ -404,14 +453,69 @@
         },
         "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        }
+      },
+      "not_found": {
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show autofs.service --property=UnitFileState": {
-          "stdout": "UnitFileState=disabled",
+        "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
           "exit_code": 0
         }
       },
-      "missing": {}
+      "installed_enabled": {
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        }
+      },
+      "installed_disabled_inactive": {
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        }
+      },
+      "installed_masked": {
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show autofs.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
+          "exit_code": 0
+        }
+      }
     },
     "900033": {
       "positive": {
@@ -926,224 +1030,485 @@
     "900094": {
       "positive": {
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show rsyncd.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
           "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
-          "stdout": "INVALID_SYNTHETIC_VALUE",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "ActiveState=active",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show rsyncd.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
           "exit_code": 0
         }
       },
+      "missing": {},
       "empty": {
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
           "stdout": "",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show rsyncd.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
-          "stdout": "LoadState=masked",
-          "exit_code": 0,
-          "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
-          "exit_code": 0
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
-        "c:/usr/bin/systemctl show rsyncd.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
-          "exit_code": 0
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        }
+      },
+      "not_found": {
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
+          "exit_code": 0
         },
         "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show rsyncd.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
           "exit_code": 0
         }
       },
-      "missing": {}
+      "installed_enabled": {
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        }
+      },
+      "installed_disabled_inactive": {
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        }
+      },
+      "installed_masked": {
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show rsyncd.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
+          "exit_code": 0
+        }
+      }
     },
     "900097": {
       "positive": {
         "c:/usr/bin/systemctl show squid.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show squid.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
           "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/systemctl show squid.service --property=LoadState": {
-          "stdout": "INVALID_SYNTHETIC_VALUE",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "ActiveState=active",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show squid.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
           "exit_code": 0
         }
       },
+      "missing": {},
       "empty": {
         "c:/usr/bin/systemctl show squid.service --property=LoadState": {
           "stdout": "",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show squid.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
         "c:/usr/bin/systemctl show squid.service --property=LoadState": {
-          "stdout": "LoadState=masked",
-          "exit_code": 0,
-          "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
         "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
-          "exit_code": 0
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
-        "c:/usr/bin/systemctl show squid.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
-          "exit_code": 0
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/systemctl show squid.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        }
+      },
+      "not_found": {
+        "c:/usr/bin/systemctl show squid.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
+          "exit_code": 0
         },
         "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show squid.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
           "exit_code": 0
         }
       },
-      "missing": {}
+      "installed_enabled": {
+        "c:/usr/bin/systemctl show squid.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        }
+      },
+      "installed_disabled_inactive": {
+        "c:/usr/bin/systemctl show squid.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        }
+      },
+      "installed_masked": {
+        "c:/usr/bin/systemctl show squid.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show squid.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show squid.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
+          "exit_code": 0
+        }
+      }
     },
     "900098": {
       "positive": {
         "c:/usr/bin/systemctl show smb.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show smb.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
           "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/systemctl show smb.service --property=LoadState": {
-          "stdout": "INVALID_SYNTHETIC_VALUE",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "ActiveState=active",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show smb.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=active",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
           "exit_code": 0
         }
       },
+      "missing": {},
       "empty": {
         "c:/usr/bin/systemctl show smb.service --property=LoadState": {
           "stdout": "",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
+          "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show smb.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
         "c:/usr/bin/systemctl show smb.service --property=LoadState": {
-          "stdout": "LoadState=masked",
-          "exit_code": 0,
-          "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
         "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
-          "stdout": "ActiveState=inactive",
-          "exit_code": 0
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
-        "c:/usr/bin/systemctl show smb.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
-          "exit_code": 0
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/systemctl show smb.service --property=LoadState": {
-          "stdout": "LoadState=masked",
+          "stdout": "LoadState=loaded",
           "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        }
+      },
+      "not_found": {
+        "c:/usr/bin/systemctl show smb.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
+          "exit_code": 0
         },
         "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
           "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show smb.service --property=UnitFileState": {
-          "stdout": "UnitFileState=masked",
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
           "exit_code": 0
         }
       },
-      "missing": {}
+      "installed_enabled": {
+        "c:/usr/bin/systemctl show smb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        }
+      },
+      "installed_disabled_inactive": {
+        "c:/usr/bin/systemctl show smb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        }
+      },
+      "installed_masked": {
+        "c:/usr/bin/systemctl show smb.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show smb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show smb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show nmb.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
+          "exit_code": 0
+        }
+      }
     },
     "900101": {
       "positive": {
@@ -1152,55 +1517,52 @@
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
-          "stdout": "ActiveState=active",
+          "stdout": "ActiveState=inactive",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show kdump.service --property=UnitFileState": {
-          "stdout": "UnitFileState=enabled",
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
           "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
-          "stdout": "INVALID_SYNTHETIC_VALUE",
+          "stdout": "LoadState=loaded",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
           "stdout": "ActiveState=active",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show kdump.service --property=UnitFileState": {
-          "stdout": "UnitFileState=enabled",
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
           "exit_code": 0
         }
       },
+      "missing": {},
       "empty": {
         "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
           "stdout": "",
           "exit_code": 0
         },
         "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
-          "stdout": "ActiveState=active",
+          "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show kdump.service --property=UnitFileState": {
-          "stdout": "UnitFileState=enabled",
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "",
           "exit_code": 0
         }
       },
       "error": {
         "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
-          "stdout": "LoadState=loaded",
-          "exit_code": 0,
-          "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
         "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
-          "stdout": "ActiveState=active",
-          "exit_code": 0
+          "error": "SYNTHETIC TEST ONLY tool error"
         },
-        "c:/usr/bin/systemctl show kdump.service --property=UnitFileState": {
-          "stdout": "UnitFileState=enabled",
-          "exit_code": 0
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "error": "SYNTHETIC TEST ONLY tool error"
         }
       },
       "nonzero_matching": {
@@ -1209,15 +1571,70 @@
           "exit_code": 1
         },
         "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
-          "stdout": "ActiveState=active",
+          "stdout": "ActiveState=inactive",
+          "exit_code": 1
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 1
+        }
+      },
+      "not_found": {
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
+          "stdout": "LoadState=not-found",
           "exit_code": 0
         },
-        "c:/usr/bin/systemctl show kdump.service --property=UnitFileState": {
-          "stdout": "UnitFileState=enabled",
+        "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=not-found\nUnitFileState=",
           "exit_code": 0
         }
       },
-      "missing": {}
+      "installed_enabled": {
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=enabled",
+          "exit_code": 0
+        }
+      },
+      "installed_disabled_inactive": {
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
+          "stdout": "LoadState=loaded",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=loaded\nUnitFileState=disabled",
+          "exit_code": 0
+        }
+      },
+      "installed_masked": {
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState": {
+          "stdout": "LoadState=masked",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=ActiveState": {
+          "stdout": "ActiveState=inactive",
+          "exit_code": 0
+        },
+        "c:/usr/bin/systemctl show kdump.service --property=LoadState --property=UnitFileState": {
+          "stdout": "LoadState=masked\nUnitFileState=masked",
+          "exit_code": 0
+        }
+      }
     },
     "900132": {
       "positive": {

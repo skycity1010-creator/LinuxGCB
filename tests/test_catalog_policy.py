@@ -113,7 +113,7 @@ class CatalogTests(unittest.TestCase):
                     self.assertEqual(simulate(check,obs),'FAIL')
                 obs=copy.deepcopy(base)
                 target=next(t for t in base if 'LoadState' in t);obs[target]['stdout']='LoadState=not-found'
-                self.assertEqual(simulate(check,obs),'FAIL')
+                self.assertEqual(simulate(check,obs),'PASS' if n in (30,94,97,98,101) else 'FAIL')
             if n in PACKAGES:
                 obs=copy.deepcopy(base);target=next(iter(base));obs[target]['stdout']='package missing is not installed'
                 obs[target]['exit_code']=1
