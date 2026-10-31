@@ -684,10 +684,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "blocked",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06",
+      "Q1-07"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0031",
@@ -753,10 +761,16 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01"
+    ],
+    "family": "RPM 存在",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0034",
@@ -1029,10 +1043,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0046",
@@ -1052,10 +1074,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0047",
@@ -1075,10 +1105,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0048",
@@ -1098,10 +1136,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0049",
@@ -1121,10 +1167,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0050",
@@ -1144,10 +1198,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0051",
@@ -1167,10 +1229,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0052",
@@ -1190,10 +1260,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0053",
@@ -1213,10 +1291,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0054",
@@ -1236,10 +1323,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0055",
@@ -1259,10 +1355,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0056",
@@ -1282,10 +1387,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0057",
@@ -1305,10 +1419,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0058",
@@ -1328,10 +1451,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0059",
@@ -1351,10 +1483,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0060",
@@ -1374,10 +1515,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0061",
@@ -2156,10 +2306,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "blocked",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06",
+      "Q1-07"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0095",
@@ -2225,10 +2383,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "blocked",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06",
+      "Q1-07"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0098",
@@ -2248,10 +2414,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "blocked",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06",
+      "Q1-07"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0099",
@@ -2317,10 +2491,17 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0102",
@@ -2480,8 +2661,15 @@
     "policy_id": "linuxgcb_rhel9_base_v01",
     "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審"
+    "execution_review": "blocked",
+    "pending": "僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-08"
+    ],
+    "family": "sysctl 即時值",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0109",
@@ -3030,10 +3218,16 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01"
+    ],
+    "family": "RPM 存在",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0133",
@@ -3053,10 +3247,17 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0134",
@@ -3239,8 +3440,18 @@
     "policy_id": "linuxgcb_rhel9_base_v01",
     "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋"
+    "execution_review": "blocked",
+    "pending": "僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05",
+      "Q1-08"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0142",
@@ -3260,10 +3471,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0143",
@@ -3996,10 +4215,16 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01"
+    ],
+    "family": "RPM 存在",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0175",
@@ -4019,10 +4244,17 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0176",
@@ -4088,10 +4320,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0179",
@@ -4111,10 +4352,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0181",
@@ -4180,10 +4429,16 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01"
+    ],
+    "family": "RPM 存在",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0184",
@@ -4364,10 +4619,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0192",
@@ -4387,10 +4651,19 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04",
+      "Q1-05"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0193",
@@ -4410,10 +4683,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0194",
@@ -4433,10 +4714,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0195",
@@ -4456,10 +4745,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0196",
@@ -4479,10 +4776,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0197",
@@ -4502,10 +4807,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0198",
@@ -4525,10 +4838,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0199",
@@ -4548,10 +4869,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0200",
@@ -4571,10 +4900,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0201",
@@ -4594,10 +4931,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0202",
@@ -4617,10 +4962,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0203",
@@ -5905,10 +6258,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0302",
@@ -5928,10 +6289,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_base_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0303",
@@ -6227,10 +6596,16 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_firewalld_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01"
+    ],
+    "family": "RPM 存在",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0243",
@@ -6250,10 +6625,17 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_firewalld_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0244",
@@ -6296,10 +6678,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_firewalld_v01",
-    "coverage": "full",
+    "coverage": "blocked",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-06",
+      "Q1-07"
+    ],
+    "family": "systemd 服務",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0246",
@@ -6549,10 +6939,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_sshd_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0257",
@@ -6572,10 +6970,18 @@
     "review_status": "human_review_pending",
     "implementation": "candidate",
     "policy_id": "linuxgcb_rhel9_sshd_v01",
-    "coverage": "full",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": ""
+    "execution_review": "blocked",
+    "pending": "",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-03",
+      "Q1-04"
+    ],
+    "family": "檔案 metadata",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0258",
@@ -6850,8 +7256,15 @@
     "policy_id": "linuxgcb_rhel9_sshd_v01",
     "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審"
+    "execution_review": "blocked",
+    "pending": "僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-08"
+    ],
+    "family": "SSH 預設有效設定",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0270",
@@ -6873,8 +7286,15 @@
     "policy_id": "linuxgcb_rhel9_sshd_v01",
     "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審"
+    "execution_review": "blocked",
+    "pending": "僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "Q1-01",
+      "Q1-08"
+    ],
+    "family": "SSH 預設有效設定",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0271",

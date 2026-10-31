@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from scripts.inventory import extract
 from .batch1 import ADDED
+from .quality import status
 
 ROOT = Path(__file__).resolve().parents[1]
 XLSX_HASH = '7d752b639a1e780df08814c6252efadd3ea2711eaa5c9d91c070b84a296c0247'
@@ -52,6 +53,8 @@ def registry():
             coverage='partial' if n in PARTIAL else 'full' if n in IMPLEMENTED else 'unimplemented',
             live_validation='UNVALIDATED', execution_review='pending',
             pending=PARTIAL.get(n, '' if n in IMPLEMENTED else '未實作；待逐條 DOCX 語意審查')))
+        if n in IMPLEMENTED:
+            result[-1].update(status(n))
     if (len(result), sum(r['included'] for r in result), len({r['sca_id'] for r in result}),
         len({r['gcb_id'] for r in result})) != (314, 307, 314, 314):
         raise ValueError('範圍或唯一性不符')

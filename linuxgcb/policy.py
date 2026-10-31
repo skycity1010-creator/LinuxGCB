@@ -1,6 +1,7 @@
 """以 JSON（YAML 1.2 子集）產生候選 SCA；只模擬輸出匹配，不執行命令。"""
 import json
 import re
+from functools import lru_cache
 from .catalog import ROOT, registry, digest
 from .batch1 import rules as batch_rules
 
@@ -32,7 +33,7 @@ def build():
             if row['implementation'] != 'candidate' or row['profile'] != profile:
                 continue
             checks.append(dict(id=row['sca_id'], title=row['gcb_id']+' '+row['title'],
-                description='UNVALIDATED：'+(row['pending'] or '待 RHEL9/Wazuh 引擎與人工審查'),
+                description='Q1 執行審查 '+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
                 rules=[target+' -> r:'+pattern for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,
@@ -74,7 +75,7 @@ def validate():
             for rule in c['rules']:
                 target, pattern = rule.split(' -> r:')
                 require(target.startswith('c:/') and not any(x in target for x in ('|',';', '&&', '$', '`')))
-                re.compile(pattern)
+                parse_rule(rule)
     require(seen == {900000+n for n in definitions()})
     hashes = json.loads((ROOT/'data/policy_hashes.json').read_text())
     require(hashes == {p.name:digest(p) for p in (ROOT/'policies').glob('*.yml')})
@@ -84,17 +85,43 @@ def validate():
     return len(seen)
 
 
+@lru_cache(maxsize=1)
+def supported_patterns():
+    return frozenset(p for rules in definitions().values() for _,p in rules) | {
+        '^ID="?rhel"?$', '^VERSION_ID="?9([.][0-9]+)*"?$'}
+
+
+def parse_rule(rule):
+    """明確有界子集：絕對路徑 c:/f: + 單一正向 r:；拒絕其他運算子。"""
+    if not isinstance(rule, str) or rule.count(' -> r:') != 1:
+        raise ValueError('不支援的規則語法')
+    target, pattern = rule.split(' -> r:')
+    if not re.fullmatch(r'[cf]:/[^\n\r]+', target) or any(x in target for x in (' -> ', ' && ', '|', ';', '`', '$')):
+        raise ValueError('不支援的目標')
+    # Python 並非 PCRE2；只接受實際發出的固定模式與測試用 ASCII literal。
+    if pattern not in supported_patterns() and not re.fullmatch(r'\^[A-Za-z0-9_ =:/-]+\$', pattern):
+        raise ValueError('未驗證的 PCRE2 語法')
+    try:
+        return target, re.compile(pattern, re.ASCII)
+    except re.error as exc:
+        raise ValueError('無效模式') from exc
+
+
 def simulate(check, observations):
     """僅輸出匹配模型；執行失敗資訊不足回 UNRESOLVED，不冒充 Wazuh。
 
     exit_code 不參與 SCA 輸出匹配。明確 engine_result 可表示真機／fixture
     的 Not applicable；error 只表示未取得可靠輸出，不能預測引擎結果。
     """
+    if check.get('regex_type', 'pcre2') != 'pcre2':
+        raise ValueError('只支援明確 PCRE2 候選子集')
     if check.get('condition') != 'all':
         raise ValueError('輸出模型只支援目前發出的 all 子集')
+    if not isinstance(check.get('rules'), list) or not check['rules']:
+        raise ValueError('規則不得為空')
+    parsed = [parse_rule(rule) for rule in check['rules']]
     outcomes = []
-    for rule in check['rules']:
-        target, pattern = rule.split(' -> r:')
+    for target, pattern in parsed:
         obs = observations.get(target)
         if target.startswith('f:') and obs is not None and obs.get('exists') is False:
             outcomes.append('NOT_APPLICABLE')
@@ -103,8 +130,10 @@ def simulate(check, observations):
             outcomes.append('UNRESOLVED')
         elif obs.get('engine_result') == 'NOT_APPLICABLE':
             outcomes.append('NOT_APPLICABLE')
+        elif not isinstance(obs.get('stdout'), str):
+            raise ValueError('觀察必須提供字串 stdout')
         else:
-            outcomes.append('PASS' if any(re.search(pattern, line) for line in obs['stdout'].splitlines()) else 'FAIL')
+            outcomes.append('PASS' if any(pattern.search(line) for line in obs['stdout'].split('\n')) else 'FAIL')
     # 官方 all：任何 FAIL 優先；未知執行不擅自轉成 N/A。
     if 'FAIL' in outcomes:
         return 'FAIL'

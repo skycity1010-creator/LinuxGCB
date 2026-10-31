@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "label": "離線候選涵蓋；非實機證據",
   "counts": {
     "source": 314,
@@ -9,11 +9,14 @@
     "added": 46,
     "implemented": 53,
     "remaining": 254,
-    "full": 49,
-    "partial": 4,
+    "full": 0,
+    "partial": 48,
+    "blocked": 5,
+    "reviewed": 53,
+    "execution_blocked": 53,
     "live_validated": 0
   },
-  "added": [
+  "reviewed": [
     {
       "gcb_id": "TWGCB-01-012-0030",
       "sca_id": 900030,
@@ -42,10 +45,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900030",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900030",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -55,6 +60,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "blocked",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06",
+        "Q1-07"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -85,10 +100,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "僅 RPM 資料庫套件存在；不代表服務或內容規則通過。RPM 資料庫錯誤不得以未安裝推論。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900033",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900033",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -98,6 +115,124 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01"
+      ],
+      "family": "RPM 存在",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0045",
+      "sca_id": 900045,
+      "source_sheet": "基本項目",
+      "source_row": 49,
+      "expected": "root:root",
+      "docx_cells": [
+        "45",
+        "TWGCB-01-012-0045",
+        "系統設定與維護",
+        "/etc/passwd檔案所有權",
+        "這項原則設定決定/etc/passwd檔案擁有者與群組\n/etc/passwd記錄每位使用者之名稱、通行碼、使用者ID、群組ID及家目錄等資訊\n設定/etc/passwd檔案擁有者與群組為root，避免/etc/passwd檔案遭未授權使用者修改，降低檔案被竄改後進一步利用於其他惡意攻擊之風險",
+        "開啟終端機，執行以下指令，設定/etc/passwd檔案所有權：\n#chown root:root /etc/passwd",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "45",
+          "TWGCB-01-012-0045",
+          "系統設定與維護",
+          "/etc/passwd檔案所有權",
+          "這項原則設定決定/etc/passwd檔案擁有者與群組\n/etc/passwd記錄每位使用者之名稱、通行碼、使用者ID、群組ID及家目錄等資訊\n設定/etc/passwd檔案擁有者與群組為root，避免/etc/passwd檔案遭未授權使用者修改，降低檔案被竄改後進一步利用於其他惡意攻擊之風險",
+          "開啟終端機，執行以下指令，設定/etc/passwd檔案所有權：\n#chown root:root /etc/passwd",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900045",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0046",
+      "sca_id": 900046,
+      "source_sheet": "基本項目",
+      "source_row": 50,
+      "expected": "644或更低權限",
+      "docx_cells": [
+        "46",
+        "TWGCB-01-012-0046",
+        "系統設定與維護",
+        "/etc/passwd檔案權限",
+        "這項原則設定決定/etc/passwd檔案權限\n/etc/passwd記錄每位使用者之名稱、通行碼、使用者ID、群組ID及家目錄等資訊\n將/etc/passwd檔案權限設為僅root擁有讀取與寫入權限，其餘所有使用者僅可讀取，避免/etc/passwd檔案遭未授權使用者修改，降低檔案被竄改後進一步利用於其他惡意攻擊之風險",
+        "開啟終端機，執行以下指令，設定/etc/passwd檔案權限為644或更低權限：\n#chmod 644 /etc/passwd",
+        "644或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "46",
+          "TWGCB-01-012-0046",
+          "系統設定與維護",
+          "/etc/passwd檔案權限",
+          "這項原則設定決定/etc/passwd檔案權限\n/etc/passwd記錄每位使用者之名稱、通行碼、使用者ID、群組ID及家目錄等資訊\n將/etc/passwd檔案權限設為僅root擁有讀取與寫入權限，其餘所有使用者僅可讀取，避免/etc/passwd檔案遭未授權使用者修改，降低檔案被竄改後進一步利用於其他惡意攻擊之風險",
+          "開啟終端機，執行以下指令，設定/etc/passwd檔案權限為644或更低權限：\n#chmod 644 /etc/passwd",
+          "644或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900046",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -128,10 +263,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900047",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900047",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -141,6 +278,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -171,10 +318,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900048",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900048",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -184,6 +333,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -214,10 +373,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900049",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900049",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -227,6 +388,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -257,10 +428,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900050",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900050",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -270,6 +443,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -300,10 +483,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900051",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900051",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -313,6 +498,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -343,10 +538,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900052",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900052",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -356,6 +553,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -386,10 +593,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900053",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900053",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -399,6 +608,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -429,10 +649,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900054",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900054",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -442,6 +664,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -472,10 +705,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900055",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900055",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -485,6 +720,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -515,10 +761,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900056",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900056",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -528,6 +776,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -558,10 +817,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900057",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900057",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -571,6 +832,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -601,10 +873,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900058",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900058",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -614,6 +888,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -644,10 +929,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900059",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900059",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -657,6 +944,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -687,10 +985,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900060",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。備份檔缺失不自動視為不適用，需核准適用性。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900060",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -700,6 +1000,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -730,10 +1041,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900094",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900094",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -743,6 +1056,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "blocked",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06",
+        "Q1-07"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -773,10 +1096,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900097",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900097",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -786,6 +1111,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "blocked",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06",
+        "Q1-07"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -816,10 +1151,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900098",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900098",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -829,6 +1166,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "blocked",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06",
+        "Q1-07"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -859,10 +1206,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900101",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900101",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -872,6 +1221,69 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0108",
+      "sca_id": 900108,
+      "source_sheet": "基本項目",
+      "source_row": 112,
+      "expected": "0",
+      "docx_cells": [
+        "108",
+        "TWGCB-01-012-0108",
+        "網路設定",
+        "IP轉送",
+        "這項原則設定決定是否啟用IP轉送(Forwarding)功能\nIP轉送功能可在不同網卡之間傳遞封包，讓兩個網域可以互相溝通\nIP轉送功能一般實作在路由器上，擁有多網路介面之主機也可以實作\n系統並非做為路由器，停用IP轉送功能，以提升網路安全性\n可設定之參數如下：\n0：表示停用IP轉送功能\n1：表示啟用IP轉送功能",
+        "開啟終端機，執行以下指令，將net.ipv4.ip_forward與net.ipv6.conf.all.forwarding皆設為0，以停用IP轉送功能，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.ip_forward\\s*=\\s*1\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.ip_forward\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.ip_forward = 0\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf\n#grep -Els \"^\\s*net\\.ipv6\\.conf\\.all\\.forwarding\\s*=\\s*1\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv6\\.conf\\.all\\.forwarding\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv6.conf.all.forwarding=0; sysctl -w net.ipv6.route.flush=1; printf \"\\nnet.ipv6.conf.all.forwarding = 0\\n\" >> /etc/sysctl.d/60-netipv6_sysctl.conf",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "108",
+          "TWGCB-01-012-0108",
+          "網路設定",
+          "IP轉送",
+          "這項原則設定決定是否啟用IP轉送(Forwarding)功能\nIP轉送功能可在不同網卡之間傳遞封包，讓兩個網域可以互相溝通\nIP轉送功能一般實作在路由器上，擁有多網路介面之主機也可以實作\n系統並非做為路由器，停用IP轉送功能，以提升網路安全性\n可設定之參數如下：\n0：表示停用IP轉送功能\n1：表示啟用IP轉送功能",
+          "開啟終端機，執行以下指令，將net.ipv4.ip_forward與net.ipv6.conf.all.forwarding皆設為0，以停用IP轉送功能，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.ip_forward\\s*=\\s*1\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.ip_forward\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.ip_forward = 0\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf\n#grep -Els \"^\\s*net\\.ipv6\\.conf\\.all\\.forwarding\\s*=\\s*1\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv6\\.conf\\.all\\.forwarding\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv6.conf.all.forwarding=0; sysctl -w net.ipv6.route.flush=1; printf \"\\nnet.ipv6.conf.all.forwarding = 0\\n\" >> /etc/sysctl.d/60-netipv6_sysctl.conf",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900108",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-08"
+      ],
+      "family": "sysctl 即時值",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -902,10 +1314,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "僅 RPM 資料庫套件存在；不代表服務或內容規則通過。RPM 資料庫錯誤不得以未安裝推論。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900132",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900132",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -915,6 +1329,14 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01"
+      ],
+      "family": "RPM 存在",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -945,10 +1367,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900133",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900133",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -958,6 +1382,15 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -988,10 +1421,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "partial",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。僅來源明列 audit.rules，其他 rules.d 檔案覆蓋待審。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900141",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。僅來源明列 audit.rules，其他 rules.d 檔案覆蓋待審。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900141",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1001,6 +1436,18 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05",
+        "Q1-08"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1031,10 +1478,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900142",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900142",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1044,6 +1493,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1074,10 +1533,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "僅 RPM 資料庫套件存在；不代表服務或內容規則通過。RPM 資料庫錯誤不得以未安裝推論。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900174",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900174",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1087,6 +1548,14 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01"
+      ],
+      "family": "RPM 存在",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1117,10 +1586,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "分開確認開機狀態與即時狀態；不接受 not-found、static、alias、enabled-runtime；不存在不自動通過；多次查詢非原子。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900175",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900175",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1130,6 +1601,15 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1160,10 +1640,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900178",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900178",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1173,6 +1655,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1203,10 +1696,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900179",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900179",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1216,6 +1711,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1246,10 +1751,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "僅 RPM 資料庫套件存在；不代表服務或內容規則通過。RPM 資料庫錯誤不得以未安裝推論。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900183",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900183",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1259,6 +1766,14 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01"
+      ],
+      "family": "RPM 存在",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1289,10 +1804,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900191",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900191",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1302,6 +1819,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1332,10 +1860,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900192",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900192",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1345,6 +1875,17 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04",
+        "Q1-05"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1375,10 +1916,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900193",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900193",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1388,6 +1931,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1418,10 +1971,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900194",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900194",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1431,6 +1986,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1461,10 +2026,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900195",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900195",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1474,6 +2041,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1504,10 +2081,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900196",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900196",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1517,6 +2096,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1547,10 +2136,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900197",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900197",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1560,6 +2151,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1590,10 +2191,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900198",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900198",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1603,6 +2206,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1633,10 +2246,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900199",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900199",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1646,6 +2261,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1676,10 +2301,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900200",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900200",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1689,6 +2316,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1719,10 +2356,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900201",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900201",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1732,6 +2371,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1762,10 +2411,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900202",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900202",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1775,6 +2426,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1814,10 +2475,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900301",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900301",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1827,6 +2490,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1866,10 +2539,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900302",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900302",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1879,6 +2554,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1909,10 +2594,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
       "caveats": "僅 RPM 資料庫套件存在；不代表服務或內容規則通過。RPM 資料庫錯誤不得以未安裝推論。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900242",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900242",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1922,6 +2609,123 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01"
+      ],
+      "family": "RPM 存在",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0243",
+      "sca_id": 900243,
+      "source_sheet": "Firewalld防火牆",
+      "source_row": 6,
+      "expected": "啟用",
+      "docx_cells": [
+        "2",
+        "TWGCB-01-012-0243",
+        "Firewalld配置",
+        "firewalld服務",
+        "這項原則設定決定是否啟用firewalld服務\nfirewalld為一款動態防火牆管理工具，加入了區域(zone)概念，且同時支援IPv4與IPv6環境，並提供介面讓服務程序或應用程式依需求直接新增防火牆規則\n建議啟用防火牆服務，以保護系統安全",
+        "開啟終端機，執行以下指令，啟用firewalld服務：\n#systemctl --now enable firewalld",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "2",
+          "TWGCB-01-012-0243",
+          "Firewalld配置",
+          "firewalld服務",
+          "這項原則設定決定是否啟用firewalld服務\nfirewalld為一款動態防火牆管理工具，加入了區域(zone)概念，且同時支援IPv4與IPv6環境，並提供介面讓服務程序或應用程式依需求直接新增防火牆規則\n建議啟用防火牆服務，以保護系統安全",
+          "開啟終端機，執行以下指令，啟用firewalld服務：\n#systemctl --now enable firewalld",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900243",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0245",
+      "sca_id": 900245,
+      "source_sheet": "Firewalld防火牆",
+      "source_row": 8,
+      "expected": "停用",
+      "docx_cells": [
+        "4",
+        "TWGCB-01-012-0245",
+        "Firewalld配置",
+        "nftables服務",
+        "這項原則設定決定是否啟用nftables服務\nnftables為iptables後繼產品，屬於Linux核心子系統，提供對網路封包(Packets)、資料包(Datagram)及訊框(Frame)進行過濾與分類功能\n安裝firewalld套件時，具有相依性之nftables套件會一起安裝\n同時運行firewalld與nftables服務，可能因彼此間之規則衝突，導致系統運作異常或產生資安風險，因此在使用firewalld時，建議停用並遮蔽nftables服務",
+        "開啟終端機，執行以下指令，停用並遮蔽nftables服務： \n#systemctl --now mask nftables",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "4",
+          "TWGCB-01-012-0245",
+          "Firewalld配置",
+          "nftables服務",
+          "這項原則設定決定是否啟用nftables服務\nnftables為iptables後繼產品，屬於Linux核心子系統，提供對網路封包(Packets)、資料包(Datagram)及訊框(Frame)進行過濾與分類功能\n安裝firewalld套件時，具有相依性之nftables套件會一起安裝\n同時運行firewalld與nftables服務，可能因彼此間之規則衝突，導致系統運作異常或產生資安風險，因此在使用firewalld時，建議停用並遮蔽nftables服務",
+          "開啟終端機，執行以下指令，停用並遮蔽nftables服務： \n#systemctl --now mask nftables",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900245",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "blocked",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-06",
+        "Q1-07"
+      ],
+      "family": "systemd 服務",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1952,10 +2756,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。僅 sshd_config metadata，不代表 Include 或 SSH 內容符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900256",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。僅 sshd_config metadata，不代表 Include 或 SSH 內容符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900256",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -1965,6 +2771,16 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     },
     {
@@ -1995,10 +2811,12 @@
         ]
       ],
       "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
-      "coverage": "full",
       "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
-      "caveats": "固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。僅 sshd_config metadata，不代表 Include 或 SSH 內容符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
-      "tests": "tests/fixtures/rule_outputs.json#900257",
+      "caveats": "固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。僅 sshd_config metadata，不代表 Include 或 SSH 內容符合。命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900257",
+        "tests/test_quality_q1.py"
+      ],
       "cases": [
         "positive",
         "negative",
@@ -2008,6 +2826,124 @@
         "nonzero_matching"
       ],
       "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-03",
+        "Q1-04"
+      ],
+      "family": "檔案 metadata",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0269",
+      "sca_id": 900269,
+      "source_sheet": "SSH伺服器",
+      "source_row": 20,
+      "expected": "no",
+      "docx_cells": [
+        "16",
+        "TWGCB-01-012-0269",
+        "SSH設定",
+        "SSH PermitRootLogin參數",
+        "這項原則設定決定SSH是否設定PermitRootLogin參數，用以決定root帳號是否可使用SSH進行登入\n禁止root帳號使用SSH進行登入，改請系統管理者使用其個人帳號進行登入，再透過sudo或su指令提升權限為root，以降低系統風險",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nPermitRootLogin no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "16",
+          "TWGCB-01-012-0269",
+          "SSH設定",
+          "SSH PermitRootLogin參數",
+          "這項原則設定決定SSH是否設定PermitRootLogin參數，用以決定root帳號是否可使用SSH進行登入\n禁止root帳號使用SSH進行登入，改請系統管理者使用其個人帳號進行登入，再透過sudo或su指令提升權限為root，以降低系統風險",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nPermitRootLogin no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900269",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-08"
+      ],
+      "family": "SSH 預設有效設定",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0270",
+      "sca_id": 900270,
+      "source_sheet": "SSH伺服器",
+      "source_row": 21,
+      "expected": "no",
+      "docx_cells": [
+        "17",
+        "TWGCB-01-012-0270",
+        "SSH設定",
+        "SSH PermitEmptyPasswords參數",
+        "這項原則設定決定SSH是否設定PermitEmptyPasswords參數，用以指定SSH伺服器是否允許使用空通行碼帳號登入系統\n禁止空通行碼帳號使用SSH進行遠端存取，以降低未經授權存取系統之風險",
+        "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nPermitEmptyPasswords no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+        "no"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "17",
+          "TWGCB-01-012-0270",
+          "SSH設定",
+          "SSH PermitEmptyPasswords參數",
+          "這項原則設定決定SSH是否設定PermitEmptyPasswords參數，用以指定SSH伺服器是否允許使用空通行碼帳號登入系統\n禁止空通行碼帳號使用SSH進行遠端存取，以降低未經授權存取系統之風險",
+          "編輯/etc/ssh/sshd_config檔案，設定參數如下：\nPermitEmptyPasswords no\n開啟終端機，執行以下指令，重新啟動SSH服務使其生效：\n#systemctl restart sshd\n注意：請先通知SSH服務使用者，再重啟SSH服務，以避免影響使用者作業",
+          "no"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell",
+      "caveats": "僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "tests": [
+        "tests/fixtures/rule_outputs.json#900270",
+        "tests/test_quality_q1.py"
+      ],
+      "cases": [
+        "positive",
+        "negative",
+        "missing",
+        "empty",
+        "error",
+        "nonzero_matching"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "Q1-01",
+        "Q1-08"
+      ],
+      "family": "SSH 預設有效設定",
+      "source_approval": "pending",
       "live_validation": "UNVALIDATED"
     }
   ]

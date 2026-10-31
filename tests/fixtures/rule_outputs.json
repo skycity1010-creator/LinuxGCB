@@ -452,29 +452,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/shadow": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/shadow": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/shadow": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -483,20 +471,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/shadow": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -506,29 +486,17 @@
         "c:/usr/bin/stat -c %a /etc/shadow": {
           "stdout": "0",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/shadow": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/shadow": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -537,20 +505,12 @@
           "stdout": "0",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/shadow": {
           "stdout": "0",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -560,29 +520,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/group": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/group": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/group": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -591,20 +539,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/group": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -614,29 +554,17 @@
         "c:/usr/bin/stat -c %a /etc/group": {
           "stdout": "644",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/group": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/group": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -645,20 +573,12 @@
           "stdout": "644",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/group": {
           "stdout": "644",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/group": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -668,29 +588,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/gshadow": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/gshadow": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/gshadow": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -699,20 +607,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/gshadow": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -722,29 +622,17 @@
         "c:/usr/bin/stat -c %a /etc/gshadow": {
           "stdout": "0",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/gshadow": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/gshadow": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -753,20 +641,12 @@
           "stdout": "0",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/gshadow": {
           "stdout": "0",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -776,29 +656,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/passwd-": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/passwd-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/passwd-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -807,20 +675,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/passwd-": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -830,29 +690,17 @@
         "c:/usr/bin/stat -c %a /etc/passwd-": {
           "stdout": "644",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/passwd-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/passwd-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -861,20 +709,12 @@
           "stdout": "644",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/passwd-": {
           "stdout": "644",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/passwd-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -884,29 +724,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/shadow-": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/shadow-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/shadow-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -915,20 +743,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/shadow-": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -938,29 +758,17 @@
         "c:/usr/bin/stat -c %a /etc/shadow-": {
           "stdout": "0",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/shadow-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/shadow-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -969,20 +777,12 @@
           "stdout": "0",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/shadow-": {
           "stdout": "0",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/shadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -992,29 +792,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/group-": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/group-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/group-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1023,20 +811,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/group-": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1046,29 +826,17 @@
         "c:/usr/bin/stat -c %a /etc/group-": {
           "stdout": "644",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/group-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/group-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1077,20 +845,12 @@
           "stdout": "644",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/group-": {
           "stdout": "644",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/group-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1100,29 +860,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/gshadow-": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/gshadow-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/gshadow-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1131,20 +879,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/gshadow-": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1154,29 +894,17 @@
         "c:/usr/bin/stat -c %a /etc/gshadow-": {
           "stdout": "0",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/gshadow-": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/gshadow-": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1185,20 +913,12 @@
           "stdout": "0",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/gshadow-": {
           "stdout": "0",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/gshadow-": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1632,29 +1352,17 @@
         "c:/usr/bin/stat -c %a /etc/audit/rules.d/audit.rules": {
           "stdout": "600",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/rules.d/audit.rules": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/audit/rules.d/audit.rules": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/rules.d/audit.rules": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/audit/rules.d/audit.rules": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/rules.d/audit.rules": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1663,20 +1371,12 @@
           "stdout": "600",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/rules.d/audit.rules": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/audit/rules.d/audit.rules": {
           "stdout": "600",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/rules.d/audit.rules": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1686,29 +1386,17 @@
         "c:/usr/bin/stat -c %a /etc/audit/auditd.conf": {
           "stdout": "640",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/auditd.conf": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/audit/auditd.conf": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/auditd.conf": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/audit/auditd.conf": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/auditd.conf": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1717,20 +1405,12 @@
           "stdout": "640",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/auditd.conf": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/audit/auditd.conf": {
           "stdout": "640",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/audit/auditd.conf": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1848,29 +1528,17 @@
         "c:/usr/bin/stat -c %U:%G /var/log/messages": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /var/log/messages": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /var/log/messages": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /var/log/messages": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /var/log/messages": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /var/log/messages": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -1879,20 +1547,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /var/log/messages": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /var/log/messages": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /var/log/messages": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -1903,8 +1563,8 @@
           "stdout": "root:root",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /var/log": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /var/log": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -1913,8 +1573,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /var/log": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /var/log": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -1923,8 +1583,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /var/log": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /var/log": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -1934,8 +1594,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /var/log": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /var/log": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -1944,8 +1604,8 @@
           "stdout": "root:root",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /var/log": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /var/log": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -1990,29 +1650,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/crontab": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/crontab": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/crontab": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -2021,20 +1669,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/crontab": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -2044,29 +1684,17 @@
         "c:/usr/bin/stat -c %a /etc/crontab": {
           "stdout": "600",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/crontab": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/crontab": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -2075,20 +1703,12 @@
           "stdout": "600",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/crontab": {
           "stdout": "600",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/crontab": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -2099,8 +1719,8 @@
           "stdout": "root:root",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2109,8 +1729,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2119,8 +1739,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2130,8 +1750,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2140,8 +1760,8 @@
           "stdout": "root:root",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2153,8 +1773,8 @@
           "stdout": "700",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2163,8 +1783,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2173,8 +1793,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2184,8 +1804,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2194,8 +1814,8 @@
           "stdout": "700",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.hourly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.hourly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2207,8 +1827,8 @@
           "stdout": "root:root",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2217,8 +1837,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2227,8 +1847,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2238,8 +1858,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2248,8 +1868,8 @@
           "stdout": "root:root",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2261,8 +1881,8 @@
           "stdout": "700",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2271,8 +1891,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2281,8 +1901,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2292,8 +1912,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2302,8 +1922,8 @@
           "stdout": "700",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.daily": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.daily": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2315,8 +1935,8 @@
           "stdout": "root:root",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2325,8 +1945,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2335,8 +1955,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2346,8 +1966,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2356,8 +1976,8 @@
           "stdout": "root:root",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2369,8 +1989,8 @@
           "stdout": "700",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2379,8 +1999,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2389,8 +2009,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2400,8 +2020,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2410,8 +2030,8 @@
           "stdout": "700",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.weekly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.weekly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2423,8 +2043,8 @@
           "stdout": "root:root",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2433,8 +2053,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2443,8 +2063,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2454,8 +2074,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2464,8 +2084,8 @@
           "stdout": "root:root",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2477,8 +2097,8 @@
           "stdout": "700",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2487,8 +2107,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2497,8 +2117,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2508,8 +2128,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2518,8 +2138,8 @@
           "stdout": "700",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.monthly": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.monthly": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2531,8 +2151,8 @@
           "stdout": "root:root",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2541,8 +2161,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2551,8 +2171,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2562,8 +2182,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2572,8 +2192,8 @@
           "stdout": "root:root",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2585,8 +2205,8 @@
           "stdout": "700",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2595,8 +2215,8 @@
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2605,8 +2225,8 @@
           "stdout": "",
           "exit_code": 0
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2616,8 +2236,8 @@
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2626,8 +2246,8 @@
           "stdout": "700",
           "exit_code": 1
         },
-        "c:/usr/bin/stat -c %F /etc/cron.d": {
-          "stdout": "directory",
+        "c:/usr/bin/stat -c %f /etc/cron.d": {
+          "stdout": "41ed",
           "exit_code": 0
         }
       },
@@ -2672,29 +2292,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/ssh/sshd_config": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/ssh/sshd_config": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/ssh/sshd_config": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -2703,20 +2311,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/ssh/sshd_config": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -2726,29 +2326,17 @@
         "c:/usr/bin/stat -c %a /etc/ssh/sshd_config": {
           "stdout": "600",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/ssh/sshd_config": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/ssh/sshd_config": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -2757,20 +2345,12 @@
           "stdout": "600",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/ssh/sshd_config": {
           "stdout": "600",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/ssh/sshd_config": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -2780,29 +2360,17 @@
         "c:/usr/bin/stat -c %U:%G /etc/shells": {
           "stdout": "root:root",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %U:%G /etc/shells": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %U:%G /etc/shells": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -2811,20 +2379,12 @@
           "stdout": "root:root",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %U:%G /etc/shells": {
           "stdout": "root:root",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}
@@ -2834,29 +2394,17 @@
         "c:/usr/bin/stat -c %a /etc/shells": {
           "stdout": "644",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "negative": {
         "c:/usr/bin/stat -c %a /etc/shells": {
           "stdout": "INVALID_SYNTHETIC_VALUE",
           "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "empty": {
         "c:/usr/bin/stat -c %a /etc/shells": {
           "stdout": "",
-          "exit_code": 0
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
           "exit_code": 0
         }
       },
@@ -2865,20 +2413,12 @@
           "stdout": "644",
           "exit_code": 0,
           "error": "SYNTHETIC missing utility/permission/timeout; engine behavior unresolved"
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "nonzero_matching": {
         "c:/usr/bin/stat -c %a /etc/shells": {
           "stdout": "644",
           "exit_code": 1
-        },
-        "c:/usr/bin/stat -c %F /etc/shells": {
-          "stdout": "regular file",
-          "exit_code": 0
         }
       },
       "missing": {}

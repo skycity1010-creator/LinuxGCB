@@ -19,7 +19,7 @@
     {
       "id": 900242,
       "title": "TWGCB-01-012-0242 firewalld防火牆套件",
-      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "description": "Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
       "compliance": [
         {
           "twgcb": [
@@ -36,7 +36,7 @@
     {
       "id": 900243,
       "title": "TWGCB-01-012-0243 firewalld服務",
-      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "description": "Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
       "compliance": [
         {
           "twgcb": [
@@ -55,7 +55,7 @@
     {
       "id": 900245,
       "title": "TWGCB-01-012-0245 nftables服務",
-      "description": "UNVALIDATED：待 RHEL9/Wazuh 引擎與人工審查",
+      "description": "Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
       "compliance": [
         {
           "twgcb": [

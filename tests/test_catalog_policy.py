@@ -59,12 +59,12 @@ class CatalogTests(unittest.TestCase):
 
     def test_batch_manifest_reconciles_and_docx(self):
         m=manifest();rows=registry()
-        self.assertEqual({e['sca_id'] for e in m['added']},{900000+n for n in ADDED})
+        self.assertEqual({e['sca_id'] for e in m['reviewed']},{900000+n for n in definitions()})
         self.assertEqual(m['counts']['implemented'],len(definitions()))
         self.assertEqual(m['counts']['remaining'],307-len(definitions()))
-        self.assertEqual(m['counts']['full']+m['counts']['partial'],len(definitions()))
-        self.assertEqual(m['counts']['partial'],4)
-        for e in m['added']:
+        self.assertEqual(m['counts']['full']+m['counts']['partial']+m['counts']['blocked'],len(definitions()))
+        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48,5))
+        for e in m['reviewed']:
             self.assertTrue(all(e['expected'] == c[-1] for c in e['docx_all_cells']))
             self.assertTrue(all(e['gcb_id'] in c for c in e['docx_all_cells']))
             n=e['sca_id']-900000
@@ -94,17 +94,17 @@ class CatalogTests(unittest.TestCase):
                 obs=copy.deepcopy(base);obs[target]['stdout']+='\nWRONG'
                 self.assertEqual(simulate(check,obs),'PASS') # SCA 逐行存在匹配，不是整個輸出相等
             if n in FILES:
-                path,kind,value=FILES[n];type_target='c:/usr/bin/stat -c %F '+path
-                obs=copy.deepcopy(base);obs[type_target]['stdout']='symbolic link'
-                self.assertEqual(simulate(check,obs),'FAIL')
+                path,kind,value=FILES[n]
                 if kind=='owner':
                     target='c:/usr/bin/stat -c %U:%G '+path
                     for owner in ('root:shadow','root:wheel','nobody:root','root:UNKNOWN'):
                         obs=copy.deepcopy(base);obs[target]['stdout']=owner
                         self.assertEqual(simulate(check,obs),'PASS' if owner=='root:shadow' and 'shadow' in value else 'FAIL')
-                if base[type_target]['stdout']=='regular file':
-                    obs=copy.deepcopy(base);obs[type_target]['stdout']='regular empty file'
-                    self.assertEqual(simulate(check,obs),'PASS')
+                type_target='c:/usr/bin/stat -c %f '+path
+                if type_target in base:
+                    for mode in ('81a4','a1ff','11a4','21a4','61a4','c1a4'):
+                        obs=copy.deepcopy(base);obs[type_target]['stdout']=mode
+                        self.assertEqual(simulate(check,obs),'FAIL')
             from linuxgcb.batch1 import SERVICES,PACKAGES
             if n in SERVICES:
                 target=next(t for t in base if 'UnitFileState' in t)

@@ -48,14 +48,19 @@ def normalize(snapshot, now):
         for control in known.values():
             c = raw.get(control['sca_id'], {})
             raw_result, reason = c.get('result'), c.get('reason', '')
+            evidence_status = c.get('evidence_status')
+            if evidence_status not in (None, 'missing', 'absence_unverified', 'symlink_unresolved', 'tool_error', 'permission_error', 'timeout'):
+                raise ValueError('未知 evidence_status')
             unresolved = control['included'] and control['profile'] not in profiles
             na = host.get('not_applicable', {}).get(control['gcb_id'])
             exception = host.get('exceptions', {}).get(control['gcb_id'])
             approved_na = approval(na, now)
             if not control['included']:
                 state = 'EXCLUDED'
-            elif c.get('execution_error') or raw_result == 'error':
+            elif c.get('execution_error') or raw_result == 'error' or evidence_status in ('tool_error','permission_error','timeout'):
                 state = 'ERROR'
+            elif evidence_status in ('missing','absence_unverified','symlink_unresolved'):
+                state = 'NOT_APPLICABLE' if approved_na else 'MANUAL_PENDING'
             elif raw_result == 'failed':
                 state = 'FAIL'
             elif raw_result not in (None, 'passed', 'not applicable', 'not_applicable'):
@@ -64,6 +69,8 @@ def normalize(snapshot, now):
                 state = 'NOT_APPLICABLE'
             elif raw_result in ('not applicable', 'not_applicable'):
                 state = 'ERROR'
+            elif raw_result == 'passed' and (control['execution_review'] != 'passed' or control['coverage'] != 'full'):
+                state = 'MANUAL_PENDING'
             elif unresolved or control['implementation'] == 'pending' or control['pending']:
                 state = 'MANUAL_PENDING'
             elif raw_result == 'passed':
@@ -76,7 +83,9 @@ def normalize(snapshot, now):
                 category=control['category'], title=control['title'], expected=control['expected'],
                 policy_id=control['policy_id'], policy_hash=snapshot['policy_hashes'].get('linuxgcb_'+control['profile']+'.yml'),
                 source_sha256=control['source_sha256'],
-                state=state, raw_result=raw_result, raw_reason=reason,
+                state=state, raw_result=raw_result, raw_reason=reason, evidence_status=evidence_status,
+                coverage=control['coverage'], execution_review=control['execution_review'],
+                verified_compliance=state in ('PASS','FAIL') and control['coverage']=='full' and control['execution_review']=='passed',
                 pending=control['pending'], unresolved=unresolved and not approved_na,
                 exception_approved=approval(exception, now), exception=exception, na_approval=na,
                 stale=stale, scanned_at=scanned_at, synthetic=snapshot.get('synthetic', False)))
@@ -86,13 +95,15 @@ def normalize(snapshot, now):
 def metrics(rows):
     counts = Counter(r['state'] for r in rows)
     applicable = sum(v for k,v in counts.items() if k not in ('EXCLUDED','NOT_APPLICABLE'))
-    decided = counts['PASS']+counts['FAIL']
+    decided = sum(r['verified_compliance'] for r in rows)
+    verified_pass = sum(r['verified_compliance'] and r['state']=='PASS' for r in rows)
     def pct(n,d):
         return round(100*n/d, 2) if d else None
     return dict(counts=dict(counts), expected=len(rows), applicable=applicable,
                 unresolved=sum(r['unresolved'] for r in rows),
-                pass_rate=pct(counts['PASS'], decided),
-                attainment=pct(counts['PASS'], applicable), completeness=pct(decided, applicable))
+                raw_observed=sum(r['raw_result'] is not None for r in rows), verified_decided=decided,
+                pass_rate=pct(verified_pass, decided),
+                attainment=pct(verified_pass, applicable), completeness=pct(decided, applicable))
 
 
 def safe_cell(value):
@@ -120,7 +131,7 @@ def render(snapshot, output, now):
     esc = lambda x: html.escape('' if x is None else str(x), quote=True)
     page = '<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>LinuxGCB 離線報表</title>'
     page += '<h1>LinuxGCB 離線候選結果</h1><p>'+('SYNTHETIC／僅供測試，非真實掃描證據' if snapshot.get('synthetic') else '未完成 RHEL9 真機驗收；請核對原始快照與政策版本')+'</p>'
-    page += '<p>None 表示 N/A；核准例外不改寫 FAIL。UNVALIDATED 政策結果不代表完整符合性。</p>'
+    page += '<p>raw_result 是原始輸出；FAIL 可為候選失敗觀察。完整率只計 verified_compliance，部分／阻擋控制不計完整判定。None 表示 N/A；核准例外不改寫 FAIL。UNVALIDATED 政策結果不代表完整符合性。</p>'
     page += '<pre>'+esc(json.dumps(summary, ensure_ascii=False, indent=2))+'</pre><table><thead><tr>'
     page += ''.join('<th>'+esc(k)+'</th>' for k in fields)+'</tr></thead><tbody>'
     for r in rows:

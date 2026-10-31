@@ -45,3 +45,11 @@ current 的 document_id 預定為 agent+GCB+profile+政策版本；history 則�
 | 品質治理 | 分頁／collector 錯誤、過期、未決適用性、未實作、例外到期 |
 
 所有面板須可依主機、群組、profile、政策版本、類別、GCB-ID、狀態與掃描時間篩選。以同一份完整快照對帳報表與原生 SCA，再由 Hermes 驗收，不提供捏造的「已工作」Dashboard export。
+
+## Q1 報表契約補充
+
+`coverage_manifest.json` 升為 schema_version=2，`reviewed` 包含既有 53 項的全部來源 cells、family、issue_ids、coverage、offline_review、execution_review、source_approval 與 live_validation；舊 `added` 陣列由 `reviewed` 取代，counts.added 仍是歷史新增數 46。
+
+報表列新增 coverage、execution_review、verified_compliance、evidence_status；summary 新增 raw_observed（有 raw_result 的列數，非宣稱完整 scan）、verified_decided。完整率分子只計 verified_compliance=true；通過率與達成率只計已驗證 PASS。候選 raw failed 可保留 state=FAIL，但不自動列入完整判定；blocked／partial raw passed 列 MANUAL_PENDING。
+
+離線 check 可附 evidence_status：missing／absence_unverified／symlink_unresolved 代表適用性或語意未決（有效核准後才 N/A），tool_error／permission_error／timeout 代表 ERROR；未知值拒絕。這是輸入契約，不是端點探測實作，不能以 stdout 自動填寫原因或將缺失默認為合法 absence。原始 raw_result／raw_reason 與 snapshot 永遠保留。

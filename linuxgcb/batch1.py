@@ -34,7 +34,10 @@ def rules():
     for n,(path,kind,value) in FILES.items():
         result[n] = [('c:/usr/bin/stat -c '+('%U:%G' if kind=='owner' else '%a')+' '+path,
                       '^'+value+'$' if kind=='owner' else mode_pattern(value)),
-                     ('c:/usr/bin/stat -c %F '+path, '^directory$' if n in (179,193,194,195,196,197,198,199,200,201,202) else '^regular (empty )?file$')]
+]
+        # 來源明列目錄才限制型態；檔案來源未明定必須 regular，交由來源審查。
+        if n in (179,193,194,195,196,197,198,199,200,201,202):
+            result[n].append(('c:/usr/bin/stat -c %f '+path, '^4[0-9a-f]{3}$'))
     for n,packages in PACKAGES.items():
         # RPM 的成功輸出必須含正向標記；不依賴退出碼或空輸出。
         result[n] = [('c:/usr/bin/rpm -q --queryformat %{NAME}:installed '+p,'^'+p+':installed$') for p in packages]
@@ -48,7 +51,7 @@ def caveat(n):
     common='命令啟動／stderr／權限錯誤與非零但匹配輸出之行為待真機驗證；不依賴退出碼。'
     if n in FILES:
         path,kind,_=FILES[n]
-        text='固定路徑 lstat 並檢查檔案／目錄型態；連結不解參照且不通過；stat 英文型態受 locale 影響，非英文可能誤報 FAIL，待實機確認；不檢查 ACL。'
+        text='固定路徑 lstat；來源明列目錄才用 %f 數值型態，檔案不額外限制 regular。連結是否應解參照、NSS 與 ACL 語意未核准；不可據此宣稱完整符合。'
         if path.endswith('-'): text+='備份檔缺失不自動視為不適用，需核准適用性。'
         if n==141: text+='僅來源明列 audit.rules，其他 rules.d 檔案覆蓋待審。'
         if n in (256,257): text+='僅 sshd_config metadata，不代表 Include 或 SSH 內容符合。'
