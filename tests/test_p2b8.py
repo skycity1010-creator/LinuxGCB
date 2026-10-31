@@ -36,7 +36,7 @@ class P2B8Tests(unittest.TestCase):
 
     def test_all_sources_argv_and_single_commit(self):
         self.assertEqual(len(b.ADDED),46);self.assertEqual(len(rt.MODULES),20)
-        self.assertEqual(manifest()['counts']['implemented'],282)
+        self.assertEqual(manifest()['counts']['implemented'],305)
         self.tree()
         def run(argv,**kwargs):
             return subprocess.CompletedProcess(argv,0,'Filesystem 1024-blocks Used Available Capacity Mounted on\n/dev/d0 10 1 9 10% /\n' if argv[0].endswith('/df') else '','')

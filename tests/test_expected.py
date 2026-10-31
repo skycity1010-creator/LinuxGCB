@@ -1,3 +1,4 @@
+from linuxgcb.batch9 import ADDED as BATCH9
 from linuxgcb.batch8 import ADDED as BATCH8
 from linuxgcb.batch7 import ADDED as BATCH7
 from linuxgcb.batch6 import ADDED as BATCH6
@@ -20,7 +21,7 @@ class ExpectedTests(unittest.TestCase):
     def test_all_53_source_values_and_q1_preserved(self):
         source = {r['gcb_id']: r for r in json.loads((ROOT/'data/controls.json').read_text())}
         checks = [c for p in (ROOT/'policies').glob('*.yml') for c in json.loads(p.read_text())['checks']]
-        checks = [c for c in checks if c['id']-900000 not in BATCH2 | BATCH3 | BATCH6 | BATCH7 | BATCH8]
+        checks = [c for c in checks if c['id']-900000 not in BATCH2 | BATCH3 | BATCH6 | BATCH7 | BATCH8 | BATCH9]
         self.assertEqual(len(checks), 53)
         for c in checks:
             gid = c['compliance'][0]['twgcb'][0]

@@ -133,5 +133,5 @@ class P2B6Tests(unittest.TestCase):
             baseline.update({c['id']:c['rules'] for c in old['checks']})
             current.update({c['id']:c['rules'] for c in json.loads(p.read_text())['checks']})
         self.assertEqual(len(baseline),146)
-        self.assertEqual(len(current),282)
+        self.assertEqual(len(current),305)
         self.assertEqual(baseline,{n:current[n] for n in baseline})

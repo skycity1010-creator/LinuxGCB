@@ -7,6 +7,7 @@ from .batch6 import ADDED as BATCH6, caveat as batch6_caveat
 
 from .batch7 import ADDED as BATCH7, caveat as batch7_caveat
 
+from .batch9 import ADDED as BATCH9, caveat as batch9_caveat
 from .batch8 import ADDED as BATCH8, caveat as batch8_caveat
 
 ABSENCE_PENDING = {30,94,97,98,245}
@@ -28,6 +29,11 @@ def family(n):
     return 'SSH 預設有效設定'
 
 def status(n):
+    if n in BATCH9:
+        return dict(offline_review='completed_with_findings', execution_review='blocked',
+                    coverage='partial', issue_ids=['B9-ENGINE', 'B9-SOURCE'],
+                    family='P2B9 embedded read-only', source_approval='pending',
+                    live_validation='UNVALIDATED', pending=batch9_caveat(n))
     if n in BATCH8:
         return dict(offline_review='completed_with_findings', execution_review='blocked',
                     coverage='partial', issue_ids=['B8-ENGINE', 'B8-SOURCE'],

@@ -3279,15 +3279,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900109,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0110",
@@ -3302,15 +3309,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900110,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0111",
@@ -3325,15 +3339,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900111,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0112",
@@ -3348,15 +3369,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900112,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0113",
@@ -3371,15 +3399,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900113,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0114",
@@ -3394,15 +3429,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900114,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0115",
@@ -3417,15 +3459,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900115,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0116",
@@ -3440,15 +3489,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900116,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0117",
@@ -3463,15 +3519,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900117,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0118",
@@ -3486,15 +3549,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900118,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0119",
@@ -3509,15 +3579,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900119,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0120",
@@ -3532,15 +3609,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900120,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0121",
@@ -3555,15 +3639,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900121,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0122",
@@ -3578,15 +3669,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900122,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0123",
@@ -3601,15 +3699,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900123,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0124",
@@ -3624,15 +3729,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900124,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0125",
@@ -3647,15 +3759,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900125,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0126",
@@ -3670,15 +3789,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900126,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0127",
@@ -3693,15 +3819,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900127,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0128",
@@ -3716,15 +3849,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900128,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0129",
@@ -3739,15 +3879,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900129,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0130",
@@ -3762,15 +3909,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900130,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "若 nmcli 存在，以 nmcli -t -f WIFI,WWAN radio all 唯讀查軟體 WIFI 與 WWAN 均 disabled；否則以 sysfs wireless 找 module 並檢查來源 install/blacklist。無無線對象不提交 PASS，適用性待批。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0131",
@@ -3785,15 +3939,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900131,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源用 ip link 唯讀輸出，任一行不分大小寫含 promisc 即失敗；空輸出、缺介面、stderr、非零或逾時不提交 PASS；不執行來源 ip link set。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B9-ENGINE",
+      "B9-SOURCE"
+    ],
+    "family": "P2B9 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0132",

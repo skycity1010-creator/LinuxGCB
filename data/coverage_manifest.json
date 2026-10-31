@@ -6,10 +6,13 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
+    "batch9_before": 282,
+    "batch9_added": 23,
+    "batch9_after": 305,
     "batch8_before": 236,
     "batch8_added": 46,
     "batch8_after": 282,
-    "added": 275,
+    "added": 298,
     "batch7_before": 188,
     "batch7_added": 48,
     "batch7_after": 236,
@@ -20,13 +23,13 @@
     "batch3_before": 97,
     "batch3_after": 146,
     "batch2_added": 44,
-    "implemented": 282,
-    "remaining": 25,
+    "implemented": 305,
+    "remaining": 2,
     "full": 0,
-    "partial": 277,
+    "partial": 300,
     "blocked": 5,
-    "reviewed": 282,
-    "execution_blocked": 282,
+    "reviewed": 305,
+    "execution_blocked": 305,
     "live_validated": 0
   },
   "reviewed": [
@@ -5957,6 +5960,1248 @@
       "family": "sysctl 即時值",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0109",
+      "sca_id": 900109,
+      "source_sheet": "基本項目",
+      "source_row": 113,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "109",
+        "TWGCB-01-012-0109",
+        "網路設定",
+        "所有網路介面禁止傳送ICMP重新導向封包",
+        "這項原則設定決定所有網路介面是否允許傳送ICMP重新導向(Redirect)封包\n當路由器發現主機所選之路徑並非最佳路徑時，會送出ICMP重新導向封包，通知主機較佳之路徑\n系統並非做為路由器，停用ICMP重新導向功能，以提升網路安全性\n若啟用ICMP重新導向功能，攻擊者可利用已被入侵之主機發送惡意之ICMP重新導向封包給其他路由器，誘使其他主機連線至攻擊者所架設之假系統\nsysctl設定ICMP重新導向封包時，網路介面包含all與default兩種類型，all包含default，但設定時建議all與default都要進行設定\n可設定之參數如下：\n0：表示禁止傳送ICMP重新導向封包\n1：表示允許傳送ICMP重新導向封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.all.send_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.send_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "109",
+          "TWGCB-01-012-0109",
+          "網路設定",
+          "所有網路介面禁止傳送ICMP重新導向封包",
+          "這項原則設定決定所有網路介面是否允許傳送ICMP重新導向(Redirect)封包\n當路由器發現主機所選之路徑並非最佳路徑時，會送出ICMP重新導向封包，通知主機較佳之路徑\n系統並非做為路由器，停用ICMP重新導向功能，以提升網路安全性\n若啟用ICMP重新導向功能，攻擊者可利用已被入侵之主機發送惡意之ICMP重新導向封包給其他路由器，誘使其他主機連線至攻擊者所架設之假系統\nsysctl設定ICMP重新導向封包時，網路介面包含all與default兩種類型，all包含default，但設定時建議all與default都要進行設定\n可設定之參數如下：\n0：表示禁止傳送ICMP重新導向封包\n1：表示允許傳送ICMP重新導向封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.all.send_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.send_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900109",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0110",
+      "sca_id": 900110,
+      "source_sheet": "基本項目",
+      "source_row": 114,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "110",
+        "TWGCB-01-012-0110",
+        "網路設定",
+        "預設網路介面禁止傳送ICMP重新導向封包",
+        "這項原則設定決定預設網路介面是否允許傳送ICMP重新導向(Redirect)封包\n當路由器發現主機所選之路徑並非最佳路徑時，會送出ICMP重新導向封包，通知主機較佳之路徑\n系統並非做為路由器，停用ICMP重新導向功能，以提升網路安全性\n若啟用ICMP重新導向功能，攻擊者可利用已被入侵之主機發送惡意之ICMP重新導向封包給其他路由器，誘使其他主機連線至攻擊者所架設之假系統\nsysctl設定ICMP重新導向封包時，網路介面包含all與default兩種類型，all包含default，但設定時建議all與default都要進行設定\n可設定之參數如下：\n0：表示禁止傳送ICMP重新導向封包\n1：表示允許傳送ICMP重新導向封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.default.send_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.send_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "110",
+          "TWGCB-01-012-0110",
+          "網路設定",
+          "預設網路介面禁止傳送ICMP重新導向封包",
+          "這項原則設定決定預設網路介面是否允許傳送ICMP重新導向(Redirect)封包\n當路由器發現主機所選之路徑並非最佳路徑時，會送出ICMP重新導向封包，通知主機較佳之路徑\n系統並非做為路由器，停用ICMP重新導向功能，以提升網路安全性\n若啟用ICMP重新導向功能，攻擊者可利用已被入侵之主機發送惡意之ICMP重新導向封包給其他路由器，誘使其他主機連線至攻擊者所架設之假系統\nsysctl設定ICMP重新導向封包時，網路介面包含all與default兩種類型，all包含default，但設定時建議all與default都要進行設定\n可設定之參數如下：\n0：表示禁止傳送ICMP重新導向封包\n1：表示允許傳送ICMP重新導向封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.default.send_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.send_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900110",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0111",
+      "sca_id": 900111,
+      "source_sheet": "基本項目",
+      "source_row": 115,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "111",
+        "TWGCB-01-012-0111",
+        "網路設定",
+        "所有網路介面阻擋來源路由封包",
+        "這項原則設定決定所有網路介面是否接受來源路由封包\n來源路由(Source routing)可以用來指定一條從來源位址到目之位址之間之資料傳送路徑，阻擋來源路由封包，以防止封包偽裝(Packet Spoofing)攻擊\n可設定之參數如下：\n0：表示阻擋來源路由封包\n1：表示接受來源路由封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.all.accept_source_route = 0\nnet.ipv6.conf.all.accept_source_route = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.accept_source_route=0\n#sysctl -w net.ipv6.conf.all.accept_source_route=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "111",
+          "TWGCB-01-012-0111",
+          "網路設定",
+          "所有網路介面阻擋來源路由封包",
+          "這項原則設定決定所有網路介面是否接受來源路由封包\n來源路由(Source routing)可以用來指定一條從來源位址到目之位址之間之資料傳送路徑，阻擋來源路由封包，以防止封包偽裝(Packet Spoofing)攻擊\n可設定之參數如下：\n0：表示阻擋來源路由封包\n1：表示接受來源路由封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.all.accept_source_route = 0\nnet.ipv6.conf.all.accept_source_route = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.accept_source_route=0\n#sysctl -w net.ipv6.conf.all.accept_source_route=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900111",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0112",
+      "sca_id": 900112,
+      "source_sheet": "基本項目",
+      "source_row": 116,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "112",
+        "TWGCB-01-012-0112",
+        "網路設定",
+        "預設網路介面阻擋來源路由封包",
+        "這項原則設定決定預設網路介面是否接受來源路由封包\n來源路由(Source routing)可以用來指定一條從來源位址到目之位址之間之資料傳送路徑，阻擋來源路由封包，以防止封包偽裝(Packet Spoofing)攻擊\n可設定之參數如下：\n0：表示阻擋來源路由封包\n1：表示接受來源路由封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.default.accept_source_route = 0\nnet.ipv6.conf.default.accept_source_route = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.accept_source_route=0\n#sysctl -w net.ipv6.conf.default.accept_source_route=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "112",
+          "TWGCB-01-012-0112",
+          "網路設定",
+          "預設網路介面阻擋來源路由封包",
+          "這項原則設定決定預設網路介面是否接受來源路由封包\n來源路由(Source routing)可以用來指定一條從來源位址到目之位址之間之資料傳送路徑，阻擋來源路由封包，以防止封包偽裝(Packet Spoofing)攻擊\n可設定之參數如下：\n0：表示阻擋來源路由封包\n1：表示接受來源路由封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.default.accept_source_route = 0\nnet.ipv6.conf.default.accept_source_route = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.accept_source_route=0\n#sysctl -w net.ipv6.conf.default.accept_source_route=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900112",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0113",
+      "sca_id": 900113,
+      "source_sheet": "基本項目",
+      "source_row": 117,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "113",
+        "TWGCB-01-012-0113",
+        "網路設定",
+        "所有網路介面阻擋ICMP重新導向封包",
+        "這項原則設定決定所有網路介面是否接受ICMP重新導向封包\nICMP重新導向封包是路由器用來通知主機更改路由表之工具，因此，攻擊者可透過此功能修改主機之路由表\n可設定之參數如下：\n0：表示阻擋ICMP重新導向封包\n1：表示接受ICMP重新導向封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.all.accept_redirects = 0\nnet.ipv6.conf.all.accept_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.accept_redirects=0\n#sysctl -w net.ipv6.conf.all.accept_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "113",
+          "TWGCB-01-012-0113",
+          "網路設定",
+          "所有網路介面阻擋ICMP重新導向封包",
+          "這項原則設定決定所有網路介面是否接受ICMP重新導向封包\nICMP重新導向封包是路由器用來通知主機更改路由表之工具，因此，攻擊者可透過此功能修改主機之路由表\n可設定之參數如下：\n0：表示阻擋ICMP重新導向封包\n1：表示接受ICMP重新導向封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.all.accept_redirects = 0\nnet.ipv6.conf.all.accept_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.accept_redirects=0\n#sysctl -w net.ipv6.conf.all.accept_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900113",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0114",
+      "sca_id": 900114,
+      "source_sheet": "基本項目",
+      "source_row": 118,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "114",
+        "TWGCB-01-012-0114",
+        "網路設定",
+        "預設網路介面阻擋ICMP重新導向封包",
+        "這項原則設定決定預設網路介面是否接受ICMP重新導向封包\nICMP重新導向封包是路由器用來通知主機更改路由表之工具，因此，攻擊者可透過此功能修改主機之路由表\n可設定之參數如下：\n0：表示阻擋ICMP重新導向封包\n1：表示接受ICMP重新導向封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.default.accept_redirects = 0\nnet.ipv6.conf.default.accept_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.accept_redirects=0\n#sysctl -w net.ipv6.conf.default.accept_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "114",
+          "TWGCB-01-012-0114",
+          "網路設定",
+          "預設網路介面阻擋ICMP重新導向封包",
+          "這項原則設定決定預設網路介面是否接受ICMP重新導向封包\nICMP重新導向封包是路由器用來通知主機更改路由表之工具，因此，攻擊者可透過此功能修改主機之路由表\n可設定之參數如下：\n0：表示阻擋ICMP重新導向封包\n1：表示接受ICMP重新導向封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下之檔案，新增或修改參數如下：\nnet.ipv4.conf.default.accept_redirects = 0\nnet.ipv6.conf.default.accept_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.accept_redirects=0\n#sysctl -w net.ipv6.conf.default.accept_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1\n#sysctl -w net.ipv6.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900114",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0115",
+      "sca_id": 900115,
+      "source_sheet": "基本項目",
+      "source_row": 119,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "115",
+        "TWGCB-01-012-0115",
+        "網路設定",
+        "所有網路介面阻擋安全之ICMP重新導向封包",
+        "這項原則設定決定所有網路介面是否接受安全之ICMP重新導向封包\n安全ICMP重新導向僅接受已被列入受信任列表之閘道器所傳送之封包，但若在受信任列表中之閘道器被入侵變成惡意閘道器，將可能影響系統安全性\n可設定之參數如下：\n0：表示阻擋安全之ICMP重新導向封包\n1：表示接受安全之ICMP重新導向封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.all.secure_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.secure_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "115",
+          "TWGCB-01-012-0115",
+          "網路設定",
+          "所有網路介面阻擋安全之ICMP重新導向封包",
+          "這項原則設定決定所有網路介面是否接受安全之ICMP重新導向封包\n安全ICMP重新導向僅接受已被列入受信任列表之閘道器所傳送之封包，但若在受信任列表中之閘道器被入侵變成惡意閘道器，將可能影響系統安全性\n可設定之參數如下：\n0：表示阻擋安全之ICMP重新導向封包\n1：表示接受安全之ICMP重新導向封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.all.secure_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.secure_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900115",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0116",
+      "sca_id": 900116,
+      "source_sheet": "基本項目",
+      "source_row": 120,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "116",
+        "TWGCB-01-012-0116",
+        "網路設定",
+        "預設網路介面阻擋安全之ICMP重新導向封包",
+        "這項原則設定決定預設網路介面是否接受安全之ICMP重新導向封包\n安全ICMP重新導向僅接受已被列入受信任列表之閘道器所傳送之封包，但若在受信任列表中之閘道器被入侵變成惡意閘道器，將可能影響系統安全性\n可設定之參數如下：\n0：表示阻擋安全之ICMP重新導向封包\n1：表示接受安全之ICMP重新導向封包",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.default.secure_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.secure_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "116",
+          "TWGCB-01-012-0116",
+          "網路設定",
+          "預設網路介面阻擋安全之ICMP重新導向封包",
+          "這項原則設定決定預設網路介面是否接受安全之ICMP重新導向封包\n安全ICMP重新導向僅接受已被列入受信任列表之閘道器所傳送之封包，但若在受信任列表中之閘道器被入侵變成惡意閘道器，將可能影響系統安全性\n可設定之參數如下：\n0：表示阻擋安全之ICMP重新導向封包\n1：表示接受安全之ICMP重新導向封包",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.default.secure_redirects = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.secure_redirects=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900116",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0117",
+      "sca_id": 900117,
+      "source_sheet": "基本項目",
+      "source_row": 121,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "117",
+        "TWGCB-01-012-0117",
+        "網路設定",
+        "所有網路介面記錄可疑封包",
+        "這項原則設定決定所有網路介面是否記錄如偽造封包、來源路由封包或重新導向等可疑封包，以協助系統管理者早期發現系統遭受攻擊跡象\n可設定之參數如下：\n0：表示停用記錄可疑封包功能\n1：表示啟用記錄可疑封包功能",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.all.log_martians = 1\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.log_martians=1\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "117",
+          "TWGCB-01-012-0117",
+          "網路設定",
+          "所有網路介面記錄可疑封包",
+          "這項原則設定決定所有網路介面是否記錄如偽造封包、來源路由封包或重新導向等可疑封包，以協助系統管理者早期發現系統遭受攻擊跡象\n可設定之參數如下：\n0：表示停用記錄可疑封包功能\n1：表示啟用記錄可疑封包功能",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.all.log_martians = 1\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.all.log_martians=1\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900117",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0118",
+      "sca_id": 900118,
+      "source_sheet": "基本項目",
+      "source_row": 122,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "118",
+        "TWGCB-01-012-0118",
+        "網路設定",
+        "預設網路介面記錄可疑封包",
+        "這項原則設定決定預設網路介面是否記錄如偽造封包、來源路由封包或重新導向等可疑封包，以協助系統管理者早期發現系統遭受攻擊跡象\n可設定之參數如下：\n0：表示停用記錄可疑封包功能\n1：表示啟用記錄可疑封包功能",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.default.log_martians = 1\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.log_martians=1\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "118",
+          "TWGCB-01-012-0118",
+          "網路設定",
+          "預設網路介面記錄可疑封包",
+          "這項原則設定決定預設網路介面是否記錄如偽造封包、來源路由封包或重新導向等可疑封包，以協助系統管理者早期發現系統遭受攻擊跡象\n可設定之參數如下：\n0：表示停用記錄可疑封包功能\n1：表示啟用記錄可疑封包功能",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.default.log_martians = 1\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.log_martians=1\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900118",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0119",
+      "sca_id": 900119,
+      "source_sheet": "基本項目",
+      "source_row": 123,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "119",
+        "TWGCB-01-012-0119",
+        "網路設定",
+        "不回應ICMP廣播要求",
+        "這項原則設定決定是否不回應ICMP廣播要求，以防遭受ICMP攻擊\n當主機接收到ICMP echo-request封包時，若願意回應，則會送出echo-reply封包，攻擊者可利用此特性於ICMP封包假造來源為受害主機IP，並使用廣播傳送至網域，當網域內主機收到惡意之ICMP廣播封包後，送出echo-reply封包至受害主機，將導致受害主機可能無法提供服務\n可設定之參數如下：\n0：表示回應ICMP廣播要求\n1：表示不回應ICMP廣播要求",
+        "開啟終端機，執行以下指令，將net.ipv4.icmp_echo_ignore_broadcasts設為1，以不回應ICMP廣播要求，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.icmp_echo_ignore_broadcasts\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.icmp_echo_ignore_broadcasts\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.icmp_echo_ignore_broadcasts = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "119",
+          "TWGCB-01-012-0119",
+          "網路設定",
+          "不回應ICMP廣播要求",
+          "這項原則設定決定是否不回應ICMP廣播要求，以防遭受ICMP攻擊\n當主機接收到ICMP echo-request封包時，若願意回應，則會送出echo-reply封包，攻擊者可利用此特性於ICMP封包假造來源為受害主機IP，並使用廣播傳送至網域，當網域內主機收到惡意之ICMP廣播封包後，送出echo-reply封包至受害主機，將導致受害主機可能無法提供服務\n可設定之參數如下：\n0：表示回應ICMP廣播要求\n1：表示不回應ICMP廣播要求",
+          "開啟終端機，執行以下指令，將net.ipv4.icmp_echo_ignore_broadcasts設為1，以不回應ICMP廣播要求，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.icmp_echo_ignore_broadcasts\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.icmp_echo_ignore_broadcasts\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.icmp_echo_ignore_broadcasts = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900119",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0120",
+      "sca_id": 900120,
+      "source_sheet": "基本項目",
+      "source_row": 124,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "120",
+        "TWGCB-01-012-0120",
+        "網路設定",
+        "忽略偽造之ICMP錯誤訊息",
+        "這項原則設定決定是否忽略偽造之ICMP錯誤訊息，以避免系統遭受ICMP攻擊\n惡意者在ICMP封包使用假來源位置，並使用廣播送出給網域內所有主機。當網域內主機沒有將此ICMP封包過濾，網域內主機將會傳送ICMP回應封包到受害主機，導致受害主機服務受到影響\n可設定之參數如下：\n0：表示回應偽造之ICMP錯誤訊息\n1：表示忽略偽造之ICMP錯誤訊息",
+        "開啟終端機，執行以下指令，將net.ipv4.icmp_ignore_bogus_error_responses設為1，以忽略偽造之ICMP錯誤訊息，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.icmp_ignore_bogus_error_responses\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.icmp_ignore_bogus_error_responses\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.icmp_ignore_bogus_error_responses=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.icmp_ignore_bogus_error_responses = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "120",
+          "TWGCB-01-012-0120",
+          "網路設定",
+          "忽略偽造之ICMP錯誤訊息",
+          "這項原則設定決定是否忽略偽造之ICMP錯誤訊息，以避免系統遭受ICMP攻擊\n惡意者在ICMP封包使用假來源位置，並使用廣播送出給網域內所有主機。當網域內主機沒有將此ICMP封包過濾，網域內主機將會傳送ICMP回應封包到受害主機，導致受害主機服務受到影響\n可設定之參數如下：\n0：表示回應偽造之ICMP錯誤訊息\n1：表示忽略偽造之ICMP錯誤訊息",
+          "開啟終端機，執行以下指令，將net.ipv4.icmp_ignore_bogus_error_responses設為1，以忽略偽造之ICMP錯誤訊息，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.icmp_ignore_bogus_error_responses\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.icmp_ignore_bogus_error_responses\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.icmp_ignore_bogus_error_responses=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.icmp_ignore_bogus_error_responses = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900120",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0121",
+      "sca_id": 900121,
+      "source_sheet": "基本項目",
+      "source_row": 125,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "121",
+        "TWGCB-01-012-0121",
+        "網路設定",
+        "所有網路介面啟用逆向路徑過濾功能",
+        "這項原則設定決定所有網路介面是否啟用逆向路徑過濾(Reverse path filtering)功能\n逆向路徑過濾功能可針對所收到之封包，利用逆向路徑確認來源IP與所進入之網路介面設定是否相符，以判斷是否為合法封包，若不是合法封包將自動丟棄，以防止IP偽造(IP spoofing)攻擊\n可設定之參數如下：\n0：表示停用逆向路徑過濾功能\n1：表示啟用逆向路徑過濾功能",
+        "開啟終端機，執行以下指令，將net.ipv4.conf.all.rp_filter設為1，以啟用逆向路徑過濾功能，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.conf\\.all\\.rp_filter\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.net.ipv4.conf\\.all\\.rp_filter\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.conf.all.rp_filter=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.conf.all.rp_filter = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "121",
+          "TWGCB-01-012-0121",
+          "網路設定",
+          "所有網路介面啟用逆向路徑過濾功能",
+          "這項原則設定決定所有網路介面是否啟用逆向路徑過濾(Reverse path filtering)功能\n逆向路徑過濾功能可針對所收到之封包，利用逆向路徑確認來源IP與所進入之網路介面設定是否相符，以判斷是否為合法封包，若不是合法封包將自動丟棄，以防止IP偽造(IP spoofing)攻擊\n可設定之參數如下：\n0：表示停用逆向路徑過濾功能\n1：表示啟用逆向路徑過濾功能",
+          "開啟終端機，執行以下指令，將net.ipv4.conf.all.rp_filter設為1，以啟用逆向路徑過濾功能，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.conf\\.all\\.rp_filter\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.net.ipv4.conf\\.all\\.rp_filter\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.conf.all.rp_filter=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.conf.all.rp_filter = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900121",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0122",
+      "sca_id": 900122,
+      "source_sheet": "基本項目",
+      "source_row": 126,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "122",
+        "TWGCB-01-012-0122",
+        "網路設定",
+        "預設網路介面啟用逆向路徑過濾功能",
+        "這項原則設定決定預設網路介面是否啟用逆向路徑過濾(Reverse path filtering)功能\n逆向路徑過濾功能可針對所收到之封包，利用逆向路徑確認來源IP與所進入之網路介面設定是否相符，以判斷是否為合法封包，若不是合法封包將自動丟棄，以防止IP偽造(IP spoofing)攻擊\n可設定之參數如下：\n0：表示停用逆向路徑過濾功能\n1：表示啟用逆向路徑過濾功能",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.default.rp_filter=1\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.rp_filter=1\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "122",
+          "TWGCB-01-012-0122",
+          "網路設定",
+          "預設網路介面啟用逆向路徑過濾功能",
+          "這項原則設定決定預設網路介面是否啟用逆向路徑過濾(Reverse path filtering)功能\n逆向路徑過濾功能可針對所收到之封包，利用逆向路徑確認來源IP與所進入之網路介面設定是否相符，以判斷是否為合法封包，若不是合法封包將自動丟棄，以防止IP偽造(IP spoofing)攻擊\n可設定之參數如下：\n0：表示停用逆向路徑過濾功能\n1：表示啟用逆向路徑過濾功能",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv4.conf.default.rp_filter=1\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv4.conf.default.rp_filter=1\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv4.route.flush=1",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900122",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0123",
+      "sca_id": 900123,
+      "source_sheet": "基本項目",
+      "source_row": 127,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "123",
+        "TWGCB-01-012-0123",
+        "網路設定",
+        "TCP SYN cookies",
+        "這項原則設定決定是否啟用TCP SYN cookies功能\n啟用SYN Cookie 時，主機於發送SYN/ACK確認封包前，會要求Client端在短時間內回覆一個序號，此序號包含IP、port 等許多原本SYN封包內之資訊。若Client端可以回覆正確之序號，主機確定該封包可信任，則會發送SYN/ACK封包，否則不理會此一封包。透過此機制可避免SYN flood攻擊\n可設定之參數如下：\n0：表示停用TCP SYN cookies功能\n1：表示啟用TCP SYN cookies功能",
+        "開啟終端機，執行以下指令，將net.ipv4.tcp_syncookies設為1，以啟用TCP SYN cookies功能，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.tcp_syncookies\\s*=\\s*[02]*\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.tcp_syncookies\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.tcp_syncookies=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.tcp_syncookies = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "123",
+          "TWGCB-01-012-0123",
+          "網路設定",
+          "TCP SYN cookies",
+          "這項原則設定決定是否啟用TCP SYN cookies功能\n啟用SYN Cookie 時，主機於發送SYN/ACK確認封包前，會要求Client端在短時間內回覆一個序號，此序號包含IP、port 等許多原本SYN封包內之資訊。若Client端可以回覆正確之序號，主機確定該封包可信任，則會發送SYN/ACK封包，否則不理會此一封包。透過此機制可避免SYN flood攻擊\n可設定之參數如下：\n0：表示停用TCP SYN cookies功能\n1：表示啟用TCP SYN cookies功能",
+          "開啟終端機，執行以下指令，將net.ipv4.tcp_syncookies設為1，以啟用TCP SYN cookies功能，並使變動立即生效：\n#grep -Els \"^\\s*net\\.ipv4\\.tcp_syncookies\\s*=\\s*[02]*\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.tcp_syncookies\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.tcp_syncookies=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.tcp_syncookies = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900123",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0124",
+      "sca_id": 900124,
+      "source_sheet": "基本項目",
+      "source_row": 128,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "124",
+        "TWGCB-01-012-0124",
+        "網路設定",
+        "所有網路介面阻擋IPv6路由器公告訊息",
+        "這項原則設定決定所有網路介面是否接受IPv6路由器公告訊息\nIPv6路由器會定期在網路上傳送路由器公告訊息(Router Advertisement，RA)封包，RA封包透過ICMPv6進行傳送，系統接收到IPv6路由器發出之RA封包，即可得到IPv6位址\n接受IPv6路由器公告訊息，可能被誘騙將流量路由到已受害之電腦\n可設定之參數如下：\n0：表示阻擋IPv6路由器公告訊息\n1：表示接受IPv6路由器公告訊息",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv6.conf.all.accept_ra = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv6.conf.all.accept_ra=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv6.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "124",
+          "TWGCB-01-012-0124",
+          "網路設定",
+          "所有網路介面阻擋IPv6路由器公告訊息",
+          "這項原則設定決定所有網路介面是否接受IPv6路由器公告訊息\nIPv6路由器會定期在網路上傳送路由器公告訊息(Router Advertisement，RA)封包，RA封包透過ICMPv6進行傳送，系統接收到IPv6路由器發出之RA封包，即可得到IPv6位址\n接受IPv6路由器公告訊息，可能被誘騙將流量路由到已受害之電腦\n可設定之參數如下：\n0：表示阻擋IPv6路由器公告訊息\n1：表示接受IPv6路由器公告訊息",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv6.conf.all.accept_ra = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv6.conf.all.accept_ra=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv6.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900124",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0125",
+      "sca_id": 900125,
+      "source_sheet": "基本項目",
+      "source_row": 129,
+      "expected": "0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "125",
+        "TWGCB-01-012-0125",
+        "網路設定",
+        "預設網路介面阻擋IPv6路由器公告訊息",
+        "這項原則設定決定預設網路介面是否接受IPv6路由器公告訊息\nIPv6路由器會定期在網路上傳送路由器公告訊息(Router Advertisement，RA)封包，RA封包透過ICMPv6進行傳送，系統接收到IPv6路由器發出之RA封包，即可得到IPv6位址\n接受IPv6路由器公告訊息，可能被誘騙將流量路由到已受害之電腦\n可設定之參數如下：\n0：表示阻擋IPv6路由器公告訊息\n1：表示接受IPv6路由器公告訊息",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv6.conf.default.accept_ra = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv6.conf.default.accept_ra=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv6.route.flush=1",
+        "0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "125",
+          "TWGCB-01-012-0125",
+          "網路設定",
+          "預設網路介面阻擋IPv6路由器公告訊息",
+          "這項原則設定決定預設網路介面是否接受IPv6路由器公告訊息\nIPv6路由器會定期在網路上傳送路由器公告訊息(Router Advertisement，RA)封包，RA封包透過ICMPv6進行傳送，系統接收到IPv6路由器發出之RA封包，即可得到IPv6位址\n接受IPv6路由器公告訊息，可能被誘騙將流量路由到已受害之電腦\n可設定之參數如下：\n0：表示阻擋IPv6路由器公告訊息\n1：表示接受IPv6路由器公告訊息",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，新增或修改參數如下：\nnet.ipv6.conf.default.accept_ra = 0\n開啟終端機，執行以下指令設定核心參數：\n#sysctl -w net.ipv6.conf.default.accept_ra=0\n開啟終端機，執行以下指令使變動立即生效：\n#sysctl -w net.ipv6.route.flush=1",
+          "0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900125",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0126",
+      "sca_id": 900126,
+      "source_sheet": "基本項目",
+      "source_row": 130,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "126",
+        "TWGCB-01-012-0126",
+        "網路設定",
+        "DCCP協定",
+        "這項原則設定決定是否啟用DCCP協定\nDCCP協定(Datagram Congestion Control Protocol，封包壅塞控制協定)是一個擁有壅塞控制機制之非可靠式傳輸層網路通訊協定，其特性適合用於多媒體資料串流\n停用DCCP協定可減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「dccp.conf」檔案，範例如下：\n#vim /etc/modprobe.d/dccp.conf\n並在檔案中加入以下內容：\ninstall dccp /bin/true\nblacklist dccp\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "126",
+          "TWGCB-01-012-0126",
+          "網路設定",
+          "DCCP協定",
+          "這項原則設定決定是否啟用DCCP協定\nDCCP協定(Datagram Congestion Control Protocol，封包壅塞控制協定)是一個擁有壅塞控制機制之非可靠式傳輸層網路通訊協定，其特性適合用於多媒體資料串流\n停用DCCP協定可減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「dccp.conf」檔案，範例如下：\n#vim /etc/modprobe.d/dccp.conf\n並在檔案中加入以下內容：\ninstall dccp /bin/true\nblacklist dccp\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900126",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0127",
+      "sca_id": 900127,
+      "source_sheet": "基本項目",
+      "source_row": 131,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "127",
+        "TWGCB-01-012-0127",
+        "網路設定",
+        "SCTP協定",
+        "這項原則設定決定是否啟用SCTP協定\nSCTP協定(Stream Control Transmission Protocol，資料流控制傳輸協定)屬於傳輸層通訊協定，支援訊息導向通訊，並結合了TCP與UDP之特點，提高資料傳輸可靠性與效率\n停用此協定可減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「sctp.conf」檔案，範例如下：\n#vim /etc/modprobe.d/sctp.conf\n並在檔案中加入以下內容：\ninstall sctp /bin/true\nblacklist sctp\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "127",
+          "TWGCB-01-012-0127",
+          "網路設定",
+          "SCTP協定",
+          "這項原則設定決定是否啟用SCTP協定\nSCTP協定(Stream Control Transmission Protocol，資料流控制傳輸協定)屬於傳輸層通訊協定，支援訊息導向通訊，並結合了TCP與UDP之特點，提高資料傳輸可靠性與效率\n停用此協定可減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「sctp.conf」檔案，範例如下：\n#vim /etc/modprobe.d/sctp.conf\n並在檔案中加入以下內容：\ninstall sctp /bin/true\nblacklist sctp\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900127",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0128",
+      "sca_id": 900128,
+      "source_sheet": "基本項目",
+      "source_row": 132,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "128",
+        "TWGCB-01-012-0128",
+        "網路設定",
+        "RDS協定",
+        "這項原則設定決定是否啟用RDS協定\nRDS(Reliable Datagram Sockets)協定是由甲骨文(Oracle)發展之協定，提供節點與叢集間可靠之高效能與低延遲通訊，應用在VoIP網路電話\n停用此協定可減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「rds.conf」檔案，範例如下：\n#vim /etc/modprobe.d/rds.conf\n並在檔案中加入以下內容：\ninstall rds /bin/true\nblacklist rds\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "128",
+          "TWGCB-01-012-0128",
+          "網路設定",
+          "RDS協定",
+          "這項原則設定決定是否啟用RDS協定\nRDS(Reliable Datagram Sockets)協定是由甲骨文(Oracle)發展之協定，提供節點與叢集間可靠之高效能與低延遲通訊，應用在VoIP網路電話\n停用此協定可減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「rds.conf」檔案，範例如下：\n#vim /etc/modprobe.d/rds.conf\n並在檔案中加入以下內容：\ninstall rds /bin/true\nblacklist rds\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900128",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0129",
+      "sca_id": 900129,
+      "source_sheet": "基本項目",
+      "source_row": 133,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "129",
+        "TWGCB-01-012-0129",
+        "網路設定",
+        "TIPC協定",
+        "這項原則設定決定是否啟用TIPC協定\nTIPC(Transparent Inter-Process Communication，透通處理程序間通訊)協定提供一個有效率之叢集式通訊協定，提高系統效能、可用性及擴展性\n停用此協定可減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「tipc.conf」檔案，範例如下：\n#vim /etc/modprobe.d/tipc.conf\n並在檔案中加入以下內容：\ninstall tipc /bin/true\nblacklist tipc\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "129",
+          "TWGCB-01-012-0129",
+          "網路設定",
+          "TIPC協定",
+          "這項原則設定決定是否啟用TIPC協定\nTIPC(Transparent Inter-Process Communication，透通處理程序間通訊)協定提供一個有效率之叢集式通訊協定，提高系統效能、可用性及擴展性\n停用此協定可減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「tipc.conf」檔案，範例如下：\n#vim /etc/modprobe.d/tipc.conf\n並在檔案中加入以下內容：\ninstall tipc /bin/true\nblacklist tipc\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900129",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0130",
+      "sca_id": 900130,
+      "source_sheet": "基本項目",
+      "source_row": 134,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "130",
+        "TWGCB-01-012-0130",
+        "網路設定",
+        "無線網路介面",
+        "這項原則設定決定是否停用無線網路介面\n若系統不透過無線網路進行連線與提供服務，應將無線網路介面設為停用，確保系統無法透過無線網路進行連線，以減少系統被攻擊面",
+        "若已安裝nmcli，開啟終端機，執行以下指令，停用所有無線介面：\n#nmcli radio all off\n若未安裝nmcli，開啟終端機，執行以下腳本，停用所有無線介面：\n#!/bin/bash\nif [ -n \"$(find /sys/class/net/*/ -type d -name wireless)\" ]; \nthen \n  mname=$(for driverdir in $(find /sys/class/net/*/ -type d -name wireless | xargs -0 dirname); do basename \"$(readlink -f \"$driverdir\"/device/driver/module)\";done | sort -u) \n  for dm in $mname; \n  do \n    echo \"install $dm /bin/true\" >> /etc/modprobe.d/disable_wireless.conf\n    echo \"blacklist $dm\" >> /etc/modprobe.d/disable_wireless.conf \n  done \nfi",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "130",
+          "TWGCB-01-012-0130",
+          "網路設定",
+          "無線網路介面",
+          "這項原則設定決定是否停用無線網路介面\n若系統不透過無線網路進行連線與提供服務，應將無線網路介面設為停用，確保系統無法透過無線網路進行連線，以減少系統被攻擊面",
+          "若已安裝nmcli，開啟終端機，執行以下指令，停用所有無線介面：\n#nmcli radio all off\n若未安裝nmcli，開啟終端機，執行以下腳本，停用所有無線介面：\n#!/bin/bash\nif [ -n \"$(find /sys/class/net/*/ -type d -name wireless)\" ]; \nthen \n  mname=$(for driverdir in $(find /sys/class/net/*/ -type d -name wireless | xargs -0 dirname); do basename \"$(readlink -f \"$driverdir\"/device/driver/module)\";done | sort -u) \n  for dm in $mname; \n  do \n    echo \"install $dm /bin/true\" >> /etc/modprobe.d/disable_wireless.conf\n    echo \"blacklist $dm\" >> /etc/modprobe.d/disable_wireless.conf \n  done \nfi",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "若 nmcli 存在，以 nmcli -t -f WIFI,WWAN radio all 唯讀查軟體 WIFI 與 WWAN 均 disabled；否則以 sysfs wireless 找 module 並檢查來源 install/blacklist。無無線對象不提交 PASS，適用性待批。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900130",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "若 nmcli 存在，以 nmcli -t -f WIFI,WWAN radio all 唯讀查軟體 WIFI 與 WWAN 均 disabled；否則以 sysfs wireless 找 module 並檢查來源 install/blacklist。無無線對象不提交 PASS，適用性待批。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0131",
+      "sca_id": 900131,
+      "source_sheet": "基本項目",
+      "source_row": 135,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "131",
+        "TWGCB-01-012-0131",
+        "網路設定",
+        "網路介面混雜模式",
+        "這項原則設定決定是否啟用網路介面混雜模式\n網路介面若處於混雜模式(promiscuous mode)，即可接收所有經過該網路介面之網路封包\n停用網路介面混雜模式，以避免被攻擊者用於蒐集網路流量數據資料，其中可能包含登入帳號、通行碼及金鑰等機敏資訊",
+        "開啟終端機，執行以下指令，檢查網路介面是否處於混雜模式：\n#ip link | grep -i promisc\n若發現網路介面處於混雜模式，則執行以下指令，關閉網路介面混雜模式：\n#ip link set dev (網路介面裝置名稱) multicast off promisc off",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "131",
+          "TWGCB-01-012-0131",
+          "網路設定",
+          "網路介面混雜模式",
+          "這項原則設定決定是否啟用網路介面混雜模式\n網路介面若處於混雜模式(promiscuous mode)，即可接收所有經過該網路介面之網路封包\n停用網路介面混雜模式，以避免被攻擊者用於蒐集網路流量數據資料，其中可能包含登入帳號、通行碼及金鑰等機敏資訊",
+          "開啟終端機，執行以下指令，檢查網路介面是否處於混雜模式：\n#ip link | grep -i promisc\n若發現網路介面處於混雜模式，則執行以下指令，關閉網路介面混雜模式：\n#ip link set dev (網路介面裝置名稱) multicast off promisc off",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B9 direct Python argv source predicates",
+      "caveats": "依來源用 ip link 唯讀輸出，任一行不分大小寫含 promisc 即失敗；空輸出、缺介面、stderr、非零或逾時不提交 PASS；不執行來源 ip link set。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b9.py#900131",
+        "tests/test_p2b9.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B9-ENGINE",
+        "B9-SOURCE"
+      ],
+      "family": "P2B9 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源用 ip link 唯讀輸出，任一行不分大小寫含 promisc 即失敗；空輸出、缺介面、stderr、非零或逾時不提交 PASS；不執行來源 ip link set。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
     },
     {
       "gcb_id": "TWGCB-01-012-0132",
