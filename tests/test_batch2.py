@@ -1,3 +1,4 @@
+from linuxgcb.batch7 import ADDED as BATCH7
 from linuxgcb.batch6 import ADDED as BATCH6
 """BATCH2 synthetic contract/guard tests. Never execute any policy command.
 
@@ -37,13 +38,13 @@ class Batch2Tests(unittest.TestCase):
         wanted={r['sca_id'] for r in rows if r['category'] in CATEGORIES and r['sca_id'] not in before}
         self.assertEqual(wanted,{900000+n for n in ADDED})
         self.assertEqual(len(ADDED),44)
-        self.assertEqual(len(self.checks),188)
+        self.assertEqual(len(self.checks),236)
         self.assertFalse(any(r['coverage']=='unimplemented' for r in rows if r['category'] in CATEGORIES))
         self.assertEqual({c['id']:c for c in self.baseline['checks']}, {n:self.checks[n] for n in before})
         for filename,digest in self.baseline['hashes'].items():
             self.assertEqual(hashlib.sha256((ROOT/filename).read_bytes()).hexdigest(),digest)
         for row in rows:
-            if row['sca_id'] not in before and row['category'] not in CATEGORIES and row['sca_id']-900000 not in BATCH3 | BATCH6:
+            if row['sca_id'] not in before and row['category'] not in CATEGORIES and row['sca_id']-900000 not in BATCH3 | BATCH6 | BATCH7:
                 self.assertNotEqual(row['implementation'],'candidate')
         # Existing synthetic fixtures are also preserved field for field.
         for key,digest in self.baseline['legacy_fixture_hashes'].items():

@@ -6,7 +6,10 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
-    "added": 181,
+    "added": 229,
+    "batch7_before": 188,
+    "batch7_added": 48,
+    "batch7_after": 236,
     "batch6_before": 146,
     "batch6_added": 42,
     "batch6_after": 188,
@@ -14,13 +17,13 @@
     "batch3_before": 97,
     "batch3_after": 146,
     "batch2_added": 44,
-    "implemented": 188,
-    "remaining": 119,
+    "implemented": 236,
+    "remaining": 71,
     "full": 0,
-    "partial": 183,
+    "partial": 231,
     "blocked": 5,
-    "reviewed": 188,
-    "execution_blocked": 188,
+    "reviewed": 236,
+    "execution_blocked": 236,
     "live_validated": 0
   },
   "reviewed": [
@@ -81,6 +84,60 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0032",
+      "sca_id": 900032,
+      "source_sheet": "基本項目",
+      "source_row": 36,
+      "expected": "1",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "32",
+        "TWGCB-01-012-0032",
+        "系統設定與維護",
+        "GPG簽章驗證",
+        "這項原則設定決定是否啟用GPG簽章驗證功能\ngpgcheck決定在安裝套件前，是否先進行RPM套件簽章檢查，可用以確保欲安裝之RPM套件來自可信賴來源，避免安裝已被竄改之檔案\ngpgcheck選項存在於/etc/yum.conf、/etc/dnf/dnf.conf設定檔及/etc/yum/repos.d/目錄下所有設定檔\ngpgcheck選項可設定參數如下：\n1：啟用，先進行RPM套件簽章檢查，通過後才能安裝套件\n0：停用，安裝前不進行RPM套件簽章檢查",
+        "編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，在「main」段落新增或修改成以下內容：\ngpgcheck=1\nlocalpkg_gpgcheck=1\n編輯/etc/yum.repos.d目錄下所有檔案，將全部之「gpgcheck」設定，修改成以下內容：\ngpgcheck=1\nlocalpkg_gpgcheck=1",
+        "1"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "32",
+          "TWGCB-01-012-0032",
+          "系統設定與維護",
+          "GPG簽章驗證",
+          "這項原則設定決定是否啟用GPG簽章驗證功能\ngpgcheck決定在安裝套件前，是否先進行RPM套件簽章檢查，可用以確保欲安裝之RPM套件來自可信賴來源，避免安裝已被竄改之檔案\ngpgcheck選項存在於/etc/yum.conf、/etc/dnf/dnf.conf設定檔及/etc/yum/repos.d/目錄下所有設定檔\ngpgcheck選項可設定參數如下：\n1：啟用，先進行RPM套件簽章檢查，通過後才能安裝套件\n0：停用，安裝前不進行RPM套件簽章檢查",
+          "編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，在「main」段落新增或修改成以下內容：\ngpgcheck=1\nlocalpkg_gpgcheck=1\n編輯/etc/yum.repos.d目錄下所有檔案，將全部之「gpgcheck」設定，修改成以下內容：\ngpgcheck=1\nlocalpkg_gpgcheck=1",
+          "1"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "main 與 repo 檔同查 gpgcheck/localpkg_gpgcheck=1；各repo section皆需雙key；繼承與生效待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900032",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "main 與 repo 檔同查 gpgcheck/localpkg_gpgcheck=1；各repo section皆需雙key；繼承與生效待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0033",
       "sca_id": 900033,
       "source_sheet": "基本項目",
@@ -133,6 +190,600 @@
       "family": "RPM 存在",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0034",
+      "sca_id": 900034,
+      "source_sheet": "基本項目",
+      "source_row": 38,
+      "expected": "Defaults use_pty",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "34",
+        "TWGCB-01-012-0034",
+        "系統設定與維護",
+        "設定sudo指令使用pty",
+        "這項原則設定決定sudo指令是否使用pty(pseudo terminal，虛擬終端)\npty是一對提供雙向通訊之虛擬終端設備，分別為主要(master)與從屬(slave)設備，從屬設備提供模擬硬體終端機設備，主要設備提供模擬終端機程序以操作控制從屬設備\n攻擊者在使用sudo執行惡意程序時，在主程序完成後可能會衍生另一個背景程序保留在終端設備上，sudo設定為使用pty時可避免此情況",
+        "開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容：\nDefaults use_pty",
+        "Defaults use_pty"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "34",
+          "TWGCB-01-012-0034",
+          "系統設定與維護",
+          "設定sudo指令使用pty",
+          "這項原則設定決定sudo指令是否使用pty(pseudo terminal，虛擬終端)\npty是一對提供雙向通訊之虛擬終端設備，分別為主要(master)與從屬(slave)設備，從屬設備提供模擬硬體終端機設備，主要設備提供模擬終端機程序以操作控制從屬設備\n攻擊者在使用sudo執行惡意程序時，在主程序完成後可能會衍生另一個背景程序保留在終端設備上，sudo設定為使用pty時可避免此情況",
+          "開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容：\nDefaults use_pty",
+          "Defaults use_pty"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "只接受未限定 Defaults use_pty；限定使用者/主機、include、續行與覆寫待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900034",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "只接受未限定 Defaults use_pty；限定使用者/主機、include、續行與覆寫待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0035",
+      "sca_id": 900035,
+      "source_sheet": "基本項目",
+      "source_row": 39,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "35",
+        "TWGCB-01-012-0035",
+        "系統設定與維護",
+        "sudo自定義日誌檔案",
+        "這項原則設定決定是否設定sudo自定義日誌檔案\n預設情況下sudo藉由syslog記錄日誌，但sudo可在設定檔(預設為/etc/sudoers)中自定義日誌檔案，有助於簡化sudo指令之稽核工作",
+        "開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容：\nDefaults logfile=\"(日誌檔案路徑)\"\n日誌檔案路徑使用「/var/log/sudo.log」之範例如下：\nDefaults logfile=\"/var/log/sudo.log\"",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "35",
+          "TWGCB-01-012-0035",
+          "系統設定與維護",
+          "sudo自定義日誌檔案",
+          "這項原則設定決定是否設定sudo自定義日誌檔案\n預設情況下sudo藉由syslog記錄日誌，但sudo可在設定檔(預設為/etc/sudoers)中自定義日誌檔案，有助於簡化sudo指令之稽核工作",
+          "開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容：\nDefaults logfile=\"(日誌檔案路徑)\"\n日誌檔案路徑使用「/var/log/sudo.log」之範例如下：\nDefaults logfile=\"/var/log/sudo.log\"",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "logfile 要求非空絕對路徑；來源 /var/log/sudo.log 僅範例；複雜 sudoers 語意待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900035",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "logfile 要求非空絕對路徑；來源 /var/log/sudo.log 僅範例；複雜 sudoers 語意待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0036",
+      "sca_id": 900036,
+      "source_sheet": "基本項目",
+      "source_row": 40,
+      "expected": "安裝",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "36",
+        "TWGCB-01-012-0036",
+        "系統設定與維護",
+        "AIDE套件",
+        "這項原則設定決定是否安裝AIDE(Advanced Intrusion Detection Environment，先進入侵偵測環境)套件\nAIDE截取檔案系統狀態之快照，包括修改時間、權限及檔案雜湊，藉由將快照與檔案系統之當前狀態進行比較，以檢測系統變更情況，找出被修改或損毀之檔案\nAIDE可藉由檔案完整性檢查，協助系統管理者早期發現系統入侵跡象\n注意：建議可依系統維運與管理需求新增或調整AIDE規則",
+        "開啟終端機，執行以下指令安裝AIDE套件：\n#dnf install aide\n執行以下指令初始化AIDE：\n#aide --init\n#mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz",
+        "安裝"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "36",
+          "TWGCB-01-012-0036",
+          "系統設定與維護",
+          "AIDE套件",
+          "這項原則設定決定是否安裝AIDE(Advanced Intrusion Detection Environment，先進入侵偵測環境)套件\nAIDE截取檔案系統狀態之快照，包括修改時間、權限及檔案雜湊，藉由將快照與檔案系統之當前狀態進行比較，以檢測系統變更情況，找出被修改或損毀之檔案\nAIDE可藉由檔案完整性檢查，協助系統管理者早期發現系統入侵跡象\n注意：建議可依系統維運與管理需求新增或調整AIDE規則",
+          "開啟終端機，執行以下指令安裝AIDE套件：\n#dnf install aide\n執行以下指令初始化AIDE：\n#aide --init\n#mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz",
+          "安裝"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "定向 rpm -q aide 三態；初始化資料庫動作未執行，資料庫生效另審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900036",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "定向 rpm -q aide 三態；初始化資料庫動作未執行，資料庫生效另審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0037",
+      "sca_id": 900037,
+      "source_sheet": "基本項目",
+      "source_row": 41,
+      "expected": "每天",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "37",
+        "TWGCB-01-012-0037",
+        "系統設定與維護",
+        "定期檢查檔案系統完整性",
+        "這項原則設定決定是否使用AIDE工具定期檢查檔案系統完整性\nAIDE截取檔案系統狀態之快照，包括修改時間、權限及檔案雜湊，藉由將快照與檔案系統之當前狀態進行比較，以檢測系統變更情況，找出被修改或損毀之檔案\n定期檢查檔案系統完整性，可協助系統管理者定期確認是否有重要檔案在未經授權之情況下被修改",
+        "開啟終端機，執行以下指令，編輯crontab：\n#crontab -u root -e\n在crontab新增以下內容，設定每天5點進行檔案系統完整性檢查：\n0 5 * * * /usr/sbin/aide --check",
+        "每天"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "37",
+          "TWGCB-01-012-0037",
+          "系統設定與維護",
+          "定期檢查檔案系統完整性",
+          "這項原則設定決定是否使用AIDE工具定期檢查檔案系統完整性\nAIDE截取檔案系統狀態之快照，包括修改時間、權限及檔案雜湊，藉由將快照與檔案系統之當前狀態進行比較，以檢測系統變更情況，找出被修改或損毀之檔案\n定期檢查檔案系統完整性，可協助系統管理者定期確認是否有重要檔案在未經授權之情況下被修改",
+          "開啟終端機，執行以下指令，編輯crontab：\n#crontab -u root -e\n在crontab新增以下內容，設定每天5點進行檔案系統完整性檢查：\n0 5 * * * /usr/sbin/aide --check",
+          "每天"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源 root crontab 每天5點；expected 每天允許合法固定分時；依任務另接受 cron.daily 可執行檔明確 /usr/sbin/aide --check。排程替代需批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900037",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 root crontab 每天5點；expected 每天允許合法固定分時；依任務另接受 cron.daily 可執行檔明確 /usr/sbin/aide --check。排程替代需批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0038",
+      "sca_id": 900038,
+      "source_sheet": "基本項目",
+      "source_row": 42,
+      "expected": "root:root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "38",
+        "TWGCB-01-012-0038",
+        "系統設定與維護",
+        "開機載入程式設定檔之所有權",
+        "這項原則設定決定開機載入程式(GRUB)設定檔之擁有者與群組\nGRUB設定檔主要功能是用來記錄載入作業系統核心所使用之參數\n將GRUB設定檔之擁有者與擁有群組設為root，以防止非root使用者變更檔案內容\n備註：如果使用其他開機載入程式(如LILO或EFI GRUB)，請比照上述原則進行設定",
+        "若是基於BIOS的系統，開啟終端機，執行以下指令，設定GRUB設定檔之擁有者與群組：\n#chown root:root /boot/grub2/grub.cfg\n#chown root:root /boot/grub2/grubenv\n#[ -f /boot/grub2/user.cfg ] && chown root:root /boot/grub2/user.cfg\n若是基於UEFI的系統，編輯/etc/fstab檔案，在掛載點為「/boot/efi」列，於第4欄加入「uid=0, and gid=0」，設定GRUB設定檔之擁有者與群組，範例如下：\n<device> /boot/efi vfat umask=0027,shortname=winnt, uid=0,gid=0 0 2",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "38",
+          "TWGCB-01-012-0038",
+          "系統設定與維護",
+          "開機載入程式設定檔之所有權",
+          "這項原則設定決定開機載入程式(GRUB)設定檔之擁有者與群組\nGRUB設定檔主要功能是用來記錄載入作業系統核心所使用之參數\n將GRUB設定檔之擁有者與擁有群組設為root，以防止非root使用者變更檔案內容\n備註：如果使用其他開機載入程式(如LILO或EFI GRUB)，請比照上述原則進行設定",
+          "若是基於BIOS的系統，開啟終端機，執行以下指令，設定GRUB設定檔之擁有者與群組：\n#chown root:root /boot/grub2/grub.cfg\n#chown root:root /boot/grub2/grubenv\n#[ -f /boot/grub2/user.cfg ] && chown root:root /boot/grub2/user.cfg\n若是基於UEFI的系統，編輯/etc/fstab檔案，在掛載點為「/boot/efi」列，於第4欄加入「uid=0, and gid=0」，設定GRUB設定檔之擁有者與群組，範例如下：\n<device> /boot/efi vfat umask=0027,shortname=winnt, uid=0,gid=0 0 2",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源 BIOS grub.cfg/grubenv/選用user.cfg；UEFI fstab uid=0,gid=0；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900038",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 BIOS grub.cfg/grubenv/選用user.cfg；UEFI fstab uid=0,gid=0；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0039",
+      "sca_id": 900039,
+      "source_sheet": "基本項目",
+      "source_row": 43,
+      "expected": "600或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "39",
+        "TWGCB-01-012-0039",
+        "系統設定與維護",
+        "開機載入程式設定檔之權限",
+        "這項原則設定決定是否設定開機載入程式(GRUB)設定檔之權限\nGRUB設定檔主要功能是用來記錄載入作業系統核心所使用之參數\n禁止群組與其他身分讀取、寫入及執行GRUB設定檔，以防止非root使用者取得或修改開機參數，進而危及系統安全\n備註：如果使用其他開機載入程式(如LILO或EFI GRUB)，請比照上述原則進行設定",
+        "若是基於BIOS的系統，開啟終端機，執行以下指令，設定GRUB設定檔之權限為600或更低權限：\n#chmod 600 /boot/grub2/grub.cfg\n#chmod 600 /boot/grub2/grubenv\n#[ -f /boot/grub2/user.cfg ] && chmod 600 /boot/grub2/user.cfg\n若是基於UEFI的系統，編輯/etc/fstab檔案，在掛載點為「/boot/efi」列，於第4欄加入「fmask=0177」，設定GRUB設定檔之權限，範例如下：\n<device> /boot/efi vfat umask=0027,shortname=winnt,fmask=0177 0 2",
+        "600或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "39",
+          "TWGCB-01-012-0039",
+          "系統設定與維護",
+          "開機載入程式設定檔之權限",
+          "這項原則設定決定是否設定開機載入程式(GRUB)設定檔之權限\nGRUB設定檔主要功能是用來記錄載入作業系統核心所使用之參數\n禁止群組與其他身分讀取、寫入及執行GRUB設定檔，以防止非root使用者取得或修改開機參數，進而危及系統安全\n備註：如果使用其他開機載入程式(如LILO或EFI GRUB)，請比照上述原則進行設定",
+          "若是基於BIOS的系統，開啟終端機，執行以下指令，設定GRUB設定檔之權限為600或更低權限：\n#chmod 600 /boot/grub2/grub.cfg\n#chmod 600 /boot/grub2/grubenv\n#[ -f /boot/grub2/user.cfg ] && chmod 600 /boot/grub2/user.cfg\n若是基於UEFI的系統，編輯/etc/fstab檔案，在掛載點為「/boot/efi」列，於第4欄加入「fmask=0177」，設定GRUB設定檔之權限，範例如下：\n<device> /boot/efi vfat umask=0027,shortname=winnt,fmask=0177 0 2",
+          "600或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源 BIOS 600 位元子集；UEFI fmask=0177；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900039",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 BIOS 600 位元子集；UEFI fmask=0177；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0040",
+      "sca_id": 900040,
+      "source_sheet": "基本項目",
+      "source_row": 44,
+      "expected": "設定通行碼",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "40",
+        "TWGCB-01-012-0040",
+        "系統設定與維護",
+        "開機載入程式之通行碼",
+        "這項原則設定決定是否設定開機載入程式之通行碼，以限制需通過通行碼鑑別後，才能設定開機載入程式之參數\n設定通行碼保護開機載入程式，可避免攻擊者開機進入單一使用者或維護模式，不需鑑別root身分，即可取得系統上所有檔案之存取權限",
+        "開啟終端機，執行以下指令，使用grub2-setpassword建立一組通行碼：\n#grub2-setpassword\nEnter password: (輸入通行碼)\nConfirm password: (再次輸入通行碼)\n執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
+        "設定通行碼"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "40",
+          "TWGCB-01-012-0040",
+          "系統設定與維護",
+          "開機載入程式之通行碼",
+          "這項原則設定決定是否設定開機載入程式之通行碼，以限制需通過通行碼鑑別後，才能設定開機載入程式之參數\n設定通行碼保護開機載入程式，可避免攻擊者開機進入單一使用者或維護模式，不需鑑別root身分，即可取得系統上所有檔案之存取權限",
+          "開啟終端機，執行以下指令，使用grub2-setpassword建立一組通行碼：\n#grub2-setpassword\nEnter password: (輸入通行碼)\nConfirm password: (再次輸入通行碼)\n執行以下指令更新grub2設定檔：\n#grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
+          "設定通行碼"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "靜態確認 grub2-setpassword 產生之 user.cfg PBKDF2 宣告；grub.cfg 載入與重建效果留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900040",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "靜態確認 grub2-setpassword 產生之 user.cfg PBKDF2 宣告；grub.cfg 載入與重建效果留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0041",
+      "sca_id": 900041,
+      "source_sheet": "基本項目",
+      "source_row": 45,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "41",
+        "TWGCB-01-012-0041",
+        "系統設定與維護",
+        "單一使用者模式身分鑑別",
+        "這項原則設定決定單一使用者模式(Single user mode)是否啟用身分鑑別功能\n當系統在開機載入過程發生問題時，將使用單一使用者模式(或稱為救援模式)進行還原\n設定單一使用者模式需使用身分鑑別，可防止攻擊者將系統重新開機後，不需身分鑑別即可進入單一使用者模式，進而危害系統安全",
+        "編輯/usr/lib/systemd/system/rescue.service檔案，新增或修改成以下內容：\nExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue\n編輯/usr/lib/systemd/system/emergency.service檔案，新增或修改成以下內容：\nExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "41",
+          "TWGCB-01-012-0041",
+          "系統設定與維護",
+          "單一使用者模式身分鑑別",
+          "這項原則設定決定單一使用者模式(Single user mode)是否啟用身分鑑別功能\n當系統在開機載入過程發生問題時，將使用單一使用者模式(或稱為救援模式)進行還原\n設定單一使用者模式需使用身分鑑別，可防止攻擊者將系統重新開機後，不需身分鑑別即可進入單一使用者模式，進而危害系統安全",
+          "編輯/usr/lib/systemd/system/rescue.service檔案，新增或修改成以下內容：\nExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue\n編輯/usr/lib/systemd/system/emergency.service檔案，新增或修改成以下內容：\nExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源 rescue/emergency.service ExecStart 精確比對；systemd drop-in 實際生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900041",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 rescue/emergency.service ExecStart 精確比對；systemd drop-in 實際生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0042",
+      "sca_id": 900042,
+      "source_sheet": "基本項目",
+      "source_row": 46,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "42",
+        "TWGCB-01-012-0042",
+        "系統設定與維護",
+        "核心傾印功能",
+        "這項原則設定決定是否啟用核心傾印(Core dump)功能\n核心傾印檔案是程式異常終止時，系統將當時記憶體內容以檔案方式記錄下來所產生之記憶體映像檔案，可供程式除錯之用\n禁止使用者與SUID程式產生核心傾印檔案，避免核心傾印檔案洩露如記憶體位址或空間配置等敏感資訊",
+        "編輯/etc/security/limits.conf檔案或/etc/security/limits.d/目錄下檔案，新增以下內容：\n* hard core 0\n編輯/etc/sysctl.conf或/etc/sysctl.d/目錄下檔案，設定參數如下：\nfs.suid_dumpable = 0\nkernel.core_pattern = |/bin/false\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w fs.suid_dumpable=0\n#sysctl -w kernel.core_pattern=|/bin/false\n如果已安裝coredump服務，編輯/etc/systemd/coredump.conf檔案，新增或修改成以下內容：\nStorage=none\nProcessSizeMax=0\n開啟終端機，執行以下指令重新載入systemd：\n#systemctl daemon-reload\n如果已安裝coredump服務，開啟終端機，執行以下指令，遮蔽coredump服務：\n#systemctl mask systemd-coredump.socket",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "42",
+          "TWGCB-01-012-0042",
+          "系統設定與維護",
+          "核心傾印功能",
+          "這項原則設定決定是否啟用核心傾印(Core dump)功能\n核心傾印檔案是程式異常終止時，系統將當時記憶體內容以檔案方式記錄下來所產生之記憶體映像檔案，可供程式除錯之用\n禁止使用者與SUID程式產生核心傾印檔案，避免核心傾印檔案洩露如記憶體位址或空間配置等敏感資訊",
+          "編輯/etc/security/limits.conf檔案或/etc/security/limits.d/目錄下檔案，新增以下內容：\n* hard core 0\n編輯/etc/sysctl.conf或/etc/sysctl.d/目錄下檔案，設定參數如下：\nfs.suid_dumpable = 0\nkernel.core_pattern = |/bin/false\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w fs.suid_dumpable=0\n#sysctl -w kernel.core_pattern=|/bin/false\n如果已安裝coredump服務，編輯/etc/systemd/coredump.conf檔案，新增或修改成以下內容：\nStorage=none\nProcessSizeMax=0\n開啟終端機，執行以下指令重新載入systemd：\n#systemctl daemon-reload\n如果已安裝coredump服務，開啟終端機，執行以下指令，遮蔽coredump服務：\n#systemctl mask systemd-coredump.socket",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "同查 suid_dumpable=0、core_pattern=|/bin/false 與 * hard core 0；條件性 coredump Storage/ProcessSizeMax/mask、即時值與載入效力待人工證據。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900042",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "同查 suid_dumpable=0、core_pattern=|/bin/false 與 * hard core 0；條件性 coredump Storage/ProcessSizeMax/mask、即時值與載入效力待人工證據。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0043",
+      "sca_id": 900043,
+      "source_sheet": "基本項目",
+      "source_row": 47,
+      "expected": "2",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "43",
+        "TWGCB-01-012-0043",
+        "系統設定與維護",
+        "記憶體位址空間配置隨機載入",
+        "這項原則設定決定系統開機時是否立即啟用記憶體位址空間配置隨機載入(Address space layout randomization, ASLR)功能\nASLR利用隨機方式配置資料位址，使得敏感資料(例如作業系統核心程式)能配置到一個惡意程式未能事先得知之位址\n啟用記憶體位址空間配置隨機載入，提高攻擊難度，以降低緩衝區溢位攻擊之威脅\n可設定參數如下：\n0：停用ASLR功能\n1：隨機配置堆疊(Stack)、記憶體映射函數(mmap)及vDSO(Virtual Dynamically-linked Shared Object，虛擬動態連結共享物件)頁面\n2：隨機配置堆疊(Stack)、記憶體映射函數(mmap)、vDSO頁面及堆積(Heap)",
+        "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，設定參數如下：\nkernel.randomize_va_space = 2\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w kernel.randomize_va_space=2",
+        "2"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "43",
+          "TWGCB-01-012-0043",
+          "系統設定與維護",
+          "記憶體位址空間配置隨機載入",
+          "這項原則設定決定系統開機時是否立即啟用記憶體位址空間配置隨機載入(Address space layout randomization, ASLR)功能\nASLR利用隨機方式配置資料位址，使得敏感資料(例如作業系統核心程式)能配置到一個惡意程式未能事先得知之位址\n啟用記憶體位址空間配置隨機載入，提高攻擊難度，以降低緩衝區溢位攻擊之威脅\n可設定參數如下：\n0：停用ASLR功能\n1：隨機配置堆疊(Stack)、記憶體映射函數(mmap)及vDSO(Virtual Dynamically-linked Shared Object，虛擬動態連結共享物件)頁面\n2：隨機配置堆疊(Stack)、記憶體映射函數(mmap)、vDSO頁面及堆積(Heap)",
+          "編輯/etc/sysctl.conf檔案或/etc/sysctl.d/目錄下檔案，設定參數如下：\nkernel.randomize_va_space = 2\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w kernel.randomize_va_space=2",
+          "2"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "持久設定 randomize_va_space 精確2；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900043",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "持久設定 randomize_va_space 精確2；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0044",
+      "sca_id": 900044,
+      "source_sheet": "基本項目",
+      "source_row": 48,
+      "expected": "FUTURE或FIPS",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "44",
+        "TWGCB-01-012-0044",
+        "系統設定與維護",
+        "設定全系統加密原則",
+        "這項原則設定決定採取何種全系統加密原則\n全系統加密原則(System-wide crypto-policies)與加密核心元件，允許在全系統範圍使用一致性之加密原則\n可設定原則如下：\nDEFAULT：預設全系統加密原則。允許使用TLSv1.2與1.3協定，以及IKEv2與SSH2協定，要求RSA密鑰與Diffie-Hellman金鑰至少為2,048位元\nLEGACY：此原則可確保與Red Hat Enterprise Linux 5與更舊版本之最大兼容性，比DEFAULT原則多支援TLSv1.0與1.1協定，並允許使用DSA、3DES及RC4演算法，要求RSA密鑰與Diffie-Hellman金鑰至少為1,024位元\nFUTURE：採取保守之安全原則，可承受近期相關攻擊，不允許使用SHA-1演算法，要求RSA密鑰與Diffie-Hellman金鑰至少為3,072位元\nFIPS：符合FIPS140-2要求原則，使用內建之fips-mode-setup工具，將作業系統切換到FIPS模式\n設定全系統加密原則使用FUTURE或FIPS原則，避免使用較舊且易被攻擊之加密演算法",
+        "開啟終端機，執行以下指令，確認全系統加密原則是否為FUTURE或FIPS：\n#grep -E -i '^\\s*(FUTURE|FIPS)\\s*(\\s+#.*)?$' /etc/crypto-policies/config\n若不是使用FUTURE或FIPS原則，請執行以下任一操作，變更全系統加密原則：\n執行以下指令，將系統設定為「FUTURE」原則：\n#update-crypto-policies --set FUTURE\n接續執行以下指令，以套用更新後之全系統加密原則：\n#update-crypto-policies\n執行以下指令，將系統設定為「FIPS」原則，並重新開機，以使生效：\n#fips-mode-setup --enable",
+        "FUTURE或FIPS"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "44",
+          "TWGCB-01-012-0044",
+          "系統設定與維護",
+          "設定全系統加密原則",
+          "這項原則設定決定採取何種全系統加密原則\n全系統加密原則(System-wide crypto-policies)與加密核心元件，允許在全系統範圍使用一致性之加密原則\n可設定原則如下：\nDEFAULT：預設全系統加密原則。允許使用TLSv1.2與1.3協定，以及IKEv2與SSH2協定，要求RSA密鑰與Diffie-Hellman金鑰至少為2,048位元\nLEGACY：此原則可確保與Red Hat Enterprise Linux 5與更舊版本之最大兼容性，比DEFAULT原則多支援TLSv1.0與1.1協定，並允許使用DSA、3DES及RC4演算法，要求RSA密鑰與Diffie-Hellman金鑰至少為1,024位元\nFUTURE：採取保守之安全原則，可承受近期相關攻擊，不允許使用SHA-1演算法，要求RSA密鑰與Diffie-Hellman金鑰至少為3,072位元\nFIPS：符合FIPS140-2要求原則，使用內建之fips-mode-setup工具，將作業系統切換到FIPS模式\n設定全系統加密原則使用FUTURE或FIPS原則，避免使用較舊且易被攻擊之加密演算法",
+          "開啟終端機，執行以下指令，確認全系統加密原則是否為FUTURE或FIPS：\n#grep -E -i '^\\s*(FUTURE|FIPS)\\s*(\\s+#.*)?$' /etc/crypto-policies/config\n若不是使用FUTURE或FIPS原則，請執行以下任一操作，變更全系統加密原則：\n執行以下指令，將系統設定為「FUTURE」原則：\n#update-crypto-policies --set FUTURE\n接續執行以下指令，以套用更新後之全系統加密原則：\n#update-crypto-policies\n執行以下指令，將系統設定為「FIPS」原則，並重新開機，以使生效：\n#fips-mode-setup --enable",
+          "FUTURE或FIPS"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源明列 /etc/crypto-policies/config FUTURE/FIPS；未改查 CURRENT.pol；生效/重開機待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900044",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源明列 /etc/crypto-policies/config FUTURE/FIPS；未改查 CURRENT.pol；生效/重開機待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
     },
     {
       "gcb_id": "TWGCB-01-012-0045",
@@ -1037,6 +1688,1680 @@
       "family": "檔案 metadata",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0061",
+      "sca_id": 900061,
+      "source_sheet": "基本項目",
+      "source_row": 65,
+      "expected": "禁止寫入",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "61",
+        "TWGCB-01-012-0061",
+        "系統設定與維護",
+        "其他使用者寫入具有全域寫入權限之檔案",
+        "這項原則設定決定其他使用者是否允許寫入具有全域寫入(World-writable)權限之檔案\n具有全域寫入權限之檔案可被任何使用者修改，錯誤或不完整之程式碼將可能影響系統運作或危害系統安全\n設定其他使用者不能寫入具有全域寫入權限之檔案，以避免系統重要檔案被未經授權竄改",
+        "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出具有全域寫入權限(World-writable)之檔案：\n#find (partition) -xdev -type f -perm -0002\n針對所找到之檔案，執行下列指令，以移除其他身分寫入權限：\n#chmod o-w (檔案名稱)",
+        "禁止寫入"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "61",
+          "TWGCB-01-012-0061",
+          "系統設定與維護",
+          "其他使用者寫入具有全域寫入權限之檔案",
+          "這項原則設定決定其他使用者是否允許寫入具有全域寫入(World-writable)權限之檔案\n具有全域寫入權限之檔案可被任何使用者修改，錯誤或不完整之程式碼將可能影響系統運作或危害系統安全\n設定其他使用者不能寫入具有全域寫入權限之檔案，以避免系統重要檔案被未經授權竄改",
+          "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出具有全域寫入權限(World-writable)之檔案：\n#find (partition) -xdev -type f -perm -0002\n針對所找到之檔案，執行下列指令，以移除其他身分寫入權限：\n#chmod o-w (檔案名稱)",
+          "禁止寫入"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900061",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0062",
+      "sca_id": 900062,
+      "source_sheet": "基本項目",
+      "source_row": 66,
+      "expected": "所有檔案與目錄擁有者皆為合法使用者",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "62",
+        "TWGCB-01-012-0062",
+        "系統設定與維護",
+        "檢查所有檔案與目錄之擁有者",
+        "這項原則設定決定是否所有檔案與目錄擁有者皆為合法使用者\n不屬於合法使用者之檔案可能是由入侵者植入、不正確之軟體安裝、不完整之軟體移除或已遭刪除使用者所遺留之檔案\n確認所有檔案與目錄擁有者皆為合法使用者，以避免新使用者帳號與已被刪除使用者帳號相同時，可以存取前任使用者所建立之檔案，將可能存取未被授權之檔案",
+        "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出擁有者不是合法使用者之檔案或目錄：\n#find (partition) -xdev -nouser\n針對所找到之檔案與目錄指定合法使用者或移除：\n#chown (使用者) (檔案名稱或目錄名稱)\n或\n#rm (檔案名稱或目錄名稱)",
+        "所有檔案與目錄擁有者皆為合法使用者"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "62",
+          "TWGCB-01-012-0062",
+          "系統設定與維護",
+          "檢查所有檔案與目錄之擁有者",
+          "這項原則設定決定是否所有檔案與目錄擁有者皆為合法使用者\n不屬於合法使用者之檔案可能是由入侵者植入、不正確之軟體安裝、不完整之軟體移除或已遭刪除使用者所遺留之檔案\n確認所有檔案與目錄擁有者皆為合法使用者，以避免新使用者帳號與已被刪除使用者帳號相同時，可以存取前任使用者所建立之檔案，將可能存取未被授權之檔案",
+          "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出擁有者不是合法使用者之檔案或目錄：\n#find (partition) -xdev -nouser\n針對所找到之檔案與目錄指定合法使用者或移除：\n#chown (使用者) (檔案名稱或目錄名稱)\n或\n#rm (檔案名稱或目錄名稱)",
+          "所有檔案與目錄擁有者皆為合法使用者"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900062",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0063",
+      "sca_id": 900063,
+      "source_sheet": "基本項目",
+      "source_row": 67,
+      "expected": "所有檔案與目錄擁有群組皆為合法群組",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "63",
+        "TWGCB-01-012-0063",
+        "系統設定與維護",
+        "檢查所有檔案與目錄之擁有群組",
+        "這項原則設定決定是否所有檔案與目錄擁有群組皆為合法群組\n不屬於合法群組之檔案可能是由入侵者植入、不正確之軟體安裝、不完整之軟體移除或已遭刪除使用者所遺留之檔案\n確認所有檔案與目錄擁有群組皆為合法群組，以避免新使用者帳號與已被刪除使用者帳號相同時，可以存取前任使用者所屬群組之檔案，將可能存取未被授權之檔案",
+        "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出擁有群組不是合法群組之檔案或目錄：\n#find (partition) -xdev -nogroup\n針對所找到之檔案與目錄指定合法群組或移除：\n#chgrp (群組) (檔案名稱或目錄名稱)\n或\n#rm (檔案名稱或目錄名稱)",
+        "所有檔案與目錄擁有群組皆為合法群組"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "63",
+          "TWGCB-01-012-0063",
+          "系統設定與維護",
+          "檢查所有檔案與目錄之擁有群組",
+          "這項原則設定決定是否所有檔案與目錄擁有群組皆為合法群組\n不屬於合法群組之檔案可能是由入侵者植入、不正確之軟體安裝、不完整之軟體移除或已遭刪除使用者所遺留之檔案\n確認所有檔案與目錄擁有群組皆為合法群組，以避免新使用者帳號與已被刪除使用者帳號相同時，可以存取前任使用者所屬群組之檔案，將可能存取未被授權之檔案",
+          "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出擁有群組不是合法群組之檔案或目錄：\n#find (partition) -xdev -nogroup\n針對所找到之檔案與目錄指定合法群組或移除：\n#chgrp (群組) (檔案名稱或目錄名稱)\n或\n#rm (檔案名稱或目錄名稱)",
+          "所有檔案與目錄擁有群組皆為合法群組"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900063",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0064",
+      "sca_id": 900064,
+      "source_sheet": "基本項目",
+      "source_row": 68,
+      "expected": "root或其他系統帳號",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "64",
+        "TWGCB-01-012-0064",
+        "系統設定與維護",
+        "所有具有全域寫入權限目錄之擁有者",
+        "這項原則設定決定是否所有具有全域寫入權限之目錄擁有者為root或其他系統帳號\n若具有全域寫入權限之目錄之擁有者為一般使用者，該使用者將可刪除或置換其他使用者所建立之檔案\n設定所有具有全域寫入權限之目錄擁有者為root或其他系統帳號，避免系統資源遭未經授權存取",
+        "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出一般使用者(UID大於999)具有全域寫入(World-writable)權限之目錄\n#find (partition) -xdev -type d -perm -0002 -uid +999 -print\n針對所找到之目錄，執行以下指令，設定目錄擁有者為root或其他系統帳號\n#chown root (目錄名稱)",
+        "root或其他系統帳號"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "64",
+          "TWGCB-01-012-0064",
+          "系統設定與維護",
+          "所有具有全域寫入權限目錄之擁有者",
+          "這項原則設定決定是否所有具有全域寫入權限之目錄擁有者為root或其他系統帳號\n若具有全域寫入權限之目錄之擁有者為一般使用者，該使用者將可刪除或置換其他使用者所建立之檔案\n設定所有具有全域寫入權限之目錄擁有者為root或其他系統帳號，避免系統資源遭未經授權存取",
+          "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出一般使用者(UID大於999)具有全域寫入(World-writable)權限之目錄\n#find (partition) -xdev -type d -perm -0002 -uid +999 -print\n針對所找到之目錄，執行以下指令，設定目錄擁有者為root或其他系統帳號\n#chown root (目錄名稱)",
+          "root或其他系統帳號"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900064",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0065",
+      "sca_id": 900065,
+      "source_sheet": "基本項目",
+      "source_row": 69,
+      "expected": "root或其他系統群組",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "65",
+        "TWGCB-01-012-0065",
+        "系統設定與維護",
+        "所有具有全域寫入權限目錄之擁有群組",
+        "這項原則設定決定是否所有具有全域寫入權限之目錄擁有群組為root或其他系統群組(sys、bin或應用程式群組)\n若具有全域寫入權限之目錄之擁有群組為一般使用者群組，該群組使用者將可刪除或置換其他使用者所建立之檔案",
+        "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出一般使用者群組(GID大於999)具有全域寫入(World-writable)權限之目錄\n#find (partition) -xdev -type d -perm -0002 -gid +999 -print\n針對所找到之目錄，執行以下指令，設定目錄擁有群組為root或其他系統群組(sys、bin或應用程式群組)：\n#chgrp root (目錄名稱)",
+        "root或其他系統群組"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "65",
+          "TWGCB-01-012-0065",
+          "系統設定與維護",
+          "所有具有全域寫入權限目錄之擁有群組",
+          "這項原則設定決定是否所有具有全域寫入權限之目錄擁有群組為root或其他系統群組(sys、bin或應用程式群組)\n若具有全域寫入權限之目錄之擁有群組為一般使用者群組，該群組使用者將可刪除或置換其他使用者所建立之檔案",
+          "開啟終端機，執行以下指令，在系統上所有磁區(partition)，逐一檢查磁區所掛載之檔案目錄(如根目錄)，找出一般使用者群組(GID大於999)具有全域寫入(World-writable)權限之目錄\n#find (partition) -xdev -type d -perm -0002 -gid +999 -print\n針對所找到之目錄，執行以下指令，設定目錄擁有群組為root或其他系統群組(sys、bin或應用程式群組)：\n#chgrp root (目錄名稱)",
+          "root或其他系統群組"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900065",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0066",
+      "sca_id": 900066,
+      "source_sheet": "基本項目",
+      "source_row": 70,
+      "expected": "755或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "66",
+        "TWGCB-01-012-0066",
+        "系統設定與維護",
+        "系統命令檔案權限",
+        "這項原則決定是否設定系統命令檔案權限，使系統命令檔案具有755或更低權限\n系統命令檔案包含儲存在作業系統預設可執行檔案目錄之檔案，以及存在於系統預設可執行檔案搜索路徑目錄之檔案\n限制權限以保護系統命令檔案，避免被未經授權竄改，使管理者與系統服務可正常執行指令",
+        "開啟終端機，執行以下指令，檢查系統命令檔案之權限：\n#find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -perm /0022 -exec ls -l {} \\;\n若找到系統命令檔案權限高於755，執行以下指令，設定系統命令檔案之權限為755或更低權限：\n#chmod 755 (系統命令檔案名稱)",
+        "755或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "66",
+          "TWGCB-01-012-0066",
+          "系統設定與維護",
+          "系統命令檔案權限",
+          "這項原則決定是否設定系統命令檔案權限，使系統命令檔案具有755或更低權限\n系統命令檔案包含儲存在作業系統預設可執行檔案目錄之檔案，以及存在於系統預設可執行檔案搜索路徑目錄之檔案\n限制權限以保護系統命令檔案，避免被未經授權竄改，使管理者與系統服務可正常執行指令",
+          "開啟終端機，執行以下指令，檢查系統命令檔案之權限：\n#find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -perm /0022 -exec ls -l {} \\;\n若找到系統命令檔案權限高於755，執行以下指令，設定系統命令檔案之權限為755或更低權限：\n#chmod 755 (系統命令檔案名稱)",
+          "755或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900066",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0067",
+      "sca_id": 900067,
+      "source_sheet": "基本項目",
+      "source_row": 71,
+      "expected": "root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "67",
+        "TWGCB-01-012-0067",
+        "系統設定與維護",
+        "系統命令檔案擁有者",
+        "這項原則決定是否設定系統命令檔案擁有者\n系統命令檔案包含儲存在作業系統預設可執行檔案目錄之檔案，以及存在於系統預設可執行檔案搜索路徑目錄之檔案\n設定root擁有，以保護系統命令檔案，避免被未經授權竄改，使管理者與系統服務可正常執行指令",
+        "開啟終端機，執行以下指令，檢查系統命令檔案擁有者：\n#find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -user root -exec ls -l {} \\;\n若找到系統命令檔案擁有者非root，執行以下指令，設定系統命令檔案擁有者為root：\n#chown root (系統命令檔案名稱)",
+        "root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "67",
+          "TWGCB-01-012-0067",
+          "系統設定與維護",
+          "系統命令檔案擁有者",
+          "這項原則決定是否設定系統命令檔案擁有者\n系統命令檔案包含儲存在作業系統預設可執行檔案目錄之檔案，以及存在於系統預設可執行檔案搜索路徑目錄之檔案\n設定root擁有，以保護系統命令檔案，避免被未經授權竄改，使管理者與系統服務可正常執行指令",
+          "開啟終端機，執行以下指令，檢查系統命令檔案擁有者：\n#find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -user root -exec ls -l {} \\;\n若找到系統命令檔案擁有者非root，執行以下指令，設定系統命令檔案擁有者為root：\n#chown root (系統命令檔案名稱)",
+          "root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900067",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0068",
+      "sca_id": 900068,
+      "source_sheet": "基本項目",
+      "source_row": 72,
+      "expected": "root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "68",
+        "TWGCB-01-012-0068",
+        "系統設定與維護",
+        "系統命令檔案擁有群組",
+        "這項原則決定是否設定系統命令檔案擁有群組\n系統命令檔案包含儲存在作業系統預設可執行檔案目錄之檔案，以及存在於系統預設可執行檔案搜索路徑目錄之檔案\n設定root群組擁有，以保護系統命令檔案，避免被未經授權竄改，使管理者與系統服務可正常執行指令",
+        "開啟終端機，執行以下指令，檢查系統命令檔案擁有群組：\n#find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root ! -group tty ! -group slocate ! -group lock -exec ls -l {} \\;\n若找到系統命令檔案擁有群組非root，執行以下指令，設定系統命令檔案擁有群組為root：\n#chgrp root (系統命令檔案名稱)",
+        "root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "68",
+          "TWGCB-01-012-0068",
+          "系統設定與維護",
+          "系統命令檔案擁有群組",
+          "這項原則決定是否設定系統命令檔案擁有群組\n系統命令檔案包含儲存在作業系統預設可執行檔案目錄之檔案，以及存在於系統預設可執行檔案搜索路徑目錄之檔案\n設定root群組擁有，以保護系統命令檔案，避免被未經授權竄改，使管理者與系統服務可正常執行指令",
+          "開啟終端機，執行以下指令，檢查系統命令檔案擁有群組：\n#find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root ! -group tty ! -group slocate ! -group lock -exec ls -l {} \\;\n若找到系統命令檔案擁有群組非root，執行以下指令，設定系統命令檔案擁有群組為root：\n#chgrp root (系統命令檔案名稱)",
+          "root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源 find 允許 root/tty/slocate/lock，但 expected 寫 root；依方法保留四群組，待批。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900068",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 find 允許 root/tty/slocate/lock，但 expected 寫 root；依方法保留四群組，待批。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0069",
+      "sca_id": 900069,
+      "source_sheet": "基本項目",
+      "source_row": 73,
+      "expected": "755或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "69",
+        "TWGCB-01-012-0069",
+        "系統設定與維護",
+        "程式庫檔案權限",
+        "這項原則決定是否設定程式庫檔案權限，使程式庫檔案具有755或更低權限\n系統程序在啟動或運行時會連結到程式庫檔案，將程式庫檔案載入到系統核心之記憶體空間，程式庫檔案還包含用以升級特權執行之特權程序\n限制權限以保護程式庫檔案，避免被未經授權竄改，維持系統完整性",
+        "開啟終端機，執行以下指令，檢查程式庫檔案之權限：\n#find -L /lib /lib64 /usr/lib /usr/lib64 -perm /0022 -type f -exec ls -l {} \\;\n若找到程式庫檔案權限高於755，執行以下指令，設定程式庫檔案之權限為755或更低權限：\n#chmod 755 (程式庫檔案名稱)",
+        "755或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "69",
+          "TWGCB-01-012-0069",
+          "系統設定與維護",
+          "程式庫檔案權限",
+          "這項原則決定是否設定程式庫檔案權限，使程式庫檔案具有755或更低權限\n系統程序在啟動或運行時會連結到程式庫檔案，將程式庫檔案載入到系統核心之記憶體空間，程式庫檔案還包含用以升級特權執行之特權程序\n限制權限以保護程式庫檔案，避免被未經授權竄改，維持系統完整性",
+          "開啟終端機，執行以下指令，檢查程式庫檔案之權限：\n#find -L /lib /lib64 /usr/lib /usr/lib64 -perm /0022 -type f -exec ls -l {} \\;\n若找到程式庫檔案權限高於755，執行以下指令，設定程式庫檔案之權限為755或更低權限：\n#chmod 755 (程式庫檔案名稱)",
+          "755或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900069",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0070",
+      "sca_id": 900070,
+      "source_sheet": "基本項目",
+      "source_row": 74,
+      "expected": "root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "70",
+        "TWGCB-01-012-0070",
+        "系統設定與維護",
+        "程式庫檔案擁有者",
+        "這項原則決定是否設定程式庫檔案擁有者\n系統程序在啟動或運行時會連結到程式庫檔案，將程式庫檔案載入到系統核心之記憶體空間，程式庫檔案還包含用以升級特權執行之特權程序\n設定root擁有，以保護程式庫檔案，避免被未經授權竄改，維持系統完整性",
+        "開啟終端機，執行以下指令，檢查程式庫檔案擁有者：\n#find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -exec ls -l {} \\;\n若找到程式庫檔案擁有者非root，執行以下指令，設定程式庫檔案擁有者為root：\n#chown root (程式庫檔案名稱)",
+        "root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "70",
+          "TWGCB-01-012-0070",
+          "系統設定與維護",
+          "程式庫檔案擁有者",
+          "這項原則決定是否設定程式庫檔案擁有者\n系統程序在啟動或運行時會連結到程式庫檔案，將程式庫檔案載入到系統核心之記憶體空間，程式庫檔案還包含用以升級特權執行之特權程序\n設定root擁有，以保護程式庫檔案，避免被未經授權竄改，維持系統完整性",
+          "開啟終端機，執行以下指令，檢查程式庫檔案擁有者：\n#find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -exec ls -l {} \\;\n若找到程式庫檔案擁有者非root，執行以下指令，設定程式庫檔案擁有者為root：\n#chown root (程式庫檔案名稱)",
+          "root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900070",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0071",
+      "sca_id": 900071,
+      "source_sheet": "基本項目",
+      "source_row": 75,
+      "expected": "root",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "71",
+        "TWGCB-01-012-0071",
+        "系統設定與維護",
+        "程式庫檔案擁有群組",
+        "這項原則決定是否設定程式庫檔案擁有群組\n系統程序在啟動或運行時會連結到程式庫檔案，將程式庫檔案載入到系統核心之記憶體空間，程式庫檔案還包含用以升級特權執行之特權程序\n設定root群組擁有，以保護程式庫檔案避免被未經授權竄改，維持系統完整性",
+        "開啟終端機，執行以下指令，檢查程式庫檔案擁有群組：\n#find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \\;\n若找到程式庫檔案擁有群組非root，執行以下指令，設定程式庫檔案擁有群組為root：\n#chgrp root (程式庫檔案名稱)",
+        "root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "71",
+          "TWGCB-01-012-0071",
+          "系統設定與維護",
+          "程式庫檔案擁有群組",
+          "這項原則決定是否設定程式庫檔案擁有群組\n系統程序在啟動或運行時會連結到程式庫檔案，將程式庫檔案載入到系統核心之記憶體空間，程式庫檔案還包含用以升級特權執行之特權程序\n設定root群組擁有，以保護程式庫檔案避免被未經授權竄改，維持系統完整性",
+          "開啟終端機，執行以下指令，檢查程式庫檔案擁有群組：\n#find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \\;\n若找到程式庫檔案擁有群組非root，執行以下指令，設定程式庫檔案擁有群組為root：\n#chgrp root (程式庫檔案名稱)",
+          "root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900071",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0072",
+      "sca_id": 900072,
+      "source_sheet": "基本項目",
+      "source_row": 76,
+      "expected": "帳號必須具有通行碼或被鎖定",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "72",
+        "TWGCB-01-012-0072",
+        "系統設定與維護",
+        "帳號不使用空白通行碼",
+        "這項原則設定決定是否允許存在使用空白通行碼之帳號\n使用空白通行碼意謂著任何人皆可以此帳號登入系統，並以該帳號之權限執行相關指令，將可能危害系統安全\n設定帳號都必須具有通行碼或被鎖定，以防止未經授權之使用者登入該帳號",
+        "開啟終端機，執行以下指令，列出使用空白通行碼之帳號：\n#awk -F: '($2 == \"\" ) { print $1 \" does not have a password \"}' /etc/shadow\n若有使用空白通行碼之帳號，則執行下列指令以設定通行碼：\n#passwd (帳號名稱)\n或執行下列指令以鎖定帳號：\n#passwd -l (帳號名稱)",
+        "帳號必須具有通行碼或被鎖定"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "72",
+          "TWGCB-01-012-0072",
+          "系統設定與維護",
+          "帳號不使用空白通行碼",
+          "這項原則設定決定是否允許存在使用空白通行碼之帳號\n使用空白通行碼意謂著任何人皆可以此帳號登入系統，並以該帳號之權限執行相關指令，將可能危害系統安全\n設定帳號都必須具有通行碼或被鎖定，以防止未經授權之使用者登入該帳號",
+          "開啟終端機，執行以下指令，列出使用空白通行碼之帳號：\n#awk -F: '($2 == \"\" ) { print $1 \" does not have a password \"}' /etc/shadow\n若有使用空白通行碼之帳號，則執行下列指令以設定通行碼：\n#passwd (帳號名稱)\n或執行下列指令以鎖定帳號：\n#passwd -l (帳號名稱)",
+          "帳號必須具有通行碼或被鎖定"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "shadow 只判空欄；!/* 為非空鎖定；不輸出帳號/雜湊。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900072",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "shadow 只判空欄；!/* 為非空鎖定；不輸出帳號/雜湊。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0073",
+      "sca_id": 900073,
+      "source_sheet": "基本項目",
+      "source_row": 77,
+      "expected": "不允許「.」、「..」、路徑開頭不是「/」及空元素",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "73",
+        "TWGCB-01-012-0073",
+        "系統設定與維護",
+        "root帳號之路徑變數",
+        "這項原則設定決定是否允許root帳號之路徑(PATH)變數存在相對路徑或空目錄(例如：「.」、「..」、路徑開頭不是「/」及空元素)\nroot帳號可以執行系統上所有指令，若PATH設定錯誤，root將可能執行到偽裝之程式檔案，危害系統安全\n.：目前目錄\n..：上一層目錄",
+        "開啟終端機，執行以下指令，顯示PATH變數內容：\n#echo $PATH\n如出現「.」、「..」、路徑開頭不是「/」及空元素等內容，請編輯/etc/profile檔案進行修改",
+        "不允許「.」、「..」、路徑開頭不是「/」及空元素"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "73",
+          "TWGCB-01-012-0073",
+          "系統設定與維護",
+          "root帳號之路徑變數",
+          "這項原則設定決定是否允許root帳號之路徑(PATH)變數存在相對路徑或空目錄(例如：「.」、「..」、路徑開頭不是「/」及空元素)\nroot帳號可以執行系統上所有指令，若PATH設定錯誤，root將可能執行到偽裝之程式檔案，危害系統安全\n.：目前目錄\n..：上一層目錄",
+          "開啟終端機，執行以下指令，顯示PATH變數內容：\n#echo $PATH\n如出現「.」、「..」、路徑開頭不是「/」及空元素等內容，請編輯/etc/profile檔案進行修改",
+          "不允許「.」、「..」、路徑開頭不是「/」及空元素"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源 echo $PATH；離線靜態讀 /etc/profile、/root/.bash_profile、.bashrc 的 literal PATH，受限展開 $PATH；拒絕動態語法；登入環境與其他載入來源待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900073",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 echo $PATH；離線靜態讀 /etc/profile、/root/.bash_profile、.bashrc 的 literal PATH，受限展開 $PATH；拒絕動態語法；登入環境與其他載入來源待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0074",
+      "sca_id": 900074,
+      "source_sheet": "基本項目",
+      "source_row": 78,
+      "expected": "不包含world-writable或group-writable目錄",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "74",
+        "TWGCB-01-012-0074",
+        "系統設定與維護",
+        "root帳號之路徑變數不包含world-writable或group-writable目錄",
+        "這項原則設定決定是否允許root帳號之路徑(PATH)變數存在具有world-writable權限或group-writable權限之目錄\nroot可以執行系統上所有指令，若PATH變數包含world-writable(全域寫入)權限或group-writable(群組身分寫入)權限之目錄，將可能導致root執行到惡意程式，危害系統安全",
+        "開啟終端機，執行以下指令，顯示PATH變數內容：\n#echo $PATH\n如出現具有world-writable權限或group-writable權限之目錄，請編輯/etc/profile檔案進行修改，或執行下列指令變更目錄權限：\n#chmod o-w (目錄名稱)\n或\n#chmod g-w (目錄名稱)",
+        "不包含world-writable或group-writable目錄"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "74",
+          "TWGCB-01-012-0074",
+          "系統設定與維護",
+          "root帳號之路徑變數不包含world-writable或group-writable目錄",
+          "這項原則設定決定是否允許root帳號之路徑(PATH)變數存在具有world-writable權限或group-writable權限之目錄\nroot可以執行系統上所有指令，若PATH變數包含world-writable(全域寫入)權限或group-writable(群組身分寫入)權限之目錄，將可能導致root執行到惡意程式，危害系統安全",
+          "開啟終端機，執行以下指令，顯示PATH變數內容：\n#echo $PATH\n如出現具有world-writable權限或group-writable權限之目錄，請編輯/etc/profile檔案進行修改，或執行下列指令變更目錄權限：\n#chmod o-w (目錄名稱)\n或\n#chmod g-w (目錄名稱)",
+          "不包含world-writable或group-writable目錄"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "沿用0073靜態PATH子集，逐目錄確認存在且無022寫入位元；登入有效環境待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900074",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "沿用0073靜態PATH子集，逐目錄確認存在且無022寫入位元；登入有效環境待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0075",
+      "sca_id": 900075,
+      "source_sheet": "基本項目",
+      "source_row": 79,
+      "expected": "禁止",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "75",
+        "TWGCB-01-012-0075",
+        "系統設定與維護",
+        "/etc/passwd檔案行首之「+」符號",
+        "這項原則設定決定/etc/passwd檔案行首是否允許存在「+」符號\n「+」符號代表不需輸入通行碼即可從網路資訊服務(NIS)主機取得帳號、通行碼、主機名稱或群組等資訊\n當NIS沒有啟動或NIS設定錯誤時，/etc/passwd檔案行首若存在「+」符號，攻擊者可使用帳號「+」與空白通行碼登入，提供攻擊者一個獲得系統權限之途徑",
+        "開啟終端機，執行以下指令，確認/etc/passwd檔案行首是否存在「+」符號：\n#grep '^\\+:' /etc/passwd\n如果有，則編輯/etc/passwd檔案，將行首為「+」符號之列移除",
+        "禁止"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "75",
+          "TWGCB-01-012-0075",
+          "系統設定與維護",
+          "/etc/passwd檔案行首之「+」符號",
+          "這項原則設定決定/etc/passwd檔案行首是否允許存在「+」符號\n「+」符號代表不需輸入通行碼即可從網路資訊服務(NIS)主機取得帳號、通行碼、主機名稱或群組等資訊\n當NIS沒有啟動或NIS設定錯誤時，/etc/passwd檔案行首若存在「+」符號，攻擊者可使用帳號「+」與空白通行碼登入，提供攻擊者一個獲得系統權限之途徑",
+          "開啟終端機，執行以下指令，確認/etc/passwd檔案行首是否存在「+」符號：\n#grep '^\\+:' /etc/passwd\n如果有，則編輯/etc/passwd檔案，將行首為「+」符號之列移除",
+          "禁止"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900075",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0076",
+      "sca_id": 900076,
+      "source_sheet": "基本項目",
+      "source_row": 80,
+      "expected": "禁止",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "76",
+        "TWGCB-01-012-0076",
+        "系統設定與維護",
+        "/etc/shadow檔案行首之「+」符號",
+        "這項原則設定決定/etc/shadow檔案行首是否允許存在「+」符號\n「+」符號代表不需輸入通行碼即可從網路資訊服務(NIS)主機取得帳號、通行碼、主機名稱或群組等資訊\n當NIS沒有啟動或NIS設定錯誤時，/etc/shadow檔案行首若存在「+」符號，攻擊者可使用帳號「+」與空白通行碼登入，提供攻擊者一個獲得系統權限之途徑",
+        "開啟終端機，執行以下指令，確認/etc/shadow檔案行首是否存在「+」符號：\n#grep '^\\+:' /etc/shadow\n如果有，則編輯/etc/shadow檔案，將行首為「+」符號之列移除",
+        "禁止"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "76",
+          "TWGCB-01-012-0076",
+          "系統設定與維護",
+          "/etc/shadow檔案行首之「+」符號",
+          "這項原則設定決定/etc/shadow檔案行首是否允許存在「+」符號\n「+」符號代表不需輸入通行碼即可從網路資訊服務(NIS)主機取得帳號、通行碼、主機名稱或群組等資訊\n當NIS沒有啟動或NIS設定錯誤時，/etc/shadow檔案行首若存在「+」符號，攻擊者可使用帳號「+」與空白通行碼登入，提供攻擊者一個獲得系統權限之途徑",
+          "開啟終端機，執行以下指令，確認/etc/shadow檔案行首是否存在「+」符號：\n#grep '^\\+:' /etc/shadow\n如果有，則編輯/etc/shadow檔案，將行首為「+」符號之列移除",
+          "禁止"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900076",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0077",
+      "sca_id": 900077,
+      "source_sheet": "基本項目",
+      "source_row": 81,
+      "expected": "禁止",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "77",
+        "TWGCB-01-012-0077",
+        "系統設定與維護",
+        "/etc/group檔案行首之「+」符號",
+        "這項原則設定決定/etc/group檔案行首是否允許存在「+」符號\n「+」符號代表不需輸入通行碼即可從網路資訊服務(NIS)主機取得帳號、通行碼、主機名稱或群組等資訊\n當NIS沒有啟動或NIS設定錯誤時，/etc/group檔案行首若存在「+」符號，攻擊者可使用帳號「+」與空白通行碼登入，提供攻擊者一個獲得系統權限之途徑",
+        "開啟終端機，執行以下指令，確認/etc/group檔案行首是否存在「+」符號：\n#grep '^\\+:' /etc/group\n如果有，則編輯/etc/group檔案，將行首為「+」符號之列移除",
+        "禁止"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "77",
+          "TWGCB-01-012-0077",
+          "系統設定與維護",
+          "/etc/group檔案行首之「+」符號",
+          "這項原則設定決定/etc/group檔案行首是否允許存在「+」符號\n「+」符號代表不需輸入通行碼即可從網路資訊服務(NIS)主機取得帳號、通行碼、主機名稱或群組等資訊\n當NIS沒有啟動或NIS設定錯誤時，/etc/group檔案行首若存在「+」符號，攻擊者可使用帳號「+」與空白通行碼登入，提供攻擊者一個獲得系統權限之途徑",
+          "開啟終端機，執行以下指令，確認/etc/group檔案行首是否存在「+」符號：\n#grep '^\\+:' /etc/group\n如果有，則編輯/etc/group檔案，將行首為「+」符號之列移除",
+          "禁止"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900077",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0078",
+      "sca_id": 900078,
+      "source_sheet": "基本項目",
+      "source_row": 82,
+      "expected": "僅root帳號之UID為0",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "78",
+        "TWGCB-01-012-0078",
+        "系統設定與維護",
+        "UID=0之帳號",
+        "這項原則設定決定系統除了root帳號外，其他帳號之UID是否允許設為0\nUID=0之帳號具有系統管理權限",
+        "開啟終端機，執行以下指令，列出UID=0之帳號：\n#awk -F: '($3 == 0) { print $1 }' /etc/passwd\n若存在非root帳號，則執行以下指令，移除帳號或重新設定UID：\n#userdel (帳號名稱)\n或\n#usermod -u (UID) (帳號名稱)",
+        "僅root帳號之UID為0"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "78",
+          "TWGCB-01-012-0078",
+          "系統設定與維護",
+          "UID=0之帳號",
+          "這項原則設定決定系統除了root帳號外，其他帳號之UID是否允許設為0\nUID=0之帳號具有系統管理權限",
+          "開啟終端機，執行以下指令，列出UID=0之帳號：\n#awk -F: '($3 == 0) { print $1 }' /etc/passwd\n若存在非root帳號，則執行以下指令，移除帳號或重新設定UID：\n#userdel (帳號名稱)\n或\n#usermod -u (UID) (帳號名稱)",
+          "僅root帳號之UID為0"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900078",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0079",
+      "sca_id": 900079,
+      "source_sheet": "基本項目",
+      "source_row": 83,
+      "expected": "700或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "79",
+        "TWGCB-01-012-0079",
+        "系統設定與維護",
+        "使用者家目錄權限",
+        "這項原則設定決定使用者家目錄權限\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案，因此任何使用者皆不應具有可寫入其他使用者家目錄之權限\n使用者家目錄應限制群組不具寫入(g-w)權限，其他使用者不具讀取、寫入及執行(o-rwx)權限，避免遭未經授權存取與竊取資料",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄權限：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    dirperm=$(ls -ld $dir | cut -f1 -d\" \")\n    if [ $(echo $dirperm | cut -c5) != \"-\" ]; then\n      echo \"Group Read permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c6) != \"-\" ]; then\n      echo \"Group Write permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c7) != \"-\" ]; then\n      echo \"Group Execute permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c8) != \"-\" ]; then\n      echo \"Other Read permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c9) != \"-\" ]; then\n      echo \"Other Write permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c10) != \"-\" ]; then\n      echo \"Other Execute permission set on the home directory ($dir) of user $user\"\n    fi\n  fi\ndone\n若出現群組具寫入權限，其他使用者具讀取、寫入及執行權限之家目錄，則可執行以下指令，變更目錄權限為700或更低權限：\n#chmod 700 /home/(使用者帳號名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "700或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "79",
+          "TWGCB-01-012-0079",
+          "系統設定與維護",
+          "使用者家目錄權限",
+          "這項原則設定決定使用者家目錄權限\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案，因此任何使用者皆不應具有可寫入其他使用者家目錄之權限\n使用者家目錄應限制群組不具寫入(g-w)權限，其他使用者不具讀取、寫入及執行(o-rwx)權限，避免遭未經授權存取與竊取資料",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄權限：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    dirperm=$(ls -ld $dir | cut -f1 -d\" \")\n    if [ $(echo $dirperm | cut -c5) != \"-\" ]; then\n      echo \"Group Read permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c6) != \"-\" ]; then\n      echo \"Group Write permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c7) != \"-\" ]; then\n      echo \"Group Execute permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c8) != \"-\" ]; then\n      echo \"Other Read permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c9) != \"-\" ]; then\n      echo \"Other Write permission set on the home directory ($dir) of user $user\"\n    fi\n    if [ $(echo $dirperm | cut -c10) != \"-\" ]; then\n      echo \"Other Execute permission set on the home directory ($dir) of user $user\"\n    fi\n  fi\ndone\n若出現群組具寫入權限，其他使用者具讀取、寫入及執行權限之家目錄，則可執行以下指令，變更目錄權限為700或更低權限：\n#chmod 700 /home/(使用者帳號名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "700或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源互動帳號集合，排除 halt/sync/shutdown 名稱前綴與 nologin/false；700位元子集，家目錄不限/home。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900079",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源互動帳號集合，排除 halt/sync/shutdown 名稱前綴與 nologin/false；700位元子集，家目錄不限/home。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0080",
+      "sca_id": 900080,
+      "source_sheet": "基本項目",
+      "source_row": 84,
+      "expected": "使用者擁有",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "80",
+        "TWGCB-01-012-0080",
+        "系統設定與維護",
+        "使用者家目錄擁有者",
+        "這項原則設定決定使用者家目錄擁有者是否為使用者\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n設定使用者家目錄為使用者擁有，以確保使用者個人資料安全",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄擁有者：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    owner=$(stat -L -c \"%U\" \"$dir\")\n    if [ \"$owner\" != \"$user\" ]; then\n  echo \"The home directory ($dir) of user $user is owned by $owner.\"\n  fi\nfi\ndone\n若出現使用者之家目錄非使用者擁有，則可執行以下指令，變更家目錄擁有者為使用者：\n#chown (使用者帳號名稱) /home/(使用者帳號名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "使用者擁有"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "80",
+          "TWGCB-01-012-0080",
+          "系統設定與維護",
+          "使用者家目錄擁有者",
+          "這項原則設定決定使用者家目錄擁有者是否為使用者\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n設定使用者家目錄為使用者擁有，以確保使用者個人資料安全",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄擁有者：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    owner=$(stat -L -c \"%U\" \"$dir\")\n    if [ \"$owner\" != \"$user\" ]; then\n  echo \"The home directory ($dir) of user $user is owned by $owner.\"\n  fi\nfi\ndone\n若出現使用者之家目錄非使用者擁有，則可執行以下指令，變更家目錄擁有者為使用者：\n#chown (使用者帳號名稱) /home/(使用者帳號名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "使用者擁有"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源 passwd 家目錄與 UID；跟隨stat symlink；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900080",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 passwd 家目錄與 UID；跟隨stat symlink；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0081",
+      "sca_id": 900081,
+      "source_sheet": "基本項目",
+      "source_row": 85,
+      "expected": "使用者群組擁有",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "81",
+        "TWGCB-01-012-0081",
+        "系統設定與維護",
+        "使用者家目錄擁有群組",
+        "這項原則設定決定使用者家目錄擁有群組是否為使用者群組\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n若使用者家目錄擁有群組GID與使用者群組GID不同，將導致其他使用者可存取該使用者之檔案\n設定使用者家目錄為使用者群組擁有，以確保使用者個人資料安全",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄之擁有群組GID：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $4 \" \" $6 }' | while read user gid dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    owner=$(stat -L -c \"%g\" \"$dir\")\n    if [ \"$owner\" != \"$gid\" ]; then\n  echo \"The home directory ($dir) of group $gid is owned by group $owner.\"\n  fi\nfi\ndone\n若出現使用者家目錄非使用者群組所擁有，則可執行以下指令，變更家目錄擁有者為使用者群組：\n#chgrp (使用者群組名稱或GID) /home/(使用者帳號名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "使用者群組擁有"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "81",
+          "TWGCB-01-012-0081",
+          "系統設定與維護",
+          "使用者家目錄擁有群組",
+          "這項原則設定決定使用者家目錄擁有群組是否為使用者群組\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n若使用者家目錄擁有群組GID與使用者群組GID不同，將導致其他使用者可存取該使用者之檔案\n設定使用者家目錄為使用者群組擁有，以確保使用者個人資料安全",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄之擁有群組GID：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $4 \" \" $6 }' | while read user gid dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    owner=$(stat -L -c \"%g\" \"$dir\")\n    if [ \"$owner\" != \"$gid\" ]; then\n  echo \"The home directory ($dir) of group $gid is owned by group $owner.\"\n  fi\nfi\ndone\n若出現使用者家目錄非使用者群組所擁有，則可執行以下指令，變更家目錄擁有者為使用者群組：\n#chgrp (使用者群組名稱或GID) /home/(使用者帳號名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "使用者群組擁有"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源 passwd 家目錄與主要GID；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900081",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源 passwd 家目錄與主要GID；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0082",
+      "sca_id": 900082,
+      "source_sheet": "基本項目",
+      "source_row": 86,
+      "expected": "go-w或更低權限",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "82",
+        "TWGCB-01-012-0082",
+        "系統設定與維護",
+        "使用者家目錄之「.」檔案權限",
+        "這項原則設定決定是否設定使用者家目錄之「.」檔案權限，使用者家目錄之「.」檔案包含使用者之初始化檔案與其他設定檔\n限制使用者家目錄之「.」檔案寫入權限，以避免惡意人士藉由竊取或修改使用者資料，進而取得該使用者之系統權限",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄之「.」檔案權限：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    for file in $dir/.[A-Za-z0-9]*; do\n      if [ ! -h \"$file\" -a -f \"$file\" ]; then\n        fileperm=$(ls -ld $file | cut -f1 -d\" \")\n        if [ $(echo $fileperm | cut -c6) != \"-\" ]; then\n          echo \"Group Write permission set on file $file\"\n        fi\n        if [ $(echo $fileperm | cut -c9) != \"-\" ]; then\n          echo \"Other Write permission set on file $file\"\n        fi\n      fi\n    done\n  fi\ndone\n若出現具有world-writable或group-writable權限之「.」檔案，則可執行以下指令，移除群組與其他身分之寫入權限或更低權限：\n#chmod go-w (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "go-w或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "82",
+          "TWGCB-01-012-0082",
+          "系統設定與維護",
+          "使用者家目錄之「.」檔案權限",
+          "這項原則設定決定是否設定使用者家目錄之「.」檔案權限，使用者家目錄之「.」檔案包含使用者之初始化檔案與其他設定檔\n限制使用者家目錄之「.」檔案寫入權限，以避免惡意人士藉由竊取或修改使用者資料，進而取得該使用者之系統權限",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄之「.」檔案權限：\n#!/bin/bash\ngrep -E -v '^(halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    for file in $dir/.[A-Za-z0-9]*; do\n      if [ ! -h \"$file\" -a -f \"$file\" ]; then\n        fileperm=$(ls -ld $file | cut -f1 -d\" \")\n        if [ $(echo $fileperm | cut -c6) != \"-\" ]; then\n          echo \"Group Write permission set on file $file\"\n        fi\n        if [ $(echo $fileperm | cut -c9) != \"-\" ]; then\n          echo \"Other Write permission set on file $file\"\n        fi\n      fi\n    done\n  fi\ndone\n若出現具有world-writable或group-writable權限之「.」檔案，則可執行以下指令，移除群組與其他身分之寫入權限或更低權限：\n#chmod go-w (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "go-w或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源只查家目錄一層 .[A-Za-z0-9]* 普通檔、排除symlink、禁022；找到即返回。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900082",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源只查家目錄一層 .[A-Za-z0-9]* 普通檔、排除symlink、禁022；找到即返回。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0083",
+      "sca_id": 900083,
+      "source_sheet": "基本項目",
+      "source_row": 87,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "83",
+        "TWGCB-01-012-0083",
+        "系統設定與維護",
+        "使用者家目錄之「.forward」檔案",
+        "這項原則設定決定是否移除使用者家目錄之「.forward」檔案\n「.forward」檔案用於設定將使用者郵件轉發到指定之電子郵件信箱\n移除「.forward」檔案以停用郵件轉發功能，避免機敏資料洩漏",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄是否存在「.forward」檔案：\n#!/bin/bash\ngrep -E -v '^(root|halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    if [ ! -h \"$dir/.forward\" -a -f \"$dir/.forward\" ]; then\n      echo \".forward file $dir/.forward exists\"\n    fi\n  fi\ndone\n若存在「.forward」檔案，則可執行以下指令移除檔案：\n#rm (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "83",
+          "TWGCB-01-012-0083",
+          "系統設定與維護",
+          "使用者家目錄之「.forward」檔案",
+          "這項原則設定決定是否移除使用者家目錄之「.forward」檔案\n「.forward」檔案用於設定將使用者郵件轉發到指定之電子郵件信箱\n移除「.forward」檔案以停用郵件轉發功能，避免機敏資料洩漏",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄是否存在「.forward」檔案：\n#!/bin/bash\ngrep -E -v '^(root|halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    if [ ! -h \"$dir/.forward\" -a -f \"$dir/.forward\" ]; then\n      echo \".forward file $dir/.forward exists\"\n    fi\n  fi\ndone\n若存在「.forward」檔案，則可執行以下指令移除檔案：\n#rm (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.forward；未擴張成含root，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900083",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.forward；未擴張成含root，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0084",
+      "sca_id": 900084,
+      "source_sheet": "基本項目",
+      "source_row": 88,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "84",
+        "TWGCB-01-012-0084",
+        "系統設定與維護",
+        "使用者家目錄之「.netrc」檔案",
+        "這項原則設定決定是否移除使用者家目錄之「.netrc」檔案\n「.netrc」檔案包含用於登入遠端FTP主機進行檔案傳輸之帳號與明文通行碼，移除「.netrc」檔案以避免對遠端FTP主機造成之風險",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄是否存在「.netrc」檔案：\n#!/bin/bash\ngrep -E -v '^(root|halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    if [ ! -h \"$dir/.netrc\" -a -f \"$dir/.netrc\" ]; then\n      echo \".netrc file $dir/.netrc exists\"\n    fi\n  fi\ndone\n若存在「.netrc」檔案，則可執行以下指令移除檔案：\n#rm (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "84",
+          "TWGCB-01-012-0084",
+          "系統設定與維護",
+          "使用者家目錄之「.netrc」檔案",
+          "這項原則設定決定是否移除使用者家目錄之「.netrc」檔案\n「.netrc」檔案包含用於登入遠端FTP主機進行檔案傳輸之帳號與明文通行碼，移除「.netrc」檔案以避免對遠端FTP主機造成之風險",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄是否存在「.netrc」檔案：\n#!/bin/bash\ngrep -E -v '^(root|halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    if [ ! -h \"$dir/.netrc\" -a -f \"$dir/.netrc\" ]; then\n      echo \".netrc file $dir/.netrc exists\"\n    fi\n  fi\ndone\n若存在「.netrc」檔案，則可執行以下指令移除檔案：\n#rm (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.netrc；未讀檔案內容，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900084",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.netrc；未讀檔案內容，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0085",
+      "sca_id": 900085,
+      "source_sheet": "基本項目",
+      "source_row": 89,
+      "expected": "移除",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "85",
+        "TWGCB-01-012-0085",
+        "系統設定與維護",
+        "使用者家目錄之「.rhosts」檔案",
+        "這項原則設定決定是否移除使用者家目錄之「.rhosts」檔案\n「.rhosts」檔案用於指定那個使用者可以不需要輸入通行碼即可執行rsh遠端連線，移除「.rhosts」檔案以避免遭惡意人士取得可攻擊其他遠端主機之資訊",
+        "開啟終端機，執行以下腳本，檢查每個使用者家目錄是否存在「.rhosts」檔案：\n#!/bin/bash\ngrep -E -v '^(root|halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    for file in $dir/.rhosts; do\n      if [ ! -h \"$file\" -a -f \"$file\" ]; then\n        echo \".rhosts file in $dir\"\n      fi\n    done\n  fi\ndone\n若存在「.rhosts」檔案，則可執行以下指令移除檔案：\n#rm (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+        "移除"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "85",
+          "TWGCB-01-012-0085",
+          "系統設定與維護",
+          "使用者家目錄之「.rhosts」檔案",
+          "這項原則設定決定是否移除使用者家目錄之「.rhosts」檔案\n「.rhosts」檔案用於指定那個使用者可以不需要輸入通行碼即可執行rsh遠端連線，移除「.rhosts」檔案以避免遭惡意人士取得可攻擊其他遠端主機之資訊",
+          "開啟終端機，執行以下腳本，檢查每個使用者家目錄是否存在「.rhosts」檔案：\n#!/bin/bash\ngrep -E -v '^(root|halt|sync|shutdown)' /etc/passwd | awk -F: '($7 != \"/sbin/nologin\" && $7 != \"/bin/false\") { print $1 \" \" $6 }' | while read user dir; do\n  if [ ! -d \"$dir\" ]; then\n    echo \"The home directory ($dir) of user $user does not exist.\"\n  else\n    for file in $dir/.rhosts; do\n      if [ ! -h \"$file\" -a -f \"$file\" ]; then\n        echo \".rhosts file in $dir\"\n      fi\n    done\n  fi\ndone\n若存在「.rhosts」檔案，則可執行以下指令移除檔案：\n#rm (檔案名稱)\n注意：請先通知使用者再變更家目錄相關設定，以避免影響使用者作業",
+          "移除"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.rhosts，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900085",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.rhosts，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0086",
+      "sca_id": 900086,
+      "source_sheet": "基本項目",
+      "source_row": 90,
+      "expected": "/etc/passwd檔案中帳號之群組皆須存在於/etc/group檔案中",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "86",
+        "TWGCB-01-012-0086",
+        "系統設定與維護",
+        "檢查/etc/passwd檔案設定之群組",
+        "這項原則設定決定是否檢查/etc/passwd檔案設定之群組，是否都存在於/etc/group檔案中\n在/etc/passwd檔案中，使用者帳號設定之群組，若不存在於/etc/group檔案中，代表群組權限管理不恰當，將可能對系統安全構成威脅",
+        "開啟終端機，執行以下腳本，檢查/etc/passwd檔案中帳號之群組是否都存在於/etc/group檔案中：\n#!/bin/bash\nfor i in $(cut -s -d: -f4 /etc/passwd | sort -u ); do\n  grep -q -P \"^.*?:[^:]*:$i:\" /etc/group\n  if [ $? -ne 0 ]; then\n    echo \"Group $i is referenced by /etc/passwd but does not exist in /etc/group\"\n  fi\ndone\n若有帳號之群組不存在於/etc/group檔案中，則編輯/etc/passwd檔案，或執行以下指令，修改帳號之群組(GID)：\n#usermod -g (群組名稱或GID) (帳號名稱)",
+        "/etc/passwd檔案中帳號之群組皆須存在於/etc/group檔案中"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "86",
+          "TWGCB-01-012-0086",
+          "系統設定與維護",
+          "檢查/etc/passwd檔案設定之群組",
+          "這項原則設定決定是否檢查/etc/passwd檔案設定之群組，是否都存在於/etc/group檔案中\n在/etc/passwd檔案中，使用者帳號設定之群組，若不存在於/etc/group檔案中，代表群組權限管理不恰當，將可能對系統安全構成威脅",
+          "開啟終端機，執行以下腳本，檢查/etc/passwd檔案中帳號之群組是否都存在於/etc/group檔案中：\n#!/bin/bash\nfor i in $(cut -s -d: -f4 /etc/passwd | sort -u ); do\n  grep -q -P \"^.*?:[^:]*:$i:\" /etc/group\n  if [ $? -ne 0 ]; then\n    echo \"Group $i is referenced by /etc/passwd but does not exist in /etc/group\"\n  fi\ndone\n若有帳號之群組不存在於/etc/group檔案中，則編輯/etc/passwd檔案，或執行以下指令，修改帳號之群組(GID)：\n#usermod -g (群組名稱或GID) (帳號名稱)",
+          "/etc/passwd檔案中帳號之群組皆須存在於/etc/group檔案中"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "passwd 所有主要GID需存在於本機group；NSS遠端群組不推測。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900086",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "passwd 所有主要GID需存在於本機group；NSS遠端群組不推測。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0087",
+      "sca_id": 900087,
+      "source_sheet": "基本項目",
+      "source_row": 91,
+      "expected": "為每個帳號設定唯一之UID",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "87",
+        "TWGCB-01-012-0087",
+        "系統設定與維護",
+        "唯一之UID",
+        "這項原則設定決定是否檢查/etc/passwd檔案之使用者帳號UID(User Identifier，使用者識別碼)皆不相同\n儘管透過useradd指令新增使用者帳號時，不允許建立重複之UID，但系統管理者可手動編輯/etc/passwd檔案並更改UID，造成UID重複之情形\n為每個使用者帳號設定唯一之UID，以提供適當之存取防護",
+        "開啟終端機，執行以下腳本，尋找是否有不同帳號使用相同之UID：\n#!/bin/bash\ncut -f3 -d\":\" /etc/passwd | sort -n | uniq -c | while read x ; do\n  [ -z \"$x\" ] && break\n  set - $x\n  if [ $1 -gt 1 ]; then\n    users=$(awk -F: '($3 == n) { print $1 }' n=$2 /etc/passwd | xargs)\n    echo \"Duplicate UID ($2): $users\"\n  fi\ndone\n若有不同帳號使用相同之UID，則編輯/etc/passwd檔案，或執行以下指令，為帳號設定唯一之UID：\n#usermod -u (UID) (帳號名稱)",
+        "為每個帳號設定唯一之UID"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "87",
+          "TWGCB-01-012-0087",
+          "系統設定與維護",
+          "唯一之UID",
+          "這項原則設定決定是否檢查/etc/passwd檔案之使用者帳號UID(User Identifier，使用者識別碼)皆不相同\n儘管透過useradd指令新增使用者帳號時，不允許建立重複之UID，但系統管理者可手動編輯/etc/passwd檔案並更改UID，造成UID重複之情形\n為每個使用者帳號設定唯一之UID，以提供適當之存取防護",
+          "開啟終端機，執行以下腳本，尋找是否有不同帳號使用相同之UID：\n#!/bin/bash\ncut -f3 -d\":\" /etc/passwd | sort -n | uniq -c | while read x ; do\n  [ -z \"$x\" ] && break\n  set - $x\n  if [ $1 -gt 1 ]; then\n    users=$(awk -F: '($3 == n) { print $1 }' n=$2 /etc/passwd | xargs)\n    echo \"Duplicate UID ($2): $users\"\n  fi\ndone\n若有不同帳號使用相同之UID，則編輯/etc/passwd檔案，或執行以下指令，為帳號設定唯一之UID：\n#usermod -u (UID) (帳號名稱)",
+          "為每個帳號設定唯一之UID"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "UID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900087",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "UID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0088",
+      "sca_id": 900088,
+      "source_sheet": "基本項目",
+      "source_row": 92,
+      "expected": "為每個群組設定唯一之GID",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "88",
+        "TWGCB-01-012-0088",
+        "系統設定與維護",
+        "唯一之GID",
+        "這項原則設定決定是否檢查/etc/group檔案之群組GID(Group Identifier，群組識別碼)皆不相同\n儘管透過groupadd指令新增群組時，不允許建立重複之GID，但系統管理者可手動編輯/etc/group檔案並更改GID，造成GID重複之情形\n為每個群組設定唯一之GID，以提供適當之存取防護",
+        "開啟終端機，執行以下腳本，尋找是否有群組使用相同之GID：\n#!/bin/bash\ncut -d: -f3 /etc/group | sort | uniq -d | while read x ; do\n  echo \"Duplicate GID ($x) in /etc/group\"\ndone\n若有不同群組使用相同GID，則編輯/etc/group檔案，或執行以下指令，為群組設定唯一之GID：\n#groupmod -g (GID) (群組名稱)",
+        "為每個群組設定唯一之GID"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "88",
+          "TWGCB-01-012-0088",
+          "系統設定與維護",
+          "唯一之GID",
+          "這項原則設定決定是否檢查/etc/group檔案之群組GID(Group Identifier，群組識別碼)皆不相同\n儘管透過groupadd指令新增群組時，不允許建立重複之GID，但系統管理者可手動編輯/etc/group檔案並更改GID，造成GID重複之情形\n為每個群組設定唯一之GID，以提供適當之存取防護",
+          "開啟終端機，執行以下腳本，尋找是否有群組使用相同之GID：\n#!/bin/bash\ncut -d: -f3 /etc/group | sort | uniq -d | while read x ; do\n  echo \"Duplicate GID ($x) in /etc/group\"\ndone\n若有不同群組使用相同GID，則編輯/etc/group檔案，或執行以下指令，為群組設定唯一之GID：\n#groupmod -g (GID) (群組名稱)",
+          "為每個群組設定唯一之GID"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "GID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900088",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "GID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0089",
+      "sca_id": 900089,
+      "source_sheet": "基本項目",
+      "source_row": 93,
+      "expected": "為每個使用者帳號設定唯一之名稱",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "89",
+        "TWGCB-01-012-0089",
+        "系統設定與維護",
+        "唯一之使用者帳號名稱",
+        "這項原則設定決定是否檢查/etc/passwd檔案之使用者帳號名稱，並確認每個使用者帳號名稱皆不相同\n儘管透過useradd指令新增使用者帳號時，不允許建立重複之帳號名稱，但系統管理者可手動編輯/etc/passwd檔案並更改帳號名稱，造成帳號名稱重複之情形\n為每個使用者帳號設定唯一之名稱，以提供適當之存取防護",
+        "開啟終端機，執行以下腳本，尋找是否有帳號使用重複之帳號名稱：\n#!/bin/bash\ncut -d: -f1 /etc/passwd | sort | uniq -d | while read x\ndo echo \"Duplicate login name ${x} in /etc/passwd\"\ndone\n若有帳號使用重複之帳號名稱，則編輯/etc/passwd檔案，為帳號設定唯一不重複之帳號名稱",
+        "為每個使用者帳號設定唯一之名稱"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "89",
+          "TWGCB-01-012-0089",
+          "系統設定與維護",
+          "唯一之使用者帳號名稱",
+          "這項原則設定決定是否檢查/etc/passwd檔案之使用者帳號名稱，並確認每個使用者帳號名稱皆不相同\n儘管透過useradd指令新增使用者帳號時，不允許建立重複之帳號名稱，但系統管理者可手動編輯/etc/passwd檔案並更改帳號名稱，造成帳號名稱重複之情形\n為每個使用者帳號設定唯一之名稱，以提供適當之存取防護",
+          "開啟終端機，執行以下腳本，尋找是否有帳號使用重複之帳號名稱：\n#!/bin/bash\ncut -d: -f1 /etc/passwd | sort | uniq -d | while read x\ndo echo \"Duplicate login name ${x} in /etc/passwd\"\ndone\n若有帳號使用重複之帳號名稱，則編輯/etc/passwd檔案，為帳號設定唯一不重複之帳號名稱",
+          "為每個使用者帳號設定唯一之名稱"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900089",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0090",
+      "sca_id": 900090,
+      "source_sheet": "基本項目",
+      "source_row": 94,
+      "expected": "為每個群組設定唯一之群組名稱",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "90",
+        "TWGCB-01-012-0090",
+        "系統設定與維護",
+        "唯一之群組名稱",
+        "這項原則設定決定是否檢查/etc/group檔案之群組名稱，並確認每個群組名稱皆不相同\n儘管透過groupadd指令新增群組時，不允許建立重複之群組名稱，但系統管理者可手動編輯/etc/group檔案並更改群組名稱，造成群組名稱重複之情形\n為每個群組設定唯一之群組名稱，以提供適當之存取防護",
+        "開啟終端機，執行以下腳本，尋找是否有不同群組使用相同之群組名稱：\n#!/bin/bash\ncut -d: -f1 /etc/group | sort | uniq -d | while read x\ndo echo \"Duplicate group name ${x} in /etc/group\"\ndone\n若有群組使用相同之群組名稱，則編輯/etc/group檔案，為每個群組設定唯一之群組名稱",
+        "為每個群組設定唯一之群組名稱"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "90",
+          "TWGCB-01-012-0090",
+          "系統設定與維護",
+          "唯一之群組名稱",
+          "這項原則設定決定是否檢查/etc/group檔案之群組名稱，並確認每個群組名稱皆不相同\n儘管透過groupadd指令新增群組時，不允許建立重複之群組名稱，但系統管理者可手動編輯/etc/group檔案並更改群組名稱，造成群組名稱重複之情形\n為每個群組設定唯一之群組名稱，以提供適當之存取防護",
+          "開啟終端機，執行以下腳本，尋找是否有不同群組使用相同之群組名稱：\n#!/bin/bash\ncut -d: -f1 /etc/group | sort | uniq -d | while read x\ndo echo \"Duplicate group name ${x} in /etc/group\"\ndone\n若有群組使用相同之群組名稱，則編輯/etc/group檔案，為每個群組設定唯一之群組名稱",
+          "為每個群組設定唯一之群組名稱"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900090",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0091",
+      "sca_id": 900091,
+      "source_sheet": "基本項目",
+      "source_row": 95,
+      "expected": "shadow群組不包含任何使用者",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "91",
+        "TWGCB-01-012-0091",
+        "系統設定與維護",
+        "shadow群組成員",
+        "這項原則設定決定shadow群組成員是否無使用者\n隸屬於shadow群組之使用者具有可讀取/etc/shadow檔案之權限，若攻擊者可讀取/etc/shadow檔案，使用者通行碼與其他安全資訊將可能被攻擊者破解並執行進一步攻擊\n設定shadow群組不包含任何使用者，以降低系統風險",
+        "開啟終端機，執行以下指令，列舉shadow群組中之使用者帳號：\n#awk -F: '($1==\"shadow\") {print $NF}' /etc/group\n如shadow群組有使用者帳號，請針對每個帳號執行下列步驟：\n執行以下指令，從shadow群組移除使用者帳號：\n#sed -ri 's/(^shadow:[^:]*:[^:]*:)([^:]+$)/\\1/' /etc/group\n執行以下指令，將使用者帳號之主要群組，從shadow修改為預設群組：\n#usermod -g (預設群組名稱) (帳號名稱)",
+        "shadow群組不包含任何使用者"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "91",
+          "TWGCB-01-012-0091",
+          "系統設定與維護",
+          "shadow群組成員",
+          "這項原則設定決定shadow群組成員是否無使用者\n隸屬於shadow群組之使用者具有可讀取/etc/shadow檔案之權限，若攻擊者可讀取/etc/shadow檔案，使用者通行碼與其他安全資訊將可能被攻擊者破解並執行進一步攻擊\n設定shadow群組不包含任何使用者，以降低系統風險",
+          "開啟終端機，執行以下指令，列舉shadow群組中之使用者帳號：\n#awk -F: '($1==\"shadow\") {print $NF}' /etc/group\n如shadow群組有使用者帳號，請針對每個帳號執行下列步驟：\n執行以下指令，從shadow群組移除使用者帳號：\n#sed -ri 's/(^shadow:[^:]*:[^:]*:)([^:]+$)/\\1/' /etc/group\n執行以下指令，將使用者帳號之主要群組，從shadow修改為預設群組：\n#usermod -g (預設群組名稱) (帳號名稱)",
+          "shadow群組不包含任何使用者"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "要求shadow群組存在、補充成員空且無passwd主要GID引用；缺群組保守失敗，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900091",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "要求shadow群組存在、補充成員空且無passwd主要GID引用；缺群組保守失敗，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
     },
     {
       "gcb_id": "TWGCB-01-012-0092",
@@ -8219,6 +10544,323 @@
       "family": "檔案 metadata",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0303",
+      "sca_id": 900303,
+      "source_sheet": "基本項目",
+      "source_row": 263,
+      "expected": "root:root",
+      "docx_historical_cells": [
+        [
+          "19",
+          "TWGCB-01-012-0303",
+          "系統設定與維護",
+          "/etc/security/opasswd與 /etc/security/opasswd.old檔案所有權",
+          "這項原則設定決定/etc/security/opasswd與 /etc/security/opasswd.old檔案擁有者與群組\n/etc/security/opasswd與 /etc/security/opasswd.old是用於記錄使用者過去使用過的密碼，確保密碼不能重複使用，這些檔案主要由PAM之pam_unix或pam_pwquality模組管理\n設定/etc/security/opasswd與 /etc/security/opasswd.old檔案擁有者與群組為root，避免檔案遭未授權使用者修改，降低檔案被竄改後進一步利用於其他惡意攻擊之風險",
+          "開啟終端機，執行以下指令，設定/etc/security/opasswd與 /etc/security/opasswd.old檔案所有權：\n#chown root:root /etc/security/opasswd /etc/security/opasswd.old",
+          "root:root"
+        ]
+      ],
+      "docx_cells": [
+        "259",
+        "TWGCB-01-012-0303",
+        "系統設定與維護",
+        "/etc/security/opasswd與 /etc/security/opasswd.old檔案所有權",
+        "這項原則設定決定/etc/security/opasswd與/etc/security/opasswd.old檔案擁有者與群組\n/etc/security/opasswd與/etc/security/opasswd.old用於記錄使用者過去使用過之密碼，確保密碼不能重複使用，這些檔案主要由PAM之pam_unix或pam_pwquality模組管理\n設定/etc/security/opasswd與/etc/security/opasswd.old檔案擁有者與群組為root，避免檔案遭未授權使用者修改，降低檔案遭竄改後進一步利用於其他惡意攻擊之風險",
+        "開啟終端機，執行以下指令，設定/etc/security/opasswd與/etc/security/opasswd.old檔案所有權：\n#chown root:root /etc/security/opasswd /etc/security/opasswd.old",
+        "root:root"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "259",
+          "TWGCB-01-012-0303",
+          "系統設定與維護",
+          "/etc/security/opasswd與 /etc/security/opasswd.old檔案所有權",
+          "這項原則設定決定/etc/security/opasswd與/etc/security/opasswd.old檔案擁有者與群組\n/etc/security/opasswd與/etc/security/opasswd.old用於記錄使用者過去使用過之密碼，確保密碼不能重複使用，這些檔案主要由PAM之pam_unix或pam_pwquality模組管理\n設定/etc/security/opasswd與/etc/security/opasswd.old檔案擁有者與群組為root，避免檔案遭未授權使用者修改，降低檔案遭竄改後進一步利用於其他惡意攻擊之風險",
+          "開啟終端機，執行以下指令，設定/etc/security/opasswd與/etc/security/opasswd.old檔案所有權：\n#chown root:root /etc/security/opasswd /etc/security/opasswd.old",
+          "root:root"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源無缺檔豁免；opasswd與.old都必須存在且root:root，不讀內容。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900303",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源無缺檔豁免；opasswd與.old都必須存在且root:root，不讀內容。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0304",
+      "sca_id": 900304,
+      "source_sheet": "基本項目",
+      "source_row": 264,
+      "expected": "644或更低權限",
+      "docx_historical_cells": [
+        [
+          "20",
+          "TWGCB-01-012-0304",
+          "系統設定與維護",
+          "/etc/security/opasswd與 /etc/security/opasswd.old檔案權限",
+          "這項原則設定決定/etc/security/opasswd與 /etc/security/opasswd.old檔案權限\n/etc/security/opasswd與 /etc/security/opasswd.old是用於記錄使用者過去使用過的密碼，確保密碼不能重複使用，這些檔案主要由PAM之pam_unix或pam_pwquality模組管理\n將/etc/security/opasswd與 /etc/security/opasswd.old檔案權限設為僅root擁有讀取與寫入權限，其餘所有使用者僅可讀取，避免檔案遭未授權使用者修改，降低檔案被竄改後進一步利用於其他惡意攻擊之風險",
+          "開啟終端機，執行以下指令，設定/etc/security/opasswd與 /etc/security/opasswd.old檔案權限為644或更低權限：\n#chmod 644 /etc/security/opasswd /etc/security/opasswd.old",
+          "644或更低權限"
+        ]
+      ],
+      "docx_cells": [
+        "260",
+        "TWGCB-01-012-0304",
+        "系統設定與維護",
+        "/etc/security/opasswd與 /etc/security/opasswd.old檔案權限",
+        "這項原則設定決定/etc/security/opasswd與/etc/security/opasswd.old檔案權限\n/etc/security/opasswd與/etc/security/opasswd.old用於記錄使用者過去使用過之密碼，確保密碼不能重複使用，這些檔案主要由PAM之pam_unix或pam_pwquality模組管理\n將/etc/security/opasswd與/etc/security/opasswd.old檔案權限設為僅供root擁有讀取與寫入權限，其餘所有使用者僅可讀取，避免檔案遭未經授權使用者修改，降低檔案遭竄改後進一步利用於其他惡意攻擊之風險",
+        "開啟終端機，執行以下指令，設定/etc/security/opasswd與/etc/security/opasswd.old檔案權限為644或更低權限：\n#chmod 644 /etc/security/opasswd /etc/security/opasswd.old",
+        "644或更低權限"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "260",
+          "TWGCB-01-012-0304",
+          "系統設定與維護",
+          "/etc/security/opasswd與 /etc/security/opasswd.old檔案權限",
+          "這項原則設定決定/etc/security/opasswd與/etc/security/opasswd.old檔案權限\n/etc/security/opasswd與/etc/security/opasswd.old用於記錄使用者過去使用過之密碼，確保密碼不能重複使用，這些檔案主要由PAM之pam_unix或pam_pwquality模組管理\n將/etc/security/opasswd與/etc/security/opasswd.old檔案權限設為僅供root擁有讀取與寫入權限，其餘所有使用者僅可讀取，避免檔案遭未經授權使用者修改，降低檔案遭竄改後進一步利用於其他惡意攻擊之風險",
+          "開啟終端機，執行以下指令，設定/etc/security/opasswd與/etc/security/opasswd.old檔案權限為644或更低權限：\n#chmod 644 /etc/security/opasswd /etc/security/opasswd.old",
+          "644或更低權限"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源無缺檔豁免；兩檔都必須存在且644位元子集。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900304",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源無缺檔豁免；兩檔都必須存在且644位元子集。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0305",
+      "sca_id": 900305,
+      "source_sheet": "基本項目",
+      "source_row": 265,
+      "expected": "移除含有nologin的行",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "261",
+        "TWGCB-01-012-0305",
+        "系統設定與維護",
+        "/etc/shells中不應存在nologin",
+        "這項原則設定決定/etc/shells是否存在nologin字串\n/etc/shells記錄系統中可用之Shell程式路徑，該檔案列出所有可供使用者選擇之登入Shell，如/bin/bash、/bin/sh及/bin/zsh等\n若將nologin新增至/etc/shells，則任何預設Shell設為nologin之使用者將被視為具備完整權限之正常使用者，然而，此行為並非nologin預期之運作方式",
+        "開啟終端機，執行以下指令，尋找/etc/shells中是否含有nologin：\n#grep -E '^[^#]*\\/nologin$' /etc/shells\n開啟終端機，執行vim指令在/etc/shells移除含有nologin的行，範例如下：\n#vim /etc/shells",
+        "移除含有nologin的行"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "261",
+          "TWGCB-01-012-0305",
+          "系統設定與維護",
+          "/etc/shells中不應存在nologin",
+          "這項原則設定決定/etc/shells是否存在nologin字串\n/etc/shells記錄系統中可用之Shell程式路徑，該檔案列出所有可供使用者選擇之登入Shell，如/bin/bash、/bin/sh及/bin/zsh等\n若將nologin新增至/etc/shells，則任何預設Shell設為nologin之使用者將被視為具備完整權限之正常使用者，然而，此行為並非nologin預期之運作方式",
+          "開啟終端機，執行以下指令，尋找/etc/shells中是否含有nologin：\n#grep -E '^[^#]*\\/nologin$' /etc/shells\n開啟終端機，執行vim指令在/etc/shells移除含有nologin的行，範例如下：\n#vim /etc/shells",
+          "移除含有nologin的行"
+        ],
+        [
+          "21",
+          "TWGCB-01-012-0305",
+          "系統設定與維護",
+          "/etc/shells中不應存在nologin",
+          "這項原則設定決定/etc/shells是否存在nologin字串\n/etc/shells記錄系統中可用之Shell程式路徑，該檔案列出所有可供使用者選擇之登入Shell，如/bin/bash、/bin/sh及/bin/zsh等\n若將nologin新增至/etc/shells，則任何預設Shell設為nologin之使用者將被視為具備完整權限之正常使用者，然而，此行為並非nologin預期之運作方式",
+          "開啟終端機，執行以下指令，尋找/etc/shells中是否含有nologin：\n#grep -E '^[^#]*\\/nologin$' /etc/shells\n開啟終端機，執行vim指令在/etc/shells移除含有nologin的行，範例如下：\n#vim /etc/shells",
+          "移除含有nologin的行"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "排除註解與前後空白後禁止/nologin結尾。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900305",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "排除註解與前後空白後禁止/nologin結尾。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0306",
+      "sca_id": 900306,
+      "source_sheet": "基本項目",
+      "source_row": 266,
+      "expected": "OPTIONS=\"-F 2\"",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "262",
+        "TWGCB-01-012-0306",
+        "系統設定與維護",
+        "禁止chrony以root權限執行",
+        "這項原則設定決定是否禁止chrony以root權限執行\nchrony是一個守護程序，藉由實作網路時間協定(NTP)，以於各系統之間同步系統時間，並可使用高準確之校時來源\nchrony只需要存取系統時鐘與網路資源，並不需要完整root權限。如果chrony以root運行，可能被攻擊者利用來獲取最高系統權限，進而控制整個系統",
+        "開啟終端機，執行vim指令，編輯/etc/sysconfig/chronyd，範例如下：\n#vim /etc/sysconfig/chronyd\n並在OPTIONS中移除「-u root」並加入以下內容：\nOPTIONS=\"-F 2\"\n開啟終端機，執行以下指令，重新啟動chrony，範例如下：\n#systemctl restart chronyd.service",
+        "OPTIONS=\"-F 2\""
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "262",
+          "TWGCB-01-012-0306",
+          "系統設定與維護",
+          "禁止chrony以root權限執行",
+          "這項原則設定決定是否禁止chrony以root權限執行\nchrony是一個守護程序，藉由實作網路時間協定(NTP)，以於各系統之間同步系統時間，並可使用高準確之校時來源\nchrony只需要存取系統時鐘與網路資源，並不需要完整root權限。如果chrony以root運行，可能被攻擊者利用來獲取最高系統權限，進而控制整個系統",
+          "開啟終端機，執行vim指令，編輯/etc/sysconfig/chronyd，範例如下：\n#vim /etc/sysconfig/chronyd\n並在OPTIONS中移除「-u root」並加入以下內容：\nOPTIONS=\"-F 2\"\n開啟終端機，執行以下指令，重新啟動chrony，範例如下：\n#systemctl restart chronyd.service",
+          "OPTIONS=\"-F 2\""
+        ],
+        [
+          "22",
+          "TWGCB-01-012-0306",
+          "系統設定與維護",
+          "禁止chrony以root權限執行",
+          "這項原則設定決定是否禁止chrony以root權限執行\nchrony是一個守護程序，藉由實作網路時間協定(NTP)，以於各系統之間同步系統時間，並可使用高準確之校時來源\nchrony只需要存取系統時鐘與網路資源，並不需要完整root權限。如果chrony以root運行，可能被攻擊者利用來獲取最高系統權限，進而控制整個系統",
+          "開啟終端機，執行vim指令，編輯/etc/sysconfig/chronyd，範例如下：\n#vim /etc/sysconfig/chronyd\n並在OPTIONS中移除「-u root」並加入以下內容：\nOPTIONS=\"-F 2\"\n開啟終端機，執行以下指令，重新啟動chrony，範例如下：\n#systemctl restart chronyd.service",
+          "OPTIONS=\"-F 2\""
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源OPTIONS含-F 2且不得-u root；服務執行身分/重啟生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900306",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源OPTIONS含-F 2且不得-u root；服務執行身分/重啟生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0307",
+      "sca_id": 900307,
+      "source_sheet": "基本項目",
+      "source_row": 267,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "263",
+        "TWGCB-01-012-0307",
+        "系統設定與維護",
+        "ptrace限制模式",
+        "這項原則設定決定是否啟用ptrace限制模式\nptrace是一個系統呼叫，允許一個程序監控與控制另一個程序，可用於偵錯與記憶體檢查\n防止使用者竄改其他程序或竊取敏感資訊，限制模式僅允許父程序控制子程序",
+        "開啟終端機，執行vim指令，編輯/etc/sysctl.conf或/etc/sysctl.d目錄下檔案，新增或修改以下內容：\nkernel.yama.ptrace_scope=1\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w kernel.yama.ptrace_scope=1",
+        "啟用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "263",
+          "TWGCB-01-012-0307",
+          "系統設定與維護",
+          "ptrace限制模式",
+          "這項原則設定決定是否啟用ptrace限制模式\nptrace是一個系統呼叫，允許一個程序監控與控制另一個程序，可用於偵錯與記憶體檢查\n防止使用者竄改其他程序或竊取敏感資訊，限制模式僅允許父程序控制子程序",
+          "開啟終端機，執行vim指令，編輯/etc/sysctl.conf或/etc/sysctl.d目錄下檔案，新增或修改以下內容：\nkernel.yama.ptrace_scope=1\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w kernel.yama.ptrace_scope=1",
+          "啟用"
+        ],
+        [
+          "23",
+          "TWGCB-01-012-0307",
+          "系統設定與維護",
+          "ptrace限制模式",
+          "這項原則設定決定是否啟用ptrace限制模式\nptrace是一個系統呼叫，允許一個程序監控與控制另一個程序，可用於偵錯與記憶體檢查\n防止使用者竄改其他程序或竊取敏感資訊，限制模式僅允許父程序控制子程序",
+          "開啟終端機，執行vim指令，編輯/etc/sysctl.conf或/etc/sysctl.d目錄下檔案，新增或修改以下內容：\nkernel.yama.ptrace_scope=1\n開啟終端機，執行以下指令，設定核心參數：\n#sysctl -w kernel.yama.ptrace_scope=1",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B7 direct Python argv source predicates",
+      "caveats": "來源ptrace_scope精確1，未自行放寬2/3；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "tests": [
+        "tests/test_p2b7.py#900307",
+        "tests/test_p2b7.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B7-ENGINE",
+        "B7-SOURCE"
+      ],
+      "family": "P2B7 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源ptrace_scope精確1，未自行放寬2/3；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。"
     },
     {
       "gcb_id": "TWGCB-01-012-0308",

@@ -129,9 +129,9 @@ class P2B6Tests(unittest.TestCase):
         baseline={}
         current={}
         for p in sorted((root/'policies').glob('*.yml')):
-            old=json.loads(subprocess.check_output(['git','show','HEAD:policies/'+p.name],cwd=root))
+            old=json.loads(subprocess.check_output(['git','show','d2bd3ae:policies/'+p.name],cwd=root))
             baseline.update({c['id']:c['rules'] for c in old['checks']})
             current.update({c['id']:c['rules'] for c in json.loads(p.read_text())['checks']})
         self.assertEqual(len(baseline),146)
-        self.assertEqual(len(current),188)
+        self.assertEqual(len(current),236)
         self.assertEqual(baseline,{n:current[n] for n in baseline})

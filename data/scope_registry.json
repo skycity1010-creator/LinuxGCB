@@ -733,15 +733,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900032,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "main 與 repo 檔同查 gpgcheck/localpkg_gpgcheck=1；各repo section皆需雙key；繼承與生效待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0033",
@@ -785,15 +792,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900034,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "只接受未限定 Defaults use_pty；限定使用者/主機、include、續行與覆寫待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0035",
@@ -808,15 +822,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900035,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "logfile 要求非空絕對路徑；來源 /var/log/sudo.log 僅範例；複雜 sudoers 語意待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0036",
@@ -831,15 +852,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900036,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "定向 rpm -q aide 三態；初始化資料庫動作未執行，資料庫生效另審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0037",
@@ -854,15 +882,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900037,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 root crontab 每天5點；expected 每天允許合法固定分時；依任務另接受 cron.daily 可執行檔明確 /usr/sbin/aide --check。排程替代需批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0038",
@@ -877,15 +912,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900038,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 BIOS grub.cfg/grubenv/選用user.cfg；UEFI fstab uid=0,gid=0；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0039",
@@ -900,15 +942,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900039,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 BIOS 600 位元子集；UEFI fmask=0177；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0040",
@@ -923,15 +972,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900040,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "靜態確認 grub2-setpassword 產生之 user.cfg PBKDF2 宣告；grub.cfg 載入與重建效果留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0041",
@@ -946,15 +1002,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900041,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 rescue/emergency.service ExecStart 精確比對；systemd drop-in 實際生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0042",
@@ -969,15 +1032,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900042,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "同查 suid_dumpable=0、core_pattern=|/bin/false 與 * hard core 0；條件性 coredump Storage/ProcessSizeMax/mask、即時值與載入效力待人工證據。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0043",
@@ -992,15 +1062,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900043,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "持久設定 randomize_va_space 精確2；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0044",
@@ -1015,15 +1092,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900044,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源明列 /etc/crypto-policies/config FUTURE/FIPS；未改查 CURRENT.pol；生效/重開機待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0045",
@@ -1542,15 +1626,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900061,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0062",
@@ -1565,15 +1656,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900062,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0063",
@@ -1588,15 +1686,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900063,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0064",
@@ -1611,15 +1716,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900064,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0065",
@@ -1634,15 +1746,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900065,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0066",
@@ -1657,15 +1776,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900066,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0067",
@@ -1680,15 +1806,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900067,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0068",
@@ -1703,15 +1836,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900068,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 find 允許 root/tty/slocate/lock，但 expected 寫 root；依方法保留四群組，待批。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0069",
@@ -1726,15 +1866,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900069,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0070",
@@ -1749,15 +1896,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900070,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0071",
@@ -1772,15 +1926,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900071,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0072",
@@ -1795,15 +1956,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900072,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "shadow 只判空欄；!/* 為非空鎖定；不輸出帳號/雜湊。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0073",
@@ -1818,15 +1986,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900073,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 echo $PATH；離線靜態讀 /etc/profile、/root/.bash_profile、.bashrc 的 literal PATH，受限展開 $PATH；拒絕動態語法；登入環境與其他載入來源待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0074",
@@ -1841,15 +2016,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900074,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "沿用0073靜態PATH子集，逐目錄確認存在且無022寫入位元；登入有效環境待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0075",
@@ -1864,15 +2046,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900075,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0076",
@@ -1887,15 +2076,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900076,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0077",
@@ -1910,15 +2106,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900077,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0078",
@@ -1933,15 +2136,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900078,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0079",
@@ -1956,15 +2166,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900079,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源互動帳號集合，排除 halt/sync/shutdown 名稱前綴與 nologin/false；700位元子集，家目錄不限/home。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0080",
@@ -1979,15 +2196,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900080,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 passwd 家目錄與 UID；跟隨stat symlink；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0081",
@@ -2002,15 +2226,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900081,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源 passwd 家目錄與主要GID；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0082",
@@ -2025,15 +2256,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900082,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源只查家目錄一層 .[A-Za-z0-9]* 普通檔、排除symlink、禁022；找到即返回。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0083",
@@ -2048,15 +2286,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900083,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.forward；未擴張成含root，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0084",
@@ -2071,15 +2316,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900084,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.netrc；未讀檔案內容，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0085",
@@ -2094,15 +2346,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900085,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.rhosts，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0086",
@@ -2117,15 +2376,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900086,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "passwd 所有主要GID需存在於本機group；NSS遠端群組不推測。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0087",
@@ -2140,15 +2406,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900087,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "UID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0088",
@@ -2163,15 +2436,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900088,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "GID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0089",
@@ -2186,15 +2466,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900089,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0090",
@@ -2209,15 +2496,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900090,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0091",
@@ -2232,15 +2526,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900091,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "要求shadow群組存在、補充成員空且無passwd主要GID引用；缺群組保守失敗，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0092",
@@ -7015,15 +7316,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900303,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源無缺檔豁免；opasswd與.old都必須存在且root:root，不讀內容。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0304",
@@ -7038,15 +7346,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900304,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源無缺檔豁免；兩檔都必須存在且644位元子集。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0305",
@@ -7061,15 +7376,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900305,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "排除註解與前後空白後禁止/nologin結尾。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0306",
@@ -7084,15 +7406,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900306,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源OPTIONS含-F 2且不得-u root；服務執行身分/重啟生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0307",
@@ -7107,15 +7436,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900307,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源ptrace_scope精確1，未自行放寬2/3；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B7-ENGINE",
+      "B7-SOURCE"
+    ],
+    "family": "P2B7 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0308",
