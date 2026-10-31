@@ -1,3 +1,4 @@
+from linuxgcb.batch8 import ADDED as BATCH8
 from linuxgcb.batch7 import ADDED as BATCH7
 from linuxgcb.batch6 import ADDED as BATCH6
 """SYNTHETIC Q1 回歸；不執行任何政策命令。"""
@@ -79,7 +80,7 @@ class QualityQ1Tests(unittest.TestCase):
     def test_review_reconciles_exact_existing_ids(self):
         rows=[r for r in registry() if r['implementation']=='candidate']
         self.assertEqual({r['sca_id'] for r in rows},{900000+n for n in definitions()})
-        rows=[r for r in rows if r['sca_id']-900000 not in BATCH2 | BATCH3 | BATCH6 | BATCH7]
+        rows=[r for r in rows if r['sca_id']-900000 not in BATCH2 | BATCH3 | BATCH6 | BATCH7 | BATCH8]
         self.assertEqual(len(rows),53)
         self.assertTrue(all(r['execution_review']=='blocked' for r in rows))
         self.assertTrue(all('Q1-01' in r['issue_ids'] for r in rows))

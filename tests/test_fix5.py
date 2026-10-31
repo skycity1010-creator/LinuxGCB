@@ -1,3 +1,4 @@
+from linuxgcb.batch8 import ADDED as BATCH8
 from linuxgcb.batch7 import ADDED as BATCH7
 """FIX5: offline scope protection and synthetic rpm exit/output regression."""
 import json
@@ -18,7 +19,7 @@ class Fix5Tests(unittest.TestCase):
         old = {c['id']: c for c in before['checks']}
         current = {c['id']: c for p in (ROOT/'policies').glob('*.yml')
                    for c in json.loads(p.read_text())['checks']}
-        self.assertEqual(len(current), 236)
+        self.assertEqual(len(current), 282)
         current = {n:c for n,c in current.items() if n in old}
         self.assertEqual(old.keys(), current.keys())
         self.assertEqual({n for n in old if old[n]['rules'] != current[n]['rules']}, {900188})
@@ -34,10 +35,10 @@ class Fix5Tests(unittest.TestCase):
                 prior = json.loads(original)
                 now = json.loads((ROOT/name).read_text())
                 if name.endswith('scope_registry.json'):
-                    self.assertEqual([r for r in prior if r['sca_id']-900000 not in BATCH6 | BATCH7],
-                                     [r for r in now if r['sca_id']-900000 not in BATCH6 | BATCH7])
+                    self.assertEqual([r for r in prior if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8],
+                                     [r for r in now if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8])
                 else:
-                    self.assertEqual(prior['reviewed'], [r for r in now['reviewed'] if r['sca_id']-900000 not in BATCH6 | BATCH7])
+                    self.assertEqual(prior['reviewed'], [r for r in now['reviewed'] if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8])
             else:
                 self.assertEqual(digest(ROOT/name), sha, name)
         for p in (ROOT/'policies').glob('*.yml'):

@@ -1,3 +1,4 @@
+from linuxgcb.batch8 import ADDED as BATCH8
 from linuxgcb.batch7 import ADDED as BATCH7
 """FIX4 offline regressions using only synthetic file trees."""
 from linuxgcb.batch6 import ADDED as BATCH6
@@ -32,7 +33,7 @@ class Fix4Tests(unittest.TestCase):
         before = json.loads((ROOT/'tests/fixtures/fix4_baseline.json').read_text())
         old = {c['id']: c for c in before['checks']}
         self.assertEqual(len(old), 146)
-        self.assertEqual(set(old), set(self.checks) - {900000+n for n in BATCH6 | BATCH7})
+        self.assertEqual(set(old), set(self.checks) - {900000+n for n in BATCH6 | BATCH7 | BATCH8})
         self.assertEqual({n for n in old if old[n]['rules'] != self.checks[n]['rules']}, CHANGED | {900188})
         for n in old.keys() - CHANGED - {900188}:
             self.assertEqual(old[n], self.checks[n])

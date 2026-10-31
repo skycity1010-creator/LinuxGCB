@@ -12,15 +12,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900001,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0002",
@@ -35,15 +42,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900002,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0003",
@@ -58,15 +72,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900003,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0004",
@@ -81,15 +102,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900004,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0005",
@@ -104,15 +132,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900005,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0006",
@@ -127,15 +162,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900006,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0007",
@@ -150,15 +192,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900007,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0008",
@@ -173,15 +222,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900008,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0009",
@@ -196,15 +252,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900009,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0010",
@@ -219,15 +282,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900010,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0011",
@@ -242,15 +312,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900011,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0012",
@@ -265,15 +342,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900012,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0013",
@@ -288,15 +372,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900013,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0014",
@@ -311,15 +402,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900014,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0015",
@@ -334,15 +432,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900015,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0016",
@@ -357,15 +462,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900016,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0017",
@@ -380,15 +492,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900017,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0018",
@@ -403,15 +522,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900018,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0019",
@@ -426,15 +552,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900019,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0020",
@@ -449,15 +582,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900020,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0021",
@@ -472,15 +612,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900021,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0022",
@@ -495,15 +642,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900022,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0023",
@@ -518,15 +672,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900023,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0024",
@@ -541,15 +702,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900024,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0025",
@@ -564,15 +732,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900025,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0026",
@@ -587,15 +762,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900026,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0027",
@@ -610,15 +792,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900027,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0028",
@@ -633,15 +822,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900028,
     "profile": "base",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0029",
@@ -656,15 +852,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900029,
     "profile": "base",
-    "proposed_classification": "readonly_helper",
-    "justification": "可能涉及集合、位元或載入鏈解析；尚未實作 helper",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 df --local -P 逐本機磁區，find -xdev -type d -perm -0002 ! -perm -1000 -print -quit；24秒整體預算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0030",
@@ -710,15 +913,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900031,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0032",
@@ -6886,15 +7096,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900285,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0286",
@@ -6909,15 +7126,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900286,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0287",
@@ -6932,15 +7156,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900287,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0288",
@@ -6955,15 +7186,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900288,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0289",
@@ -6978,15 +7216,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900289,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0290",
@@ -7001,15 +7246,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900290,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0291",
@@ -7024,15 +7276,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900291,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0292",
@@ -7047,15 +7306,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900292,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0293",
@@ -7070,15 +7336,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900293,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0294",
@@ -7093,15 +7366,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900294,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0295",
@@ -7116,15 +7396,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900295,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0296",
@@ -7139,15 +7426,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900296,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0297",
@@ -7162,15 +7456,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900297,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0298",
@@ -7185,15 +7486,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900298,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0299",
@@ -7208,15 +7516,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900299,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0300",
@@ -7231,15 +7546,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900300,
     "profile": "base",
-    "proposed_classification": "manual_review",
-    "justification": "尚未逐條語意審查，保守列人工待辦，非不可自動化結論",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_base_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B8-ENGINE",
+      "B8-SOURCE"
+    ],
+    "family": "P2B8 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0301",

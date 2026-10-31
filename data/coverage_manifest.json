@@ -6,7 +6,10 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
-    "added": 229,
+    "batch8_before": 236,
+    "batch8_added": 46,
+    "batch8_after": 282,
+    "added": 275,
     "batch7_before": 188,
     "batch7_added": 48,
     "batch7_after": 236,
@@ -17,16 +20,1600 @@
     "batch3_before": 97,
     "batch3_after": 146,
     "batch2_added": 44,
-    "implemented": 236,
-    "remaining": 71,
+    "implemented": 282,
+    "remaining": 25,
     "full": 0,
-    "partial": 231,
+    "partial": 277,
     "blocked": 5,
-    "reviewed": 236,
-    "execution_blocked": 236,
+    "reviewed": 282,
+    "execution_blocked": 282,
     "live_validated": 0
   },
   "reviewed": [
+    {
+      "gcb_id": "TWGCB-01-012-0001",
+      "sca_id": 900001,
+      "source_sheet": "基本項目",
+      "source_row": 5,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "1",
+        "TWGCB-01-012-0001",
+        "磁碟與檔案系統",
+        "cramfs檔案系統",
+        "這項原則設定決定是否支援cramfs檔案系統\ncramfs(compressed ROM file system，壓縮唯讀閃存檔案系統)檔案系統是一開放式之Linux檔案系統，目的是更簡單更有效率\ncramfs檔案系統以zlib壓縮資料，不需載入到記憶體中，因此可節省許多記憶體空間，可直接使用cramfs映像檔案無須先解壓，使用於某些舊系統或對記憶體有限制之地方\n停止支援cramfs檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「cramfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/cramfs.conf\n並在檔案中加入以下內容：\ninstall cramfs /bin/true\nblacklist cramfs\n開啟終端機，執行下列指令，移除cramfs模組：\n#rmmod cramfs\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "1",
+          "TWGCB-01-012-0001",
+          "磁碟與檔案系統",
+          "cramfs檔案系統",
+          "這項原則設定決定是否支援cramfs檔案系統\ncramfs(compressed ROM file system，壓縮唯讀閃存檔案系統)檔案系統是一開放式之Linux檔案系統，目的是更簡單更有效率\ncramfs檔案系統以zlib壓縮資料，不需載入到記憶體中，因此可節省許多記憶體空間，可直接使用cramfs映像檔案無須先解壓，使用於某些舊系統或對記憶體有限制之地方\n停止支援cramfs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「cramfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/cramfs.conf\n並在檔案中加入以下內容：\ninstall cramfs /bin/true\nblacklist cramfs\n開啟終端機，執行下列指令，移除cramfs模組：\n#rmmod cramfs\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900001",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0002",
+      "sca_id": 900002,
+      "source_sheet": "基本項目",
+      "source_row": 6,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "2",
+        "TWGCB-01-012-0002",
+        "磁碟與檔案系統",
+        "squashfs檔案系統",
+        "這項原則設定決定是否支援squashfs檔案系統\nsquashfs是一個即時解壓縮之檔案系統，專門為唯讀壓縮檔案系統之使用而設計，常見於各Linux發行版之LiveCD\n停止支援squashfs檔案系統，以減少系統被攻擊面\n停止支援squashfs檔案系統，將可能導致Snap套件無法正常運作",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「squashfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/squashfs.conf\n並在檔案中加入以下內容：\ninstall squashfs /bin/true\nblacklist squashfs\n開啟終端機，執行下列指令，移除squashfs模組：\n#rmmod squashfs\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "2",
+          "TWGCB-01-012-0002",
+          "磁碟與檔案系統",
+          "squashfs檔案系統",
+          "這項原則設定決定是否支援squashfs檔案系統\nsquashfs是一個即時解壓縮之檔案系統，專門為唯讀壓縮檔案系統之使用而設計，常見於各Linux發行版之LiveCD\n停止支援squashfs檔案系統，以減少系統被攻擊面\n停止支援squashfs檔案系統，將可能導致Snap套件無法正常運作",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「squashfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/squashfs.conf\n並在檔案中加入以下內容：\ninstall squashfs /bin/true\nblacklist squashfs\n開啟終端機，執行下列指令，移除squashfs模組：\n#rmmod squashfs\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900002",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0003",
+      "sca_id": 900003,
+      "source_sheet": "基本項目",
+      "source_row": 7,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "3",
+        "TWGCB-01-012-0003",
+        "磁碟與檔案系統",
+        "udf檔案系統",
+        "這項原則設定決定是否支援udf檔案系統\nudf(Universal disk format，通用磁碟格式)是根據ISO/IEC 13346與ECMA-167標準所實作之檔案系統，由光學儲存技術協會(OSTA)開發與維護，廣泛應用在如CD-R/RW與DVD-R/RW等可寫光學儲存媒體\n停止支援udf檔案系統，以減少系統被攻擊面\n系統若運行在Microsot Azure上，將可能影響系統正常運作",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「udf.conf」檔案，範例如下：\n#vim /etc/modprobe.d/udf.conf\n並在檔案中加入以下內容：\ninstall udf /bin/true\nblacklist udf\n開啟終端機，執行下列指令，移除udf模組：\n#rmmod udf\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "3",
+          "TWGCB-01-012-0003",
+          "磁碟與檔案系統",
+          "udf檔案系統",
+          "這項原則設定決定是否支援udf檔案系統\nudf(Universal disk format，通用磁碟格式)是根據ISO/IEC 13346與ECMA-167標準所實作之檔案系統，由光學儲存技術協會(OSTA)開發與維護，廣泛應用在如CD-R/RW與DVD-R/RW等可寫光學儲存媒體\n停止支援udf檔案系統，以減少系統被攻擊面\n系統若運行在Microsot Azure上，將可能影響系統正常運作",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄，新增或編輯「udf.conf」檔案，範例如下：\n#vim /etc/modprobe.d/udf.conf\n並在檔案中加入以下內容：\ninstall udf /bin/true\nblacklist udf\n開啟終端機，執行下列指令，移除udf模組：\n#rmmod udf\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900003",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0004",
+      "sca_id": 900004,
+      "source_sheet": "基本項目",
+      "source_row": 8,
+      "expected": "tmpfs",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "4",
+        "TWGCB-01-012-0004",
+        "磁碟與檔案系統",
+        "設定/tmp目錄之檔案系統",
+        "這項原則設定決定/tmp目錄是否使用tmpfs檔案系統\n/tmp是具有全域寫入權限之目錄，所有使用者與某些應用程式都將其用於暫存檔案\ntmpfs是一個不存在於實體硬碟上，而是駐存在記憶體之特殊檔案系統，可提供優於傳統機械硬碟之存取速度\n將/tmp目錄掛載到tmpfs，可於掛載選項上使用noexec選項，指定/tmp目錄不能啟動可執行二進制檔案，使攻擊者不能安裝執行惡意程式以降低風險",
+        "執行以下任一操作以設定/tmp目錄之檔案系統：\n開啟終端機，執行下列指令，編輯/etc/fstab\n#vim /etc/fstab\n/tmp之掛載設定範例如下：\ntmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime 0 0\n開啟終端機，執行下列指令，運用systemd掛載/tmp：\n#systemctl unmask tmp.mount\n#systemctl enable tmp.mount\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount以掛載/tmp：\n[Mount]\nWhat=tmpfs\nWhere=/tmp\nType=tmpfs\nOptions=mode=1777,strictatime,noexec,nodev,nosuid",
+        "tmpfs"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "4",
+          "TWGCB-01-012-0004",
+          "磁碟與檔案系統",
+          "設定/tmp目錄之檔案系統",
+          "這項原則設定決定/tmp目錄是否使用tmpfs檔案系統\n/tmp是具有全域寫入權限之目錄，所有使用者與某些應用程式都將其用於暫存檔案\ntmpfs是一個不存在於實體硬碟上，而是駐存在記憶體之特殊檔案系統，可提供優於傳統機械硬碟之存取速度\n將/tmp目錄掛載到tmpfs，可於掛載選項上使用noexec選項，指定/tmp目錄不能啟動可執行二進制檔案，使攻擊者不能安裝執行惡意程式以降低風險",
+          "執行以下任一操作以設定/tmp目錄之檔案系統：\n開啟終端機，執行下列指令，編輯/etc/fstab\n#vim /etc/fstab\n/tmp之掛載設定範例如下：\ntmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime 0 0\n開啟終端機，執行下列指令，運用systemd掛載/tmp：\n#systemctl unmask tmp.mount\n#systemctl enable tmp.mount\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount以掛載/tmp：\n[Mount]\nWhat=tmpfs\nWhere=/tmp\nType=tmpfs\nOptions=mode=1777,strictatime,noexec,nodev,nosuid",
+          "tmpfs"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900004",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0005",
+      "sca_id": 900005,
+      "source_sheet": "基本項目",
+      "source_row": 9,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "5",
+        "TWGCB-01-012-0005",
+        "磁碟與檔案系統",
+        "設定/tmp目錄之nodev選項",
+        "這項原則設定決定/tmp目錄是否啟用nodev選項，以禁止在/tmp目錄中建立裝置檔案\n由於/tmp目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/tmp目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "執行以下任一操作以設定/tmp目錄之nodev選項：\n編輯/etc/fstab檔案，在掛載點為/tmp列，於第4欄加入「,nodev」\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nodev /tmp\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount，將nodev添加到/tmp掛載選項：\n[Mount]\nOptions=mode=1777,strictatime,noexec,nodev,nosuid\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nodev /tmp",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "5",
+          "TWGCB-01-012-0005",
+          "磁碟與檔案系統",
+          "設定/tmp目錄之nodev選項",
+          "這項原則設定決定/tmp目錄是否啟用nodev選項，以禁止在/tmp目錄中建立裝置檔案\n由於/tmp目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/tmp目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "執行以下任一操作以設定/tmp目錄之nodev選項：\n編輯/etc/fstab檔案，在掛載點為/tmp列，於第4欄加入「,nodev」\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nodev /tmp\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount，將nodev添加到/tmp掛載選項：\n[Mount]\nOptions=mode=1777,strictatime,noexec,nodev,nosuid\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nodev /tmp",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900005",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0006",
+      "sca_id": 900006,
+      "source_sheet": "基本項目",
+      "source_row": 10,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "6",
+        "TWGCB-01-012-0006",
+        "磁碟與檔案系統",
+        "設定/tmp目錄之nosuid選項",
+        "這項原則設定決定/tmp目錄是否啟用nosuid選項，以禁止/tmp目錄存在具有SUID屬性之檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+        "執行以下任一操作以設定/tmp目錄之nosuid選項：\n編輯/etc/fstab檔案，在掛載點為/tmp列，於第4欄加入「,nosuid」\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nosuid /tmp\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount，將nosuid添加到/tmp掛載選項：\n[Mount]\nOptions=mode=1777,strictatime,noexec,nodev,nosuid\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nosuid /tmp",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "6",
+          "TWGCB-01-012-0006",
+          "磁碟與檔案系統",
+          "設定/tmp目錄之nosuid選項",
+          "這項原則設定決定/tmp目錄是否啟用nosuid選項，以禁止/tmp目錄存在具有SUID屬性之檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+          "執行以下任一操作以設定/tmp目錄之nosuid選項：\n編輯/etc/fstab檔案，在掛載點為/tmp列，於第4欄加入「,nosuid」\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nosuid /tmp\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount，將nosuid添加到/tmp掛載選項：\n[Mount]\nOptions=mode=1777,strictatime,noexec,nodev,nosuid\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,nosuid /tmp",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900006",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0007",
+      "sca_id": 900007,
+      "source_sheet": "基本項目",
+      "source_row": 11,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "7",
+        "TWGCB-01-012-0007",
+        "磁碟與檔案系統",
+        "設定/tmp目錄之noexec選項",
+        "這項原則設定決定/tmp目錄是否啟用noexec選項，以禁止在/tmp目錄中啟動可執行二進制檔案\n/tmp目錄主要做為暫時存放檔案之用，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+        "執行以下任一操作以設定/tmp目錄之noexec選項：\n編輯/etc/fstab檔案，在掛載點為/tmp列，於第4欄加入「,noexec」\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,noexec /tmp\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount將noexec添加到/tmp掛載選項：\n[Mount]\nOptions=mode=1777,strictatime,noexec,nodev,nosuid\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,noexec /tmp",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "7",
+          "TWGCB-01-012-0007",
+          "磁碟與檔案系統",
+          "設定/tmp目錄之noexec選項",
+          "這項原則設定決定/tmp目錄是否啟用noexec選項，以禁止在/tmp目錄中啟動可執行二進制檔案\n/tmp目錄主要做為暫時存放檔案之用，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+          "執行以下任一操作以設定/tmp目錄之noexec選項：\n編輯/etc/fstab檔案，在掛載點為/tmp列，於第4欄加入「,noexec」\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,noexec /tmp\n編輯/etc/systemd/system/local-fs.target.wants/tmp.mount將noexec添加到/tmp掛載選項：\n[Mount]\nOptions=mode=1777,strictatime,noexec,nodev,nosuid\n開啟終端機，執行下列指令，重新掛載/tmp：\n#mount -o remount,noexec /tmp",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900007",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0008",
+      "sca_id": 900008,
+      "source_sheet": "基本項目",
+      "source_row": 12,
+      "expected": "使用獨立之分割磁區或邏輯磁區",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "8",
+        "TWGCB-01-012-0008",
+        "磁碟與檔案系統",
+        "設定/var目錄之檔案系統",
+        "這項原則設定決定是否為/var目錄建立獨立之分割磁區或邏輯磁區\n/var目錄主要供守護程序(daemon)與其他系統服務用來儲存經常性變動之資料\n/var目錄有時會包含其他軟體套件所建立之全域寫入目錄，若未設為獨立之分割磁區或邏輯磁區，將可能造成系統儲存空間耗盡\n由於yum套件管理工具或其他程式可能暫存較大之檔案於/var目錄中，可依實務需求設定適當磁區容量",
+        "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員(Logical volume manager, LVM)建立獨立的/var磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M varvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n varlv varvg (從varvg分割出1個LV，LV名稱varlv，並將15個PE配置給varlv)\n#mkfs.xfs /dev/varvg/varlv(對/dev/varvg/varlv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容： \n/dev/varvg/varlv /var xfs defaults  0  0",
+        "使用獨立之分割磁區或邏輯磁區"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "8",
+          "TWGCB-01-012-0008",
+          "磁碟與檔案系統",
+          "設定/var目錄之檔案系統",
+          "這項原則設定決定是否為/var目錄建立獨立之分割磁區或邏輯磁區\n/var目錄主要供守護程序(daemon)與其他系統服務用來儲存經常性變動之資料\n/var目錄有時會包含其他軟體套件所建立之全域寫入目錄，若未設為獨立之分割磁區或邏輯磁區，將可能造成系統儲存空間耗盡\n由於yum套件管理工具或其他程式可能暫存較大之檔案於/var目錄中，可依實務需求設定適當磁區容量",
+          "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員(Logical volume manager, LVM)建立獨立的/var磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M varvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n varlv varvg (從varvg分割出1個LV，LV名稱varlv，並將15個PE配置給varlv)\n#mkfs.xfs /dev/varvg/varlv(對/dev/varvg/varlv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容： \n/dev/varvg/varlv /var xfs defaults  0  0",
+          "使用獨立之分割磁區或邏輯磁區"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900008",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0009",
+      "sca_id": 900009,
+      "source_sheet": "基本項目",
+      "source_row": 13,
+      "expected": "使用獨立之分割磁區或邏輯磁區",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "9",
+        "TWGCB-01-012-0009",
+        "磁碟與檔案系統",
+        "設定/var/tmp目錄之檔案系統",
+        "這項原則設定決定是否為/var/tmp目錄建立獨立之分割磁區或邏輯磁區\n/var/tmp是具有全域寫入權限之目錄，所有使用者與某些應用程式都將其用於暫存檔案，若未設為獨立之分割磁區或邏輯磁區，將可能造成系統儲存空間耗盡\n將/var/tmp目錄掛載到獨立之分割磁區或邏輯磁區，可於掛載選項上使用noexec選項，指定/var/tmp目錄不能啟動可執行二進制檔案，使攻擊者不能安裝執行惡意程式",
+        "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var/tmp指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/var/tmp磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var/tmp邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M vartmpvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱vartmpvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n vartmplv vartmpvg (從vartmpvg分割出1個LV，LV名稱vartmplv，並將15個PE配置給vartmplv)\n#mkfs.xfs /dev/vartmpvg/vartmplv(對/dev/vartmpvg/vartmplv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/vartmpvg/vartmplv /var/tmp xfs defaults 0 0",
+        "使用獨立之分割磁區或邏輯磁區"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "9",
+          "TWGCB-01-012-0009",
+          "磁碟與檔案系統",
+          "設定/var/tmp目錄之檔案系統",
+          "這項原則設定決定是否為/var/tmp目錄建立獨立之分割磁區或邏輯磁區\n/var/tmp是具有全域寫入權限之目錄，所有使用者與某些應用程式都將其用於暫存檔案，若未設為獨立之分割磁區或邏輯磁區，將可能造成系統儲存空間耗盡\n將/var/tmp目錄掛載到獨立之分割磁區或邏輯磁區，可於掛載選項上使用noexec選項，指定/var/tmp目錄不能啟動可執行二進制檔案，使攻擊者不能安裝執行惡意程式",
+          "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var/tmp指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/var/tmp磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var/tmp邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M vartmpvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱vartmpvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n vartmplv vartmpvg (從vartmpvg分割出1個LV，LV名稱vartmplv，並將15個PE配置給vartmplv)\n#mkfs.xfs /dev/vartmpvg/vartmplv(對/dev/vartmpvg/vartmplv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/vartmpvg/vartmplv /var/tmp xfs defaults 0 0",
+          "使用獨立之分割磁區或邏輯磁區"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900009",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0010",
+      "sca_id": 900010,
+      "source_sheet": "基本項目",
+      "source_row": 14,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "10",
+        "TWGCB-01-012-0010",
+        "磁碟與檔案系統",
+        "設定/var/tmp目錄之nodev選項",
+        "這項原則設定決定/var/tmp目錄是否啟用nodev選項，以禁止在/var/tmp目錄中建立裝置檔案\n由於/var/tmp目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/var/tmp目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "編輯/etc/fstab檔案，在掛載點為/var/tmp列，於第4欄加入「,nodev」\n開啟終端機，執行下列指令，重新掛載/var/tmp：\n#mount -o remount,nodev /var/tmp",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "10",
+          "TWGCB-01-012-0010",
+          "磁碟與檔案系統",
+          "設定/var/tmp目錄之nodev選項",
+          "這項原則設定決定/var/tmp目錄是否啟用nodev選項，以禁止在/var/tmp目錄中建立裝置檔案\n由於/var/tmp目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/var/tmp目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "編輯/etc/fstab檔案，在掛載點為/var/tmp列，於第4欄加入「,nodev」\n開啟終端機，執行下列指令，重新掛載/var/tmp：\n#mount -o remount,nodev /var/tmp",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900010",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0011",
+      "sca_id": 900011,
+      "source_sheet": "基本項目",
+      "source_row": 15,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "11",
+        "TWGCB-01-012-0011",
+        "磁碟與檔案系統",
+        "設定/var/tmp目錄之nosuid選項",
+        "這項原則設定決定/var/tmp目錄是否啟用nosuid選項，以禁止/var/tmp目錄存在具有SUID屬性的檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計的一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性的檔案\nnosuid：禁止存在具有SUID屬性的檔案",
+        "編輯/etc/fstab檔案，在掛載點為/var/tmp列，於第4欄加入「, nosuid」\n開啟終端機，執行下列指令，重新掛載/var/tmp：\n#mount -o remount,nosuid /var/tmp",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "11",
+          "TWGCB-01-012-0011",
+          "磁碟與檔案系統",
+          "設定/var/tmp目錄之nosuid選項",
+          "這項原則設定決定/var/tmp目錄是否啟用nosuid選項，以禁止/var/tmp目錄存在具有SUID屬性的檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計的一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性的檔案\nnosuid：禁止存在具有SUID屬性的檔案",
+          "編輯/etc/fstab檔案，在掛載點為/var/tmp列，於第4欄加入「, nosuid」\n開啟終端機，執行下列指令，重新掛載/var/tmp：\n#mount -o remount,nosuid /var/tmp",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900011",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0012",
+      "sca_id": 900012,
+      "source_sheet": "基本項目",
+      "source_row": 16,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "12",
+        "TWGCB-01-012-0012",
+        "磁碟與檔案系統",
+        "設定/var/tmp目錄之noexec選項",
+        "這項原則設定決定/var/tmp目錄是否啟用noexec選項，以禁止在/var/tmp目錄中啟動可執行二進制檔案\n/var/tmp目錄主要做為暫時存放檔案之用，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+        "編輯/etc/fstab檔案，在掛載點為/var/tmp列，於第4欄加入「,noexec」\n開啟終端機，執行下列指令，重新掛載/var/tmp：\n#mount -o remount,noexec /var/tmp",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "12",
+          "TWGCB-01-012-0012",
+          "磁碟與檔案系統",
+          "設定/var/tmp目錄之noexec選項",
+          "這項原則設定決定/var/tmp目錄是否啟用noexec選項，以禁止在/var/tmp目錄中啟動可執行二進制檔案\n/var/tmp目錄主要做為暫時存放檔案之用，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+          "編輯/etc/fstab檔案，在掛載點為/var/tmp列，於第4欄加入「,noexec」\n開啟終端機，執行下列指令，重新掛載/var/tmp：\n#mount -o remount,noexec /var/tmp",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900012",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0013",
+      "sca_id": 900013,
+      "source_sheet": "基本項目",
+      "source_row": 17,
+      "expected": "使用獨立之分割磁區或邏輯磁區",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "13",
+        "TWGCB-01-012-0013",
+        "磁碟與檔案系統",
+        "設定/var/log目錄之檔案系統",
+        "這項原則設定決定是否為/var/log目錄建立獨立之分割磁區或邏輯磁區\n/var/log目錄用來存放系統日誌(System log)，可依實務需求設定適當磁區容量，以確保所有系統日誌皆可順利儲存\n由於系統日誌檔容量可能會過於巨大，為/var/log目錄建立獨立之分割磁區或邏輯磁區，可避免系統儲存空間耗盡，同時可保護稽核紀錄",
+        "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var/log指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/var/log磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var/log邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M varlogvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n varloglv varlogvg (從varlogvg分割出1個LV，LV名稱varloglv，並將15個PE配置給varloglv)\n#mkfs.xfs /dev/varlogvg/varloglv(對/dev/varlogvg/varloglv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/varlogvg/varloglv /var/log xfs defaults  0  0",
+        "使用獨立之分割磁區或邏輯磁區"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "13",
+          "TWGCB-01-012-0013",
+          "磁碟與檔案系統",
+          "設定/var/log目錄之檔案系統",
+          "這項原則設定決定是否為/var/log目錄建立獨立之分割磁區或邏輯磁區\n/var/log目錄用來存放系統日誌(System log)，可依實務需求設定適當磁區容量，以確保所有系統日誌皆可順利儲存\n由於系統日誌檔容量可能會過於巨大，為/var/log目錄建立獨立之分割磁區或邏輯磁區，可避免系統儲存空間耗盡，同時可保護稽核紀錄",
+          "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var/log指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/var/log磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var/log邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M varlogvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n varloglv varlogvg (從varlogvg分割出1個LV，LV名稱varloglv，並將15個PE配置給varloglv)\n#mkfs.xfs /dev/varlogvg/varloglv(對/dev/varlogvg/varloglv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/varlogvg/varloglv /var/log xfs defaults  0  0",
+          "使用獨立之分割磁區或邏輯磁區"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900013",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0014",
+      "sca_id": 900014,
+      "source_sheet": "基本項目",
+      "source_row": 18,
+      "expected": "使用獨立之分割磁區或邏輯磁區",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "14",
+        "TWGCB-01-012-0014",
+        "磁碟與檔案系統",
+        "設定/var/log/audit目錄之檔案系統",
+        "這項原則設定決定是否為/var/log/audit目錄建立獨立之分割磁區或邏輯磁區\n/var/log/audit目錄用來存放稽核日誌(Audit log)，可依實務需求設定適當磁區容量，以確保所有由auditd服務程序所產生之稽核日誌皆可順利儲存\n由於稽核日誌檔容量可能會過於巨大，為/var/log/audit目錄建立獨立之分割磁區或邏輯磁區，可避免系統儲存空間耗盡，同時可保護稽核紀錄",
+        "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var/log/audit指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/var/log/audit磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var/log/audit邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M varlogadvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogadvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n varlogadlv varlogadvg (從varlogadvg分割出1個LV，LV名稱varlogadlv，並將15個PE配置給varlogadlv)\n#mkfs.xfs /dev/varlogadvg/varlogadlv(對/dev/varlogadvg/varlogadlv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/varlogadvg/varlogadlv /var/log/audit xfs defaults 0 0",
+        "使用獨立之分割磁區或邏輯磁區"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "14",
+          "TWGCB-01-012-0014",
+          "磁碟與檔案系統",
+          "設定/var/log/audit目錄之檔案系統",
+          "這項原則設定決定是否為/var/log/audit目錄建立獨立之分割磁區或邏輯磁區\n/var/log/audit目錄用來存放稽核日誌(Audit log)，可依實務需求設定適當磁區容量，以確保所有由auditd服務程序所產生之稽核日誌皆可順利儲存\n由於稽核日誌檔容量可能會過於巨大，為/var/log/audit目錄建立獨立之分割磁區或邏輯磁區，可避免系統儲存空間耗盡，同時可保護稽核紀錄",
+          "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/var/log/audit指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/var/log/audit磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/var/log/audit邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M varlogadvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogadvg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n varlogadlv varlogadvg (從varlogadvg分割出1個LV，LV名稱varlogadlv，並將15個PE配置給varlogadlv)\n#mkfs.xfs /dev/varlogadvg/varlogadlv(對/dev/varlogadvg/varlogadlv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/varlogadvg/varlogadlv /var/log/audit xfs defaults 0 0",
+          "使用獨立之分割磁區或邏輯磁區"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900014",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0015",
+      "sca_id": 900015,
+      "source_sheet": "基本項目",
+      "source_row": 19,
+      "expected": "使用獨立之分割磁區或邏輯磁區",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "15",
+        "TWGCB-01-012-0015",
+        "磁碟與檔案系統",
+        "設定/home目錄之檔案系統",
+        "這項原則設定決定是否為/home目錄建立獨立之分割磁區或邏輯磁區\n/home目錄是系統預設之使用者家目錄(Home directory)。每當新增1個一般使用者帳號時，預設的使用者家目錄都會建立在/home目錄下\n為/home目錄建立獨立之分割磁區或邏輯磁區，可避免系統儲存空間耗盡，同時可限制欲存放的檔案類型",
+        "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/home指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/home磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/home邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M homevg /dev/sda3(對/dev/sda3建立1個VG，VG名稱homevg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n homelv homevg (從homevg分割出1個LV，LV名稱homelv，並將15個PE配置給homelv)\n#mkfs.xfs /dev/homevg/homelv(對/dev/homevg/homelv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/homevg/homelv /home xfs defaults  0  0",
+        "使用獨立之分割磁區或邏輯磁區"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "15",
+          "TWGCB-01-012-0015",
+          "磁碟與檔案系統",
+          "設定/home目錄之檔案系統",
+          "這項原則設定決定是否為/home目錄建立獨立之分割磁區或邏輯磁區\n/home目錄是系統預設之使用者家目錄(Home directory)。每當新增1個一般使用者帳號時，預設的使用者家目錄都會建立在/home目錄下\n為/home目錄建立獨立之分割磁區或邏輯磁區，可避免系統儲存空間耗盡，同時可限制欲存放的檔案類型",
+          "對於新安裝之系統，在系統安裝過程中建立自定義磁區，為/home指定一個獨立磁區\n對於已安裝之系統，請先完成全系統備份後始進行磁區分割作業，使用邏輯磁區管理員建立獨立的/home磁區之範例如下：\n情境說明：系統擁有1顆20GB之SCSI硬碟，目前已建立2個主要磁區，合計已使用5GB空間。針對剩餘硬碟空間使用LVM建立1個256MB的/home邏輯磁區操作順序如下：\n#gdisk /dev/sda\n#n(新增磁區)\n#3(建立磁區編號)\n#enter(在First sector輸入)\n#+256M(在Last sector輸入)\n#8e00(變更Hex code，LVM磁區代碼)\n#w(寫入磁區分割表格)\n#partprobe(強制重新抓磁區分割表格)\n#pvcreate /dev/sda3(對/dev/sda3建立PV)\n#vgcreate -s 16M homevg /dev/sda3(對/dev/sda3建立1個VG，VG名稱homevg，且指定1個PE大小16MB)\n#vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15)\n#lvcreate -l 15 -n homelv homevg (從homevg分割出1個LV，LV名稱homelv，並將15個PE配置給homelv)\n#mkfs.xfs /dev/homevg/homelv(對/dev/homevg/homelv進行格式化)\n接著，編輯/etc/fstab檔案，新增或修改成以下內容：\n/dev/homevg/homelv /home xfs defaults  0  0",
+          "使用獨立之分割磁區或邏輯磁區"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900015",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0016",
+      "sca_id": 900016,
+      "source_sheet": "基本項目",
+      "source_row": 20,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "16",
+        "TWGCB-01-012-0016",
+        "磁碟與檔案系統",
+        "設定/home目錄之nodev選項",
+        "這項原則設定決定/home目錄是否啟用nodev選項，以禁止在/home目錄中建立裝置檔案\n/home目錄是系統預設之使用者家目錄(Home directory)。每當新增一般使用者帳號時，預設之使用者家目錄都會建立在/home目錄下\n由於/home目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/home目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "編輯/etc/fstab檔案，在掛載點為/home列，於第4欄加入「,nodev」\n開啟終端機，執行下列指令，重新掛載/home：\n#mount -o remount,nodev /home",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "16",
+          "TWGCB-01-012-0016",
+          "磁碟與檔案系統",
+          "設定/home目錄之nodev選項",
+          "這項原則設定決定/home目錄是否啟用nodev選項，以禁止在/home目錄中建立裝置檔案\n/home目錄是系統預設之使用者家目錄(Home directory)。每當新增一般使用者帳號時，預設之使用者家目錄都會建立在/home目錄下\n由於/home目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/home目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "編輯/etc/fstab檔案，在掛載點為/home列，於第4欄加入「,nodev」\n開啟終端機，執行下列指令，重新掛載/home：\n#mount -o remount,nodev /home",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900016",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0017",
+      "sca_id": 900017,
+      "source_sheet": "基本項目",
+      "source_row": 21,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "17",
+        "TWGCB-01-012-0017",
+        "磁碟與檔案系統",
+        "設定/dev/shm目錄之nodev選項",
+        "這項原則設定決定/dev/shm目錄是否啟用nodev選項，以禁止在/dev/shm目錄中建立裝置檔案\n/dev/shm目錄是系統利用記憶體建立之虛擬磁碟空間，用以存放暫存檔案，一方面存取速度比硬碟快，另一方面可依實際檔案大小動態分配空間\n由於/dev/shm目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/dev/shm目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "編輯/etc/fstab檔案，在掛載點為/dev/shm列，於第4欄加入「,nodev」\n若掛載點不存在，請於/etc/fstab檔案新增掛載點，並於第4欄加入「,nodev」，範例如下：\n/dev/shm tmpfs rw, nodev,seclabel 0 0\n開啟終端機，執行下列指令，重新掛載/dev/shm：\n#mount -o remount,nodev /dev/shm",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "17",
+          "TWGCB-01-012-0017",
+          "磁碟與檔案系統",
+          "設定/dev/shm目錄之nodev選項",
+          "這項原則設定決定/dev/shm目錄是否啟用nodev選項，以禁止在/dev/shm目錄中建立裝置檔案\n/dev/shm目錄是系統利用記憶體建立之虛擬磁碟空間，用以存放暫存檔案，一方面存取速度比硬碟快，另一方面可依實際檔案大小動態分配空間\n由於/dev/shm目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/dev/shm目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "編輯/etc/fstab檔案，在掛載點為/dev/shm列，於第4欄加入「,nodev」\n若掛載點不存在，請於/etc/fstab檔案新增掛載點，並於第4欄加入「,nodev」，範例如下：\n/dev/shm tmpfs rw, nodev,seclabel 0 0\n開啟終端機，執行下列指令，重新掛載/dev/shm：\n#mount -o remount,nodev /dev/shm",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900017",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0018",
+      "sca_id": 900018,
+      "source_sheet": "基本項目",
+      "source_row": 22,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "18",
+        "TWGCB-01-012-0018",
+        "磁碟與檔案系統",
+        "設定/dev/shm目錄之nosuid選項",
+        "這項原則設定決定/dev/shm目錄是否啟用nosuid選項，以禁止/dev/shm目錄存在具有SUID屬性之檔案\n/dev/shm目錄是系統利用記憶體建立之虛擬磁碟空間，用以存放暫存檔案，一方面存取速度比硬碟快，另一方面可依實際檔案大小動態分配空間\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+        "編輯/etc/fstab檔案，在掛載點為/dev/shm列，於第4欄加入「,nosuid」\n若掛載點不存在，請於/etc/fstab檔案新增掛載點，並於第4欄加入「,nosuid」，範例如下：\n/dev/shm tmpfs rw, nosuid,seclabel 0 0\n開啟終端機，執行下列指令，重新掛載/dev/shm：\n#mount -o remount,nosuid /dev/shm",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "18",
+          "TWGCB-01-012-0018",
+          "磁碟與檔案系統",
+          "設定/dev/shm目錄之nosuid選項",
+          "這項原則設定決定/dev/shm目錄是否啟用nosuid選項，以禁止/dev/shm目錄存在具有SUID屬性之檔案\n/dev/shm目錄是系統利用記憶體建立之虛擬磁碟空間，用以存放暫存檔案，一方面存取速度比硬碟快，另一方面可依實際檔案大小動態分配空間\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+          "編輯/etc/fstab檔案，在掛載點為/dev/shm列，於第4欄加入「,nosuid」\n若掛載點不存在，請於/etc/fstab檔案新增掛載點，並於第4欄加入「,nosuid」，範例如下：\n/dev/shm tmpfs rw, nosuid,seclabel 0 0\n開啟終端機，執行下列指令，重新掛載/dev/shm：\n#mount -o remount,nosuid /dev/shm",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900018",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0019",
+      "sca_id": 900019,
+      "source_sheet": "基本項目",
+      "source_row": 23,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "19",
+        "TWGCB-01-012-0019",
+        "磁碟與檔案系統",
+        "設定/dev/shm目錄之noexec選項",
+        "這項原則設定決定/dev/shm目錄是否啟用noexec選項，以禁止在/dev/shm目錄中啟動可執行二進制檔案\n/dev/shm目錄是系統利用記憶體建立之虛擬磁碟空間，用以存放暫存檔案，一方面存取速度比硬碟快，另一方面可依實際檔案大小動態分配空間\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+        "編輯/etc/fstab檔案，在掛載點為/dev/shm列，於第4欄加入「,noexec」\n若掛載點不存在，請於/etc/fstab檔案新增掛載點，並於第4欄加入「,noexec」，範例如下：\n/dev/shm tmpfs rw, noexec,seclabel 0 0\n開啟終端機，執行下列指令，重新掛載/dev/shm：\n#mount -o remount,noexec /dev/shm",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "19",
+          "TWGCB-01-012-0019",
+          "磁碟與檔案系統",
+          "設定/dev/shm目錄之noexec選項",
+          "這項原則設定決定/dev/shm目錄是否啟用noexec選項，以禁止在/dev/shm目錄中啟動可執行二進制檔案\n/dev/shm目錄是系統利用記憶體建立之虛擬磁碟空間，用以存放暫存檔案，一方面存取速度比硬碟快，另一方面可依實際檔案大小動態分配空間\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+          "編輯/etc/fstab檔案，在掛載點為/dev/shm列，於第4欄加入「,noexec」\n若掛載點不存在，請於/etc/fstab檔案新增掛載點，並於第4欄加入「,noexec」，範例如下：\n/dev/shm tmpfs rw, noexec,seclabel 0 0\n開啟終端機，執行下列指令，重新掛載/dev/shm：\n#mount -o remount,noexec /dev/shm",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900019",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0020",
+      "sca_id": 900020,
+      "source_sheet": "基本項目",
+      "source_row": 24,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "20",
+        "TWGCB-01-012-0020",
+        "磁碟與檔案系統",
+        "設定可攜式儲存裝置之nodev選項",
+        "這項原則設定決定可攜式儲存裝置是否啟用nodev選項，以禁止在可攜式儲存裝置中建立裝置檔案\n設定nodev選項以確保使用者無法在可攜式儲存裝置建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "開啟終端機，執行以下指令，檢查是否有掛載可攜式儲存裝置：\n#mount\n若發現有掛載可攜式儲存裝置，則編輯/etc/fstab檔案，在掛載點為「可攜式儲存裝置」列，於第4欄加入「,nodev」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "20",
+          "TWGCB-01-012-0020",
+          "磁碟與檔案系統",
+          "設定可攜式儲存裝置之nodev選項",
+          "這項原則設定決定可攜式儲存裝置是否啟用nodev選項，以禁止在可攜式儲存裝置中建立裝置檔案\n設定nodev選項以確保使用者無法在可攜式儲存裝置建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "開啟終端機，執行以下指令，檢查是否有掛載可攜式儲存裝置：\n#mount\n若發現有掛載可攜式儲存裝置，則編輯/etc/fstab檔案，在掛載點為「可攜式儲存裝置」列，於第4欄加入「,nodev」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900020",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0021",
+      "sca_id": 900021,
+      "source_sheet": "基本項目",
+      "source_row": 25,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "21",
+        "TWGCB-01-012-0021",
+        "磁碟與檔案系統",
+        "設定可攜式儲存裝置之nosuid選項",
+        "這項原則設定決定可攜式儲存裝置是否啟用nosuid選項，以禁止可攜式儲存裝置存在具有SUID屬性之檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+        "開啟終端機，執行以下指令，檢查是否有掛載可攜式儲存裝置：\n#mount\n若發現有掛載可攜式儲存裝置，則編輯/etc/fstab檔案，在掛載點為「可攜式儲存裝置」列，於第4欄加入「,nosuid」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "21",
+          "TWGCB-01-012-0021",
+          "磁碟與檔案系統",
+          "設定可攜式儲存裝置之nosuid選項",
+          "這項原則設定決定可攜式儲存裝置是否啟用nosuid選項，以禁止可攜式儲存裝置存在具有SUID屬性之檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+          "開啟終端機，執行以下指令，檢查是否有掛載可攜式儲存裝置：\n#mount\n若發現有掛載可攜式儲存裝置，則編輯/etc/fstab檔案，在掛載點為「可攜式儲存裝置」列，於第4欄加入「,nosuid」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900021",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0022",
+      "sca_id": 900022,
+      "source_sheet": "基本項目",
+      "source_row": 26,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "22",
+        "TWGCB-01-012-0022",
+        "磁碟與檔案系統",
+        "設定可攜式儲存裝置之noexec選項",
+        "這項原則設定決定可攜式儲存裝置是否啟用noexec選項，以禁止在可攜式儲存裝置中啟動可執行二進制檔案\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+        "開啟終端機，執行以下指令，檢查是否有掛載可攜式儲存裝置：\n#mount\n若發現有掛載可攜式儲存裝置，則編輯/etc/fstab檔案，在掛載點為「可攜式儲存裝置」列，於第4欄加入「,noexec」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "22",
+          "TWGCB-01-012-0022",
+          "磁碟與檔案系統",
+          "設定可攜式儲存裝置之noexec選項",
+          "這項原則設定決定可攜式儲存裝置是否啟用noexec選項，以禁止在可攜式儲存裝置中啟動可執行二進制檔案\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+          "開啟終端機，執行以下指令，檢查是否有掛載可攜式儲存裝置：\n#mount\n若發現有掛載可攜式儲存裝置，則編輯/etc/fstab檔案，在掛載點為「可攜式儲存裝置」列，於第4欄加入「,noexec」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900022",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0023",
+      "sca_id": 900023,
+      "source_sheet": "基本項目",
+      "source_row": 27,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "23",
+        "TWGCB-01-012-0023",
+        "磁碟與檔案系統",
+        "設定使用者家目錄之nodev選項",
+        "這項原則設定決定使用者家目錄是否啟用nodev選項，以禁止在使用者家目錄中建立裝置檔案\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n由於使用者家目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/home目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "開啟終端機，執行下列指令，尋找使用者家目錄(/home/使用者帳號)：\n#awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd\n執行下列指令，檢查/etc/fstab檔案，確認系統開機時掛載之檔案系統：\n#more /etc/fstab\n若發現使用者家目錄掛載在獨立檔案系統，則編輯/etc/fstab檔案，在掛載點為「使用者家目錄」列，於第4欄加入「,nodev」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "23",
+          "TWGCB-01-012-0023",
+          "磁碟與檔案系統",
+          "設定使用者家目錄之nodev選項",
+          "這項原則設定決定使用者家目錄是否啟用nodev選項，以禁止在使用者家目錄中建立裝置檔案\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n由於使用者家目錄用途不在於支援裝置，設定nodev選項以確保使用者無法在/home目錄建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "開啟終端機，執行下列指令，尋找使用者家目錄(/home/使用者帳號)：\n#awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd\n執行下列指令，檢查/etc/fstab檔案，確認系統開機時掛載之檔案系統：\n#more /etc/fstab\n若發現使用者家目錄掛載在獨立檔案系統，則編輯/etc/fstab檔案，在掛載點為「使用者家目錄」列，於第4欄加入「,nodev」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900023",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0024",
+      "sca_id": 900024,
+      "source_sheet": "基本項目",
+      "source_row": 28,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "24",
+        "TWGCB-01-012-0024",
+        "磁碟與檔案系統",
+        "設定使用者家目錄之nosuid選項",
+        "這項原則設定決定使用者家目錄是否啟用nosuid選項，以禁止使用者家目錄存在具有SUID屬性之檔案\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+        "開啟終端機，執行下列指令，尋找使用者家目錄(/home/使用者帳號)：\n#awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd\n執行下列指令，檢查/etc/fstab檔案，確認系統開機時掛載之檔案系統：\n#more /etc/fstab\n若發現使用者家目錄掛載在獨立檔案系統，則編輯/etc/fstab檔案，在掛載點為「使用者家目錄」列，於第4欄加入「,nosuid」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "24",
+          "TWGCB-01-012-0024",
+          "磁碟與檔案系統",
+          "設定使用者家目錄之nosuid選項",
+          "這項原則設定決定使用者家目錄是否啟用nosuid選項，以禁止使用者家目錄存在具有SUID屬性之檔案\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+          "開啟終端機，執行下列指令，尋找使用者家目錄(/home/使用者帳號)：\n#awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd\n執行下列指令，檢查/etc/fstab檔案，確認系統開機時掛載之檔案系統：\n#more /etc/fstab\n若發現使用者家目錄掛載在獨立檔案系統，則編輯/etc/fstab檔案，在掛載點為「使用者家目錄」列，於第4欄加入「,nosuid」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900024",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0025",
+      "sca_id": 900025,
+      "source_sheet": "基本項目",
+      "source_row": 29,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "25",
+        "TWGCB-01-012-0025",
+        "磁碟與檔案系統",
+        "設定使用者家目錄之noexec選項",
+        "這項原則設定決定使用者家目錄是否啟用noexec選項，以禁止在使用者家目錄中啟動可執行二進制檔案\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+        "開啟終端機，執行下列指令，尋找使用者家目錄(/home/使用者帳號)：\n#awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd\n執行下列指令，檢查/etc/fstab檔案，確認系統開機時掛載之檔案系統：\n#more /etc/fstab\n若發現使用者家目錄掛載在獨立檔案系統，則編輯/etc/fstab檔案，在掛載點為「使用者家目錄」列，於第4欄加入「,noexec」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "25",
+          "TWGCB-01-012-0025",
+          "磁碟與檔案系統",
+          "設定使用者家目錄之noexec選項",
+          "這項原則設定決定使用者家目錄是否啟用noexec選項，以禁止在使用者家目錄中啟動可執行二進制檔案\n使用者家目錄是系統預設之使用者主目錄，目錄下存放使用者之環境設定與個人檔案\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+          "開啟終端機，執行下列指令，尋找使用者家目錄(/home/使用者帳號)：\n#awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd\n執行下列指令，檢查/etc/fstab檔案，確認系統開機時掛載之檔案系統：\n#more /etc/fstab\n若發現使用者家目錄掛載在獨立檔案系統，則編輯/etc/fstab檔案，在掛載點為「使用者家目錄」列，於第4欄加入「,noexec」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900025",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0026",
+      "sca_id": 900026,
+      "source_sheet": "基本項目",
+      "source_row": 30,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "26",
+        "TWGCB-01-012-0026",
+        "磁碟與檔案系統",
+        "設定NFS檔案系統之nodev選項",
+        "這項原則設定決定NFS檔案系統是否啟用nodev選項，以禁止在NFS檔案系統中建立裝置檔案\n設定nodev選項以確保使用者無法在NFS檔案系統中建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+        "開啟終端機，執行下列指令，檢查/etc/fstab檔案，確認系統開機時是否有掛載NFS檔案系統：\n#grep nfs /etc/fstab\n若發現有掛載NFS檔案系統，則編輯/etc/fstab檔案，在掛載點為「NFS檔案系統」列，於第4欄加入「,nodev」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "26",
+          "TWGCB-01-012-0026",
+          "磁碟與檔案系統",
+          "設定NFS檔案系統之nodev選項",
+          "這項原則設定決定NFS檔案系統是否啟用nodev選項，以禁止在NFS檔案系統中建立裝置檔案\n設定nodev選項以確保使用者無法在NFS檔案系統中建立裝置檔案或存取隨機硬體裝置，降低惡意程式感染風險\n可設定之參數如下：\ndev：允許建立裝置檔案\nnodev：禁止建立裝置檔案",
+          "開啟終端機，執行下列指令，檢查/etc/fstab檔案，確認系統開機時是否有掛載NFS檔案系統：\n#grep nfs /etc/fstab\n若發現有掛載NFS檔案系統，則編輯/etc/fstab檔案，在掛載點為「NFS檔案系統」列，於第4欄加入「,nodev」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900026",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0027",
+      "sca_id": 900027,
+      "source_sheet": "基本項目",
+      "source_row": 31,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "27",
+        "TWGCB-01-012-0027",
+        "磁碟與檔案系統",
+        "設定NFS檔案系統之nosuid選項",
+        "這項原則設定決定NFS檔案系統是否啟用nosuid選項，以禁止NFS檔案系統存在具有SUID屬性之檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+        "開啟終端機，執行下列指令，檢查/etc/fstab檔案，確認系統開機時是否有掛載NFS檔案系統：\n#grep nfs /etc/fstab\n若發現有掛載NFS檔案系統，則編輯/etc/fstab檔案，在掛載點為「NFS檔案系統」列，於第4欄加入「,nosuid」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "27",
+          "TWGCB-01-012-0027",
+          "磁碟與檔案系統",
+          "設定NFS檔案系統之nosuid選項",
+          "這項原則設定決定NFS檔案系統是否啟用nosuid選項，以禁止NFS檔案系統存在具有SUID屬性之檔案\nSUID(Set User ID)是針對可執行二進制檔案(Binary file)設計之一項功能，任何使用者執行該程式時，會以該程式之擁有者身分執行，藉由短暫提權讓一般使用者存取未被授權之檔案\n可設定之參數如下：\nsuid：允許存在具有SUID屬性之檔案\nnosuid：禁止存在具有SUID屬性之檔案",
+          "開啟終端機，執行下列指令，檢查/etc/fstab檔案，確認系統開機時是否有掛載NFS檔案系統：\n#grep nfs /etc/fstab\n若發現有掛載NFS檔案系統，則編輯/etc/fstab檔案，在掛載點為「NFS檔案系統」列，於第4欄加入「,nosuid」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900027",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0028",
+      "sca_id": 900028,
+      "source_sheet": "基本項目",
+      "source_row": 32,
+      "expected": "啟用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "28",
+        "TWGCB-01-012-0028",
+        "磁碟與檔案系統",
+        "設定NFS檔案系統之noexec選項",
+        "這項原則設定決定NFS檔案系統是否啟用noexec選項，以禁止在NFS檔案系統中啟動可執行二進制檔案\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+        "開啟終端機，執行下列指令，檢查/etc/fstab檔案，確認系統開機時是否有掛載NFS檔案系統：\n#grep nfs /etc/fstab\n若發現有掛載NFS檔案系統，則編輯/etc/fstab檔案，在掛載點為「NFS檔案系統」列，於第4欄加入「,noexec」",
+        "啟用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "28",
+          "TWGCB-01-012-0028",
+          "磁碟與檔案系統",
+          "設定NFS檔案系統之noexec選項",
+          "這項原則設定決定NFS檔案系統是否啟用noexec選項，以禁止在NFS檔案系統中啟動可執行二進制檔案\n設定noexec選項，禁止使用者啟動可執行二進制檔案，以避免感染惡意程式\n可設定之參數如下：\nexec：允許啟動可執行二進制檔案\nnoexec：禁止啟動可執行二進制檔案",
+          "開啟終端機，執行下列指令，檢查/etc/fstab檔案，確認系統開機時是否有掛載NFS檔案系統：\n#grep nfs /etc/fstab\n若發現有掛載NFS檔案系統，則編輯/etc/fstab檔案，在掛載點為「NFS檔案系統」列，於第4欄加入「,noexec」",
+          "啟用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900028",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip",
+        "absence_review",
+        "conditional_negative"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0029",
+      "sca_id": 900029,
+      "source_sheet": "基本項目",
+      "source_row": 33,
+      "expected": "設定粘滯位",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "29",
+        "TWGCB-01-012-0029",
+        "磁碟與檔案系統",
+        "設定全域寫入權限目錄之粘滯位",
+        "這項原則設定決定所有具有全域寫入(World-writable)權限之目錄是否設定粘滯位(Sticky bit)\n設定粘滯位(Sticky bit)確保只有擁有者才能刪除或更名自己建立之檔案，以防止使用者任意刪除或更名其他使用者所建立之檔案",
+        "開啟終端機，執行下列指令，在所有具有全域寫入(World-writable)權限之目錄設定粘滯位：\n#df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \\( -perm -0002 -a ! -perm -1000 \\) 2>/dev/null | xargs -I '{}' chmod o+t '{}'",
+        "設定粘滯位"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "29",
+          "TWGCB-01-012-0029",
+          "磁碟與檔案系統",
+          "設定全域寫入權限目錄之粘滯位",
+          "這項原則設定決定所有具有全域寫入(World-writable)權限之目錄是否設定粘滯位(Sticky bit)\n設定粘滯位(Sticky bit)確保只有擁有者才能刪除或更名自己建立之檔案，以防止使用者任意刪除或更名其他使用者所建立之檔案",
+          "開啟終端機，執行下列指令，在所有具有全域寫入(World-writable)權限之目錄設定粘滯位：\n#df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \\( -perm -0002 -a ! -perm -1000 \\) 2>/dev/null | xargs -I '{}' chmod o+t '{}'",
+          "設定粘滯位"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "來源 df --local -P 逐本機磁區，find -xdev -type d -perm -0002 ! -perm -1000 -print -quit；24秒整體預算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900029",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 df --local -P 逐本機磁區，find -xdev -type d -perm -0002 ! -perm -1000 -print -quit；24秒整體預算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
     {
       "gcb_id": "TWGCB-01-012-0030",
       "sca_id": 900030,
@@ -82,6 +1669,60 @@
       "family": "systemd 服務",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0031",
+      "sca_id": 900031,
+      "source_sheet": "基本項目",
+      "source_row": 35,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "31",
+        "TWGCB-01-012-0031",
+        "磁碟與檔案系統",
+        "USB儲存裝置",
+        "這項原則設定決定是否使用USB儲存裝置\nUSB儲存裝置提供檔案傳輸與儲存方式，USB儲存裝置之廣泛使用，致使USB惡意程式成為滲透入侵之常見手段\n停用USB儲存裝置將減少系統實體攻擊面，以及降低引入惡意程式之風險",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「usb-storage.conf」檔案，範例如下：\n#vim /etc/modprobe.d/usb-storage.conf\n並在檔案中加入以下內容：\ninstall usb-storage /bin/true\nblacklist usb-storage\n開啟終端機，執行下列指令，移除usb-storage模組：\nrmmod usb-storage\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "31",
+          "TWGCB-01-012-0031",
+          "磁碟與檔案系統",
+          "USB儲存裝置",
+          "這項原則設定決定是否使用USB儲存裝置\nUSB儲存裝置提供檔案傳輸與儲存方式，USB儲存裝置之廣泛使用，致使USB惡意程式成為滲透入侵之常見手段\n停用USB儲存裝置將減少系統實體攻擊面，以及降低引入惡意程式之風險",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「usb-storage.conf」檔案，範例如下：\n#vim /etc/modprobe.d/usb-storage.conf\n並在檔案中加入以下內容：\ninstall usb-storage /bin/true\nblacklist usb-storage\n開啟終端機，執行下列指令，移除usb-storage模組：\nrmmod usb-storage\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900031",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
     },
     {
       "gcb_id": "TWGCB-01-012-0032",
@@ -10414,6 +12055,1015 @@
       "source_approval": "pending",
       "live_validation": "UNVALIDATED",
       "pending": "確認 wheel 包含 root；其他允許成員名單需人工核准。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0285",
+      "sca_id": 900285,
+      "source_sheet": "基本項目",
+      "source_row": 245,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "241",
+        "TWGCB-01-012-0285",
+        "磁碟與檔案系統",
+        "freevxfs檔案系統",
+        "這項原則設定決定是否支援freevxfs檔案系統\nfreevxfs(free Veritas File System，free Veritas檔案系統)是一種開放式Linux檔案系統，最初由Veritas開發，並廣泛應用於HP-UX系統，用以提升檔案管理效率與可靠性\nfreevxfs檔案系統支援日誌功能，具備記錄檔案系統變更之功能，以提升系統穩定性與恢復能力\n停止支援freevxfs檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「freevxfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/freevxfs.conf\n並在檔案中加入以下內容：\ninstall freevxfs /bin/true\nblacklist freevxfs\n開啟終端機，執行下列指令，移除freevxfs模組：\n#modprobe -r freevxfs\n#rmmod freevxfs\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "241",
+          "TWGCB-01-012-0285",
+          "磁碟與檔案系統",
+          "freevxfs檔案系統",
+          "這項原則設定決定是否支援freevxfs檔案系統\nfreevxfs(free Veritas File System，free Veritas檔案系統)是一種開放式Linux檔案系統，最初由Veritas開發，並廣泛應用於HP-UX系統，用以提升檔案管理效率與可靠性\nfreevxfs檔案系統支援日誌功能，具備記錄檔案系統變更之功能，以提升系統穩定性與恢復能力\n停止支援freevxfs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「freevxfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/freevxfs.conf\n並在檔案中加入以下內容：\ninstall freevxfs /bin/true\nblacklist freevxfs\n開啟終端機，執行下列指令，移除freevxfs模組：\n#modprobe -r freevxfs\n#rmmod freevxfs\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "1",
+          "TWGCB-01-012-0285",
+          "磁碟與檔案系統",
+          "freevxfs檔案系統",
+          "這項原則設定決定是否支援freevxfs檔案系統\nfreevxfs(free Veritas File System，free Veritas檔案系統)是一種開放式Linux檔案系統，最初由Veritas開發，並廣泛應用於HP-UX系統，用以提升檔案管理效率與可靠性\nfreevxfs檔案系統支援日誌功能，具備記錄檔案系統變更之功能，以提升系統穩定性與恢復能力\n停止支援freevxfs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「freevxfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/freevxfs.conf\n並在檔案中加入以下內容：\ninstall freevxfs /bin/true\nblacklist freevxfs\n開啟終端機，執行下列指令，移除freevxfs模組：\n#modprobe -r freevxfs\n#rmmod freevxfs\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900285",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0286",
+      "sca_id": 900286,
+      "source_sheet": "基本項目",
+      "source_row": 246,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "242",
+        "TWGCB-01-012-0286",
+        "磁碟與檔案系統",
+        "hfs檔案系統",
+        "這項原則設定決定是否支援hfs檔案系統\nhfs(Hierarchical File System，分層檔案系統)由Apple所開發，主要應用於舊版macOS與部分舊版CD/DVD，可提升檔案與資料夾管理效率，並支援資料分段儲存與檔案管理\n停止支援hfs檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「hfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/hfs.conf\n並在檔案中加入以下內容：\ninstall hfs /bin/true\nblacklist hfs\n開啟終端機，執行下列指令，移除hfs模組：\n#modprobe -r hfs\n#rmmod hfs\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "242",
+          "TWGCB-01-012-0286",
+          "磁碟與檔案系統",
+          "hfs檔案系統",
+          "這項原則設定決定是否支援hfs檔案系統\nhfs(Hierarchical File System，分層檔案系統)由Apple所開發，主要應用於舊版macOS與部分舊版CD/DVD，可提升檔案與資料夾管理效率，並支援資料分段儲存與檔案管理\n停止支援hfs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「hfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/hfs.conf\n並在檔案中加入以下內容：\ninstall hfs /bin/true\nblacklist hfs\n開啟終端機，執行下列指令，移除hfs模組：\n#modprobe -r hfs\n#rmmod hfs\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "2",
+          "TWGCB-01-012-0286",
+          "磁碟與檔案系統",
+          "hfs檔案系統",
+          "這項原則設定決定是否支援hfs檔案系統\nhfs(Hierarchical File System，分層檔案系統)由Apple所開發，主要應用於舊版macOS與部分舊版CD/DVD，可提升檔案與資料夾管理效率，並支援資料分段儲存與檔案管理\n停止支援hfs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「hfs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/hfs.conf\n並在檔案中加入以下內容：\ninstall hfs /bin/true\nblacklist hfs\n開啟終端機，執行下列指令，移除hfs模組：\n#modprobe -r hfs\n#rmmod hfs\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900286",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0287",
+      "sca_id": 900287,
+      "source_sheet": "基本項目",
+      "source_row": 247,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "243",
+        "TWGCB-01-012-0287",
+        "磁碟與檔案系統",
+        "hfs plus檔案系統",
+        "這項原則設定決定是否支援hfs plus檔案系統\nhfs plus(Hierarchical File System Plus，分層檔案系統加強版)由Apple所開發，為hfs檔案系統之改良版，於1998年隨macOS 8.1推出，並成為舊版macOS與iPod等裝置之主要檔案系統格式\n停止支援hfs plus檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「hfsplus.conf」檔案，範例如下：\n#vim /etc/modprobe.d/hfsplus.conf\n並在檔案中加入以下內容：\ninstall hfsplus /bin/true\nblacklist hfsplus\n開啟終端機，執行下列指令，移除hfsplus模組：\n#modprobe -r hfsplus\n#rmmod hfsplus\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "243",
+          "TWGCB-01-012-0287",
+          "磁碟與檔案系統",
+          "hfs plus檔案系統",
+          "這項原則設定決定是否支援hfs plus檔案系統\nhfs plus(Hierarchical File System Plus，分層檔案系統加強版)由Apple所開發，為hfs檔案系統之改良版，於1998年隨macOS 8.1推出，並成為舊版macOS與iPod等裝置之主要檔案系統格式\n停止支援hfs plus檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「hfsplus.conf」檔案，範例如下：\n#vim /etc/modprobe.d/hfsplus.conf\n並在檔案中加入以下內容：\ninstall hfsplus /bin/true\nblacklist hfsplus\n開啟終端機，執行下列指令，移除hfsplus模組：\n#modprobe -r hfsplus\n#rmmod hfsplus\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "3",
+          "TWGCB-01-012-0287",
+          "磁碟與檔案系統",
+          "hfs plus檔案系統",
+          "這項原則設定決定是否支援hfs plus檔案系統\nhfs plus(Hierarchical File System Plus，分層檔案系統加強版)由Apple所開發，為hfs檔案系統之改良版，於1998年隨macOS 8.1推出，並成為舊版macOS與iPod等裝置之主要檔案系統格式\n停止支援hfs plus檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「hfsplus.conf」檔案，範例如下：\n#vim /etc/modprobe.d/hfsplus.conf\n並在檔案中加入以下內容：\ninstall hfsplus /bin/true\nblacklist hfsplus\n開啟終端機，執行下列指令，移除hfsplus模組：\n#modprobe -r hfsplus\n#rmmod hfsplus\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900287",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0288",
+      "sca_id": 900288,
+      "source_sheet": "基本項目",
+      "source_row": 248,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "244",
+        "TWGCB-01-012-0288",
+        "磁碟與檔案系統",
+        "jffs2檔案系統",
+        "這項原則設定決定是否支援jffs2檔案系統\njffs2(Journaling Flash File System version 2，日誌式快閃檔案系統)是專為嵌入式系統與快閃記憶體設計之開放式Linux檔案系統，為jffs檔案系統之改良版，針對NAND與NOR快閃記憶體進行調整與改進，主要應用於物聯網裝置\n停止支援jffs2檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「jffs2.conf」檔案，範例如下：\n#vim /etc/modprobe.d/jffs2.conf\n並在檔案中加入以下內容：\ninstall jffs2 /bin/true\nblacklist jffs2\n開啟終端機，執行下列指令，移除jffs2模組：\n#modprobe -r jffs2\n#rmmod jffs2\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "244",
+          "TWGCB-01-012-0288",
+          "磁碟與檔案系統",
+          "jffs2檔案系統",
+          "這項原則設定決定是否支援jffs2檔案系統\njffs2(Journaling Flash File System version 2，日誌式快閃檔案系統)是專為嵌入式系統與快閃記憶體設計之開放式Linux檔案系統，為jffs檔案系統之改良版，針對NAND與NOR快閃記憶體進行調整與改進，主要應用於物聯網裝置\n停止支援jffs2檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「jffs2.conf」檔案，範例如下：\n#vim /etc/modprobe.d/jffs2.conf\n並在檔案中加入以下內容：\ninstall jffs2 /bin/true\nblacklist jffs2\n開啟終端機，執行下列指令，移除jffs2模組：\n#modprobe -r jffs2\n#rmmod jffs2\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "4",
+          "TWGCB-01-012-0288",
+          "磁碟與檔案系統",
+          "jffs2檔案系統",
+          "這項原則設定決定是否支援jffs2檔案系統\njffs2(Journaling Flash File System version 2，日誌式快閃檔案系統)是專為嵌入式系統與快閃記憶體設計之開放式Linux檔案系統，為jffs檔案系統之改良版，針對NAND與NOR快閃記憶體進行調整與改進，主要應用於物聯網裝置\n停止支援jffs2檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「jffs2.conf」檔案，範例如下：\n#vim /etc/modprobe.d/jffs2.conf\n並在檔案中加入以下內容：\ninstall jffs2 /bin/true\nblacklist jffs2\n開啟終端機，執行下列指令，移除jffs2模組：\n#modprobe -r jffs2\n#rmmod jffs2\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900288",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0289",
+      "sca_id": 900289,
+      "source_sheet": "基本項目",
+      "source_row": 249,
+      "expected": "停用",
+      "docx_historical_cells": [
+        [
+          "5",
+          "TWGCB-01-012-0289",
+          "磁碟與檔案系統",
+          "afs檔案系統",
+          "這項原則設定決定是否支援afs檔案系統\nafs(Andrew File System，安德魯檔案系統)為一種分散式網路檔案系統，由卡內基美隆大學開發，並以Andrew計畫命名，其設計適用於大型分散式環境，允許多個使用者透過網路存取遠端伺服器之共享檔案，具備存取控制與快取機制以提升效能與安全性，最早應用於學術與研究機構\n停止支援afs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「afs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/afs.conf\n並在檔案中加入以下內容：\ninstall afs /bin/true\nblacklist afs\n開啟終端機，執行下列指令，移除afs模組：\n#modprobe -r afs\n#rmmod afs\n完成後，請重新開機",
+          "磁碟與檔案系統"
+        ]
+      ],
+      "docx_cells": [
+        "245",
+        "TWGCB-01-012-0289",
+        "磁碟與檔案系統",
+        "afs檔案系統",
+        "這項原則設定決定是否支援afs檔案系統\nafs(Andrew File System，安德魯檔案系統)為一種分散式網路檔案系統，由卡內基美隆大學開發，並以Andrew計畫命名，其設計適用於大型分散式環境，允許多個使用者透過網路存取遠端伺服器之共享檔案，具備存取控制與快取機制以提升效能與安全性，最早應用於學術與研究機構\n停止支援afs檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「afs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/afs.conf\n並在檔案中加入以下內容：\ninstall afs /bin/true\nblacklist afs\n開啟終端機，執行下列指令，移除afs模組：\n#modprobe -r afs\n#rmmod afs\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "245",
+          "TWGCB-01-012-0289",
+          "磁碟與檔案系統",
+          "afs檔案系統",
+          "這項原則設定決定是否支援afs檔案系統\nafs(Andrew File System，安德魯檔案系統)為一種分散式網路檔案系統，由卡內基美隆大學開發，並以Andrew計畫命名，其設計適用於大型分散式環境，允許多個使用者透過網路存取遠端伺服器之共享檔案，具備存取控制與快取機制以提升效能與安全性，最早應用於學術與研究機構\n停止支援afs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「afs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/afs.conf\n並在檔案中加入以下內容：\ninstall afs /bin/true\nblacklist afs\n開啟終端機，執行下列指令，移除afs模組：\n#modprobe -r afs\n#rmmod afs\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900289",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0290",
+      "sca_id": 900290,
+      "source_sheet": "基本項目",
+      "source_row": 250,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "246",
+        "TWGCB-01-012-0290",
+        "磁碟與檔案系統",
+        "ceph檔案系統",
+        "這項原則設定決定是否支援ceph檔案系統\nceph為一種開源分散式儲存系統，設計提供高度可擴展且具容錯能力之儲存解決方案，透過分散式架構與自我修復機制，實現無單點故障，支援多種儲存模式，包含物件儲存、區塊儲存及檔案系統儲存等，常用於OpenStack與Kubernetes等平台\n停止支援ceph檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「ceph.conf」檔案，範例如下：\n#vim /etc/modprobe.d/ceph.conf\n並在檔案中加入以下內容：\ninstall ceph /bin/true\nblacklist ceph\n開啟終端機，執行下列指令，移除ceph模組：\n#modprobe -r ceph\n#rmmod ceph\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "246",
+          "TWGCB-01-012-0290",
+          "磁碟與檔案系統",
+          "ceph檔案系統",
+          "這項原則設定決定是否支援ceph檔案系統\nceph為一種開源分散式儲存系統，設計提供高度可擴展且具容錯能力之儲存解決方案，透過分散式架構與自我修復機制，實現無單點故障，支援多種儲存模式，包含物件儲存、區塊儲存及檔案系統儲存等，常用於OpenStack與Kubernetes等平台\n停止支援ceph檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「ceph.conf」檔案，範例如下：\n#vim /etc/modprobe.d/ceph.conf\n並在檔案中加入以下內容：\ninstall ceph /bin/true\nblacklist ceph\n開啟終端機，執行下列指令，移除ceph模組：\n#modprobe -r ceph\n#rmmod ceph\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "6",
+          "TWGCB-01-012-0290",
+          "磁碟與檔案系統",
+          "ceph檔案系統",
+          "這項原則設定決定是否支援ceph檔案系統\nceph為一種開源分散式儲存系統，設計提供高度可擴展且具容錯能力之儲存解決方案，透過分散式架構與自我修復機制，實現無單點故障，支援多種儲存模式，包含物件儲存、區塊儲存及檔案系統儲存等，常用於OpenStack與 Kubernetes等平台\n停止支援ceph檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「ceph.conf」檔案，範例如下：\n#vim /etc/modprobe.d/ceph.conf\n並在檔案中加入以下內容：\ninstall ceph /bin/true\nblacklist ceph\n開啟終端機，執行下列指令，移除ceph模組：\n#modprobe -r ceph\n#rmmod ceph\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900290",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0291",
+      "sca_id": 900291,
+      "source_sheet": "基本項目",
+      "source_row": 251,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "247",
+        "TWGCB-01-012-0291",
+        "磁碟與檔案系統",
+        "cifs檔案系統",
+        "這項原則設定決定是否支援cifs檔案系統\ncifs(Common Internet File System，通用網際網路檔案系統)由Microsoft開發，主要用於Windows系統之檔案與印表機共享，係SMB之早期版本，常見於企業環境中Windows網域檔案伺服器或NAS設備\n停止支援cifs檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「cifs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/cifs.conf\n並在檔案中加入以下內容：\ninstall cifs /bin/true\nblacklist cifs\n開啟終端機，執行下列指令，移除cifs模組：\n#modprobe -r cifs\n#rmmod cifs\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "247",
+          "TWGCB-01-012-0291",
+          "磁碟與檔案系統",
+          "cifs檔案系統",
+          "這項原則設定決定是否支援cifs檔案系統\ncifs(Common Internet File System，通用網際網路檔案系統)由Microsoft開發，主要用於Windows系統之檔案與印表機共享，係SMB之早期版本，常見於企業環境中Windows網域檔案伺服器或NAS設備\n停止支援cifs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「cifs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/cifs.conf\n並在檔案中加入以下內容：\ninstall cifs /bin/true\nblacklist cifs\n開啟終端機，執行下列指令，移除cifs模組：\n#modprobe -r cifs\n#rmmod cifs\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "7",
+          "TWGCB-01-012-0291",
+          "磁碟與檔案系統",
+          "cifs檔案系統",
+          "這項原則設定決定是否支援cifs檔案系統\ncifs(Common Internet File System，通用網際網路檔案系統)由Microsoft開發，主要用於Windows系統之檔案與印表機共享，係SMB之早期版本，常見於企業環境中Windows網域檔案伺服器或NAS設備\n停止支援cifs檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「cifs.conf」檔案，範例如下：\n#vim /etc/modprobe.d/cifs.conf\n並在檔案中加入以下內容：\ninstall cifs /bin/true\nblacklist cifs\n開啟終端機，執行下列指令，移除cifs模組：\n#modprobe -r cifs\n#rmmod cifs\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900291",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0292",
+      "sca_id": 900292,
+      "source_sheet": "基本項目",
+      "source_row": 252,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "248",
+        "TWGCB-01-012-0292",
+        "磁碟與檔案系統",
+        "exfat檔案系統",
+        "這項原則設定決定是否支援exfat檔案系統\nexfat(Extended File Allocation Table，延伸檔案配置表)是Microsoft於2006年推出之檔案系統，主要應用於可攜式儲存裝置，如USB隨身碟與SD卡等\n停止支援exfat檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「exfat.conf」檔案，範例如下：\n#vim /etc/modprobe.d/exfat.conf\n並在檔案中加入以下內容：\ninstall exfat /bin/true\nblacklist exfat\n開啟終端機，執行下列指令，移除exfat模組：\n#modprobe -r exfat\n#rmmod exfat\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "248",
+          "TWGCB-01-012-0292",
+          "磁碟與檔案系統",
+          "exfat檔案系統",
+          "這項原則設定決定是否支援exfat檔案系統\nexfat(Extended File Allocation Table，延伸檔案配置表)是Microsoft於2006年推出之檔案系統，主要應用於可攜式儲存裝置，如USB隨身碟與SD卡等\n停止支援exfat檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「exfat.conf」檔案，範例如下：\n#vim /etc/modprobe.d/exfat.conf\n並在檔案中加入以下內容：\ninstall exfat /bin/true\nblacklist exfat\n開啟終端機，執行下列指令，移除exfat模組：\n#modprobe -r exfat\n#rmmod exfat\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "8",
+          "TWGCB-01-012-0292",
+          "磁碟與檔案系統",
+          "exfat檔案系統",
+          "這項原則設定決定是否支援exfat檔案系統\nexfat(Extended File Allocation Table，延伸檔案配置表)是Microsoft於2006年推出之檔案系統，主要應用於可攜式儲存裝置，如USB隨身碟與SD卡等\n停止支援exfat檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「exfat.conf」檔案，範例如下：\n#vim /etc/modprobe.d/exfat.conf\n並在檔案中加入以下內容：\ninstall exfat /bin/true\nblacklist exfat\n開啟終端機，執行下列指令，移除exfat模組：\n#modprobe -r exfat\n#rmmod exfat\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900292",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0293",
+      "sca_id": 900293,
+      "source_sheet": "基本項目",
+      "source_row": 253,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "249",
+        "TWGCB-01-012-0293",
+        "磁碟與檔案系統",
+        "ext檔案系統",
+        "這項原則設定決定是否支援ext檔案系統\next(Extended File System，延伸檔案系統)是Linux核心的原生檔案系統家族，廣泛應用於伺服器、個人電腦及嵌入式裝置之儲存環境\n停止支援ext檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「ext.conf」檔案，範例如下：\n#vim /etc/modprobe.d/ext.conf\n並在檔案中加入以下內容：\ninstall ext /bin/true\nblacklist ext\n開啟終端機，執行下列指令，移除ext模組：\n#modprobe -r ext\n#rmmod ext\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "249",
+          "TWGCB-01-012-0293",
+          "磁碟與檔案系統",
+          "ext檔案系統",
+          "這項原則設定決定是否支援ext檔案系統\next(Extended File System，延伸檔案系統)是Linux核心的原生檔案系統家族，廣泛應用於伺服器、個人電腦及嵌入式裝置之儲存環境\n停止支援ext檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「ext.conf」檔案，範例如下：\n#vim /etc/modprobe.d/ext.conf\n並在檔案中加入以下內容：\ninstall ext /bin/true\nblacklist ext\n開啟終端機，執行下列指令，移除ext模組：\n#modprobe -r ext\n#rmmod ext\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "9",
+          "TWGCB-01-012-0293",
+          "磁碟與檔案系統",
+          "ext檔案系統",
+          "這項原則設定決定是否支援ext檔案系統\next(Extended File System，延伸檔案系統)是Linux核心的原生檔案系統家族，廣泛應用於伺服器、個人電腦及嵌入式裝置之儲存環境\n停止支援ext檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「ext.conf」檔案，範例如下：\n#vim /etc/modprobe.d/ext.conf\n並在檔案中加入以下內容：\ninstall ext /bin/true\nblacklist ext\n開啟終端機，執行下列指令，移除ext模組：\n#modprobe -r ext\n#rmmod ext\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900293",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0294",
+      "sca_id": 900294,
+      "source_sheet": "基本項目",
+      "source_row": 254,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "250",
+        "TWGCB-01-012-0294",
+        "磁碟與檔案系統",
+        "fat檔案系統",
+        "這項原則設定決定是否支援fat檔案系統\nfat(File Allocation Table，檔案配置表)是Microsoft於1977年開發之檔案系統，最早應用於MS-DOS與早期Windows系統，透過檔案配置表記錄檔案存放位置，因其設計簡單且具備跨平台相容性，常應用於可攜式儲存裝置，如USB隨身碟與SD卡等\n停止支援fat檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fat.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fat.conf\n並在檔案中加入以下內容：\ninstall fat /bin/true\nblacklist fat\n開啟終端機，執行下列指令，移除fat模組：\n#modprobe -r fat\n#rmmod fat\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "250",
+          "TWGCB-01-012-0294",
+          "磁碟與檔案系統",
+          "fat檔案系統",
+          "這項原則設定決定是否支援fat檔案系統\nfat(File Allocation Table，檔案配置表)是Microsoft於1977年開發之檔案系統，最早應用於MS-DOS與早期Windows系統，透過檔案配置表記錄檔案存放位置，因其設計簡單且具備跨平台相容性，常應用於可攜式儲存裝置，如USB隨身碟與SD卡等\n停止支援fat檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fat.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fat.conf\n並在檔案中加入以下內容：\ninstall fat /bin/true\nblacklist fat\n開啟終端機，執行下列指令，移除fat模組：\n#modprobe -r fat\n#rmmod fat\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "10",
+          "TWGCB-01-012-0294",
+          "磁碟與檔案系統",
+          "fat檔案系統",
+          "這項原則設定決定是否支援fat檔案系統\nfat(File Allocation Table，檔案配置表)是Microsoft於1977年開發之檔案系統，最早應用於MS-DOS與早期Windows系統，透過檔案配置表記錄檔案存放位置，因其設計簡單且具備跨平台相容性，常應用於可攜式儲存裝置，如USB隨身碟與SD卡等\n停止支援fat檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fat.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fat.conf\n並在檔案中加入以下內容：\ninstall fat /bin/true\nblacklist fat\n開啟終端機，執行下列指令，移除fat模組：\n#modprobe -r fat\n#rmmod fat\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900294",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0295",
+      "sca_id": 900295,
+      "source_sheet": "基本項目",
+      "source_row": 255,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "251",
+        "TWGCB-01-012-0295",
+        "磁碟與檔案系統",
+        "fscache檔案系統",
+        "這項原則設定決定是否支援fscache檔案系統\nfscache(File System Cache，檔案系統快取)是Linux核心功能，其主要用途是將遠端伺服器之檔案快取至本機磁碟，以減少重複存取，提升讀取效能，並降低網路延遲與伺服器負擔\n停止支援fscache檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fscache.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fscache.conf\n並在檔案中加入以下內容：\ninstall fscache /bin/true\nblacklist fscache\n開啟終端機，執行下列指令，移除fscache模組：\n#modprobe -r fscache\n#rmmod fscache\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "251",
+          "TWGCB-01-012-0295",
+          "磁碟與檔案系統",
+          "fscache檔案系統",
+          "這項原則設定決定是否支援fscache檔案系統\nfscache(File System Cache，檔案系統快取)是Linux核心功能，其主要用途是將遠端伺服器之檔案快取至本機磁碟，以減少重複存取，提升讀取效能，並降低網路延遲與伺服器負擔\n停止支援fscache檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fscache.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fscache.conf\n並在檔案中加入以下內容：\ninstall fscache /bin/true\nblacklist fscache\n開啟終端機，執行下列指令，移除fscache模組：\n#modprobe -r fscache\n#rmmod fscache\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "11",
+          "TWGCB-01-012-0295",
+          "磁碟與檔案系統",
+          "fscache檔案系統",
+          "這項原則設定決定是否支援fscache檔案系統\nfscache(File System Cache，檔案系統快取)是Linux核心功能，主要用途是將遠端伺服器之檔案快取至本機磁碟，以減少重複存取，提升讀取效能，並降低網路延遲與伺服器負擔\n停止支援fscache檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fscache.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fscache.conf\n並在檔案中加入以下內容：\ninstall fscache /bin/true\nblacklist fscache\n開啟終端機，執行下列指令，移除fscache模組：\n#modprobe -r fscache\n#rmmod fscache\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900295",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0296",
+      "sca_id": 900296,
+      "source_sheet": "基本項目",
+      "source_row": 256,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "252",
+        "TWGCB-01-012-0296",
+        "磁碟與檔案系統",
+        "fuse檔案系統",
+        "這項原則設定決定是否支援fuse檔案系統\nfuse(Filesystem in Userspace，使用者空間檔案系統)是Linux系統之檔案系統介面，允許使用者透過程式碼建立虛擬檔案系統，這些檔案系統可基於遠端伺服器、壓縮檔案或雲端儲存服務進行運作\n停止支援fuse檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fuse.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fuse.conf\n並在檔案中加入以下內容：\ninstall fuse /bin/true\nblacklist fuse\n開啟終端機，執行下列指令，移除fuse模組：\n#modprobe -r fuse\n#rmmod fuse\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "252",
+          "TWGCB-01-012-0296",
+          "磁碟與檔案系統",
+          "fuse檔案系統",
+          "這項原則設定決定是否支援fuse檔案系統\nfuse(Filesystem in Userspace，使用者空間檔案系統)是Linux系統之檔案系統介面，允許使用者透過程式碼建立虛擬檔案系統，這些檔案系統可基於遠端伺服器、壓縮檔案或雲端儲存服務進行運作\n停止支援fuse檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fuse.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fuse.conf\n並在檔案中加入以下內容：\ninstall fuse /bin/true\nblacklist fuse\n開啟終端機，執行下列指令，移除fuse模組：\n#modprobe -r fuse\n#rmmod fuse\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "12",
+          "TWGCB-01-012-0296",
+          "磁碟與檔案系統",
+          "fuse檔案系統",
+          "這項原則設定決定是否支援fuse檔案系統\nfuse(Filesystem in Userspace，使用者空間檔案系統)是Linux系統之檔案系統介面，允許使用者透過程式碼建立虛擬檔案系統，這些檔案系統可基於遠端伺服器、壓縮檔案或雲端儲存服務進行運作\n停止支援fuse檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「fuse.conf」檔案，範例如下：\n#vim /etc/modprobe.d/fuse.conf\n並在檔案中加入以下內容：\ninstall fuse /bin/true\nblacklist fuse\n開啟終端機，執行下列指令，移除fuse模組：\n#modprobe -r fuse\n#rmmod fuse\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900296",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0297",
+      "sca_id": 900297,
+      "source_sheet": "基本項目",
+      "source_row": 257,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "253",
+        "TWGCB-01-012-0297",
+        "磁碟與檔案系統",
+        "gfs2檔案系統",
+        "這項原則設定決定是否支援gfs2檔案系統\ngfs2(Global File System 2，全域檔案系統2代)是Linux核心內建之叢集檔案系統，由Red Hat開發，專為多節點叢集環境設計，支援多個伺服器節點同時掛載並讀寫同一個分割區，實現高可用性與共享存取之儲存架構，常應用於資料中心\n停止支援gfs2檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「gfs2.conf」檔案，範例如下：\n#vim /etc/modprobe.d/gfs2.conf\n並在檔案中加入以下內容：\ninstall gfs2 /bin/true\nblacklist gfs2\n開啟終端機，執行下列指令，移除gfs2模組：\n#modprobe -r gfs2\n#rmmod gfs2\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "253",
+          "TWGCB-01-012-0297",
+          "磁碟與檔案系統",
+          "gfs2檔案系統",
+          "這項原則設定決定是否支援gfs2檔案系統\ngfs2(Global File System 2，全域檔案系統2代)是Linux核心內建之叢集檔案系統，由Red Hat開發，專為多節點叢集環境設計，支援多個伺服器節點同時掛載並讀寫同一個分割區，實現高可用性與共享存取之儲存架構，常應用於資料中心\n停止支援gfs2檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「gfs2.conf」檔案，範例如下：\n#vim /etc/modprobe.d/gfs2.conf\n並在檔案中加入以下內容：\ninstall gfs2 /bin/true\nblacklist gfs2\n開啟終端機，執行下列指令，移除gfs2模組：\n#modprobe -r gfs2\n#rmmod gfs2\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "13",
+          "TWGCB-01-012-0297",
+          "磁碟與檔案系統",
+          "gfs2檔案系統",
+          "這項原則設定決定是否支援gfs2檔案系統\ngfs2(Global File System 2，全域檔案系統2代)是Linux核心內建之叢集檔案系統，由Red Hat開發，專為多節點叢集環境設計，支援多個伺服器節點同時掛載並讀寫同一個分割區，實現高可用性與共享存取之儲存架構，常應用於資料中心\n停止支援gfs2檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「gfs2.conf」檔案，範例如下：\n#vim /etc/modprobe.d/gfs2.conf\n並在檔案中加入以下內容：\ninstall gfs2 /bin/true\nblacklist gfs2\n開啟終端機，執行下列指令，移除gfs2模組：\n#modprobe -r gfs2\n#rmmod gfs2\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900297",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0298",
+      "sca_id": 900298,
+      "source_sheet": "基本項目",
+      "source_row": 258,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "254",
+        "TWGCB-01-012-0298",
+        "磁碟與檔案系統",
+        "nfs_common檔案系統",
+        "這項原則設定決定是否支援nfs_common檔案系統\nnfs_common(Network File System Common，網路檔案系統通用套件)是Linux中NFS核心組件之一，提供伺服器與客戶端檔案共享功能\n停止支援nfs_common檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「nfs_common.conf」檔案，範例如下：\n#vim /etc/modprobe.d/nfs_common.conf\n並在檔案中加入以下內容：\ninstall nfs_common /bin/true\nblacklist nfs_common\n開啟終端機，執行下列指令，移除nfs_common模組：\n#modprobe -r nfs_common\n#rmmod nfs_common\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "254",
+          "TWGCB-01-012-0298",
+          "磁碟與檔案系統",
+          "nfs_common檔案系統",
+          "這項原則設定決定是否支援nfs_common檔案系統\nnfs_common(Network File System Common，網路檔案系統通用套件)是Linux中NFS核心組件之一，提供伺服器與客戶端檔案共享功能\n停止支援nfs_common檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「nfs_common.conf」檔案，範例如下：\n#vim /etc/modprobe.d/nfs_common.conf\n並在檔案中加入以下內容：\ninstall nfs_common /bin/true\nblacklist nfs_common\n開啟終端機，執行下列指令，移除nfs_common模組：\n#modprobe -r nfs_common\n#rmmod nfs_common\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "14",
+          "TWGCB-01-012-0298",
+          "磁碟與檔案系統",
+          "nfs_common檔案系統",
+          "這項原則設定決定是否支援nfs_common檔案系統\nnfs_common(Network File System Common，網路檔案系統通用套件)是Linux中NFS核心組件之一，提供伺服器與客戶端檔案共享功能\n停止支援nfs_common檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「nfs_common.conf」檔案，範例如下：\n#vim /etc/modprobe.d/nfs_common.conf\n並在檔案中加入以下內容：\ninstall nfs_common /bin/true\nblacklist nfs_common\n開啟終端機，執行下列指令，移除nfs_common模組：\n#modprobe -r nfs_common\n#rmmod nfs_common\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900298",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0299",
+      "sca_id": 900299,
+      "source_sheet": "基本項目",
+      "source_row": 259,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "255",
+        "TWGCB-01-012-0299",
+        "磁碟與檔案系統",
+        "nfsd檔案系統",
+        "這項原則設定決定是否支援nfsd檔案系統\nnfsd(NFS Daemon，NFS伺服器守護程式)是Linux中NFS伺服器核心守護程式，負責處理來自NFS用戶端之遠端檔案共享請求\n停止支援nfsd檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「nfsd.conf」檔案，範例如下：\n#vim /etc/modprobe.d/nfsd.conf\n並在檔案中加入以下內容：\ninstall nfsd /bin/true\nblacklist nfsd\n開啟終端機，執行下列指令，移除nfsd模組：\n#modprobe -r nfsd\n#rmmod nfsd\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "255",
+          "TWGCB-01-012-0299",
+          "磁碟與檔案系統",
+          "nfsd檔案系統",
+          "這項原則設定決定是否支援nfsd檔案系統\nnfsd(NFS Daemon，NFS伺服器守護程式)是Linux中NFS伺服器核心守護程式，負責處理來自NFS用戶端之遠端檔案共享請求\n停止支援nfsd檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「nfsd.conf」檔案，範例如下：\n#vim /etc/modprobe.d/nfsd.conf\n並在檔案中加入以下內容：\ninstall nfsd /bin/true\nblacklist nfsd\n開啟終端機，執行下列指令，移除nfsd模組：\n#modprobe -r nfsd\n#rmmod nfsd\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "15",
+          "TWGCB-01-012-0299",
+          "磁碟與檔案系統",
+          "nfsd檔案系統",
+          "這項原則設定決定是否支援nfsd檔案系統\nnfsd(NFS Daemon，NFS伺服器守護程式)是Linux中NFS伺服器核心守護程式，負責處理來自NFS用戶端的遠端檔案共享請求\n停止支援nfsd檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「nfsd.conf」檔案，範例如下：\n#vim /etc/modprobe.d/nfsd.conf\n並在檔案中加入以下內容：\ninstall nfsd /bin/true\nblacklist nfsd\n開啟終端機，執行下列指令，移除nfsd模組：\n#modprobe -r nfsd\n#rmmod nfsd\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900299",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0300",
+      "sca_id": 900300,
+      "source_sheet": "基本項目",
+      "source_row": 260,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "256",
+        "TWGCB-01-012-0300",
+        "磁碟與檔案系統",
+        "smbfs_common檔案系統",
+        "這項原則設定決定是否支援smbfs_common檔案系統\nsmbfs_common(Server Message Block File System Common，伺服器訊息區塊檔案系統通用套件)是Linux上用於支援SMB/CIFS核心模組之一，用於Linux系統掛載與存取Windows共享資料夾\n停止支援smbfs_common檔案系統，以減少系統被攻擊面",
+        "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「smbfs_common.conf」檔案，範例如下：\n#vim /etc/modprobe.d/smbfs_common.conf\n並在檔案中加入以下內容：\ninstall smbfs_common /bin/true\nblacklist smbfs_common\n開啟終端機，執行下列指令，移除smbfs_common模組：\n#modprobe -r smbfs_common\n#rmmod smbfs_common\n完成後，請重新開機",
+        "停用"
+      ],
+      "docx_occurrences": 2,
+      "docx_all_cells": [
+        [
+          "256",
+          "TWGCB-01-012-0300",
+          "磁碟與檔案系統",
+          "smbfs_common檔案系統",
+          "這項原則設定決定是否支援smbfs_common檔案系統\nsmbfs_common(Server Message Block File System Common，伺服器訊息區塊檔案系統通用套件)是Linux上用於支援SMB/CIFS核心模組之一，用於Linux系統掛載與存取Windows共享資料夾\n停止支援smbfs_common檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「smbfs_common.conf」檔案，範例如下：\n#vim /etc/modprobe.d/smbfs_common.conf\n並在檔案中加入以下內容：\ninstall smbfs_common /bin/true\nblacklist smbfs_common\n開啟終端機，執行下列指令，移除smbfs_common模組：\n#modprobe -r smbfs_common\n#rmmod smbfs_common\n完成後，請重新開機",
+          "停用"
+        ],
+        [
+          "16",
+          "TWGCB-01-012-0300",
+          "磁碟與檔案系統",
+          "smbfs_common檔案系統",
+          "這項原則設定決定是否支援smbfs_common檔案系統\nsmbfs_common(Server Message Block File System Common，伺服器訊息區塊檔案系統通用套件)是Linux上用於支援SMB/CIFS的核心模組之一，用於Linux系統掛載與存取Windows共享資料夾\n停止支援smbfs_common檔案系統，以減少系統被攻擊面",
+          "開啟終端機，執行vim指令，在/etc/modprobe.d目錄新增或編輯「smbfs_common.conf」檔案，範例如下：\n#vim /etc/modprobe.d/smbfs_common.conf\n並在檔案中加入以下內容：\ninstall smbfs_common /bin/true\nblacklist smbfs_common\n開啟終端機，執行下列指令，移除smbfs_common模組：\n#modprobe -r smbfs_common\n#rmmod smbfs_common\n完成後，請重新開機",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B8 direct Python argv source predicates",
+      "caveats": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "tests": [
+        "tests/test_p2b8.py#900300",
+        "tests/test_p2b8.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B8-ENGINE",
+        "B8-SOURCE"
+      ],
+      "family": "P2B8 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。"
     },
     {
       "gcb_id": "TWGCB-01-012-0301",

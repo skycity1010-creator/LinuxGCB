@@ -71,7 +71,7 @@ class P2B7Tests(unittest.TestCase):
     def test_scope_source_argv_and_no_secret_output(self):
         self.assertEqual(len(batch7.ADDED),48)
         m = manifest()
-        self.assertEqual((m['counts']['included'],m['counts']['excluded'],m['counts']['implemented']),(307,7,236))
+        self.assertEqual((m['counts']['included'],m['counts']['excluded'],m['counts']['implemented']),(307,7,282))
         for n, rules in batch7.rules().items():
             self.assertEqual(batch7.sources()[n]['category'],'系統設定與維護')
             argv = w_strtok(rules[0][0][2:])
@@ -262,7 +262,7 @@ class P2B7Tests(unittest.TestCase):
         for p in sorted((ROOT/'policies').glob('*.yml')):
             old.update({c['id']:c for c in json.loads(subprocess.check_output(['git','show','6788fdc:policies/'+p.name],cwd=ROOT))['checks']})
             new.update({c['id']:c for c in json.loads(p.read_text())['checks']})
-        self.assertEqual(len(old),188);self.assertEqual(len(new),236)
+        self.assertEqual(len(old),188);self.assertEqual(len(new),282)
         self.assertEqual(old,{n:new[n] for n in old})
         names=subprocess.check_output(['git','diff','--name-only','bc2cfbb','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','docs/P2B6_REVIEW.md'],cwd=ROOT,text=True)
         self.assertEqual(names,'')
