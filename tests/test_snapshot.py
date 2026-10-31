@@ -28,7 +28,7 @@ class SnapshotTests(unittest.TestCase):
         self.assertEqual(len(s['warnings']),3)
         self.assertEqual(Counter(c['result'] for c in host['checks']), {'passed':46,'failed':7})
         for c in host['checks']:
-            self.assertEqual({k:v for k,v in c.items() if k!='policy_id'}, next(x for x in original[c['policy_id']]['checks'] if x['id']==c['id']))
+            self.assertEqual({k:v for k,v in c.items() if k not in ('policy_id', 'expected', 'expected_status')}, next(x for x in original[c['policy_id']]['checks'] if x['id']==c['id']))
         with tempfile.TemporaryDirectory() as d:
             summary=render(s,d,NOW)
             self.assertEqual(summary['counts']['FAIL'],7)

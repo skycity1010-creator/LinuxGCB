@@ -19,7 +19,7 @@
     {
       "id": 900256,
       "title": "TWGCB-01-012-0256 /etc/ssh/sshd_config檔案所有權",
-      "description": "Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
       "compliance": [
         {
           "twgcb": [
@@ -36,7 +36,7 @@
     {
       "id": 900257,
       "title": "TWGCB-01-012-0257 /etc/ssh/sshd_config檔案權限",
-      "description": "Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
       "compliance": [
         {
           "twgcb": [
@@ -53,7 +53,7 @@
     {
       "id": 900269,
       "title": "TWGCB-01-012-0269 SSH PermitRootLogin參數",
-      "description": "Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "description": "合規值: PermitRootLogin no ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
       "compliance": [
         {
           "twgcb": [
@@ -70,7 +70,7 @@
     {
       "id": 900270,
       "title": "TWGCB-01-012-0270 SSH PermitEmptyPasswords參數",
-      "description": "Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "description": "合規值: PermitEmptyPasswords no ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
       "compliance": [
         {
           "twgcb": [

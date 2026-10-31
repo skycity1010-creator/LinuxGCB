@@ -4,6 +4,7 @@ import json
 from datetime import datetime, timezone
 from .catalog import ROOT, digest
 from .collector import timestamp
+from .expected import report_expected
 
 LABEL = 'REAL EVIDENCE agent010／真實掃描證據（agent 010 / RHEL9 192.168.1.61）'
 
@@ -25,7 +26,7 @@ def convert(path, scan_info=None):
     policies = {}
     for p in sorted((ROOT/'policies').glob('*.yml')):
         policy = json.loads(p.read_text())
-        policies[policy['policy']['id']] = {c['id'] for c in policy['checks']}
+        policies[policy['policy']['id']] = {c['id']: c for c in policy['checks']}
     if not isinstance(dump, dict) or not dump or not set(dump) <= set(policies):
         raise ValueError('未知或空白 policy 匯出')
     checks, scans, times, warnings, seen = [], {}, [], [], set()
@@ -46,6 +47,7 @@ def convert(path, scan_info=None):
             seen.add(sid)
             check = copy.deepcopy(c)
             check['policy_id'] = pid
+            check['expected'], check['expected_status'] = report_expected(c, policies[pid][sid])
             checks.append(check)
     return dict(schema_version=1, synthetic=False, label=LABEL,
         source_sha256=digest(next(ROOT.glob('*.xlsx'))),

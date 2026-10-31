@@ -4,6 +4,7 @@ import re
 from functools import lru_cache
 from .catalog import ROOT, registry, digest
 from .batch1 import rules as batch_rules, disabled_service_rules
+from .expected import PREFIX, values, parse_description
 
 
 def definitions():
@@ -24,6 +25,7 @@ def definitions():
 
 def build():
     rows = registry()
+    expected = values()
     for profile in ('base', 'firewalld', 'sshd'):
         filename = 'linuxgcb_'+profile+'.yml'
         checks = []
@@ -31,7 +33,7 @@ def build():
             if row['implementation'] != 'candidate' or row['profile'] != profile:
                 continue
             checks.append(dict(id=row['sca_id'], title=row['gcb_id']+' '+row['title'],
-                description='Q1 執行審查 '+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
+                description=PREFIX+expected[row['gcb_id']]+' ｜ Q1 執行審查 '+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
                 rules=[target+' -> r:'+pattern for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,
@@ -66,6 +68,8 @@ def validate():
         for c in p['checks']:
             require(c['id'] not in seen and rows[c['id']]['included'])
             seen.add(c['id'])
+            require(parse_description(c.get('description')) == values()[rows[c['id']]['gcb_id']])
+            require(' ｜ Q1 ' in c['description'])
             require(c['regex_type'] == 'pcre2' and c['condition'] == 'all')
             require(c['compliance'] == [{'twgcb': [rows[c['id']]['gcb_id']]}])
             require(rows[c['id']]['policy_id'] == p['policy']['id'])

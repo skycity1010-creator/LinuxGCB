@@ -6,6 +6,7 @@ from collections import Counter
 from pathlib import Path
 from .catalog import registry, ROOT, XLSX_HASH
 from .collector import timestamp
+from .expected import report_expected
 
 STATES = {'PASS', 'FAIL', 'ERROR', 'NOT_APPLICABLE', 'MANUAL_PENDING', 'NOT_SCANNED', 'EXCLUDED'}
 
@@ -82,12 +83,13 @@ def normalize(snapshot, now):
                 state = 'ERROR'
             else:
                 state = 'NOT_SCANNED'
+            expected, expected_status = report_expected(c, policy_checks.get(control['sca_id'], {}))
             all_rows.append(dict(agent_id=agent, gcb_id=control['gcb_id'], sca_id=control['sca_id'],
                 command=c.get('command', ','.join(r.split(' -> r:')[0][2:] for r in policy_checks.get(control['sca_id'], {}).get('rules', []))),
                 remediation=policy_checks.get(control['sca_id'], {}).get('remediation'),
                 raw_remediation=c.get('remediation'),
                 remediation_status='provided' if policy_checks.get(control['sca_id'], {}).get('remediation') else '政策未提供 remediation',
-                category=control['category'], title=control['title'], expected=control['expected'],
+                category=control['category'], title=control['title'], expected=expected, expected_status=expected_status,
                 policy_id=control['policy_id'], policy_hash=snapshot['policy_hashes'].get('linuxgcb_'+control['profile']+'.yml'),
                 source_sha256=control['source_sha256'],
                 state=state, raw_result=raw_result, raw_reason=reason, evidence_status=evidence_status,
