@@ -11,7 +11,7 @@ from .snapshot import convert
 
 
 def main():
-    parser = argparse.ArgumentParser(description='LinuxGCB 離線工具（未完成真機驗收）')
+    parser = argparse.ArgumentParser(description='LinuxGCB 候選工具（2026-11-01 真機驗收與人工複審已完成，VERIFIED）')
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('build', help='驗證來源並重建 registry 與候選政策')
     sub.add_parser('validate', help='離線結構與來源檢查，非引擎驗收')
