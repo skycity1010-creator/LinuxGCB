@@ -107,9 +107,12 @@ header.top h1 {{ font-size: 15px; margin: 0 12px 0 0; font-weight: 600; }}
 #hint {{ font-size: 12px; color: #9ca3af; }}
 .summary {{ font-size: 12px; display: flex; gap: 8px; flex-wrap: wrap; }}
 .summary span {{ padding: 2px 8px; border-radius: 999px; background: #1f2937; }}
-main {{ max-width: 1400px; margin: 0 auto; padding: 16px; }}
-table {{ width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); }}
-th, td {{ border: 1px solid #e5e7eb; padding: 8px 10px; font-size: 13px; vertical-align: top; text-align: left; }}
+main {{ width: 100%; padding: 12px 16px; }}
+table {{ width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); table-layout: fixed; }}
+th, td {{ border: 1px solid #e5e7eb; padding: 8px 10px; font-size: 13px; vertical-align: top; text-align: left; word-break: break-word; }}
+col.c-id {{ width: 52px; }} col.c-num {{ width: 46px; }} col.c-cat {{ width: 110px; }}
+col.c-name {{ width: 14%; }} col.c-val {{ width: 84px; }}
+col.c-desc {{ width: calc((100% - 292px - 14%) / 2); }} col.c-method {{ width: calc((100% - 292px - 14%) / 2); }}
 thead th {{ position: sticky; top: 64px; z-index: 5; background: #1f2937; color: #fff; font-size: 13px; }}
 tr.entry {{ scroll-margin-top: 100px; }}
 tr.entry:nth-child(even) {{ background: #f9fafb; }}
@@ -118,8 +121,8 @@ tr.flagged {{ background: #fffbeb !important; }}
 .flag {{ color: #b45309; font-weight: 600; font-size: 12px; margin-bottom: 3px; }}
 a.anchor {{ color: #2563eb; text-decoration: none; font-weight: 600; }}
 td.num {{ text-align: right; color: #6b7280; }}
-td.expected {{ white-space: nowrap; }}
-td.desc, td.method {{ white-space: pre-wrap; word-break: break-word; min-width: 260px; max-width: 420px; }}
+td.expected {{ white-space: normal; font-size: 12px; }}
+td.desc, td.method {{ white-space: pre-wrap; }}
 .sheet {{ display: block; font-size: 11px; color: #9ca3af; font-weight: 400; }}
 .hidden {{ display: none; }}
 </style>
@@ -134,6 +137,7 @@ td.desc, td.method {{ white-space: pre-wrap; word-break: break-word; min-width: 
 </header>
 <main>
 <table>
+<colgroup><col class="c-id"><col class="c-num"><col class="c-cat"><col class="c-name"><col class="c-val"><col class="c-desc"><col class="c-method"></colgroup>
 <thead><tr><th>ID</th><th>項次</th><th>類別</th><th>原則設定名稱</th><th>GCB 設定值</th><th>說明</th><th>設定方法</th></tr></thead>
 <tbody>
 {''.join(cards)}
