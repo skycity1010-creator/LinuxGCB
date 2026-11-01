@@ -25,8 +25,9 @@ class P2B8Tests(unittest.TestCase):
         self.put('/etc/modprobe.d/local.conf','\n'.join('install '+m+' /bin/true\nblacklist '+m for m in rt.MODULES.values()))
         paths=['/','/tmp','/var','/var/tmp','/var/log','/var/log/audit','/home','/dev/shm','/media/disk','/home/alice','/mnt/nfs']
         self.put('/proc/mounts','\n'.join(f'/dev/d{i} {p} '+('tmpfs' if p in ('/tmp','/dev/shm') else 'nfs4' if p=='/mnt/nfs' else 'xfs')+' rw,nodev,nosuid,noexec 0 0' for i,p in enumerate(paths)))
-        self.put('/proc/self/mountinfo','\n'.join(f'{i+1} 0 8:{i} / {p} rw - xfs /dev/d{i} rw' for i,p in enumerate(paths)))
+        self.put('/proc/self/mountinfo','\n'.join(f'{i+1} 0 8:{i} / {p} rw,nodev,nosuid,noexec - xfs /dev/d{i} rw' for i,p in enumerate(paths)))
         for i in range(11): self.put('/sys/class/block/d'+str(i)+'/removable','1')
+        self.put('/etc/login.defs','UID_MIN 1000\n')
         self.put('/etc/passwd','alice:x:1000:1000::/home/alice:/bin/bash\nnobody:x:65534:65534::/nonexistent:/sbin/nologin')
 
     def output(self,n):
@@ -76,7 +77,7 @@ class P2B8Tests(unittest.TestCase):
         self.put('/proc/mounts','/dev/root / xfs rw 0 0')
         with patch.object(rt,'removable',return_value=False):
             for n in range(20,29):self.assertIsNone(rt.check(n),n)
-        for n in range(20,29):self.assertEqual(self.output(n),'REVIEW\n',n)
+        for n in range(20,29):self.assertEqual(self.output(n),'PASS\n' if n in (23,24,25) else 'REVIEW\n',n)
         self.tree()
         self.put('/proc/mounts','/dev/usb /media/x xfs rw 0 0\nhost:/export /mnt/nfs nfs rw 0 0\n/dev/d9 /home/alice xfs rw 0 0')
         with patch.object(rt,'removable',return_value=True):
@@ -107,6 +108,6 @@ class P2B8Tests(unittest.TestCase):
         for p in (ROOT/'policies').glob('*.yml'):
             old=json.loads(subprocess.check_output(['git','show','d5e32f0:policies/'+p.name],cwd=ROOT))
             new={c['id']:c for c in json.loads(p.read_text())['checks']}
-            for c in old['checks']:self.assertEqual(c,new[c['id']]);count+=1
+            for c in old['checks']:self.assertEqual(c,dict(new[c['id']],rules=c['rules']) if c['id'] in {900023,900024,900025,900073,900074,900091} else new[c['id']]);count+=1
         self.assertEqual(count,236)
         self.assertEqual(subprocess.check_output(['git','diff','--name-only','21e56dbc1040ce26defdb972bf7e12a37de382d2','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')

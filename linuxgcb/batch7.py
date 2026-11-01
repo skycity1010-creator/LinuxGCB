@@ -7,6 +7,7 @@ from functools import lru_cache
 from pathlib import Path
 from . import p2b7_runtime
 from .argv import quote_argument
+from . import fix9_runtime
 ADDED = {32} | set(range(34,45)) | set(range(61,92)) | set(range(303,308))
 
 
@@ -42,6 +43,10 @@ def script(n):
     if n not in set(range(79,86)) | {303,304}:
         source = source.replace("u[6].endswith(('/nologin','/false'))", "u[6] in ('/sbin/nologin','/bin/false')")
         source = source.replace("        for p in ('/etc/security/opasswd','/etc/security/opasswd.old'):\n            try:\n                ok = meta(p,uid=0,gid=0) if n == 303 else meta(p,mode=0o644)\n            except FileNotFoundError:\n                continue\n            if not ok:\n                return False\n        return True", "        return all(meta(p,uid=0,gid=0) if n == 303 else meta(p,mode=0o644) for p in ('/etc/security/opasswd','/etc/security/opasswd.old'))")
+    if n in {73,74,91}:
+        source += '\n' + inspect.getsource(fix9_runtime.root_paths)
+        source += '\n' + inspect.getsource(fix9_runtime.fix9_check)
+        source += '\ncheck = fix9_check\n'
     return source + '\ntry:\n    ok = check(' + str(n) + ")\nexcept (OSError, ValueError, IndexError, KeyError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n"
 
 

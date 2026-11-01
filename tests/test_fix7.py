@@ -8,7 +8,7 @@ from linuxgcb.catalog import ROOT
 import test_p2b8 as p2b8
 
 BASELINE = '971fbc51601a08352ee80aadb15a23a68e4aab78'
-AFFECTED = {8,9,13,14,15,16,23,24,25}
+AFFECTED = {8,9,13,14,15,16,23,24,25,73,74,91}
 
 
 class Fix7Tests(unittest.TestCase):
@@ -27,6 +27,7 @@ class Fix7Tests(unittest.TestCase):
                  '/dev/mapper/var /var xfs rw 0 0\n'
                  '/dev/mapper/home /home xfs rw 0 0\n'
                  'tmpfs /dev/shm tmpfs rw,nodev,nosuid 0 0\n')
+        self.put('/etc/login.defs', 'UID_MIN 1000\n')
         self.put('/etc/passwd', 'alice:x:1000:1000::/home:/bin/bash\n')
 
     def test_r18_independent_lvs_and_real_missing_options(self):
@@ -34,7 +35,9 @@ class Fix7Tests(unittest.TestCase):
         for n in (8,15): self.assertEqual(self.output(n), 'PASS\n', n)
         for n in (9,13,14,16,19,23,24,25): self.assertEqual(self.output(n), '', n)
         self.put('/proc/mounts', '/dev/mapper/home /home xfs rw,nodev,nosuid,noexec 0 0\n')
-        for n in (16,23,24,25): self.assertEqual(self.output(n), 'PASS\n', n)
+        self.assertEqual(self.output(16), 'PASS\n')
+        self.put('/proc/self/mountinfo', self.info.replace('/home rw -', '/home rw,nodev,nosuid,noexec -'))
+        for n in (23,24,25): self.assertEqual(self.output(n), 'PASS\n', n)
 
     def test_related_stacks_fail_in_either_order_and_with_component_boundaries(self):
         for n,path in ((8,'/var'),(15,'/home'),(23,'/home'),(24,'/home'),(25,'/home')):

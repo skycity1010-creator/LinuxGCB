@@ -7,6 +7,7 @@ from functools import lru_cache
 from pathlib import Path
 from . import p2b8_runtime, fix7_runtime
 from .argv import quote_argument
+from . import fix9_runtime
 ADDED = set(range(1,30)) | {31} | set(range(285,301))
 from .p2b8_runtime import MODULES
 
@@ -41,6 +42,10 @@ def script(n):
     runtime = inspect.getsource(p2b8_runtime)
     if n in {8,9,13,14,15,16,23,24,25}:
         runtime += '\n' + inspect.getsource(fix7_runtime.mountinfo) + '\n' + inspect.getsource(fix7_runtime.independent)
+    if n in {23,24,25}:
+        runtime += '\n' + inspect.getsource(fix9_runtime.home_options)
+        runtime += '\n' + inspect.getsource(fix9_runtime.fix9_check)
+        runtime += '\ncheck = fix9_check\n'
     return runtime + '\ntry:\n    ok = check(' + str(n) + ")\nexcept (OSError, ValueError, IndexError, KeyError, subprocess.SubprocessError):\n    ok = False\nif ok is None:\n    print('REVIEW')\nelif ok:\n    print('PASS')\n"
 
 
