@@ -72,7 +72,7 @@ class Fix6Tests(unittest.TestCase):
             new.update({c['id']:c for c in now['checks']})
         changed = {900000+n for n in range(79,86)} | {900303,900304}
         self.assertEqual(len(new),307)
-        self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']},changed | {900073,900074,900091})
+        self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']},changed | {900032,900073,900074,900091})
         for n in old:
             actual = dict(new[n], rules=old[n]['rules'])
             self.assertEqual(actual,old[n])

@@ -39,6 +39,11 @@ def sources():
 
 def script(n):
     source = inspect.getsource(p2b7_runtime)
+    # FIX10 only changes 0032; preserve every other embedded command byte.
+    if n != 32:
+        source = source.replace("            content = lines(p)\n            if p.startswith('/etc/yum.repos.d/') and not any(s.startswith('[') and s.endswith(']') for s in content):\n                continue\n            for s in content:", "            for s in lines(p):")
+        source = source.replace('if any(v != required for v in seen.values()):',
+                                'if not seen or any(v != required for v in seen.values()):')
     # Preserve byte-identical embedded scripts outside the FIX6 ID family.
     if n not in set(range(79,86)) | {303,304}:
         source = source.replace("u[6].endswith(('/nologin','/false'))", "u[6] in ('/sbin/nologin','/bin/false')")

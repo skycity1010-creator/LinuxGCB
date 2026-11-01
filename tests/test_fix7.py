@@ -83,7 +83,7 @@ class Fix7Tests(unittest.TestCase):
             old.update({c['id']:c for c in prior['checks']})
             new.update({c['id']:c for c in current['checks']})
         self.assertEqual(len(new),307)
-        self.assertEqual({n-900000 for n in old if old[n]!=new[n]},AFFECTED)
+        self.assertEqual({n-900000 for n in old if old[n]!=new[n]},AFFECTED | {32})
         for n in old: self.assertEqual(dict(new[n],rules=old[n]['rules']),old[n])
         for name in ('data/coverage_manifest.json','data/scope_registry.json'):
             prior=json.loads(subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT))

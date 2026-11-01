@@ -124,7 +124,10 @@ def check(n):
         for p in ['/etc/yum.conf','/etc/dnf/dnf.conf'] + files('/etc/yum.repos.d/*'):
             section = None
             seen = {}
-            for s in lines(p):
+            content = lines(p)
+            if p.startswith('/etc/yum.repos.d/') and not any(s.startswith('[') and s.endswith(']') for s in content):
+                continue
+            for s in content:
                 if s.startswith('[') and s.endswith(']'):
                     section = s[1:-1]
                     seen.setdefault(section,set())
@@ -135,7 +138,7 @@ def check(n):
                             return False
                         seen[section].add(key)
             if p.startswith('/etc/yum.repos.d/'):
-                if not seen or any(v != required for v in seen.values()):
+                if any(v != required for v in seen.values()):
                     return False
             elif seen.get('main') != required:
                 return False

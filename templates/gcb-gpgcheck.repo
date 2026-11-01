@@ -1,0 +1,12 @@
+# FIX10 / TWGCB-01-012-0032 合規範本；僅供人工驗證，不自動部署。
+# 此示範 repo 停用，不提供套件來源；勿用來安裝或更新套件。
+# 真機驗證：先備份 main 實體檔、symlink 與 repo 清單，再將本檔複製到
+# /etc/yum.repos.d/gcb-gpgcheck.repo，並在 yum.conf/dnf.conf 的 [main]
+# 補齊 gpgcheck=1 與 localpkg_gpgcheck=1。僅執行 900032 唯讀檢查應 PASS。
+# 還原 main 原始內容及 symlink、移除新範本後，原缺失應再 FAIL。
+# 詳細前提、失敗隔離與還原程序見 docs/FIX10_REVIEW.md。
+[gcb-gpgcheck-example]
+name=GCB GPG check validation example (disabled)
+enabled=0
+gpgcheck=1
+localpkg_gpgcheck=1

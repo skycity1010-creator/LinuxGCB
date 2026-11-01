@@ -108,6 +108,6 @@ class P2B8Tests(unittest.TestCase):
         for p in (ROOT/'policies').glob('*.yml'):
             old=json.loads(subprocess.check_output(['git','show','d5e32f0:policies/'+p.name],cwd=ROOT))
             new={c['id']:c for c in json.loads(p.read_text())['checks']}
-            for c in old['checks']:self.assertEqual(c,dict(new[c['id']],rules=c['rules']) if c['id'] in {900023,900024,900025,900073,900074,900091} else new[c['id']]);count+=1
+            for c in old['checks']:self.assertEqual(c,dict(new[c['id']],rules=c['rules']) if c['id'] in {900032,900023,900024,900025,900073,900074,900091} else new[c['id']]);count+=1
         self.assertEqual(count,236)
         self.assertEqual(subprocess.check_output(['git','diff','--name-only','21e56dbc1040ce26defdb972bf7e12a37de382d2','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')
