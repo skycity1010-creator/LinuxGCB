@@ -57,6 +57,11 @@ def manual_commands():
             elif cmds and re.search(r'若|如出現|請', s):
                 break
         joined = ' ； '.join(cmds)
+        if not joined:
+            joined = re.sub(r'\s+', ' ', text).strip()
+            joined = (joined[:300] + '…') if len(joined) > 300 else joined
+            out[c['gcb_id']] = ('【來源設定方法】' + joined) if joined else ''
+            continue
         out[c['gcb_id']] = (joined[:500] + '…') if len(joined) > 500 else joined
     return out
 
@@ -71,9 +76,11 @@ def build():
             if row['implementation'] != 'candidate' or row['profile'] != profile:
                 continue
             manual = manual_commands()[row['gcb_id']]
+            rationale = ('人工檢核程序（來源）：'+manual[len('【來源設定方法】'):] if manual.startswith('【來源設定方法】')
+                         else ('人工檢核指令（來源）：'+manual) if manual else '人工檢核：見 GCB 來源 configuration_method')
             checks.append(dict(id=row['sca_id'], title=row['gcb_id']+' '+row['title'],
                 description=PREFIX+expected[row['gcb_id']]+(FINDING_SUFFIX if row['sca_id'] in ACCEPTED_FINDINGS else ''),
-                rationale=('人工檢核指令（來源）：'+manual) if manual else '人工檢核：見 GCB 來源 configuration_method',
+                rationale=rationale,
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
                 rules=[emit_rule(target, pattern) for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,

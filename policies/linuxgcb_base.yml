@@ -580,7 +580,7 @@
       "id": 900032,
       "title": "TWGCB-01-012-0032 GPG簽章驗證",
       "description": "合規值: 1",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，在「main」段落新增或修改成以下內容： gpgcheck=1 localpkg_gpgcheck=1 編輯/etc/yum.repos.d目錄下所有檔案，將全部之「gpgcheck」設定，修改成以下內容： gpgcheck=1 localpkg_gpgcheck=1",
       "compliance": [
         {
           "twgcb": [
@@ -616,7 +616,7 @@
       "id": 900034,
       "title": "TWGCB-01-012-0034 設定sudo指令使用pty",
       "description": "合規值: Defaults use_pty",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容： Defaults use_pty",
       "compliance": [
         {
           "twgcb": [
@@ -634,7 +634,7 @@
       "id": 900035,
       "title": "TWGCB-01-012-0035 sudo自定義日誌檔案",
       "description": "合規值: 待確認（來源未提供單一基準值）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容： Defaults logfile=\"(日誌檔案路徑)\" 日誌檔案路徑使用「/var/log/sudo.log」之範例如下： Defaults logfile=\"/var/log/sudo.log\"",
       "compliance": [
         {
           "twgcb": [
@@ -742,7 +742,7 @@
       "id": 900041,
       "title": "TWGCB-01-012-0041 單一使用者模式身分鑑別",
       "description": "合規值: 待確認（來源未提供單一基準值）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/usr/lib/systemd/system/rescue.service檔案，新增或修改成以下內容： ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue 編輯/usr/lib/systemd/system/emergency.service檔案，新增或修改成以下內容： ExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency",
       "compliance": [
         {
           "twgcb": [
@@ -1678,7 +1678,7 @@
       "id": 900093,
       "title": "TWGCB-01-012-0093 chrony校時設定",
       "description": "合規值: 至少一個有效 server 或 pool",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/chrony.conf檔案，新增或修改NTP伺服器設定，範例如下： server (NTP伺服器名稱) 或 pool (NTP池名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -1941,7 +1941,7 @@
       "id": 900107,
       "title": "TWGCB-01-012-0107 更新套件後移除舊版本元件",
       "description": "合規值: clean_requirements_on_remove=True（/etc/yum.conf 與 /etc/dnf/dnf.conf）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，新增或修改成以下內容： clean_requirements_on_remove=True",
       "compliance": [
         {
           "twgcb": [
@@ -2474,7 +2474,7 @@
       "id": 900136,
       "title": "TWGCB-01-012-0136 稽核處理失敗時通知系統管理者",
       "description": "合規值: postmaster: root",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/aliases檔案，新增或修改成以下內容，設定在稽核失敗時通知系統管理者： postmaster: root",
       "compliance": [
         {
           "twgcb": [
@@ -2654,7 +2654,7 @@
       "id": 900146,
       "title": "TWGCB-01-012-0146 稽核日誌檔案大小上限",
       "description": "合規值: max_log_file>=32",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/audit/auditd.conf檔案，設定以下參數，將稽核日誌檔案大小上限值設為32(MB)： max_log_file = 32",
       "compliance": [
         {
           "twgcb": [
@@ -2672,7 +2672,7 @@
       "id": 900147,
       "title": "TWGCB-01-012-0147 稽核日誌達到其檔案大小上限之行為",
       "description": "合規值: max_log_file_action=keep_logs",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/audit/auditd.conf檔案，設定參數如下： max_log_file_action = keep_logs",
       "compliance": [
         {
           "twgcb": [
@@ -3196,7 +3196,7 @@
       "id": 900176,
       "title": "TWGCB-01-012-0176 設定rsyslog日誌檔案預設權限",
       "description": "合規值: $FileCreateMode/action fileCreateMode <=0640（位元子集合）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/rsyslog.conf檔案與 /etc/rsyslog.d/目錄下之「.conf」檔案，設定參數「$FileCreateMode」為0640或更低權限，範例如下： $FileCreateMode 0640",
       "compliance": [
         {
           "twgcb": [
@@ -3342,7 +3342,7 @@
       "id": 900185,
       "title": "TWGCB-01-012-0185 SELinux政策",
       "description": "合規值: SELINUXTYPE=targeted（或來源允許之更嚴格 mls）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/selinux/config檔案，設定SELINUXTYPE參數如下： SELINUXTYPE=targeted",
       "compliance": [
         {
           "twgcb": [
@@ -3751,7 +3751,7 @@
       "id": 900206,
       "title": "TWGCB-01-012-0206 可設定通行碼次數",
       "description": "合規值: 3以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：開啟終端機，編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： Retry = 3",
       "compliance": [
         {
           "twgcb": [
@@ -3787,7 +3787,7 @@
       "id": 900208,
       "title": "TWGCB-01-012-0208 通行碼最小長度",
       "description": "合規值: 12個字元以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/login.defs檔案，新增或修改成以下內容： PASS_MIN_LEN 12 編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： minlen = 12",
       "compliance": [
         {
           "twgcb": [
@@ -3805,7 +3805,7 @@
       "id": 900209,
       "title": "TWGCB-01-012-0209 通行碼必須至少包含字元類別數量",
       "description": "合規值: 4",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： minclass = 4",
       "compliance": [
         {
           "twgcb": [
@@ -3823,7 +3823,7 @@
       "id": 900210,
       "title": "TWGCB-01-012-0210 通行碼必須至少包含數字個數",
       "description": "合規值: 1個以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： dcredit = -1",
       "compliance": [
         {
           "twgcb": [
@@ -3841,7 +3841,7 @@
       "id": 900211,
       "title": "TWGCB-01-012-0211 通行碼必須至少包含大寫字母個數",
       "description": "合規值: 1個以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： ucredit = -1",
       "compliance": [
         {
           "twgcb": [
@@ -3859,7 +3859,7 @@
       "id": 900212,
       "title": "TWGCB-01-012-0212 通行碼必須至少包含小寫字母個數",
       "description": "合規值: 1個以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： lcredit = -1",
       "compliance": [
         {
           "twgcb": [
@@ -3877,7 +3877,7 @@
       "id": 900213,
       "title": "TWGCB-01-012-0213 通行碼必須至少包含特殊字元個數",
       "description": "合規值: 1個以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： ocredit = -1",
       "compliance": [
         {
           "twgcb": [
@@ -3895,7 +3895,7 @@
       "id": 900214,
       "title": "TWGCB-01-012-0214 新通行碼與舊通行碼最少相異字元數",
       "description": "合規值: 3以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： difok = 3",
       "compliance": [
         {
           "twgcb": [
@@ -3913,7 +3913,7 @@
       "id": 900215,
       "title": "TWGCB-01-012-0215 同一類別字元可連續使用個數",
       "description": "合規值: 4以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： maxclassrepeat = 4",
       "compliance": [
         {
           "twgcb": [
@@ -3931,7 +3931,7 @@
       "id": 900216,
       "title": "TWGCB-01-012-0216 相同字元可連續使用個數",
       "description": "合規值: 3以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： maxrepeat = 3",
       "compliance": [
         {
           "twgcb": [
@@ -3949,7 +3949,7 @@
       "id": 900217,
       "title": "TWGCB-01-012-0217 必須禁止使用字典檔單字做為通行碼",
       "description": "合規值: 1",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： dictcheck=1",
       "compliance": [
         {
           "twgcb": [
@@ -3967,7 +3967,7 @@
       "id": 900218,
       "title": "TWGCB-01-012-0218 帳戶鎖定閾值",
       "description": "合規值: 5次以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/faillock.conf檔案，新增或修改成以下內容： deny = 5",
       "compliance": [
         {
           "twgcb": [
@@ -3985,7 +3985,7 @@
       "id": 900219,
       "title": "TWGCB-01-012-0219 帳戶鎖定時間",
       "description": "合規值: 900秒以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/faillock.conf檔案，新增或修改成以下內容： unlock_time = 900",
       "compliance": [
         {
           "twgcb": [
@@ -4021,7 +4021,7 @@
       "id": 900221,
       "title": "TWGCB-01-012-0221 顯示登入失敗次數與日期",
       "description": "合規值: 待確認（來源未提供單一基準值）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/pam.d/postlogin檔案，新增或修改以下內容至檔案最上方： session required pam_lastlog.so showfailed",
       "compliance": [
         {
           "twgcb": [
@@ -4129,7 +4129,7 @@
       "id": 900227,
       "title": "TWGCB-01-012-0227 登入嘗試失敗之延遲時間",
       "description": "合規值: 4秒以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/login.defs檔案，將FAIL_DELAY參數值設為4以上，範例如下： FAIL_DELAY 4",
       "compliance": [
         {
           "twgcb": [
@@ -4147,7 +4147,7 @@
       "id": 900228,
       "title": "TWGCB-01-012-0228 新使用者帳號預設建立使用者家目錄",
       "description": "合規值: yes",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/login.defs檔案，設定CREATE_HOME參數如下： CREATE_HOME yes",
       "compliance": [
         {
           "twgcb": [
@@ -4183,7 +4183,7 @@
       "id": 900230,
       "title": "TWGCB-01-012-0230 限制每個帳號可同時登入之數量",
       "description": "合規值: 10以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/limits.conf檔案或/etc/security/limits.d/目錄下之「.conf」檔案，新增或修改成以下內容： * hard maxlogins 10",
       "compliance": [
         {
           "twgcb": [
@@ -4255,7 +4255,7 @@
       "id": 900234,
       "title": "TWGCB-01-012-0234 禁止GNOME使用者自動登入",
       "description": "合規值: false",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/gdm/custom.conf檔案，在「daemon]」段落，新增或修改成以下內容： [daemon] AutomaticLoginEnable=false",
       "compliance": [
         {
           "twgcb": [
@@ -4291,7 +4291,7 @@
       "id": 900236,
       "title": "TWGCB-01-012-0236 Bash shell閒置時登出時間",
       "description": "合規值: 900秒以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/bashrc檔案，新增或修改參數如下： readonly TMOUT=900 ; export TMOUT 編輯/etc/profile檔案或/etc/profile.d/目錄下之「.sh」檔案，新增或修改參數如下： readonly TMOUT=900 ; export TMOUT",
       "compliance": [
         {
           "twgcb": [
@@ -4345,7 +4345,7 @@
       "id": 900239,
       "title": "TWGCB-01-012-0239 所有使用者帳號之預設umask",
       "description": "合規值: 027或更低權限",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/profile檔案、/etc/profile.d/目錄下之「.sh」檔案及/etc/bashrc檔案，新增或修改參數如下： umask 027",
       "compliance": [
         {
           "twgcb": [
@@ -4363,7 +4363,7 @@
       "id": 900240,
       "title": "TWGCB-01-012-0240 在/etc/login.defs設定所有使用者之預設umask",
       "description": "合規值: 027或更低權限",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/login.defs檔案，設定UMASK參數值如下： UMASK 027",
       "compliance": [
         {
           "twgcb": [
@@ -4381,7 +4381,7 @@
       "id": 900241,
       "title": "TWGCB-01-012-0241 可使用su指令之群組",
       "description": "合規值: 僅限wheel群組才能使用su指令",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/pam.d/su檔案，新增或修改成以下內容： auth required pam_wheel.so use_uid 編輯/etc/group檔案之wheel群組設定，建立允許使用su指令之使用者帳號清單，如下所示： wheel:x:GID:root,(使用者帳號清單) 範例：如欲在wheel群組(GID為10)建立允許root、user1及user2帳號使用su指令，內容如下： wheel:x:10:root,user1,user2",
       "compliance": [
         {
           "twgcb": [
@@ -4831,7 +4831,7 @@
       "id": 900309,
       "title": "TWGCB-01-012-0309 root之預設umask",
       "description": "合規值: 027或更低權限",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/root/.bash_profile檔案/root/.bashrc，新增或修改參數如下： umask 027",
       "compliance": [
         {
           "twgcb": [
@@ -4849,7 +4849,7 @@
       "id": 900310,
       "title": "TWGCB-01-012-0310 root帳戶鎖定時間",
       "description": "合規值: 60秒以上",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/faillock.conf檔案，新增或修改成以下內容： even_deny_root root_unlock_time=60",
       "compliance": [
         {
           "twgcb": [
@@ -4867,7 +4867,7 @@
       "id": 900311,
       "title": "TWGCB-01-012-0311 連續字元序列可使用個數",
       "description": "合規值: 3以下，但須大於0",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： maxsequence=3",
       "compliance": [
         {
           "twgcb": [
@@ -4903,7 +4903,7 @@
       "id": 900313,
       "title": "TWGCB-01-012-0313 啟用pam_pwquality",
       "description": "合規值: 待確認（來源未提供單一基準值）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：開啟終端機，執行以下指令，檢查是否有pam_pwquality.so： grep -P -- '\\bpam_pwquality\\.so\\b' /etc/pam.d/{password,system}-auth 若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容： password requisite pam_pwquality.so local_users_only",
       "compliance": [
         {
           "twgcb": [
@@ -4921,7 +4921,7 @@
       "id": 900314,
       "title": "TWGCB-01-012-0314 啟用pam_unix",
       "description": "合規值: 待確認（來源未提供單一基準值）",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：開啟終端機，執行以下指令，檢查是否有pam_unix.so： grep -P -- '\\bpam_unix\\.so\\b' /etc/pam.d/{password,system}-auth 若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容： auth sufficient pam_unix.so account required pam_unix.so password sufficient pam_unix.so sha512 shadow use_authtok session required pam…",
       "compliance": [
         {
           "twgcb": [

@@ -618,7 +618,7 @@
       "id": 900315,
       "title": "TWGCB-01-012-0315 停用GSSAPI驗證",
       "description": "合規值: GSSAPIAuthentication no",
-      "rationale": "人工檢核：見 GCB 來源 configuration_method",
+      "rationale": "人工檢核程序（來源）：編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容： GSSAPIAuthentication no",
       "compliance": [
         {
           "twgcb": [
