@@ -76,15 +76,16 @@ def esc(s):
 cards = []
 for r in rows:
     n = r['gcb_id'].split('-')[-1]
-    flag = f'<p class="flag">⚠ {esc(r["flag"])}</p>' if r['flag'] else ''
-    cards.append(f'''<section class="entry{' flagged' if r['flag'] else ''}" id="e{n}" data-id="{n} {r['gcb_id']}" data-cat="{esc(r['category'])}" data-sheet="{esc(r['sheet'])}">
-<h2><a class="anchor" href="#e{n}">#{n}</a> {esc(r['title'])}
-<span class="meta">項次 {esc(r['ordinal'])}｜{esc(r['sheet'])}｜{esc(r['category'])}｜{esc(r['gcb_id'])}</span></h2>
-{flag}
-<p class="expected">GCB 設定值：<b>{esc(r['expected'])}</b></p>
-<details open><summary>說明</summary><div>{esc(r['description'])}</div></details>
-<details><summary>設定方法</summary><pre>{esc(r['method'])}</pre></details>
-</section>''')
+    flag = f'<div class="flag">⚠ {esc(r["flag"])}</div>' if r['flag'] else ''
+    cards.append(f'''<tr class="entry{' flagged' if r['flag'] else ''}" id="e{n}" data-id="{n} {r['gcb_id']}" data-cat="{esc(r['category'])}" data-sheet="{esc(r['sheet'])}">
+<td><a class="anchor" href="#e{n}">{n}</a></td>
+<td class="num">{esc(r['ordinal'])}</td>
+<td>{esc(r['category'])}<span class="sheet">{esc(r['sheet'])}</span></td>
+<td>{flag}{esc(r['title'])}<span class="sheet">{esc(r['gcb_id'])}</span></td>
+<td class="expected"><b>{esc(r['expected'])}</b></td>
+<td class="desc">{esc(r['description'])}</td>
+<td class="method">{esc(r['method'])}</td>
+</tr>''')
 
 sheet_badges = ''.join(f'<span>{esc(k)} {v}</span>' for k, v in sheets.items())
 cat_opts = ''.join(f'<option value="{esc(k)}">{esc(k)}（{v}）</option>' for k, v in cats.items())
@@ -106,18 +107,20 @@ header.top h1 {{ font-size: 15px; margin: 0 12px 0 0; font-weight: 600; }}
 #hint {{ font-size: 12px; color: #9ca3af; }}
 .summary {{ font-size: 12px; display: flex; gap: 8px; flex-wrap: wrap; }}
 .summary span {{ padding: 2px 8px; border-radius: 999px; background: #1f2937; }}
-main {{ max-width: 980px; margin: 0 auto; padding: 16px; }}
-.entry {{ background: #fff; border-radius: 10px; padding: 14px 18px; margin: 12px 0; border-left: 6px solid #2563eb; scroll-margin-top: 130px; }}
-.entry.flash {{ outline: 3px solid #2563eb; outline-offset: 2px; }}
-.entry.flagged {{ border-left-color: #d97706; background: #fffbeb; }}
-.flag {{ color: #b45309; font-weight: 600; font-size: 13px; }}
-h2 {{ font-size: 16px; margin: 0 0 6px; }}
-a.anchor {{ color: #2563eb; text-decoration: none; }}
-.meta {{ display: block; font-size: 11px; color: #6b7280; font-weight: 400; margin-top: 2px; }}
-.expected {{ font-size: 14px; margin: 4px 0; }}
-details {{ font-size: 13px; margin-top: 4px; }}
-details > div {{ white-space: pre-wrap; }}
-pre {{ white-space: pre-wrap; background: #f3f4f6; padding: 8px; border-radius: 6px; }}
+main {{ max-width: 1400px; margin: 0 auto; padding: 16px; }}
+table {{ width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); }}
+th, td {{ border: 1px solid #e5e7eb; padding: 8px 10px; font-size: 13px; vertical-align: top; text-align: left; }}
+thead th {{ position: sticky; top: 64px; z-index: 5; background: #1f2937; color: #fff; font-size: 13px; }}
+tr.entry {{ scroll-margin-top: 100px; }}
+tr.entry:nth-child(even) {{ background: #f9fafb; }}
+tr.entry.flash {{ outline: 3px solid #2563eb; outline-offset: -3px; }}
+tr.flagged {{ background: #fffbeb !important; }}
+.flag {{ color: #b45309; font-weight: 600; font-size: 12px; margin-bottom: 3px; }}
+a.anchor {{ color: #2563eb; text-decoration: none; font-weight: 600; }}
+td.num {{ text-align: right; color: #6b7280; }}
+td.expected {{ white-space: nowrap; }}
+td.desc, td.method {{ white-space: pre-wrap; word-break: break-word; min-width: 260px; max-width: 420px; }}
+.sheet {{ display: block; font-size: 11px; color: #9ca3af; font-weight: 400; }}
 .hidden {{ display: none; }}
 </style>
 </head>
@@ -130,7 +133,12 @@ pre {{ white-space: pre-wrap; background: #f3f4f6; padding: 8px; border-radius: 
 <div class="summary">{sheet_badges}<span>共 {len(rows)} 條</span>{f'<span>⚠ Excel 缺漏 {len(missing_in_excel)} 條（已自 Word 補入）：{",".join(g.split("-")[-1] for g in missing_in_excel)}</span>' if missing_in_excel else '<span>Excel/Word 條目一致</span>'}</div>
 </header>
 <main>
+<table>
+<thead><tr><th>ID</th><th>項次</th><th>類別</th><th>原則設定名稱</th><th>GCB 設定值</th><th>說明</th><th>設定方法</th></tr></thead>
+<tbody>
 {''.join(cards)}
+</tbody>
+</table>
 </main>
 <script>
 const entries = [...document.querySelectorAll('.entry')];
