@@ -9,6 +9,26 @@ from .collector import timestamp
 from .expected import report_expected
 
 STATES = {'PASS', 'FAIL', 'ERROR', 'NOT_APPLICABLE', 'MANUAL_PENDING', 'NOT_SCANNED', 'EXCLUDED'}
+WRAP = __import__('re').compile(r'^/bin/sh -c "out=\$\((.*)\); rc=\$\?; if')
+
+
+def display_command(rules, rationale):
+    """報告 command 欄：嵌入腳本類改用人工檢核指令；marker 包裝解包出真實命令；保留 not 否定前綴。"""
+    if any('\n' in r or 'python3 -c' in r for r in rules):
+        return rationale or ''
+    out = []
+    for r in rules:
+        s = r.split(' -> r:')[0]
+        neg = s.startswith('not ')
+        if neg:
+            s = s[4:]
+        if s.startswith('c:'):
+            s = s[2:]
+        m = WRAP.match(s)
+        if m:
+            s = m.group(1)
+        out.append(('not ' if neg else '') + s)
+    return ','.join(out)
 
 
 def approval(value, now):
@@ -85,7 +105,7 @@ def normalize(snapshot, now):
                 state = 'NOT_SCANNED'
             expected, expected_status = report_expected(c, policy_checks.get(control['sca_id'], {}))
             all_rows.append(dict(agent_id=agent, gcb_id=control['gcb_id'], sca_id=control['sca_id'],
-                command=c.get('command', (lambda rules, rationale: (rationale or '') if any('\n' in r or 'python3 -c' in r for r in rules) else ','.join(r.split(' -> r:')[0][2:] for r in rules))(policy_checks.get(control['sca_id'], {}).get('rules', []), policy_checks.get(control['sca_id'], {}).get('rationale'))),
+                command=c.get('command', display_command(policy_checks.get(control['sca_id'], {}).get('rules', []), policy_checks.get(control['sca_id'], {}).get('rationale'))),
                 remediation=policy_checks.get(control['sca_id'], {}).get('remediation'),
                 raw_remediation=c.get('remediation'),
                 remediation_status='provided' if policy_checks.get(control['sca_id'], {}).get('remediation') else '政策未提供 remediation',
