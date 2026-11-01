@@ -1,0 +1,15 @@
+{
+  "counts": {
+    "FAIL": 142,
+    "MANUAL_PENDING": 165,
+    "EXCLUDED": 7
+  },
+  "expected": 314,
+  "applicable": 307,
+  "unresolved": 0,
+  "raw_observed": 307,
+  "verified_decided": 0,
+  "pass_rate": null,
+  "attainment": 0.0,
+  "completeness": 0.0
+}
