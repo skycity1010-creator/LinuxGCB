@@ -1,4 +1,5 @@
 from linuxgcb.batch9 import ADDED as BATCH9
+from linuxgcb.batch10 import ADDED as BATCH10
 from linuxgcb.batch8 import ADDED as BATCH8
 from linuxgcb.batch7 import ADDED as BATCH7
 from linuxgcb.batch6 import ADDED as BATCH6
@@ -48,7 +49,7 @@ class CatalogTests(unittest.TestCase):
         checked = set()
         for p in (ROOT/'policies').glob('*.yml'):
             for c in json.loads(p.read_text())['checks']:
-                if c['id']-900000 in BATCH6 | BATCH7 | BATCH8 | BATCH9:
+                if c['id']-900000 in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10):
                     continue  # P2B6 executes isolated input predicates in test_p2b6.py.
                 checked.add(str(c['id']))
                 for name, state in [('positive','PASS'),('negative','FAIL'),('missing','UNRESOLVED'),('empty','FAIL'),('error','UNRESOLVED'),('nonzero_matching','PASS')]:
@@ -74,7 +75,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(m['counts']['implemented'],len(definitions()))
         self.assertEqual(m['counts']['remaining'],307-len(definitions()))
         self.assertEqual(m['counts']['full']+m['counts']['partial']+m['counts']['blocked'],len(definitions()))
-        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48+len(BATCH2)+len(BATCH3)+len(BATCH6)+len(BATCH7)+len(BATCH8)+len(BATCH9),5))
+        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48+len(BATCH2)+len(BATCH3)+len(BATCH6)+len(BATCH7)+len(BATCH8)+len((BATCH9 | BATCH10)),5))
         for e in m['reviewed']:
             self.assertTrue(all(e['expected'] == c[-1] for c in e['docx_all_cells']))
             self.assertTrue(all(e['gcb_id'] in c for c in e['docx_all_cells']))

@@ -8218,15 +8218,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900244,
     "profile": "firewalld",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_firewalld_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "來源 --now mask 涵蓋 iptables 與 ip6tables；唯讀 is-enabled 須 masked/rc1，is-active 須 inactive/rc3；disabled 不等同遮蔽，缺服務不豁免。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B10-ENGINE",
+      "B10-SOURCE"
+    ],
+    "family": "P2B10 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0245",
@@ -8272,15 +8279,22 @@
     "scope_reason": "候選，仍須主機適用性核准",
     "sca_id": 900246,
     "profile": "firewalld",
-    "proposed_classification": "conditional",
-    "justification": "須先確認角色、服務與適用性，再選擇實作方式",
+    "proposed_classification": "native_sca",
+    "justification": "候選唯讀原生命令；完整語意與引擎驗收待人工審查",
     "review_status": "human_review_pending",
-    "implementation": "pending",
-    "policy_id": null,
-    "coverage": "unimplemented",
+    "implementation": "candidate",
+    "policy_id": "linuxgcb_rhel9_firewalld_v01",
+    "coverage": "partial",
     "live_validation": "UNVALIDATED",
-    "execution_review": "pending",
-    "pending": "未實作；待逐條 DOCX 語意審查"
+    "execution_review": "blocked",
+    "pending": "以 --get-default-zone 唯讀對應來源設定區域；有效非空區域名稱即可，public 為來源允許範例；不推論是否曾人工設定。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+    "offline_review": "completed_with_findings",
+    "issue_ids": [
+      "B10-ENGINE",
+      "B10-SOURCE"
+    ],
+    "family": "P2B10 embedded read-only",
+    "source_approval": "pending"
   },
   {
     "gcb_id": "TWGCB-01-012-0247",

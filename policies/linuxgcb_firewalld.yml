@@ -53,6 +53,23 @@
       ]
     },
     {
+      "id": 900244,
+      "title": "TWGCB-01-012-0244 iptables服務",
+      "description": "合規值: iptables masked+inactive ｜ P2B10 執行審查 blocked；coverage=partial；B10-ENGINE,B10-SOURCE；raw PASS 非已驗證符合。來源 --now mask 涵蓋 iptables 與 ip6tables；唯讀 is-enabled 須 masked/rc1，is-active 須 inactive/rc3；disabled 不等同遮蔽，缺服務不豁免。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0244"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/python3 -c \"\\\"\\\"\\\"Read-only observations; no shell or service mutations.\\\"\\\"\\\"\nimport os\nimport re\nimport subprocess\n\n\ndef observe(argv, states):\n    result = subprocess.run(argv, capture_output=True, text=True, timeout=8,\n                            env=dict(os.environ, LC_ALL='C'))\n    value = result.stdout.strip()\n    return not result.stderr and (value, result.returncode) in states\n\n\ndef check(n):\n    if n == 244:\n        for service in ('iptables', 'ip6tables'):\n            if not observe(['/usr/bin/systemctl', 'is-enabled', service], {('masked', 1)}):\n                return False\n            if not observe(['/usr/bin/systemctl', 'is-active', service], {('inactive', 3)}):\n                return False\n        return True\n    if n == 246:\n        result = subprocess.run(['/usr/bin/firewall-cmd', '--get-default-zone'],\n                                capture_output=True, text=True, timeout=8,\n                                env=dict(os.environ, LC_ALL='C'))\n        return (result.returncode == 0 and not result.stderr and\n                re.fullmatch(r'[A-Za-z0-9_][A-Za-z0-9_-]*', result.stdout.strip()) is not None)\n    return False\n\ntry:\n    ok = check(244)\nexcept (OSError, ValueError, UnicodeError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n\" -> r:^PASS$"
+      ]
+    },
+    {
       "id": 900245,
       "title": "TWGCB-01-012-0245 nftables服務",
       "description": "合規值: nftables masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
@@ -69,6 +86,23 @@
         "c:/usr/bin/systemctl show nftables.service --property=LoadState -> r:^LoadState=(loaded|masked|not-found)$",
         "c:/usr/bin/systemctl show nftables.service --property=ActiveState -> r:^ActiveState=inactive$",
         "c:/usr/bin/systemctl show nftables.service --property=LoadState --property=UnitFileState -> r:^(LoadState=not-found|UnitFileState=(disabled|masked))$"
+      ]
+    },
+    {
+      "id": 900246,
+      "title": "TWGCB-01-012-0246 firewalld防火牆預設區域",
+      "description": "合規值: 須設定預設區域 ｜ P2B10 執行審查 blocked；coverage=partial；B10-ENGINE,B10-SOURCE；raw PASS 非已驗證符合。以 --get-default-zone 唯讀對應來源設定區域；有效非空區域名稱即可，public 為來源允許範例；不推論是否曾人工設定。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "compliance": [
+        {
+          "twgcb": [
+            "TWGCB-01-012-0246"
+          ]
+        }
+      ],
+      "regex_type": "pcre2",
+      "condition": "all",
+      "rules": [
+        "c:/usr/bin/python3 -c \"\\\"\\\"\\\"Read-only observations; no shell or service mutations.\\\"\\\"\\\"\nimport os\nimport re\nimport subprocess\n\n\ndef observe(argv, states):\n    result = subprocess.run(argv, capture_output=True, text=True, timeout=8,\n                            env=dict(os.environ, LC_ALL='C'))\n    value = result.stdout.strip()\n    return not result.stderr and (value, result.returncode) in states\n\n\ndef check(n):\n    if n == 244:\n        for service in ('iptables', 'ip6tables'):\n            if not observe(['/usr/bin/systemctl', 'is-enabled', service], {('masked', 1)}):\n                return False\n            if not observe(['/usr/bin/systemctl', 'is-active', service], {('inactive', 3)}):\n                return False\n        return True\n    if n == 246:\n        result = subprocess.run(['/usr/bin/firewall-cmd', '--get-default-zone'],\n                                capture_output=True, text=True, timeout=8,\n                                env=dict(os.environ, LC_ALL='C'))\n        return (result.returncode == 0 and not result.stderr and\n                re.fullmatch(r'[A-Za-z0-9_][A-Za-z0-9_-]*', result.stdout.strip()) is not None)\n    return False\n\ntry:\n    ok = check(246)\nexcept (OSError, ValueError, UnicodeError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n\" -> r:^PASS$"
       ]
     }
   ]

@@ -1,4 +1,5 @@
 """固定來源、候選範圍與保守分類。"""
+from .batch10 import ADDED as BATCH10
 import hashlib
 import json
 from pathlib import Path
@@ -24,6 +25,7 @@ IMPLEMENTED.update({n: 'base' for n in BATCH6})
 IMPLEMENTED.update({n: 'base' for n in BATCH7})
 IMPLEMENTED.update({n: 'base' for n in BATCH8})
 IMPLEMENTED.update({n: 'base' for n in BATCH9})
+IMPLEMENTED.update({n: 'firewalld' for n in BATCH10})
 PARTIAL = {141: '僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋',
            108: '僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審',
            269: '僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審',

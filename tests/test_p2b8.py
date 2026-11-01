@@ -36,7 +36,7 @@ class P2B8Tests(unittest.TestCase):
 
     def test_all_sources_argv_and_single_commit(self):
         self.assertEqual(len(b.ADDED),46);self.assertEqual(len(rt.MODULES),20)
-        self.assertEqual(manifest()['counts']['implemented'],305)
+        self.assertEqual(manifest()['counts']['implemented'],307)
         self.tree()
         def run(argv,**kwargs):
             return subprocess.CompletedProcess(argv,0,'Filesystem 1024-blocks Used Available Capacity Mounted on\n/dev/d0 10 1 9 10% /\n' if argv[0].endswith('/df') else '','')
@@ -109,4 +109,4 @@ class P2B8Tests(unittest.TestCase):
             new={c['id']:c for c in json.loads(p.read_text())['checks']}
             for c in old['checks']:self.assertEqual(c,new[c['id']]);count+=1
         self.assertEqual(count,236)
-        self.assertEqual(subprocess.check_output(['git','diff','--name-only','971fbc51601a08352ee80aadb15a23a68e4aab78','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')
+        self.assertEqual(subprocess.check_output(['git','diff','--name-only','21e56dbc1040ce26defdb972bf7e12a37de382d2','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')

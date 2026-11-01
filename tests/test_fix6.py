@@ -1,4 +1,5 @@
 from linuxgcb.batch9 import ADDED as BATCH9
+from linuxgcb.batch10 import ADDED as BATCH10
 from linuxgcb.batch8 import ADDED as BATCH8
 """FIX6 synthetic R16 regressions; never inspect host account/security files."""
 import contextlib
@@ -70,7 +71,7 @@ class Fix6Tests(unittest.TestCase):
             old.update({c['id']:c for c in prior['checks']})
             new.update({c['id']:c for c in now['checks']})
         changed = {900000+n for n in range(79,86)} | {900303,900304}
-        self.assertEqual(len(new),305)
+        self.assertEqual(len(new),307)
         self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']},changed)
         for n in old:
             actual = dict(new[n], rules=old[n]['rules'])
@@ -79,8 +80,8 @@ class Fix6Tests(unittest.TestCase):
             prior = json.loads(subprocess.check_output(['git','show','bc2cfbb:'+name],cwd=ROOT))
             current = json.loads((ROOT/name).read_text())
             if isinstance(prior,list):
-                current = [r for r in current if r['sca_id']-900000 not in BATCH8 | BATCH9]
-                prior = [r for r in prior if r['sca_id']-900000 not in BATCH8 | BATCH9]
+                current = [r for r in current if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)]
+                prior = [r for r in prior if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)]
                 self.assertEqual(prior,current)
             else:
-                self.assertEqual(prior['reviewed'],[r for r in current['reviewed'] if r['sca_id']-900000 not in BATCH8 | BATCH9])
+                self.assertEqual(prior['reviewed'],[r for r in current['reviewed'] if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)])

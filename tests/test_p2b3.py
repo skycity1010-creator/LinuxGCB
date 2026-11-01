@@ -1,4 +1,5 @@
 from linuxgcb.batch9 import ADDED as BATCH9
+from linuxgcb.batch10 import ADDED as BATCH10
 from linuxgcb.batch8 import ADDED as BATCH8
 from linuxgcb.batch7 import ADDED as BATCH7
 from linuxgcb.batch6 import ADDED as BATCH6
@@ -90,15 +91,15 @@ class P2B3Tests(unittest.TestCase):
                 actual['rules'] = c['rules']
             self.assertEqual(actual, c)
         for name,sha in before['protected_hashes'].items(): self.assertEqual(digest(ROOT/name),sha,name)
-        self.assertEqual(len(ADDED),49);self.assertEqual(len(self.checks),305);self.assertEqual(validate(),305)
+        self.assertEqual(len(ADDED),49);self.assertEqual(len(self.checks),307);self.assertEqual(validate(),307)
         rows=registry();self.assertEqual((len(rows),sum(r['included'] for r in rows)),(314,307))
-        self.assertEqual({r['sca_id'] for r in rows if r['implementation']=='candidate' and r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | BATCH9}-{c['id'] for c in before['checks']},{900000+n for n in ADDED})
+        self.assertEqual({r['sca_id'] for r in rows if r['implementation']=='candidate' and r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)}-{c['id'] for c in before['checks']},{900000+n for n in ADDED})
         for row in rows:
             if row['sca_id']-900000 in ADDED:
                 self.assertEqual(row['review_status'],'human_review_pending')
                 self.assertEqual(row['execution_review'],'blocked');self.assertEqual(row['live_validation'],'UNVALIDATED')
         manifest=json.loads((ROOT/'data/coverage_manifest.json').read_text())
-        self.assertEqual(manifest['counts']['implemented'],305)
+        self.assertEqual(manifest['counts']['implemented'],307)
         for row in manifest['reviewed']:
             if row['sca_id']-900000 in ADDED:
                 self.assertIn('tests/test_p2b3.py',row['tests'])

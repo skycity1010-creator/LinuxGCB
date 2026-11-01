@@ -1,4 +1,5 @@
 from linuxgcb.batch9 import ADDED as BATCH9
+from linuxgcb.batch10 import ADDED as BATCH10
 """Synthetic R18 regressions; execute emitted candidates on isolated trees."""
 import json
 import subprocess
@@ -78,17 +79,17 @@ class Fix7Tests(unittest.TestCase):
             self.assertEqual(prior['policy'],current['policy'])
             old.update({c['id']:c for c in prior['checks']})
             new.update({c['id']:c for c in current['checks']})
-        self.assertEqual(len(new),305)
+        self.assertEqual(len(new),307)
         self.assertEqual({n-900000 for n in old if old[n]!=new[n]},AFFECTED)
         for n in old: self.assertEqual(dict(new[n],rules=old[n]['rules']),old[n])
         for name in ('data/coverage_manifest.json','data/scope_registry.json'):
             prior=json.loads(subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT))
             current=json.loads((ROOT/name).read_text())
             if isinstance(prior,list):
-                self.assertEqual([r for r in prior if r['sca_id']-900000 not in BATCH9],[r for r in current if r['sca_id']-900000 not in BATCH9])
+                self.assertEqual([r for r in prior if r['sca_id']-900000 not in (BATCH9 | BATCH10)],[r for r in current if r['sca_id']-900000 not in (BATCH9 | BATCH10)])
             else:
-                self.assertEqual(prior['reviewed'],[r for r in current['reviewed'] if r['sca_id']-900000 not in BATCH9])
+                self.assertEqual(prior['reviewed'],[r for r in current['reviewed'] if r['sca_id']-900000 not in (BATCH9 | BATCH10)])
                 for key,value in prior['counts'].items():
-                    delta={'implemented':23,'added':23,'remaining':-23,'partial':23,'reviewed':23,'execution_blocked':23}.get(key,0)
+                    delta={'implemented':25,'added':25,'remaining':-25,'partial':25,'reviewed':25,'execution_blocked':25}.get(key,0)
                     self.assertEqual(current['counts'][key],value+delta)
-        self.assertEqual(subprocess.check_output(['git','diff',BASELINE,'--name-only','--','tests/fixtures','docs/references','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')
+        self.assertEqual(subprocess.check_output(['git','diff','21e56dbc1040ce26defdb972bf7e12a37de382d2','--name-only','--','tests/fixtures','docs/references','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')

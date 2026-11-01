@@ -6,13 +6,16 @@
     "included": 307,
     "excluded": 7,
     "before": 7,
+    "batch10_before": 305,
+    "batch10_added": 2,
+    "batch10_after": 307,
     "batch9_before": 282,
     "batch9_added": 23,
     "batch9_after": 305,
     "batch8_before": 236,
     "batch8_added": 46,
     "batch8_after": 282,
-    "added": 298,
+    "added": 300,
     "batch7_before": 188,
     "batch7_added": 48,
     "batch7_after": 236,
@@ -23,13 +26,13 @@
     "batch3_before": 97,
     "batch3_after": 146,
     "batch2_added": 44,
-    "implemented": 305,
-    "remaining": 2,
+    "implemented": 307,
+    "remaining": 0,
     "full": 0,
-    "partial": 300,
+    "partial": 302,
     "blocked": 5,
-    "reviewed": 305,
-    "execution_blocked": 305,
+    "reviewed": 307,
+    "execution_blocked": 307,
     "live_validated": 0
   },
   "reviewed": [
@@ -15311,6 +15314,60 @@
       "live_validation": "UNVALIDATED"
     },
     {
+      "gcb_id": "TWGCB-01-012-0244",
+      "sca_id": 900244,
+      "source_sheet": "Firewalld防火牆",
+      "source_row": 7,
+      "expected": "停用",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "3",
+        "TWGCB-01-012-0244",
+        "Firewalld配置",
+        "iptables服務",
+        "這項原則設定決定是否啟用iptables與ip6tables服務\niptables與ip6tables為Linux作業系統本機端防火牆，藉由控制Linux核心之netfilter模組，進行封包過濾與處理\n同時運行firewalld與iptables(或ip6tables)服務，可能因彼此間之規則衝突，導致系統運作異常或產生資安風險，因此在使用firewalld時，建議停用並遮蔽iptables與ip6tables服務",
+        "開啟終端機，執行以下指令，停用並遮蔽iptables與ip6tables服務： \n#systemctl --now mask iptables\n#systemctl --now mask ip6tables",
+        "停用"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "3",
+          "TWGCB-01-012-0244",
+          "Firewalld配置",
+          "iptables服務",
+          "這項原則設定決定是否啟用iptables與ip6tables服務\niptables與ip6tables為Linux作業系統本機端防火牆，藉由控制Linux核心之netfilter模組，進行封包過濾與處理\n同時運行firewalld與iptables(或ip6tables)服務，可能因彼此間之規則衝突，導致系統運作異常或產生資安風險，因此在使用firewalld時，建議停用並遮蔽iptables與ip6tables服務",
+          "開啟終端機，執行以下指令，停用並遮蔽iptables與ip6tables服務： \n#systemctl --now mask iptables\n#systemctl --now mask ip6tables",
+          "停用"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B10 direct Python argv source predicates",
+      "caveats": "來源 --now mask 涵蓋 iptables 與 ip6tables；唯讀 is-enabled 須 masked/rc1，is-active 須 inactive/rc3；disabled 不等同遮蔽，缺服務不豁免。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b10.py#900244",
+        "tests/test_p2b10.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B10-ENGINE",
+        "B10-SOURCE"
+      ],
+      "family": "P2B10 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "來源 --now mask 涵蓋 iptables 與 ip6tables；唯讀 is-enabled 須 masked/rc1，is-active 須 inactive/rc3；disabled 不等同遮蔽，缺服務不豁免。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
+    },
+    {
       "gcb_id": "TWGCB-01-012-0245",
       "sca_id": 900245,
       "source_sheet": "Firewalld防火牆",
@@ -15365,6 +15422,60 @@
       "family": "systemd 服務",
       "source_approval": "pending",
       "live_validation": "UNVALIDATED"
+    },
+    {
+      "gcb_id": "TWGCB-01-012-0246",
+      "sca_id": 900246,
+      "source_sheet": "Firewalld防火牆",
+      "source_row": 9,
+      "expected": "須設定預設區域",
+      "docx_historical_cells": [],
+      "docx_cells": [
+        "5",
+        "TWGCB-01-012-0246",
+        "Firewalld配置",
+        "firewalld防火牆預設區域",
+        "這項原則設定決定是否設定防火牆預設區域\n防火牆區域定義了網路連線、介面或來源位址綁定之信任等級，這是一對多關係，意謂著網路連線、介面或來源位址只是區域中的一部分，但一個區域可包含多個網路連線、介面或來源位址\n所有未明確分配給特定區域之網路連線、介面或來源位址，都將被歸至預設區域\n設定預設區域，可確保所有網路連線、介面或來源位址皆被納管，以保護系統安全",
+        "開啟終端機，執行以下指令設定預設區域：\n#firewall-cmd --set-default-zone=(區域名稱)\n設定預設區域為public之範例如下:\n#firewall-cmd --set-default-zone=public",
+        "須設定預設區域"
+      ],
+      "docx_occurrences": 1,
+      "docx_all_cells": [
+        [
+          "5",
+          "TWGCB-01-012-0246",
+          "Firewalld配置",
+          "firewalld防火牆預設區域",
+          "這項原則設定決定是否設定防火牆預設區域\n防火牆區域定義了網路連線、介面或來源位址綁定之信任等級，這是一對多關係，意謂著網路連線、介面或來源位址只是區域中的一部分，但一個區域可包含多個網路連線、介面或來源位址\n所有未明確分配給特定區域之網路連線、介面或來源位址，都將被歸至預設區域\n設定預設區域，可確保所有網路連線、介面或來源位址皆被納管，以保護系統安全",
+          "開啟終端機，執行以下指令設定預設區域：\n#firewall-cmd --set-default-zone=(區域名稱)\n設定預設區域為public之範例如下:\n#firewall-cmd --set-default-zone=public",
+          "須設定預設區域"
+        ]
+      ],
+      "docx_sha256": "986effd9501b1fd97776129c6691cf8fc98246bd04514347322f3337508e0e5b",
+      "mechanism": "P2B10 direct Python argv source predicates",
+      "caveats": "以 --get-default-zone 唯讀對應來源設定區域；有效非空區域名稱即可，public 為來源允許範例；不推論是否曾人工設定。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "tests": [
+        "tests/test_p2b10.py#900246",
+        "tests/test_p2b10.py"
+      ],
+      "cases": [
+        "isolated_positive",
+        "isolated_negative",
+        "missing_no_commit",
+        "argv_roundtrip"
+      ],
+      "review_status": "human_review_pending",
+      "offline_review": "completed_with_findings",
+      "execution_review": "blocked",
+      "coverage": "partial",
+      "issue_ids": [
+        "B10-ENGINE",
+        "B10-SOURCE"
+      ],
+      "family": "P2B10 embedded read-only",
+      "source_approval": "pending",
+      "live_validation": "UNVALIDATED",
+      "pending": "以 --get-default-zone 唯讀對應來源設定區域；有效非空區域名稱即可，public 為來源允許範例；不推論是否曾人工設定。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。"
     },
     {
       "gcb_id": "TWGCB-01-012-0254",

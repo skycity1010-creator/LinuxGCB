@@ -62,7 +62,7 @@ class ReportTests(unittest.TestCase):
             lambda s:s['hosts'].append(copy.deepcopy(s['hosts'][0])),
             lambda s:s['hosts'][0]['checks'].append(dict(id=123,result='passed')),
             lambda s:s['hosts'][0]['checks'].append(dict(id=900045,result='passed')),
-            lambda s:s['hosts'][0]['checks'].append(dict(id=900244,result='passed'))]
+            lambda s:s['hosts'][0]['checks'].append(dict(id=900247,result='passed'))]
         for mutate in mutations:
             s=copy.deepcopy(self.fixture);mutate(s)
             with self.assertRaises(ValueError):normalize(s,NOW)
