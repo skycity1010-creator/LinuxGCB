@@ -543,8 +543,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/",
-        "c:/bin/sh -c \"out=$(/usr/bin/find / -name shosts.equiv); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -path /run -prune -o -name shosts.equiv -print); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/",
+        "c:/bin/sh -c \"out=$(/usr/bin/find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -path /run -prune -o -name shosts.equiv -print); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {
@@ -561,8 +561,8 @@
       "regex_type": "pcre2",
       "condition": "all",
       "rules": [
-        "not c:/bin/sh -c \"out=$(/usr/bin/find / -name '*.shosts'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/",
-        "c:/bin/sh -c \"out=$(/usr/bin/find / -name '*.shosts'); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
+        "not c:/bin/sh -c \"out=$(/usr/bin/find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -path /run -prune -o -name '*.shosts' -print); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^/",
+        "c:/bin/sh -c \"out=$(/usr/bin/find / -path /proc -prune -o -path /sys -prune -o -path /dev -prune -o -path /run -prune -o -name '*.shosts' -print); rc=$?; if [ \\\"$rc\\\" -eq 0 ]; then printf '%s\\\\n' \\\"$out\\\" 'LINUXGCB_COMMAND_OK'; else exit $rc; fi\" -> r:^LINUXGCB_COMMAND_OK$"
       ]
     },
     {

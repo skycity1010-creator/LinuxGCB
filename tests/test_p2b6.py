@@ -134,4 +134,4 @@ class P2B6Tests(unittest.TestCase):
             current.update({c['id']:c['rules'] for c in json.loads(p.read_text())['checks']})
         self.assertEqual(len(baseline),146)
         self.assertEqual(len(current),307)
-        self.assertEqual(baseline,{n:current[n] for n in baseline})
+        self.assertEqual({n:v for n,v in baseline.items() if n not in (900282,900283)},{n:current[n] for n in baseline if n not in (900282,900283)})  # FIX11 hardened 282/283

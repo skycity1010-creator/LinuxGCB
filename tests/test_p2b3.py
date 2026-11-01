@@ -87,7 +87,7 @@ class P2B3Tests(unittest.TestCase):
         self.assertEqual(len(before['checks']),97)
         for c in before['checks']:
             actual = dict(self.checks[c['id']])
-            if c['id'] == 900188:  # FIX5 verifies its sole rule change separately.
+            if c['id'] in (900188,900282,900283):  # FIX5/FIX11 verify rule changes separately.
                 actual['rules'] = c['rules']
             self.assertEqual(actual, c)
         for name,sha in before['protected_hashes'].items(): self.assertEqual(digest(ROOT/name),sha,name)

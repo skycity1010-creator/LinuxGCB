@@ -24,10 +24,10 @@ class Fix3Tests(unittest.TestCase):
         before = {c['id']: c for c in self.before['checks']}
         self.assertEqual(len(before), 97)
         self.assertTrue(before.keys() <= self.checks.keys())
-        self.assertEqual({n for n in before if before[n]['rules'] != self.checks[n]['rules']}, CHANGED | {900188})
+        self.assertEqual({n for n in before if before[n]['rules'] != self.checks[n]['rules']}, CHANGED | {900188,900282,900283})
         for n, check in before.items():
             actual = dict(self.checks[n])
-            if n in CHANGED | {900188}:
+            if n in CHANGED | {900188,900282,900283}:
                 actual['rules'] = check['rules']
             self.assertEqual(actual, check)
         for name, sha in self.before['protected_hashes'].items():

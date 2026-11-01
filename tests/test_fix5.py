@@ -24,10 +24,12 @@ class Fix5Tests(unittest.TestCase):
         self.assertEqual(len(current), 307)
         current = {n:c for n,c in current.items() if n in old}
         self.assertEqual(old.keys(), current.keys())
-        self.assertEqual({n for n in old if old[n]['rules'] != current[n]['rules']}, {900188})
+        changed = {n for n in old if old[n]['rules'] != current[n]['rules']}
+        # FIX5: 900188 rpm tri-state. FIX11: 900282/900283 find pseudo-FS prune (flake fix).
+        self.assertEqual(changed, {900188, 900282, 900283})
         for n in old:
             actual = dict(current[n])
-            if n == 900188:
+            if n in changed:
                 actual['rules'] = old[n]['rules']
             self.assertEqual(actual, old[n])
         for name, sha in before['protected_hashes'].items():

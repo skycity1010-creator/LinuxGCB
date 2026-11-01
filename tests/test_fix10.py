@@ -76,7 +76,7 @@ class Fix10Tests(unittest.TestCase):
             new.update({c['id']:c for c in current['checks']})
         self.assertEqual(len(new), 307)
         self.assertEqual(old.keys(), new.keys())
-        self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']}, {900032})
+        self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']}, {900032,900282,900283})
         for n in old:
             self.assertEqual(dict(new[n], rules=old[n]['rules']), old[n])
         protected = ['data/coverage_manifest.json','data/scope_registry.json','data/controls.json','data/inventory.json','docs/references','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','*.xlsx','*.docx']

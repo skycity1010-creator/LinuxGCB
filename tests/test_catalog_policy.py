@@ -44,6 +44,7 @@ class CatalogTests(unittest.TestCase):
         fixtures=json.loads((ROOT/'tests/fixtures/rule_outputs.json').read_text())
         from scripts.batch2_fixtures import generated
         fixtures['checks']['900188'] = generated()['900188']  # Preserve historical fixture on disk.
+        for k in ('900282','900283'): fixtures['checks'][k] = generated()[k]  # FIX11 overlay
         fixtures['checks'].update(json.loads((ROOT/'tests/fixtures/p2b3/cases.json').read_text())['checks'])
         self.assertEqual(fixtures['label'],'SYNTHETIC TEST ONLY')
         checked = set()

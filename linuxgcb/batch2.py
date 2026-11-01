@@ -99,7 +99,12 @@ def specs():
         result[n]=[(cmd,'^'+pattern+'$',good,bad),
                    (cmd,'!^(?!'+pattern+'$|'+MARKER+'$).+',good,bad)]
     for n,name in ((282,'shosts.equiv'),(283,'*.shosts')):
-        result[n]=[('/usr/bin/find / -name '+shlex.quote(name), '!^/', '', '/home/example/'+name.replace('*',''))]
+        # Prune volatile pseudo-filesystems: .shosts there is meaningless for
+        # sshd security, and /proc entry churn makes bare `find /` return rc!=0
+        # intermittently (R25 false FAIL on 900283, reproduced rc=0 on re-run).
+        cmd=('/usr/bin/find / -path /proc -prune -o -path /sys -prune -o '
+             '-path /dev -prune -o -path /run -prune -o -name '+shlex.quote(name)+' -print')
+        result[n]=[(cmd, '!^/', '', '/home/example/'+name.replace('*',''))]
     result[284]=[('/usr/bin/cat /etc/sysconfig/sshd','!^[ \\t]*CRYPTO_POLICY[ \\t]*=',
                   '# CRYPTO_POLICY=', 'CRYPTO_POLICY=')]
     assert set(result)==ADDED

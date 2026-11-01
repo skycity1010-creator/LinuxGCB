@@ -86,6 +86,6 @@ class P2B10Tests(unittest.TestCase):
             self.assertEqual(old['requirements'],new['requirements'])
             current={c['id']:c for c in new['checks']}
             for c in old['checks']:
-                self.assertEqual(c,dict(current[c['id']],rules=c['rules']) if c['id'] in {900032,900023,900024,900025,900073,900074,900091} else current[c['id']]); count+=1
+                self.assertEqual(c,dict(current[c['id']],rules=c['rules']) if c['id'] in {900032,900023,900024,900025,900073,900074,900091,900282,900283} else current[c['id']]); count+=1
         self.assertEqual(count,305)
         self.assertEqual(subprocess.check_output(['git','diff','--name-only','HEAD','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')
