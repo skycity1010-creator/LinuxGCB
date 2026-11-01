@@ -54,6 +54,8 @@ class P2B10Tests(unittest.TestCase):
             for service in ('iptables','ip6tables') for action in ('is-enabled','is-active')])
         for pos in range(4):
             for value,rc in [('disabled',1),('enabled',0),('active',0),('failed',3),('not-found',4),('',1),('masked',0),('inactive',0),('masked\ninactive',1)]:
+                if pos % 2 == 0 and (value, rc) in {('disabled', 1), ('not-found', 4)}:
+                    continue  # FIX8: disabled/absent plus inactive is compliant.
                 results=self.good();results[pos]=self.cp(value,rc)
                 self.assertEqual(self.output(244,results)[0],'',(pos,value,rc))
 

@@ -5,7 +5,7 @@ from zipfile import ZipFile
 from xml.etree import ElementTree as ET
 from functools import lru_cache
 from pathlib import Path
-from . import p2b10_runtime
+from . import p2b10_runtime, fix8_runtime
 from .argv import quote_argument
 ADDED = {244, 246}
 
@@ -37,7 +37,10 @@ def sources():
 
 
 def script(n):
-    return inspect.getsource(p2b10_runtime) + '\ntry:\n    ok = check(' + repr(n) + ")\nexcept (OSError, ValueError, UnicodeError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n"
+    runtime = inspect.getsource(p2b10_runtime)
+    if n == 244:
+        runtime += '\n' + inspect.getsource(fix8_runtime)
+    return runtime + '\ntry:\n    ok = check(' + repr(n) + ")\nexcept (OSError, ValueError, UnicodeError, subprocess.SubprocessError):\n    ok = False\nif ok:\n    print('PASS')\n"
 
 
 @lru_cache(maxsize=1)
