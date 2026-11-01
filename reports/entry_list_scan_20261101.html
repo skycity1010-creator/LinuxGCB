@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RHEL9 GCB v1.2 條目清單（307 條 VERIFIED／R29 2026-11-01）</title>
+<style>
+:root { --pass:#1a7f37; --fail:#b91c1c; --pend:#a16207; --excl:#6b7280; }
+* { box-sizing: border-box; }
+body { font-family: "Noto Sans TC", system-ui, sans-serif; margin: 0; background: #f6f7f9; color: #111827; }
+header.top { position: sticky; top: 0; z-index: 10; background: #111827; color: #fff; padding: 10px 16px;
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+header.top h1 { font-size: 15px; margin: 0 12px 0 0; font-weight: 600; }
+#search { flex: 1 1 260px; max-width: 420px; padding: 8px 12px; border-radius: 8px; border: 0; font-size: 15px; }
+#hint { font-size: 12px; color: #9ca3af; }
+.summary { font-size: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+.summary span { padding: 2px 8px; border-radius: 999px; background: #1f2937; }
+main { max-width: 980px; margin: 0 auto; padding: 16px; }
+.entry { background: #fff; border-radius: 10px; padding: 14px 18px; margin: 12px 0; border-left: 6px solid var(--excl); scroll-margin-top: 130px; }
+.entry.pass { border-left-color: var(--pass); } .entry.fail { border-left-color: var(--fail); }
+.entry.manual_pending { border-left-color: var(--pend); }
+.entry.flash { outline: 3px solid #2563eb; outline-offset: 2px; }
+h2 { font-size: 16px; margin: 0 0 6px; }
+a.anchor { color: #2563eb; text-decoration: none; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; color: #fff; vertical-align: middle; margin-left: 6px; }
+.badge.pass { background: var(--pass); } .badge.fail { background: var(--fail); }
+.badge.manual_pending { background: var(--pend); } .badge.excluded { background: var(--excl); }
+.badge.accepted { background: #7c3aed; }
+.meta { display: block; font-size: 11px; color: #6b7280; font-weight: 400; margin-top: 2px; }
+.compliance { font-size: 14px; margin: 4px 0; }
+details { font-size: 13px; } pre { white-space: pre-wrap; background: #f3f4f6; padding: 8px; border-radius: 6px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<header class="top">
+<h1>RHEL9 GCB v1.2 條目清單</h1>
+<input id="search" type="search" placeholder="輸入條目 ID（如 0187、900187、TWGCB-01-012-0187）自動跳轉；輸入關鍵字過濾" autofocus>
+<span id="hint"></span>
+<div class="summary">
+<span>PASS 161</span><span>FAIL 142</span>
+<span>範圍保留 4</span><span>不適用 7</span>
+<span>共 314 條｜VERIFIED 2026-11-01｜R29</span>
+</div>
+</header>
+<main>
+<section class="entry fail" id="e0001" data-id="0001 TWGCB-01-012-0001 900001" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0001">#0001</a> cramfs檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0001｜SCA 900001｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/cramfs.conf ； rmmod cramfs</pre></details>
+</section><section class="entry fail" id="e0002" data-id="0002 TWGCB-01-012-0002 900002" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0002">#0002</a> squashfs檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0002｜SCA 900002｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/squashfs.conf ； rmmod squashfs</pre></details>
+</section><section class="entry fail" id="e0003" data-id="0003 TWGCB-01-012-0003 900003" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0003">#0003</a> udf檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0003｜SCA 900003｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/udf.conf ； rmmod udf</pre></details>
+</section><section class="entry fail" id="e0004" data-id="0004 TWGCB-01-012-0004 900004" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0004">#0004</a> 設定/tmp目錄之檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0004｜SCA 900004｜base</span></h2>
+<p class="compliance">合規值: tmpfs</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/fstab ； systemctl unmask tmp.mount ； systemctl enable tmp.mount</pre></details>
+</section><section class="entry fail" id="e0005" data-id="0005 TWGCB-01-012-0005 900005" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0005">#0005</a> 設定/tmp目錄之nodev選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0005｜SCA 900005｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nodev /tmp ； mount -o remount,nodev /tmp</pre></details>
+</section><section class="entry fail" id="e0006" data-id="0006 TWGCB-01-012-0006 900006" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0006">#0006</a> 設定/tmp目錄之nosuid選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0006｜SCA 900006｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nosuid /tmp ； mount -o remount,nosuid /tmp</pre></details>
+</section><section class="entry fail" id="e0007" data-id="0007 TWGCB-01-012-0007 900007" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0007">#0007</a> 設定/tmp目錄之noexec選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0007｜SCA 900007｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,noexec /tmp ； mount -o remount,noexec /tmp</pre></details>
+</section><section class="entry pass" id="e0008" data-id="0008 TWGCB-01-012-0008 900008" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0008">#0008</a> 設定/var目錄之檔案系統
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0008｜SCA 900008｜base</span></h2>
+<p class="compliance">合規值: 使用獨立之分割磁區或邏輯磁區</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M varvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n varlv varvg (從varvg分割出1個LV，LV名稱varlv，並將15個PE配置給varlv) ； mkfs.xfs /dev/varvg/varlv(對/dev/varvg/varlv進行格式化)</pre></details>
+</section><section class="entry fail" id="e0009" data-id="0009 TWGCB-01-012-0009 900009" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0009">#0009</a> 設定/var/tmp目錄之檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0009｜SCA 900009｜base</span></h2>
+<p class="compliance">合規值: 使用獨立之分割磁區或邏輯磁區</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M vartmpvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱vartmpvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n vartmplv vartmpvg (從vartmpvg分割出1個LV，LV名稱vartmplv，並將15個PE配置給vartmplv) ； mkfs.xfs /dev/vartmpvg/vartmplv(對/dev/vartmpvg/vartmplv進行格式化)</pre></details>
+</section><section class="entry fail" id="e0010" data-id="0010 TWGCB-01-012-0010 900010" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0010">#0010</a> 設定/var/tmp目錄之nodev選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0010｜SCA 900010｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nodev /var/tmp</pre></details>
+</section><section class="entry fail" id="e0011" data-id="0011 TWGCB-01-012-0011 900011" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0011">#0011</a> 設定/var/tmp目錄之nosuid選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0011｜SCA 900011｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nosuid /var/tmp</pre></details>
+</section><section class="entry fail" id="e0012" data-id="0012 TWGCB-01-012-0012 900012" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0012">#0012</a> 設定/var/tmp目錄之noexec選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0012｜SCA 900012｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,noexec /var/tmp</pre></details>
+</section><section class="entry pass" id="e0013" data-id="0013 TWGCB-01-012-0013 900013" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0013">#0013</a> 設定/var/log目錄之檔案系統
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0013｜SCA 900013｜base</span></h2>
+<p class="compliance">合規值: 使用獨立之分割磁區或邏輯磁區</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M varlogvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n varloglv varlogvg (從varlogvg分割出1個LV，LV名稱varloglv，並將15個PE配置給varloglv) ； mkfs.xfs /dev/varlogvg/varloglv(對/dev/varlogvg/varloglv進行格式化)</pre></details>
+</section><section class="entry pass" id="e0014" data-id="0014 TWGCB-01-012-0014 900014" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0014">#0014</a> 設定/var/log/audit目錄之檔案系統
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0014｜SCA 900014｜base</span></h2>
+<p class="compliance">合規值: 使用獨立之分割磁區或邏輯磁區</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M varlogadvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogadvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n varlogadlv varlogadvg (從varlogadvg分割出1個LV，LV名稱varlogadlv，並將15個PE配置給varlogadlv) ； mkfs.xfs /dev/varlogadvg/varlogadlv(對/dev/varlogadvg/varlogadlv進行格式化)</pre></details>
+</section><section class="entry pass" id="e0015" data-id="0015 TWGCB-01-012-0015 900015" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0015">#0015</a> 設定/home目錄之檔案系統
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0015｜SCA 900015｜base</span></h2>
+<p class="compliance">合規值: 使用獨立之分割磁區或邏輯磁區</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M homevg /dev/sda3(對/dev/sda3建立1個VG，VG名稱homevg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n homelv homevg (從homevg分割出1個LV，LV名稱homelv，並將15個PE配置給homelv) ； mkfs.xfs /dev/homevg/homelv(對/dev/homevg/homelv進行格式化)</pre></details>
+</section><section class="entry fail" id="e0016" data-id="0016 TWGCB-01-012-0016 900016" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0016">#0016</a> 設定/home目錄之nodev選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0016｜SCA 900016｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nodev /home</pre></details>
+</section><section class="entry pass" id="e0017" data-id="0017 TWGCB-01-012-0017 900017" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0017">#0017</a> 設定/dev/shm目錄之nodev選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0017｜SCA 900017｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nodev /dev/shm</pre></details>
+</section><section class="entry pass" id="e0018" data-id="0018 TWGCB-01-012-0018 900018" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0018">#0018</a> 設定/dev/shm目錄之nosuid選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0018｜SCA 900018｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,nosuid /dev/shm</pre></details>
+</section><section class="entry fail" id="e0019" data-id="0019 TWGCB-01-012-0019 900019" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0019">#0019</a> 設定/dev/shm目錄之noexec選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0019｜SCA 900019｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount -o remount,noexec /dev/shm</pre></details>
+</section><section class="entry pass" id="e0020" data-id="0020 TWGCB-01-012-0020 900020" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0020">#0020</a> 設定可攜式儲存裝置之nodev選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0020｜SCA 900020｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount</pre></details>
+</section><section class="entry pass" id="e0021" data-id="0021 TWGCB-01-012-0021 900021" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0021">#0021</a> 設定可攜式儲存裝置之nosuid選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0021｜SCA 900021｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount</pre></details>
+</section><section class="entry pass" id="e0022" data-id="0022 TWGCB-01-012-0022 900022" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0022">#0022</a> 設定可攜式儲存裝置之noexec選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0022｜SCA 900022｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mount</pre></details>
+</section><section class="entry fail" id="e0023" data-id="0023 TWGCB-01-012-0023 900023" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0023">#0023</a> 設定使用者家目錄之nodev選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0023｜SCA 900023｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($3&gt;=1000)&amp;&amp;($1!=&quot;nobody&quot;){print $1,$3,$6}&#x27; /etc/passwd ； more /etc/fstab</pre></details>
+</section><section class="entry fail" id="e0024" data-id="0024 TWGCB-01-012-0024 900024" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0024">#0024</a> 設定使用者家目錄之nosuid選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0024｜SCA 900024｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($3&gt;=1000)&amp;&amp;($1!=&quot;nobody&quot;){print $1,$3,$6}&#x27; /etc/passwd ； more /etc/fstab</pre></details>
+</section><section class="entry fail" id="e0025" data-id="0025 TWGCB-01-012-0025 900025" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0025">#0025</a> 設定使用者家目錄之noexec選項
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0025｜SCA 900025｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($3&gt;=1000)&amp;&amp;($1!=&quot;nobody&quot;){print $1,$3,$6}&#x27; /etc/passwd ； more /etc/fstab</pre></details>
+</section><section class="entry pass" id="e0026" data-id="0026 TWGCB-01-012-0026 900026" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0026">#0026</a> 設定NFS檔案系統之nodev選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0026｜SCA 900026｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep nfs /etc/fstab</pre></details>
+</section><section class="entry pass" id="e0027" data-id="0027 TWGCB-01-012-0027 900027" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0027">#0027</a> 設定NFS檔案系統之nosuid選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0027｜SCA 900027｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep nfs /etc/fstab</pre></details>
+</section><section class="entry pass" id="e0028" data-id="0028 TWGCB-01-012-0028 900028" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0028">#0028</a> 設定NFS檔案系統之noexec選項
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0028｜SCA 900028｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep nfs /etc/fstab</pre></details>
+</section><section class="entry pass" id="e0029" data-id="0029 TWGCB-01-012-0029 900029" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0029">#0029</a> 設定全域寫入權限目錄之粘滯位
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0029｜SCA 900029｜base</span></h2>
+<p class="compliance">合規值: 設定粘滯位</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：df --local -P | awk &#x27;{if (NR!=1) print $6}&#x27; | xargs -I &#x27;{}&#x27; find &#x27;{}&#x27; -xdev -type d \( -perm -0002 -a ! -perm -1000 \) 2&gt;/dev/null | xargs -I &#x27;{}&#x27; chmod o+t &#x27;{}&#x27;</pre></details>
+</section><section class="entry pass" id="e0030" data-id="0030 TWGCB-01-012-0030 900030" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0030">#0030</a> autofs服務
+<span class="badge pass">PASS</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0030｜SCA 900030｜base</span></h2>
+<p class="compliance">合規值: autofs disabled+inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now disable autofs</pre></details>
+</section><section class="entry fail" id="e0031" data-id="0031 TWGCB-01-012-0031 900031" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0031">#0031</a> USB儲存裝置
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0031｜SCA 900031｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/usb-storage.conf</pre></details>
+</section><section class="entry fail" id="e0032" data-id="0032 TWGCB-01-012-0032 900032" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0032">#0032</a> GPG簽章驗證
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0032｜SCA 900032｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，在「main」段落新增或修改成以下內容： gpgcheck=1 localpkg_gpgcheck=1 編輯/etc/yum.repos.d目錄下所有檔案，將全部之「gpgcheck」設定，修改成以下內容： gpgcheck=1 localpkg_gpgcheck=1</pre></details>
+</section><section class="entry pass" id="e0033" data-id="0033 TWGCB-01-012-0033 900033" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0033">#0033</a> sudo套件
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0033｜SCA 900033｜base</span></h2>
+<p class="compliance">合規值: sudo 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install sudo</pre></details>
+</section><section class="entry fail" id="e0034" data-id="0034 TWGCB-01-012-0034 900034" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0034">#0034</a> 設定sudo指令使用pty
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0034｜SCA 900034｜base</span></h2>
+<p class="compliance">合規值: Defaults use_pty</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容： Defaults use_pty</pre></details>
+</section><section class="entry fail" id="e0035" data-id="0035 TWGCB-01-012-0035 900035" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0035">#0035</a> sudo自定義日誌檔案
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0035｜SCA 900035｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行「visudo -f」指令編輯/etc/sudoers檔案或 /etc/sudoers.d/目錄下檔案，新增以下內容： Defaults logfile=&quot;(日誌檔案路徑)&quot; 日誌檔案路徑使用「/var/log/sudo.log」之範例如下： Defaults logfile=&quot;/var/log/sudo.log&quot;</pre></details>
+</section><section class="entry fail" id="e0036" data-id="0036 TWGCB-01-012-0036 900036" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0036">#0036</a> AIDE套件
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0036｜SCA 900036｜base</span></h2>
+<p class="compliance">合規值: aide 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install aide ； aide --init ； mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz</pre></details>
+</section><section class="entry fail" id="e0037" data-id="0037 TWGCB-01-012-0037 900037" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0037">#0037</a> 定期檢查檔案系統完整性
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0037｜SCA 900037｜base</span></h2>
+<p class="compliance">合規值: 每天</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：crontab -u root -e</pre></details>
+</section><section class="entry fail" id="e0038" data-id="0038 TWGCB-01-012-0038 900038" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0038">#0038</a> 開機載入程式設定檔之所有權
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0038｜SCA 900038｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /boot/grub2/grub.cfg ； chown root:root /boot/grub2/grubenv ； [ -f /boot/grub2/user.cfg ] &amp;&amp; chown root:root /boot/grub2/user.cfg</pre></details>
+</section><section class="entry fail" id="e0039" data-id="0039 TWGCB-01-012-0039 900039" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0039">#0039</a> 開機載入程式設定檔之權限
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0039｜SCA 900039｜base</span></h2>
+<p class="compliance">合規值: 600或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 600 /boot/grub2/grub.cfg ； chmod 600 /boot/grub2/grubenv ； [ -f /boot/grub2/user.cfg ] &amp;&amp; chmod 600 /boot/grub2/user.cfg</pre></details>
+</section><section class="entry fail" id="e0040" data-id="0040 TWGCB-01-012-0040 900040" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0040">#0040</a> 開機載入程式之通行碼
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0040｜SCA 900040｜base</span></h2>
+<p class="compliance">合規值: 設定通行碼</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grub2-setpassword ； grub2-mkconfig -o &quot;$(dirname &quot;$(find /boot -type f \( -name &#x27;grubenv&#x27; -o -name &#x27;grub.conf&#x27; -o -name &#x27;grub.cfg&#x27; \) -exec grep -Pl &#x27;^\h*(kernelopts=|linux|kernel)&#x27; {} \;)&quot;)/grub.cfg&quot;</pre></details>
+</section><section class="entry pass" id="e0041" data-id="0041 TWGCB-01-012-0041 900041" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0041">#0041</a> 單一使用者模式身分鑑別
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0041｜SCA 900041｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/usr/lib/systemd/system/rescue.service檔案，新增或修改成以下內容： ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue 編輯/usr/lib/systemd/system/emergency.service檔案，新增或修改成以下內容： ExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency</pre></details>
+</section><section class="entry fail" id="e0042" data-id="0042 TWGCB-01-012-0042 900042" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0042">#0042</a> 核心傾印功能
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0042｜SCA 900042｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w fs.suid_dumpable=0 ； sysctl -w kernel.core_pattern=|/bin/false ； systemctl daemon-reload ； systemctl mask systemd-coredump.socket</pre></details>
+</section><section class="entry fail" id="e0043" data-id="0043 TWGCB-01-012-0043 900043" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0043">#0043</a> 記憶體位址空間配置隨機載入
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0043｜SCA 900043｜base</span></h2>
+<p class="compliance">合規值: 2</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w kernel.randomize_va_space=2</pre></details>
+</section><section class="entry fail" id="e0044" data-id="0044 TWGCB-01-012-0044 900044" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0044">#0044</a> 設定全系統加密原則
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0044｜SCA 900044｜base</span></h2>
+<p class="compliance">合規值: FUTURE或FIPS</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -E -i &#x27;^\s*(FUTURE|FIPS)\s*(\s+#.*)?$&#x27; /etc/crypto-policies/config</pre></details>
+</section><section class="entry pass" id="e0045" data-id="0045 TWGCB-01-012-0045 900045" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0045">#0045</a> /etc/passwd檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0045｜SCA 900045｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/passwd</pre></details>
+</section><section class="entry pass" id="e0046" data-id="0046 TWGCB-01-012-0046 900046" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0046">#0046</a> /etc/passwd檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0046｜SCA 900046｜base</span></h2>
+<p class="compliance">合規值: 644或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 644 /etc/passwd</pre></details>
+</section><section class="entry pass" id="e0047" data-id="0047 TWGCB-01-012-0047 900047" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0047">#0047</a> /etc/shadow檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0047｜SCA 900047｜base</span></h2>
+<p class="compliance">合規值: root:root或root:shadow</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/shadow ； chown root:shadow /etc/shadow</pre></details>
+</section><section class="entry pass" id="e0048" data-id="0048 TWGCB-01-012-0048 900048" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0048">#0048</a> /etc/shadow檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0048｜SCA 900048｜base</span></h2>
+<p class="compliance">合規值: 000</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 000 /etc/shadow</pre></details>
+</section><section class="entry pass" id="e0049" data-id="0049 TWGCB-01-012-0049 900049" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0049">#0049</a> /etc/group檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0049｜SCA 900049｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/group</pre></details>
+</section><section class="entry pass" id="e0050" data-id="0050 TWGCB-01-012-0050 900050" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0050">#0050</a> /etc/group檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0050｜SCA 900050｜base</span></h2>
+<p class="compliance">合規值: 644或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 644 /etc/group</pre></details>
+</section><section class="entry pass" id="e0051" data-id="0051 TWGCB-01-012-0051 900051" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0051">#0051</a> /etc/gshadow檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0051｜SCA 900051｜base</span></h2>
+<p class="compliance">合規值: root:root或root:shadow</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/gshadow ； chown root:shadow /etc/gshadow</pre></details>
+</section><section class="entry pass" id="e0052" data-id="0052 TWGCB-01-012-0052 900052" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0052">#0052</a> /etc/gshadow檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0052｜SCA 900052｜base</span></h2>
+<p class="compliance">合規值: 000</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 000 /etc/gshadow</pre></details>
+</section><section class="entry pass" id="e0053" data-id="0053 TWGCB-01-012-0053 900053" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0053">#0053</a> /etc/passwd-檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0053｜SCA 900053｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/passwd-</pre></details>
+</section><section class="entry pass" id="e0054" data-id="0054 TWGCB-01-012-0054 900054" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0054">#0054</a> /etc/passwd-檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0054｜SCA 900054｜base</span></h2>
+<p class="compliance">合規值: 644或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 644 /etc/passwd-</pre></details>
+</section><section class="entry pass" id="e0055" data-id="0055 TWGCB-01-012-0055 900055" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0055">#0055</a> /etc/shadow-檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0055｜SCA 900055｜base</span></h2>
+<p class="compliance">合規值: root:root或root:shadow</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/shadow- ； chown root:shadow /etc/shadow-</pre></details>
+</section><section class="entry pass" id="e0056" data-id="0056 TWGCB-01-012-0056 900056" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0056">#0056</a> /etc/shadow-檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0056｜SCA 900056｜base</span></h2>
+<p class="compliance">合規值: 000</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 000 /etc/shadow-</pre></details>
+</section><section class="entry pass" id="e0057" data-id="0057 TWGCB-01-012-0057 900057" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0057">#0057</a> /etc/group-檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0057｜SCA 900057｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/group-</pre></details>
+</section><section class="entry pass" id="e0058" data-id="0058 TWGCB-01-012-0058 900058" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0058">#0058</a> /etc/group-檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0058｜SCA 900058｜base</span></h2>
+<p class="compliance">合規值: 644或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 644 /etc/group-</pre></details>
+</section><section class="entry pass" id="e0059" data-id="0059 TWGCB-01-012-0059 900059" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0059">#0059</a> /etc/gshadow-檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0059｜SCA 900059｜base</span></h2>
+<p class="compliance">合規值: root:root或root:shadow</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/gshadow- ； chown root:shadow /etc/gshadow-</pre></details>
+</section><section class="entry pass" id="e0060" data-id="0060 TWGCB-01-012-0060 900060" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0060">#0060</a> /etc/gshadow-檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0060｜SCA 900060｜base</span></h2>
+<p class="compliance">合規值: 000</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 000 /etc/gshadow-</pre></details>
+</section><section class="entry pass" id="e0061" data-id="0061 TWGCB-01-012-0061 900061" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0061">#0061</a> 其他使用者寫入具有全域寫入權限之檔案
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0061｜SCA 900061｜base</span></h2>
+<p class="compliance">合規值: 禁止寫入</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find (partition) -xdev -type f -perm -0002 ； chmod o-w (檔案名稱)</pre></details>
+</section><section class="entry pass" id="e0062" data-id="0062 TWGCB-01-012-0062 900062" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0062">#0062</a> 檢查所有檔案與目錄之擁有者
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0062｜SCA 900062｜base</span></h2>
+<p class="compliance">合規值: 所有檔案與目錄擁有者皆為合法使用者</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find (partition) -xdev -nouser ； chown (使用者) (檔案名稱或目錄名稱) ； rm (檔案名稱或目錄名稱)</pre></details>
+</section><section class="entry pass" id="e0063" data-id="0063 TWGCB-01-012-0063 900063" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0063">#0063</a> 檢查所有檔案與目錄之擁有群組
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0063｜SCA 900063｜base</span></h2>
+<p class="compliance">合規值: 所有檔案與目錄擁有群組皆為合法群組</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find (partition) -xdev -nogroup ； chgrp (群組) (檔案名稱或目錄名稱) ； rm (檔案名稱或目錄名稱)</pre></details>
+</section><section class="entry pass" id="e0064" data-id="0064 TWGCB-01-012-0064 900064" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0064">#0064</a> 所有具有全域寫入權限目錄之擁有者
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0064｜SCA 900064｜base</span></h2>
+<p class="compliance">合規值: root或其他系統帳號</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find (partition) -xdev -type d -perm -0002 -uid +999 -print ； chown root (目錄名稱)</pre></details>
+</section><section class="entry pass" id="e0065" data-id="0065 TWGCB-01-012-0065 900065" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0065">#0065</a> 所有具有全域寫入權限目錄之擁有群組
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0065｜SCA 900065｜base</span></h2>
+<p class="compliance">合規值: root或其他系統群組</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find (partition) -xdev -type d -perm -0002 -gid +999 -print ； chgrp root (目錄名稱)</pre></details>
+</section><section class="entry pass" id="e0066" data-id="0066 TWGCB-01-012-0066 900066" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0066">#0066</a> 系統命令檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0066｜SCA 900066｜base</span></h2>
+<p class="compliance">合規值: 755或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -perm /0022 -exec ls -l {} \;</pre></details>
+</section><section class="entry pass" id="e0067" data-id="0067 TWGCB-01-012-0067 900067" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0067">#0067</a> 系統命令檔案擁有者
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0067｜SCA 900067｜base</span></h2>
+<p class="compliance">合規值: root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -user root -exec ls -l {} \;</pre></details>
+</section><section class="entry pass" id="e0068" data-id="0068 TWGCB-01-012-0068 900068" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0068">#0068</a> 系統命令檔案擁有群組
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0068｜SCA 900068｜base</span></h2>
+<p class="compliance">合規值: root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root ! -group tty ! -group slocate ! -group lock -exec ls -l {} \;</pre></details>
+</section><section class="entry pass" id="e0069" data-id="0069 TWGCB-01-012-0069 900069" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0069">#0069</a> 程式庫檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0069｜SCA 900069｜base</span></h2>
+<p class="compliance">合規值: 755或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find -L /lib /lib64 /usr/lib /usr/lib64 -perm /0022 -type f -exec ls -l {} \;</pre></details>
+</section><section class="entry pass" id="e0070" data-id="0070 TWGCB-01-012-0070 900070" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0070">#0070</a> 程式庫檔案擁有者
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0070｜SCA 900070｜base</span></h2>
+<p class="compliance">合規值: root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -exec ls -l {} \;</pre></details>
+</section><section class="entry fail" id="e0071" data-id="0071 TWGCB-01-012-0071 900071" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0071">#0071</a> 程式庫檔案擁有群組
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0071｜SCA 900071｜base</span></h2>
+<p class="compliance">合規值: root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \;</pre></details>
+</section><section class="entry pass" id="e0072" data-id="0072 TWGCB-01-012-0072 900072" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0072">#0072</a> 帳號不使用空白通行碼
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0072｜SCA 900072｜base</span></h2>
+<p class="compliance">合規值: 帳號必須具有通行碼或被鎖定</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($2 == &quot;&quot; ) { print $1 &quot; does not have a password &quot;}&#x27; /etc/shadow</pre></details>
+</section><section class="entry pass" id="e0073" data-id="0073 TWGCB-01-012-0073 900073" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0073">#0073</a> root帳號之路徑變數
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0073｜SCA 900073｜base</span></h2>
+<p class="compliance">合規值: 不允許「.」、「..」、路徑開頭不是「/」及空元素</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：echo $PATH</pre></details>
+</section><section class="entry pass" id="e0074" data-id="0074 TWGCB-01-012-0074 900074" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0074">#0074</a> root帳號之路徑變數不包含world-writable或group-writable目錄
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0074｜SCA 900074｜base</span></h2>
+<p class="compliance">合規值: 不包含world-writable或group-writable目錄</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：echo $PATH</pre></details>
+</section><section class="entry pass" id="e0075" data-id="0075 TWGCB-01-012-0075 900075" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0075">#0075</a> /etc/passwd檔案行首之「+」符號
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0075｜SCA 900075｜base</span></h2>
+<p class="compliance">合規值: 禁止</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep &#x27;^\+:&#x27; /etc/passwd</pre></details>
+</section><section class="entry pass" id="e0076" data-id="0076 TWGCB-01-012-0076 900076" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0076">#0076</a> /etc/shadow檔案行首之「+」符號
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0076｜SCA 900076｜base</span></h2>
+<p class="compliance">合規值: 禁止</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep &#x27;^\+:&#x27; /etc/shadow</pre></details>
+</section><section class="entry pass" id="e0077" data-id="0077 TWGCB-01-012-0077 900077" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0077">#0077</a> /etc/group檔案行首之「+」符號
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0077｜SCA 900077｜base</span></h2>
+<p class="compliance">合規值: 禁止</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep &#x27;^\+:&#x27; /etc/group</pre></details>
+</section><section class="entry pass" id="e0078" data-id="0078 TWGCB-01-012-0078 900078" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0078">#0078</a> UID=0之帳號
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0078｜SCA 900078｜base</span></h2>
+<p class="compliance">合規值: 僅root帳號之UID為0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($3 == 0) { print $1 }&#x27; /etc/passwd</pre></details>
+</section><section class="entry fail" id="e0079" data-id="0079 TWGCB-01-012-0079 900079" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0079">#0079</a> 使用者家目錄權限
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0079｜SCA 900079｜base</span></h2>
+<p class="compliance">合規值: 700或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0080" data-id="0080 TWGCB-01-012-0080 900080" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0080">#0080</a> 使用者家目錄擁有者
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0080｜SCA 900080｜base</span></h2>
+<p class="compliance">合規值: 使用者擁有</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0081" data-id="0081 TWGCB-01-012-0081 900081" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0081">#0081</a> 使用者家目錄擁有群組
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0081｜SCA 900081｜base</span></h2>
+<p class="compliance">合規值: 使用者群組擁有</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0082" data-id="0082 TWGCB-01-012-0082 900082" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0082">#0082</a> 使用者家目錄之「.」檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0082｜SCA 900082｜base</span></h2>
+<p class="compliance">合規值: go-w或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0083" data-id="0083 TWGCB-01-012-0083 900083" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0083">#0083</a> 使用者家目錄之「.forward」檔案
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0083｜SCA 900083｜base</span></h2>
+<p class="compliance">合規值: 移除</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0084" data-id="0084 TWGCB-01-012-0084 900084" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0084">#0084</a> 使用者家目錄之「.netrc」檔案
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0084｜SCA 900084｜base</span></h2>
+<p class="compliance">合規值: 移除</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0085" data-id="0085 TWGCB-01-012-0085 900085" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0085">#0085</a> 使用者家目錄之「.rhosts」檔案
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0085｜SCA 900085｜base</span></h2>
+<p class="compliance">合規值: 移除</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0086" data-id="0086 TWGCB-01-012-0086 900086" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0086">#0086</a> 檢查/etc/passwd檔案設定之群組
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0086｜SCA 900086｜base</span></h2>
+<p class="compliance">合規值: /etc/passwd檔案中帳號之群組皆須存在於/etc/group檔案中</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0087" data-id="0087 TWGCB-01-012-0087 900087" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0087">#0087</a> 唯一之UID
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0087｜SCA 900087｜base</span></h2>
+<p class="compliance">合規值: 為每個帳號設定唯一之UID</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0088" data-id="0088 TWGCB-01-012-0088 900088" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0088">#0088</a> 唯一之GID
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0088｜SCA 900088｜base</span></h2>
+<p class="compliance">合規值: 為每個群組設定唯一之GID</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0089" data-id="0089 TWGCB-01-012-0089 900089" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0089">#0089</a> 唯一之使用者帳號名稱
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0089｜SCA 900089｜base</span></h2>
+<p class="compliance">合規值: 為每個使用者帳號設定唯一之名稱</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0090" data-id="0090 TWGCB-01-012-0090 900090" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0090">#0090</a> 唯一之群組名稱
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0090｜SCA 900090｜base</span></h2>
+<p class="compliance">合規值: 為每個群組設定唯一之群組名稱</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：!/bin/bash</pre></details>
+</section><section class="entry pass" id="e0091" data-id="0091 TWGCB-01-012-0091 900091" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0091">#0091</a> shadow群組成員
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0091｜SCA 900091｜base</span></h2>
+<p class="compliance">合規值: shadow群組不包含任何使用者</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($1==&quot;shadow&quot;) {print $NF}&#x27; /etc/group</pre></details>
+</section><section class="entry pass" id="e0092" data-id="0092 TWGCB-01-012-0092 900092" data-cat="系統服務">
+<h2><a class="anchor" href="#e0092">#0092</a> xinetd套件
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0092｜SCA 900092｜base</span></h2>
+<p class="compliance">合規值: xinetd 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove xinetd</pre></details>
+</section><section class="entry pass" id="e0093" data-id="0093 TWGCB-01-012-0093 900093" data-cat="系統服務">
+<h2><a class="anchor" href="#e0093">#0093</a> chrony校時設定
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0093｜SCA 900093｜base</span></h2>
+<p class="compliance">合規值: 至少一個有效 server 或 pool</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/chrony.conf檔案，新增或修改NTP伺服器設定，範例如下： server (NTP伺服器名稱) 或 pool (NTP池名稱)</pre></details>
+</section><section class="entry pass" id="e0094" data-id="0094 TWGCB-01-012-0094 900094" data-cat="系統服務">
+<h2><a class="anchor" href="#e0094">#0094</a> rsyncd服務
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0094｜SCA 900094｜base</span></h2>
+<p class="compliance">合規值: rsyncd masked+inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask rsyncd</pre></details>
+</section><section class="entry pass" id="e0095" data-id="0095 TWGCB-01-012-0095 900095" data-cat="系統服務">
+<h2><a class="anchor" href="#e0095">#0095</a> avahi-daemon服務
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0095｜SCA 900095｜base</span></h2>
+<p class="compliance">合規值: avahi-daemon.service/socket disabled/masked 且 inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask avahi-daemon.service ； systemctl --now mask avahi-daemon.socket</pre></details>
+</section><section class="entry pass" id="e0096" data-id="0096 TWGCB-01-012-0096 900096" data-cat="系統服務">
+<h2><a class="anchor" href="#e0096">#0096</a> SNMP服務
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0096｜SCA 900096｜base</span></h2>
+<p class="compliance">合規值: SNMP 停用或僅 SNMPv3（SHA/AES 需人工證據）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask snmpd ； systemctl stop snmpd ； net-snmp-create-v3-user -ro -A (使用者通行碼) -a SHA -X (傳輸加密用金鑰) -x AES (使用者名稱) ； vim /etc/snmp/snmpd.conf ； com2sec notConfigUser  default       public ； group   notConfigGroup v1           notConfigUser ； group   notConfigGroup v2c          notConfigUser ； view    systemview    included   .1.3.6.1.2.1.1 ； view    systemview    included   .1.3.6.1.2.1.25.1.1 ； access  notConfigGroup  &quot;&quot;      any       noauth    exact  systemview none none ； systemc…</pre></details>
+</section><section class="entry pass" id="e0097" data-id="0097 TWGCB-01-012-0097 900097" data-cat="系統服務">
+<h2><a class="anchor" href="#e0097">#0097</a> Squid服務
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0097｜SCA 900097｜base</span></h2>
+<p class="compliance">合規值: squid masked+inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask squid</pre></details>
+</section><section class="entry pass" id="e0098" data-id="0098 TWGCB-01-012-0098 900098" data-cat="系統服務">
+<h2><a class="anchor" href="#e0098">#0098</a> Samba服務
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0098｜SCA 900098｜base</span></h2>
+<p class="compliance">合規值: smb masked+inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask smb</pre></details>
+</section><section class="entry pass" id="e0099" data-id="0099 TWGCB-01-012-0099 900099" data-cat="系統服務">
+<h2><a class="anchor" href="#e0099">#0099</a> FTP伺服器
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0099｜SCA 900099｜base</span></h2>
+<p class="compliance">合規值: vsftpd disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask vsftpd</pre></details>
+</section><section class="entry pass" id="e0100" data-id="0100 TWGCB-01-012-0100 900100" data-cat="系統服務">
+<h2><a class="anchor" href="#e0100">#0100</a> NIS伺服器
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0100｜SCA 900100｜base</span></h2>
+<p class="compliance">合規值: ypserv disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask ypserv</pre></details>
+</section><section class="entry pass" id="e0101" data-id="0101 TWGCB-01-012-0101 900101" data-cat="系統服務">
+<h2><a class="anchor" href="#e0101">#0101</a> kdump服務
+<span class="badge pass">PASS</span>
+<span class="meta">系統服務｜TWGCB-01-012-0101｜SCA 900101｜base</span></h2>
+<p class="compliance">合規值: kdump.service enabled+active</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now enable kdump.service</pre></details>
+</section><section class="entry pass" id="e0102" data-id="0102 TWGCB-01-012-0102 900102" data-cat="安裝與維護軟體">
+<h2><a class="anchor" href="#e0102">#0102</a> NIS用戶端套件
+<span class="badge pass">PASS</span>
+<span class="meta">安裝與維護軟體｜TWGCB-01-012-0102｜SCA 900102｜base</span></h2>
+<p class="compliance">合規值: ypbind 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove ypbind</pre></details>
+</section><section class="entry pass" id="e0103" data-id="0103 TWGCB-01-012-0103 900103" data-cat="安裝與維護軟體">
+<h2><a class="anchor" href="#e0103">#0103</a> telnet用戶端套件
+<span class="badge pass">PASS</span>
+<span class="meta">安裝與維護軟體｜TWGCB-01-012-0103｜SCA 900103｜base</span></h2>
+<p class="compliance">合規值: telnet 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove telnet</pre></details>
+</section><section class="entry pass" id="e0104" data-id="0104 TWGCB-01-012-0104 900104" data-cat="安裝與維護軟體">
+<h2><a class="anchor" href="#e0104">#0104</a> telnet伺服器套件
+<span class="badge pass">PASS</span>
+<span class="meta">安裝與維護軟體｜TWGCB-01-012-0104｜SCA 900104｜base</span></h2>
+<p class="compliance">合規值: telnet-server 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove telnet-server</pre></details>
+</section><section class="entry pass" id="e0105" data-id="0105 TWGCB-01-012-0105 900105" data-cat="安裝與維護軟體">
+<h2><a class="anchor" href="#e0105">#0105</a> rsh伺服器套件
+<span class="badge pass">PASS</span>
+<span class="meta">安裝與維護軟體｜TWGCB-01-012-0105｜SCA 900105｜base</span></h2>
+<p class="compliance">合規值: rsh-server 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove rsh-server</pre></details>
+</section><section class="entry pass" id="e0106" data-id="0106 TWGCB-01-012-0106 900106" data-cat="安裝與維護軟體">
+<h2><a class="anchor" href="#e0106">#0106</a> tftp伺服器套件
+<span class="badge pass">PASS</span>
+<span class="meta">安裝與維護軟體｜TWGCB-01-012-0106｜SCA 900106｜base</span></h2>
+<p class="compliance">合規值: tftp-server 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove tftp-server</pre></details>
+</section><section class="entry pass" id="e0107" data-id="0107 TWGCB-01-012-0107 900107" data-cat="安裝與維護軟體">
+<h2><a class="anchor" href="#e0107">#0107</a> 更新套件後移除舊版本元件
+<span class="badge pass">PASS</span>
+<span class="meta">安裝與維護軟體｜TWGCB-01-012-0107｜SCA 900107｜base</span></h2>
+<p class="compliance">合規值: clean_requirements_on_remove=True（/etc/yum.conf 與 /etc/dnf/dnf.conf）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/yum.conf與/etc/dnf/dnf.conf檔案，新增或修改成以下內容： clean_requirements_on_remove=True</pre></details>
+</section><section class="entry manual_pending" id="e0108" data-id="0108 TWGCB-01-012-0108 900108" data-cat="網路設定">
+<h2><a class="anchor" href="#e0108">#0108</a> IP轉送
+<span class="badge manual_pending">範圍保留</span>
+<span class="meta">網路設定｜TWGCB-01-012-0108｜SCA 900108｜base</span></h2>
+<p class="compliance">合規值: net.ipv4.ip_forward=0；net.ipv6.conf.all.forwarding=0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -Els &quot;^\s*net\.ipv4\.ip_forward\s*=\s*1&quot; /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri &quot;s/^\s*(net\.ipv4\.ip_forward\s*)(=)(\s*\S+\b).*$/# *REMOVED* \1/&quot; $filename; done; sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv4.route.flush=1; printf &quot;\nnet.ipv4.ip_forward = 0\n&quot; &gt;&gt; /etc/sysctl.d/60-netipv4_sysctl.conf ； grep -Els &quot;^\s*net\.ipv6\.conf\.all\.forwarding\s*=\s*1&quot; /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sy…</pre></details>
+</section><section class="entry fail" id="e0109" data-id="0109 TWGCB-01-012-0109 900109" data-cat="網路設定">
+<h2><a class="anchor" href="#e0109">#0109</a> 所有網路介面禁止傳送ICMP重新導向封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0109｜SCA 900109｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.send_redirects=0 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0110" data-id="0110 TWGCB-01-012-0110 900110" data-cat="網路設定">
+<h2><a class="anchor" href="#e0110">#0110</a> 預設網路介面禁止傳送ICMP重新導向封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0110｜SCA 900110｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.send_redirects=0 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0111" data-id="0111 TWGCB-01-012-0111 900111" data-cat="網路設定">
+<h2><a class="anchor" href="#e0111">#0111</a> 所有網路介面阻擋來源路由封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0111｜SCA 900111｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.accept_source_route=0 ； sysctl -w net.ipv6.conf.all.accept_source_route=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0112" data-id="0112 TWGCB-01-012-0112 900112" data-cat="網路設定">
+<h2><a class="anchor" href="#e0112">#0112</a> 預設網路介面阻擋來源路由封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0112｜SCA 900112｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.accept_source_route=0 ； sysctl -w net.ipv6.conf.default.accept_source_route=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0113" data-id="0113 TWGCB-01-012-0113 900113" data-cat="網路設定">
+<h2><a class="anchor" href="#e0113">#0113</a> 所有網路介面阻擋ICMP重新導向封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0113｜SCA 900113｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.accept_redirects=0 ； sysctl -w net.ipv6.conf.all.accept_redirects=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0114" data-id="0114 TWGCB-01-012-0114 900114" data-cat="網路設定">
+<h2><a class="anchor" href="#e0114">#0114</a> 預設網路介面阻擋ICMP重新導向封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0114｜SCA 900114｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.accept_redirects=0 ； sysctl -w net.ipv6.conf.default.accept_redirects=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0115" data-id="0115 TWGCB-01-012-0115 900115" data-cat="網路設定">
+<h2><a class="anchor" href="#e0115">#0115</a> 所有網路介面阻擋安全之ICMP重新導向封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0115｜SCA 900115｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.secure_redirects=0 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0116" data-id="0116 TWGCB-01-012-0116 900116" data-cat="網路設定">
+<h2><a class="anchor" href="#e0116">#0116</a> 預設網路介面阻擋安全之ICMP重新導向封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0116｜SCA 900116｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.secure_redirects=0 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0117" data-id="0117 TWGCB-01-012-0117 900117" data-cat="網路設定">
+<h2><a class="anchor" href="#e0117">#0117</a> 所有網路介面記錄可疑封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0117｜SCA 900117｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.log_martians=1 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0118" data-id="0118 TWGCB-01-012-0118 900118" data-cat="網路設定">
+<h2><a class="anchor" href="#e0118">#0118</a> 預設網路介面記錄可疑封包
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0118｜SCA 900118｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.log_martians=1 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0119" data-id="0119 TWGCB-01-012-0119 900119" data-cat="網路設定">
+<h2><a class="anchor" href="#e0119">#0119</a> 不回應ICMP廣播要求
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0119｜SCA 900119｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -Els &quot;^\s*net\.ipv4\.icmp_echo_ignore_broadcasts\s*=\s*0&quot; /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri &quot;s/^\s*(net\.ipv4\.icmp_echo_ignore_broadcasts\s*)(=)(\s*\S+\b).*$/# *REMOVED* \1/&quot; $filename; done; sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1; sysctl -w net.ipv4.route.flush=1; printf &quot;\nnet.ipv4.icmp_echo_ignore_broadcasts = 1\n&quot; &gt;&gt; /etc/sysctl.d/60-netipv4_sysctl.conf</pre></details>
+</section><section class="entry fail" id="e0120" data-id="0120 TWGCB-01-012-0120 900120" data-cat="網路設定">
+<h2><a class="anchor" href="#e0120">#0120</a> 忽略偽造之ICMP錯誤訊息
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0120｜SCA 900120｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -Els &quot;^\s*net\.ipv4\.icmp_ignore_bogus_error_responses\s*=\s*0&quot; /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri &quot;s/^\s*(net\.ipv4\.icmp_ignore_bogus_error_responses\s*)(=)(\s*\S+\b).*$/# *REMOVED* \1/&quot; $filename; done; sysctl -w net.ipv4.icmp_ignore_bogus_error_responses=1; sysctl -w net.ipv4.route.flush=1; printf &quot;\nnet.ipv4.icmp_ignore_bogus_error_responses = 1\n&quot; &gt;&gt; /etc/sysctl.d/60-netipv4_sysctl.conf</pre></details>
+</section><section class="entry fail" id="e0121" data-id="0121 TWGCB-01-012-0121 900121" data-cat="網路設定">
+<h2><a class="anchor" href="#e0121">#0121</a> 所有網路介面啟用逆向路徑過濾功能
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0121｜SCA 900121｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -Els &quot;^\s*net\.ipv4\.conf\.all\.rp_filter\s*=\s*0&quot; /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri &quot;s/^\s*(net\.ipv4\.net.ipv4.conf\.all\.rp_filter\s*)(=)(\s*\S+\b).*$/# *REMOVED* \1/&quot; $filename; done; sysctl -w net.ipv4.conf.all.rp_filter=1; sysctl -w net.ipv4.route.flush=1; printf &quot;\nnet.ipv4.conf.all.rp_filter = 1\n&quot; &gt;&gt; /etc/sysctl.d/60-netipv4_sysctl.conf</pre></details>
+</section><section class="entry fail" id="e0122" data-id="0122 TWGCB-01-012-0122 900122" data-cat="網路設定">
+<h2><a class="anchor" href="#e0122">#0122</a> 預設網路介面啟用逆向路徑過濾功能
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0122｜SCA 900122｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.rp_filter=1 ； sysctl -w net.ipv4.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0123" data-id="0123 TWGCB-01-012-0123 900123" data-cat="網路設定">
+<h2><a class="anchor" href="#e0123">#0123</a> TCP SYN cookies
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0123｜SCA 900123｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -Els &quot;^\s*net\.ipv4\.tcp_syncookies\s*=\s*[02]*&quot; /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri &quot;s/^\s*(net\.ipv4\.tcp_syncookies\s*)(=)(\s*\S+\b).*$/# *REMOVED* \1/&quot; $filename; done; sysctl -w net.ipv4.tcp_syncookies=1; sysctl -w net.ipv4.route.flush=1; printf &quot;\nnet.ipv4.tcp_syncookies = 1\n&quot; &gt;&gt; /etc/sysctl.d/60-netipv4_sysctl.conf</pre></details>
+</section><section class="entry fail" id="e0124" data-id="0124 TWGCB-01-012-0124 900124" data-cat="網路設定">
+<h2><a class="anchor" href="#e0124">#0124</a> 所有網路介面阻擋IPv6路由器公告訊息
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0124｜SCA 900124｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv6.conf.all.accept_ra=0 ； sysctl -w net.ipv6.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0125" data-id="0125 TWGCB-01-012-0125 900125" data-cat="網路設定">
+<h2><a class="anchor" href="#e0125">#0125</a> 預設網路介面阻擋IPv6路由器公告訊息
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0125｜SCA 900125｜base</span></h2>
+<p class="compliance">合規值: 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w net.ipv6.conf.default.accept_ra=0 ； sysctl -w net.ipv6.route.flush=1</pre></details>
+</section><section class="entry fail" id="e0126" data-id="0126 TWGCB-01-012-0126 900126" data-cat="網路設定">
+<h2><a class="anchor" href="#e0126">#0126</a> DCCP協定
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0126｜SCA 900126｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/dccp.conf</pre></details>
+</section><section class="entry fail" id="e0127" data-id="0127 TWGCB-01-012-0127 900127" data-cat="網路設定">
+<h2><a class="anchor" href="#e0127">#0127</a> SCTP協定
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0127｜SCA 900127｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/sctp.conf</pre></details>
+</section><section class="entry fail" id="e0128" data-id="0128 TWGCB-01-012-0128 900128" data-cat="網路設定">
+<h2><a class="anchor" href="#e0128">#0128</a> RDS協定
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0128｜SCA 900128｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/rds.conf</pre></details>
+</section><section class="entry fail" id="e0129" data-id="0129 TWGCB-01-012-0129 900129" data-cat="網路設定">
+<h2><a class="anchor" href="#e0129">#0129</a> TIPC協定
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0129｜SCA 900129｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/tipc.conf</pre></details>
+</section><section class="entry fail" id="e0130" data-id="0130 TWGCB-01-012-0130 900130" data-cat="網路設定">
+<h2><a class="anchor" href="#e0130">#0130</a> 無線網路介面
+<span class="badge fail">FAIL</span>
+<span class="meta">網路設定｜TWGCB-01-012-0130｜SCA 900130｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：nmcli radio all off</pre></details>
+</section><section class="entry pass" id="e0131" data-id="0131 TWGCB-01-012-0131 900131" data-cat="網路設定">
+<h2><a class="anchor" href="#e0131">#0131</a> 網路介面混雜模式
+<span class="badge pass">PASS</span>
+<span class="meta">網路設定｜TWGCB-01-012-0131｜SCA 900131｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：ip link | grep -i promisc</pre></details>
+</section><section class="entry pass" id="e0132" data-id="0132 TWGCB-01-012-0132 900132" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0132">#0132</a> auditd套件
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0132｜SCA 900132｜base</span></h2>
+<p class="compliance">合規值: audit audit-libs 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install audit audit-libs</pre></details>
+</section><section class="entry pass" id="e0133" data-id="0133 TWGCB-01-012-0133 900133" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0133">#0133</a> auditd服務
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0133｜SCA 900133｜base</span></h2>
+<p class="compliance">合規值: auditd enabled+active</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now enable auditd</pre></details>
+</section><section class="entry fail" id="e0134" data-id="0134 TWGCB-01-012-0134 900134" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0134">#0134</a> 稽核auditd服務啟動前之程序
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0134｜SCA 900134｜base</span></h2>
+<p class="compliance">合規值: audit=1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grub2-mkconfig -o &quot;$(dirname &quot;$(find /boot -type f \( -name &#x27;grubenv&#x27; -o -name &#x27;grub.conf&#x27; -o -name &#x27;grub.cfg&#x27; \) -exec grep -Pl &#x27;^\h*(kernelopts=|linux|kernel)&#x27; {} \;)&quot;)/grub.cfg&quot;</pre></details>
+</section><section class="entry fail" id="e0135" data-id="0135 TWGCB-01-012-0135 900135" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0135">#0135</a> 稽核待辦事項數量限制
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0135｜SCA 900135｜base</span></h2>
+<p class="compliance">合規值: audit_backlog_limit&gt;=8192</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grub2-mkconfig -o &quot;$(dirname &quot;$(find /boot -type f \( -name &#x27;grubenv&#x27; -o -name &#x27;grub.conf&#x27; -o -name &#x27;grub.cfg&#x27; \) -exec grep -Pl &#x27;^\h*(kernelopts=|linux|kernel)&#x27; {} \;)&quot;)/grub.cfg&quot;</pre></details>
+</section><section class="entry pass" id="e0136" data-id="0136 TWGCB-01-012-0136 900136" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0136">#0136</a> 稽核處理失敗時通知系統管理者
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0136｜SCA 900136｜base</span></h2>
+<p class="compliance">合規值: postmaster: root</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/aliases檔案，新增或修改成以下內容，設定在稽核失敗時通知系統管理者： postmaster: root</pre></details>
+</section><section class="entry pass" id="e0137" data-id="0137 TWGCB-01-012-0137 900137" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0137">#0137</a> 稽核日誌檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0137｜SCA 900137｜base</span></h2>
+<p class="compliance">合規值: 稽核日誌 root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chown root:root (稽核日誌檔案名稱) ； chown root:root /var/log/audit/audit.log</pre></details>
+</section><section class="entry pass" id="e0138" data-id="0138 TWGCB-01-012-0138 900138" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0138">#0138</a> 稽核日誌檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0138｜SCA 900138｜base</span></h2>
+<p class="compliance">合規值: 稽核日誌 &lt;=0600（位元子集合）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chmod 600 (稽核日誌檔案名稱) ； chmod 600 /var/log/audit/audit.log</pre></details>
+</section><section class="entry pass" id="e0139" data-id="0139 TWGCB-01-012-0139 900139" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0139">#0139</a> 稽核日誌目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0139｜SCA 900139｜base</span></h2>
+<p class="compliance">合規值: 稽核日誌目錄 root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chown root:root (稽核日誌目錄名稱) ； chown root:root /var/log/audit</pre></details>
+</section><section class="entry pass" id="e0140" data-id="0140 TWGCB-01-012-0140 900140" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0140">#0140</a> 稽核日誌目錄權限
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0140｜SCA 900140｜base</span></h2>
+<p class="compliance">合規值: 稽核日誌目錄 &lt;=0700（位元子集合）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chmod 700 (稽核日誌目錄名稱) ； chmod 700 /var/log/audit</pre></details>
+</section><section class="entry manual_pending" id="e0141" data-id="0141 TWGCB-01-012-0141 900141" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0141">#0141</a> 稽核規則檔案權限
+<span class="badge manual_pending">範圍保留</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0141｜SCA 900141｜base</span></h2>
+<p class="compliance">合規值: 600或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 600 /etc/audit/rules.d/audit.rules</pre></details>
+</section><section class="entry pass" id="e0142" data-id="0142 TWGCB-01-012-0142 900142" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0142">#0142</a> 稽核設定檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0142｜SCA 900142｜base</span></h2>
+<p class="compliance">合規值: 640或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 640 /etc/audit/auditd.conf</pre></details>
+</section><section class="entry fail" id="e0143" data-id="0143 TWGCB-01-012-0143 900143" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0143">#0143</a> 稽核工具權限
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0143｜SCA 900143｜base</span></h2>
+<p class="compliance">合規值: 九個稽核工具 &lt;=0750（位元子集合）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：stat -c &quot;%a %n&quot; /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2&gt;/dev/null</pre></details>
+</section><section class="entry pass" id="e0144" data-id="0144 TWGCB-01-012-0144 900144" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0144">#0144</a> 稽核工具所有權
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0144｜SCA 900144｜base</span></h2>
+<p class="compliance">合規值: 九個稽核工具 root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：ls -al /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2&gt;/dev/null</pre></details>
+</section><section class="entry fail" id="e0145" data-id="0145 TWGCB-01-012-0145 900145" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0145">#0145</a> 保護稽核工具
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0145｜SCA 900145｜base</span></h2>
+<p class="compliance">合規值: 八個稽核工具 p+i+n+u+g+s+b+acl+xattrs+sha512</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：Audit Tools</pre></details>
+</section><section class="entry fail" id="e0146" data-id="0146 TWGCB-01-012-0146 900146" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0146">#0146</a> 稽核日誌檔案大小上限
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0146｜SCA 900146｜base</span></h2>
+<p class="compliance">合規值: max_log_file&gt;=32</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/audit/auditd.conf檔案，設定以下參數，將稽核日誌檔案大小上限值設為32(MB)： max_log_file = 32</pre></details>
+</section><section class="entry fail" id="e0147" data-id="0147 TWGCB-01-012-0147 900147" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0147">#0147</a> 稽核日誌達到其檔案大小上限之行為
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0147｜SCA 900147｜base</span></h2>
+<p class="compliance">合規值: max_log_file_action=keep_logs</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/audit/auditd.conf檔案，設定參數如下： max_log_file_action = keep_logs</pre></details>
+</section><section class="entry fail" id="e0148" data-id="0148 TWGCB-01-012-0148 900148" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0148">#0148</a> 記錄系統管理者活動
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0148｜SCA 900148｜base</span></h2>
+<p class="compliance">合規值: -w /etc/sudoers -p wa -k scope；-w /etc/sudoers.d/ -p wa -k scope</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0149" data-id="0149 TWGCB-01-012-0149 900149" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0149">#0149</a> 記錄變更登入與登出資訊事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0149｜SCA 900149｜base</span></h2>
+<p class="compliance">合規值: -w /var/run/faillock/ -p wa -k logins；-w /var/log/lastlog -p wa -k logins</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0150" data-id="0150 TWGCB-01-012-0150 900150" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0150">#0150</a> 記錄會談啟始資訊
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0150｜SCA 900150｜base</span></h2>
+<p class="compliance">合規值: -w /var/run/utmp -p wa -k session；-w /var/log/wtmp -p wa -k logins；-w /var/log/btmp -p wa -k logins</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0151" data-id="0151 TWGCB-01-012-0151 900151" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0151">#0151</a> 記錄變更日期與時間事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0151｜SCA 900151｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change；-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change；-a always,exit -F arch=b64 -S clock_settime -k time-change；-a always,exit -F arch=b32 -S clock_settime -k time-change；-w /etc/localtime -p wa -k time-change</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0152" data-id="0152 TWGCB-01-012-0152 900152" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0152">#0152</a> 記錄變更系統強制存取控制事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0152｜SCA 900152｜base</span></h2>
+<p class="compliance">合規值: -w /etc/selinux/ -p wa -k MAC-policy；-w /usr/share/selinux/ -p wa -k MAC-policy</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0153" data-id="0153 TWGCB-01-012-0153 900153" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0153">#0153</a> 記錄變更系統網路環境事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0153｜SCA 900153｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale；-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale；-w /etc/issue -p wa -k system-locale；-w /etc/issue.net -p wa -k system-locale；-w /etc/hosts -p wa -k system-locale；-w /etc/sysconfig/network-scripts -p wa -k system-locale；-w /etc/NetworkManager -p wa -k system-locale；-w /etc/sysconfig/network -p wa -k system-locale；-w /etc/hostname -p wa -k system-locale</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0154" data-id="0154 TWGCB-01-012-0154 900154" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0154">#0154</a> 記錄變更自主存取控制權限事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0154｜SCA 900154｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid&gt;=1000 -F auid!=4294967295 -k perm_mod</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0155" data-id="0155 TWGCB-01-012-0155 900155" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0155">#0155</a> 記錄不成功之未經授權檔案存取
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0155｜SCA 900155｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid&gt;=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid&gt;=1000 -F auid!=4294967295 -k access</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0156" data-id="0156 TWGCB-01-012-0156 900156" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0156">#0156</a> 記錄變更使用者或群組資訊事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0156｜SCA 900156｜base</span></h2>
+<p class="compliance">合規值: -w /etc/group -p wa -k identity；-w /etc/passwd -p wa -k identity；-w /etc/gshadow -p wa -k identity；-w /etc/shadow -p wa -k identity；-w /etc/security/opasswd -p wa -k identity；-w /etc/nsswitch.conf -p wa -k identity；-w /etc/pam.conf -p wa -k identity；-w /etc/pam.d -p wa -k identity</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0157" data-id="0157 TWGCB-01-012-0157 900157" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0157">#0157</a> 記錄變更檔案系統掛載事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0157｜SCA 900157｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b64 -S mount -F auid&gt;=1000 -F auid!=4294967295 -k mounts；-a always,exit -F arch=b32 -S mount -F auid&gt;=1000 -F auid!=4294967295 -k mounts</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0158" data-id="0158 TWGCB-01-012-0158 900158" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0158">#0158</a> 記錄特權指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0158｜SCA 900158｜base</span></h2>
+<p class="compliance">合規值: 每個磁區所有特權程式都有 privileged.rules 執行稽核</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find (partition) -xdev \( -perm -4000 -o -perm -2000 \) -type f | awk &#x27;{print &quot;-a always,exit -F path=&quot; $1 &quot; -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k privileged&quot; }&#x27; ； find / -xdev \( -perm -4000 -o -perm -2000 \) -type f | awk &#x27;{print &quot;-a always,exit -F path=&quot; $1 &quot; -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k privileged&quot; }&#x27; &gt;&gt; /etc/audit/rules.d/privileged.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0159" data-id="0159 TWGCB-01-012-0159 900159" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0159">#0159</a> 記錄檔案刪除事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0159｜SCA 900159｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid&gt;=1000 -F auid!=4294967295 -k delete；-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid&gt;=1000 -F auid!=4294967295 -k delete</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0160" data-id="0160 TWGCB-01-012-0160 900160" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0160">#0160</a> 記錄核心模組掛載與卸載事件
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0160｜SCA 900160｜base</span></h2>
+<p class="compliance">合規值: -w /sbin/insmod -p x -k modules；-w /sbin/rmmod -p x -k modules；-w /sbin/modprobe -p x -k modules；-a always,exit -F arch=b64 -S init_module -S delete_module -k modules；-a always,exit -F arch=b32 -S init_module -S delete_module -k modules</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0161" data-id="0161 TWGCB-01-012-0161 900161" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0161">#0161</a> 記錄系統管理者活動日誌變更
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0161｜SCA 900161｜base</span></h2>
+<p class="compliance">合規值: sudo 實際 logfile 有 actions.rules wa/actions 稽核</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -r logfile /etc/sudoers* | sed -e &#x27;s/.*logfile=//;s/,? .*//&#x27; ； vim /etc/audit/rules.d/actions.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0162" data-id="0162 TWGCB-01-012-0162 900162" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0162">#0162</a> 記錄chcon指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0162｜SCA 900162｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F path=/usr/bin/chcon -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k perm_chng</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0163" data-id="0163 TWGCB-01-012-0163 900163" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0163">#0163</a> 記錄ssh-agent程序使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0163｜SCA 900163｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k privileged-ssh</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0164" data-id="0164 TWGCB-01-012-0164 900164" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0164">#0164</a> 記錄unix_update程序使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0164｜SCA 900164｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F path=/sbin/unix_update -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k privileged-unix-update</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0165" data-id="0165 TWGCB-01-012-0165 900165" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0165">#0165</a> 記錄setfacl指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0165｜SCA 900165｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k perm_chng</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0166" data-id="0166 TWGCB-01-012-0166 900166" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0166">#0166</a> 記錄finit_module指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0166｜SCA 900166｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b32 -S finit_module -F auid&gt;=1000 -F auid!=4294967295 -k module_chng；-a always,exit -F arch=b64 -S finit_module -F auid&gt;=1000 -F auid!=4294967295 -k module_chng</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0167" data-id="0167 TWGCB-01-012-0167 900167" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0167">#0167</a> 記錄open_by_handle_at系統呼叫使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0167｜SCA 900167｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=4294967295 -k perm_access</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0168" data-id="0168 TWGCB-01-012-0168 900168" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0168">#0168</a> 記錄usermod指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0168｜SCA 900168｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k privileged-usermod</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0169" data-id="0169 TWGCB-01-012-0169 900169" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0169">#0169</a> 記錄chacl指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0169｜SCA 900169｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F path=/usr/bin/chacl -F perm=x -F auid&gt;=1000 -F auid!=4294967295 -k perm_chng</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0170" data-id="0170 TWGCB-01-012-0170 900170" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0170">#0170</a> 記錄kmod指令使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0170｜SCA 900170｜base</span></h2>
+<p class="compliance">合規值: -w /bin/kmod -p x -k modules</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0171" data-id="0171 TWGCB-01-012-0171 900171" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0171">#0171</a> 記錄Pam_Faillock日誌檔案
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0171｜SCA 900171｜base</span></h2>
+<p class="compliance">合規值: -w /var/log/faillock -p wa -k logins</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0172" data-id="0172 TWGCB-01-012-0172 900172" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0172">#0172</a> 記錄execve系統呼叫使用情形
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0172｜SCA 900172｜base</span></h2>
+<p class="compliance">合規值: -a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load</pre></details>
+</section><section class="entry fail" id="e0173" data-id="0173 TWGCB-01-012-0173 900173" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0173">#0173</a> auditd設定不變模式
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0173｜SCA 900173｜base</span></h2>
+<p class="compliance">合規值: -e 2；--loginuid-immutable</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -h &quot;^\s*[^#]&quot; /etc/audit/rules.d/*.rules | egrep &quot;(-e 2)|(--loginuid-immutable)&quot;</pre></details>
+</section><section class="entry pass" id="e0174" data-id="0174 TWGCB-01-012-0174 900174" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0174">#0174</a> rsyslog套件
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0174｜SCA 900174｜base</span></h2>
+<p class="compliance">合規值: rsyslog 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install rsyslog</pre></details>
+</section><section class="entry pass" id="e0175" data-id="0175 TWGCB-01-012-0175 900175" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0175">#0175</a> rsyslog服務
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0175｜SCA 900175｜base</span></h2>
+<p class="compliance">合規值: rsyslog enabled+active</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now enable rsyslog</pre></details>
+</section><section class="entry fail" id="e0176" data-id="0176 TWGCB-01-012-0176 900176" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0176">#0176</a> 設定rsyslog日誌檔案預設權限
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0176｜SCA 900176｜base</span></h2>
+<p class="compliance">合規值: $FileCreateMode/action fileCreateMode &lt;=0640（位元子集合）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/rsyslog.conf檔案與 /etc/rsyslog.d/目錄下之「.conf」檔案，設定參數「$FileCreateMode」為0640或更低權限，範例如下： $FileCreateMode 0640</pre></details>
+</section><section class="entry fail" id="e0177" data-id="0177 TWGCB-01-012-0177 900177" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0177">#0177</a> 設定rsyslog日誌記錄規則
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0177｜SCA 900177｜base</span></h2>
+<p class="compliance">合規值: auth.*、authpriv.*、daemon.* → /var/log/secure</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart rsyslog.service</pre></details>
+</section><section class="entry pass" id="e0178" data-id="0178 TWGCB-01-012-0178 900178" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0178">#0178</a> /var/log/messages檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0178｜SCA 900178｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /var/log/messages</pre></details>
+</section><section class="entry pass" id="e0179" data-id="0179 TWGCB-01-012-0179 900179" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0179">#0179</a> /var/log目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0179｜SCA 900179｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /var/log</pre></details>
+</section><section class="entry fail" id="e0181" data-id="0181 TWGCB-01-012-0181 900181" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0181">#0181</a> 設定journald壓縮日誌檔案
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0181｜SCA 900181｜base</span></h2>
+<p class="compliance">合規值: [Journal] Compress=yes（明確設定）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart systemd-journald</pre></details>
+</section><section class="entry fail" id="e0182" data-id="0182 TWGCB-01-012-0182 900182" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0182">#0182</a> 設定journald將日誌檔案永久保存於磁碟
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0182｜SCA 900182｜base</span></h2>
+<p class="compliance">合規值: [Journal] Storage=persistent</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart systemd-journald</pre></details>
+</section><section class="entry pass" id="e0183" data-id="0183 TWGCB-01-012-0183 900183" data-cat="SELinux">
+<h2><a class="anchor" href="#e0183">#0183</a> SELinux套件
+<span class="badge pass">PASS</span>
+<span class="meta">SELinux｜TWGCB-01-012-0183｜SCA 900183｜base</span></h2>
+<p class="compliance">合規值: libselinux 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install libselinux</pre></details>
+</section><section class="entry pass" id="e0184" data-id="0184 TWGCB-01-012-0184 900184" data-cat="SELinux">
+<h2><a class="anchor" href="#e0184">#0184</a> 開機載入程式啟用SELinux
+<span class="badge pass">PASS</span>
+<span class="meta">SELinux｜TWGCB-01-012-0184｜SCA 900184｜base</span></h2>
+<p class="compliance">合規值: 所有 GRUB_CMDLINE_LINUX* 不含 selinux=0 或 enforcing=0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grub2-mkconfig -o &quot;$(dirname &quot;$(find /boot -type f \( -name &#x27;grubenv&#x27; -o -name &#x27;grub.conf&#x27; -o -name &#x27;grub.cfg&#x27; \) -exec grep -Pl &#x27;^\h*(kernelopts=|linux|kernel)&#x27; {} \;)&quot;)/grub.cfg&quot;</pre></details>
+</section><section class="entry pass" id="e0185" data-id="0185 TWGCB-01-012-0185 900185" data-cat="SELinux">
+<h2><a class="anchor" href="#e0185">#0185</a> SELinux政策
+<span class="badge pass">PASS</span>
+<span class="meta">SELinux｜TWGCB-01-012-0185｜SCA 900185｜base</span></h2>
+<p class="compliance">合規值: SELINUXTYPE=targeted（或來源允許之更嚴格 mls）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/selinux/config檔案，設定SELINUXTYPE參數如下： SELINUXTYPE=targeted</pre></details>
+</section><section class="entry pass" id="e0186" data-id="0186 TWGCB-01-012-0186 900186" data-cat="SELinux">
+<h2><a class="anchor" href="#e0186">#0186</a> SELinux啟用狀態
+<span class="badge pass">PASS</span>
+<span class="meta">SELinux｜TWGCB-01-012-0186｜SCA 900186｜base</span></h2>
+<p class="compliance">合規值: SELINUX=enforcing；即時 enforcing</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：setenforce 1</pre></details>
+</section><section class="entry fail accepted" id="e0187" data-id="0187 TWGCB-01-012-0187 900187" data-cat="SELinux">
+<h2><a class="anchor" href="#e0187">#0187</a> 未受限程序
+<span class="badge fail">FAIL</span><span class="badge accepted">Accepted finding</span>
+<span class="meta">SELinux｜TWGCB-01-012-0187｜SCA 900187｜base</span></h2>
+<p class="compliance">合規值: 無 unconfined_service_t 程序 ｜ 【Accepted finding】Commander 2026-11-01 裁定：維持 FAIL，不矯正系統設定（docs/EXCEPTIONS.md）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：ps -eZf | grep unconfined_service_t | grep -v grep</pre></details>
+</section><section class="entry pass" id="e0188" data-id="0188 TWGCB-01-012-0188 900188" data-cat="SELinux">
+<h2><a class="anchor" href="#e0188">#0188</a> setroubleshoot套件
+<span class="badge pass">PASS</span>
+<span class="meta">SELinux｜TWGCB-01-012-0188｜SCA 900188｜base</span></h2>
+<p class="compliance">合規值: setroubleshoot 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove setroubleshoot</pre></details>
+</section><section class="entry pass" id="e0189" data-id="0189 TWGCB-01-012-0189 900189" data-cat="SELinux">
+<h2><a class="anchor" href="#e0189">#0189</a> mcstrans套件
+<span class="badge pass">PASS</span>
+<span class="meta">SELinux｜TWGCB-01-012-0189｜SCA 900189｜base</span></h2>
+<p class="compliance">合規值: mcstrans 未安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf remove mcstrans</pre></details>
+</section><section class="entry pass" id="e0190" data-id="0190 TWGCB-01-012-0190 900190" data-cat="cron設定">
+<h2><a class="anchor" href="#e0190">#0190</a> cron守護程序
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0190｜SCA 900190｜base</span></h2>
+<p class="compliance">合規值: crond enabled+active</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now enable crond</pre></details>
+</section><section class="entry pass" id="e0191" data-id="0191 TWGCB-01-012-0191 900191" data-cat="cron設定">
+<h2><a class="anchor" href="#e0191">#0191</a> /etc/crontab檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0191｜SCA 900191｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/crontab</pre></details>
+</section><section class="entry pass" id="e0192" data-id="0192 TWGCB-01-012-0192 900192" data-cat="cron設定">
+<h2><a class="anchor" href="#e0192">#0192</a> /etc/crontab檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0192｜SCA 900192｜base</span></h2>
+<p class="compliance">合規值: 600或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 600 /etc/crontab</pre></details>
+</section><section class="entry pass" id="e0193" data-id="0193 TWGCB-01-012-0193 900193" data-cat="cron設定">
+<h2><a class="anchor" href="#e0193">#0193</a> /etc/cron.hourly目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0193｜SCA 900193｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/cron.hourly</pre></details>
+</section><section class="entry pass" id="e0194" data-id="0194 TWGCB-01-012-0194 900194" data-cat="cron設定">
+<h2><a class="anchor" href="#e0194">#0194</a> /etc/cron.hourly目錄權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0194｜SCA 900194｜base</span></h2>
+<p class="compliance">合規值: 700或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 700 /etc/cron.hourly</pre></details>
+</section><section class="entry pass" id="e0195" data-id="0195 TWGCB-01-012-0195 900195" data-cat="cron設定">
+<h2><a class="anchor" href="#e0195">#0195</a> /etc/cron.daily目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0195｜SCA 900195｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/cron.daily</pre></details>
+</section><section class="entry pass" id="e0196" data-id="0196 TWGCB-01-012-0196 900196" data-cat="cron設定">
+<h2><a class="anchor" href="#e0196">#0196</a> /etc/cron.daily目錄權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0196｜SCA 900196｜base</span></h2>
+<p class="compliance">合規值: 700或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 700 /etc/cron.daily</pre></details>
+</section><section class="entry pass" id="e0197" data-id="0197 TWGCB-01-012-0197 900197" data-cat="cron設定">
+<h2><a class="anchor" href="#e0197">#0197</a> /etc/cron.weekly目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0197｜SCA 900197｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/cron.weekly</pre></details>
+</section><section class="entry pass" id="e0198" data-id="0198 TWGCB-01-012-0198 900198" data-cat="cron設定">
+<h2><a class="anchor" href="#e0198">#0198</a> /etc/cron.weekly目錄權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0198｜SCA 900198｜base</span></h2>
+<p class="compliance">合規值: 700或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 700 /etc/cron.weekly</pre></details>
+</section><section class="entry pass" id="e0199" data-id="0199 TWGCB-01-012-0199 900199" data-cat="cron設定">
+<h2><a class="anchor" href="#e0199">#0199</a> /etc/cron.monthly目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0199｜SCA 900199｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/cron.monthly</pre></details>
+</section><section class="entry pass" id="e0200" data-id="0200 TWGCB-01-012-0200 900200" data-cat="cron設定">
+<h2><a class="anchor" href="#e0200">#0200</a> /etc/cron.monthly目錄權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0200｜SCA 900200｜base</span></h2>
+<p class="compliance">合規值: 700或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 700 /etc/cron.monthly</pre></details>
+</section><section class="entry pass" id="e0201" data-id="0201 TWGCB-01-012-0201 900201" data-cat="cron設定">
+<h2><a class="anchor" href="#e0201">#0201</a> /etc/cron.d目錄所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0201｜SCA 900201｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/cron.d</pre></details>
+</section><section class="entry pass" id="e0202" data-id="0202 TWGCB-01-012-0202 900202" data-cat="cron設定">
+<h2><a class="anchor" href="#e0202">#0202</a> /etc/cron.d目錄權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0202｜SCA 900202｜base</span></h2>
+<p class="compliance">合規值: 700或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 700 /etc/cron.d</pre></details>
+</section><section class="entry pass" id="e0203" data-id="0203 TWGCB-01-012-0203 900203" data-cat="cron設定">
+<h2><a class="anchor" href="#e0203">#0203</a> at.allow與cron.allow檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0203｜SCA 900203｜base</span></h2>
+<p class="compliance">合規值: root:root；/etc/at.deny 與 /etc/cron.deny 不存在</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：rm /etc/cron.deny ； rm /etc/at.deny ； touch /etc/cron.allow ； touch /etc/at.allow ； chown root:root /etc/cron.allow ； chown root:root /etc/at.allow</pre></details>
+</section><section class="entry pass" id="e0204" data-id="0204 TWGCB-01-012-0204 900204" data-cat="cron設定">
+<h2><a class="anchor" href="#e0204">#0204</a> at.allow與cron.allow檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0204｜SCA 900204｜base</span></h2>
+<p class="compliance">合規值: 600 或更低權限；/etc/at.deny 與 /etc/cron.deny 不存在</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：rm /etc/cron.deny ； rm /etc/at.deny ； touch /etc/cron.allow ； touch /etc/at.allow ； chmod 600 /etc/cron.allow ； chmod 600 /etc/at.allow</pre></details>
+</section><section class="entry pass" id="e0205" data-id="0205 TWGCB-01-012-0205 900205" data-cat="cron設定">
+<h2><a class="anchor" href="#e0205">#0205</a> cron日誌記錄功能
+<span class="badge pass">PASS</span>
+<span class="meta">cron設定｜TWGCB-01-012-0205｜SCA 900205｜base</span></h2>
+<p class="compliance">合規值: cron.* /var/log/cron</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep cron /etc/rsyslog.conf /etc/rsyslog.d/*.conf</pre></details>
+</section><section class="entry fail" id="e0206" data-id="0206 TWGCB-01-012-0206 900206" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0206">#0206</a> 可設定通行碼次數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0206｜SCA 900206｜base</span></h2>
+<p class="compliance">合規值: 3以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： Retry = 3</pre></details>
+</section><section class="entry fail" id="e0207" data-id="0207 TWGCB-01-012-0207 900207" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0207">#0207</a> 強制root通行碼須符合通行碼規則
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0207｜SCA 900207｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：authselect create-profile &lt;profile名稱&gt; -b sssd --symlink-meta ； authselect select custom/&lt;profile名稱&gt; with-sudo with-faillock without-nullok ； !/bin/bash</pre></details>
+</section><section class="entry fail" id="e0208" data-id="0208 TWGCB-01-012-0208 900208" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0208">#0208</a> 通行碼最小長度
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0208｜SCA 900208｜base</span></h2>
+<p class="compliance">合規值: 12個字元以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/login.defs檔案，新增或修改成以下內容： PASS_MIN_LEN 12 編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： minlen = 12</pre></details>
+</section><section class="entry fail" id="e0209" data-id="0209 TWGCB-01-012-0209 900209" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0209">#0209</a> 通行碼必須至少包含字元類別數量
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0209｜SCA 900209｜base</span></h2>
+<p class="compliance">合規值: 4</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： minclass = 4</pre></details>
+</section><section class="entry fail" id="e0210" data-id="0210 TWGCB-01-012-0210 900210" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0210">#0210</a> 通行碼必須至少包含數字個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0210｜SCA 900210｜base</span></h2>
+<p class="compliance">合規值: 1個以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： dcredit = -1</pre></details>
+</section><section class="entry fail" id="e0211" data-id="0211 TWGCB-01-012-0211 900211" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0211">#0211</a> 通行碼必須至少包含大寫字母個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0211｜SCA 900211｜base</span></h2>
+<p class="compliance">合規值: 1個以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： ucredit = -1</pre></details>
+</section><section class="entry fail" id="e0212" data-id="0212 TWGCB-01-012-0212 900212" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0212">#0212</a> 通行碼必須至少包含小寫字母個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0212｜SCA 900212｜base</span></h2>
+<p class="compliance">合規值: 1個以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： lcredit = -1</pre></details>
+</section><section class="entry fail" id="e0213" data-id="0213 TWGCB-01-012-0213 900213" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0213">#0213</a> 通行碼必須至少包含特殊字元個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0213｜SCA 900213｜base</span></h2>
+<p class="compliance">合規值: 1個以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： ocredit = -1</pre></details>
+</section><section class="entry fail" id="e0214" data-id="0214 TWGCB-01-012-0214 900214" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0214">#0214</a> 新通行碼與舊通行碼最少相異字元數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0214｜SCA 900214｜base</span></h2>
+<p class="compliance">合規值: 3以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： difok = 3</pre></details>
+</section><section class="entry fail" id="e0215" data-id="0215 TWGCB-01-012-0215 900215" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0215">#0215</a> 同一類別字元可連續使用個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0215｜SCA 900215｜base</span></h2>
+<p class="compliance">合規值: 4以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： maxclassrepeat = 4</pre></details>
+</section><section class="entry fail" id="e0216" data-id="0216 TWGCB-01-012-0216 900216" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0216">#0216</a> 相同字元可連續使用個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0216｜SCA 900216｜base</span></h2>
+<p class="compliance">合規值: 3以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： maxrepeat = 3</pre></details>
+</section><section class="entry fail" id="e0217" data-id="0217 TWGCB-01-012-0217 900217" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0217">#0217</a> 必須禁止使用字典檔單字做為通行碼
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0217｜SCA 900217｜base</span></h2>
+<p class="compliance">合規值: 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： dictcheck=1</pre></details>
+</section><section class="entry fail" id="e0218" data-id="0218 TWGCB-01-012-0218 900218" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0218">#0218</a> 帳戶鎖定閾值
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0218｜SCA 900218｜base</span></h2>
+<p class="compliance">合規值: 5次以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/faillock.conf檔案，新增或修改成以下內容： deny = 5</pre></details>
+</section><section class="entry fail" id="e0219" data-id="0219 TWGCB-01-012-0219 900219" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0219">#0219</a> 帳戶鎖定時間
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0219｜SCA 900219｜base</span></h2>
+<p class="compliance">合規值: 900秒以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/faillock.conf檔案，新增或修改成以下內容： unlock_time = 900</pre></details>
+</section><section class="entry fail" id="e0220" data-id="0220 TWGCB-01-012-0220 900220" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0220">#0220</a> 強制執行通行碼歷程記錄
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0220｜SCA 900220｜base</span></h2>
+<p class="compliance">合規值: 3以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：authselect create-profile &lt;profile名稱&gt; -b sssd --symlink-meta ； authselect select custom/&lt;profile名稱&gt; with-sudo with-faillock without-nullok ； !/bin/bash</pre></details>
+</section><section class="entry fail" id="e0221" data-id="0221 TWGCB-01-012-0221 900221" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0221">#0221</a> 顯示登入失敗次數與日期
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0221｜SCA 900221｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/pam.d/postlogin檔案，新增或修改以下內容至檔案最上方： session required pam_lastlog.so showfailed</pre></details>
+</section><section class="entry pass" id="e0222" data-id="0222 TWGCB-01-012-0222 900222" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0222">#0222</a> 通行碼雜湊演算法
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0222｜SCA 900222｜base</span></h2>
+<p class="compliance">合規值: SHA512</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：authselect create-profile &lt;profile名稱&gt; -b sssd --symlink-meta ； authselect select custom/&lt;profile名稱&gt; with-sudo with-faillock without-nullok ； !/bin/bash</pre></details>
+</section><section class="entry fail" id="e0223" data-id="0223 TWGCB-01-012-0223 900223" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0223">#0223</a> 通行碼最短使用期限
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0223｜SCA 900223｜base</span></h2>
+<p class="compliance">合規值: 1天以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chage --mindays 1 (使用者帳號名稱)</pre></details>
+</section><section class="entry fail" id="e0224" data-id="0224 TWGCB-01-012-0224 900224" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0224">#0224</a> 通行碼到期前提醒使用者變更通行碼
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0224｜SCA 900224｜base</span></h2>
+<p class="compliance">合規值: 14天以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chage --warndays 14 (使用者帳號名稱)</pre></details>
+</section><section class="entry fail" id="e0225" data-id="0225 TWGCB-01-012-0225 900225" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0225">#0225</a> 通行碼最長使用期限
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0225｜SCA 900225｜base</span></h2>
+<p class="compliance">合規值: 90天以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chage --maxdays 90 (使用者帳號名稱)</pre></details>
+</section><section class="entry fail" id="e0226" data-id="0226 TWGCB-01-012-0226 900226" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0226">#0226</a> 通行碼到期後，帳號停用前之天數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0226｜SCA 900226｜base</span></h2>
+<p class="compliance">合規值: 30天以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：useradd -D -f 30 ； chage --inactive 30 (使用者帳號名稱)</pre></details>
+</section><section class="entry fail" id="e0227" data-id="0227 TWGCB-01-012-0227 900227" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0227">#0227</a> 登入嘗試失敗之延遲時間
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0227｜SCA 900227｜base</span></h2>
+<p class="compliance">合規值: 4秒以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/login.defs檔案，將FAIL_DELAY參數值設為4以上，範例如下： FAIL_DELAY 4</pre></details>
+</section><section class="entry pass" id="e0228" data-id="0228 TWGCB-01-012-0228 900228" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0228">#0228</a> 新使用者帳號預設建立使用者家目錄
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0228｜SCA 900228｜base</span></h2>
+<p class="compliance">合規值: yes</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/login.defs檔案，設定CREATE_HOME參數如下： CREATE_HOME yes</pre></details>
+</section><section class="entry fail accepted" id="e0229" data-id="0229 TWGCB-01-012-0229 900229" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0229">#0229</a> 要求使用者必須經過身分鑑別才能提升權限
+<span class="badge fail">FAIL</span><span class="badge accepted">Accepted finding</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0229｜SCA 900229｜base</span></h2>
+<p class="compliance">合規值: 要求身分鑑別 ｜ 【Accepted finding】Commander 2026-11-01 裁定：維持 FAIL，不矯正系統設定（docs/EXCEPTIONS.md）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：egrep -i &#x27;(nopasswd|!authenticate)&#x27; /etc/sudoers /etc/sudoers.d/*</pre></details>
+</section><section class="entry fail" id="e0230" data-id="0230 TWGCB-01-012-0230 900230" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0230">#0230</a> 限制每個帳號可同時登入之數量
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0230｜SCA 900230｜base</span></h2>
+<p class="compliance">合規值: 10以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/limits.conf檔案或/etc/security/limits.d/目錄下之「.conf」檔案，新增或修改成以下內容： * hard maxlogins 10</pre></details>
+</section><section class="entry pass" id="e0231" data-id="0231 TWGCB-01-012-0231 900231" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0231">#0231</a> kbd套件
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0231｜SCA 900231｜base</span></h2>
+<p class="compliance">合規值: kbd 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install kbd.x86_64</pre></details>
+</section><section class="entry fail" id="e0232" data-id="0232 TWGCB-01-012-0232 900232" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0232">#0232</a> 使用者會談鎖定
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0232｜SCA 900232｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/dconf/db/local.d/00-screensaver ； Set this to true to lock the screen when the screensaver activates ； dconf update</pre></details>
+</section><section class="entry fail" id="e0233" data-id="0233 TWGCB-01-012-0233 900233" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0233">#0233</a> GNOME使用者會談逾時時間
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0233｜SCA 900233｜base</span></h2>
+<p class="compliance">合規值: 900秒以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/dconf/db/local.d/00-screensaver ； Set the lock time out to 900 seconds before the session is considered idle ； dconf update</pre></details>
+</section><section class="entry fail" id="e0234" data-id="0234 TWGCB-01-012-0234 900234" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0234">#0234</a> 禁止GNOME使用者自動登入
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0234｜SCA 900234｜base</span></h2>
+<p class="compliance">合規值: false</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/gdm/custom.conf檔案，在「daemon]」段落，新增或修改成以下內容： [daemon] AutomaticLoginEnable=false</pre></details>
+</section><section class="entry pass" id="e0235" data-id="0235 TWGCB-01-012-0235 900235" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0235">#0235</a> 系統帳號登入方式
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0235｜SCA 900235｜base</span></h2>
+<p class="compliance">合規值: nologin</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：awk -F: &#x27;($1!=&quot;root&quot; &amp;&amp; $1!=&quot;sync&quot; &amp;&amp; $1!=&quot;shutdown&quot; &amp;&amp; $1!=&quot;halt&quot; &amp;&amp; $1!~/^\+/ &amp;&amp; $3&lt;&#x27;&quot;$(awk &#x27;/^\s*UID_MIN/{print $2}&#x27; /etc/login.defs)&quot;&#x27; &amp;&amp; $7!=&quot;&#x27;&quot;$(which nologin)&quot;&#x27;&quot; &amp;&amp; $7!=&quot;/bin/false&quot;) {print $1}&#x27; /etc/passwd | while read user; do usermod -s $(which nologin) $user; done ； awk -F: &#x27;($1!=&quot;root&quot; &amp;&amp; $1!~/^\+/ &amp;&amp; $3&lt;&#x27;&quot;$(awk &#x27;/^\s*UID_MIN/{print $2}&#x27; /etc/login.defs)&quot;&#x27;) {print $1}&#x27; /etc/passwd | xargs -I &#x27;{}&#x27; passwd -S &#x27;{}&#x27; | awk &#x27;($2!=&quot;L&quot; &amp;&amp; $2!=&quot;LK&quot;) {print $1}&#x27; | while read user; do usermod -L…</pre></details>
+</section><section class="entry fail" id="e0236" data-id="0236 TWGCB-01-012-0236 900236" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0236">#0236</a> Bash shell閒置時登出時間
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0236｜SCA 900236｜base</span></h2>
+<p class="compliance">合規值: 900秒以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/bashrc檔案，新增或修改參數如下： readonly TMOUT=900 ; export TMOUT 編輯/etc/profile檔案或/etc/profile.d/目錄下之「.sh」檔案，新增或修改參數如下： readonly TMOUT=900 ; export TMOUT</pre></details>
+</section><section class="entry fail" id="e0237" data-id="0237 TWGCB-01-012-0237 900237" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0237">#0237</a> 防止修改圖形使用者介面(GUI)設定
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0237｜SCA 900237｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/dconf/db/local.d/locks/session</pre></details>
+</section><section class="entry pass" id="e0238" data-id="0238 TWGCB-01-012-0238 900238" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0238">#0238</a> root帳號所屬群組
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0238｜SCA 900238｜base</span></h2>
+<p class="compliance">合規值: GID 0</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：usermod -g 0 root</pre></details>
+</section><section class="entry fail" id="e0239" data-id="0239 TWGCB-01-012-0239 900239" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0239">#0239</a> 所有使用者帳號之預設umask
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0239｜SCA 900239｜base</span></h2>
+<p class="compliance">合規值: 027或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/profile檔案、/etc/profile.d/目錄下之「.sh」檔案及/etc/bashrc檔案，新增或修改參數如下： umask 027</pre></details>
+</section><section class="entry fail" id="e0240" data-id="0240 TWGCB-01-012-0240 900240" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0240">#0240</a> 在/etc/login.defs設定所有使用者之預設umask
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0240｜SCA 900240｜base</span></h2>
+<p class="compliance">合規值: 027或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/login.defs檔案，設定UMASK參數值如下： UMASK 027</pre></details>
+</section><section class="entry fail" id="e0241" data-id="0241 TWGCB-01-012-0241 900241" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0241">#0241</a> 可使用su指令之群組
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0241｜SCA 900241｜base</span></h2>
+<p class="compliance">合規值: 僅限wheel群組才能使用su指令</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/pam.d/su檔案，新增或修改成以下內容： auth required pam_wheel.so use_uid 編輯/etc/group檔案之wheel群組設定，建立允許使用su指令之使用者帳號清單，如下所示： wheel:x:GID:root,(使用者帳號清單) 範例：如欲在wheel群組(GID為10)建立允許root、user1及user2帳號使用su指令，內容如下： wheel:x:10:root,user1,user2</pre></details>
+</section><section class="entry fail" id="e0285" data-id="0285 TWGCB-01-012-0285 900285" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0285">#0285</a> freevxfs檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0285｜SCA 900285｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/freevxfs.conf ； modprobe -r freevxfs ； rmmod freevxfs</pre></details>
+</section><section class="entry fail" id="e0286" data-id="0286 TWGCB-01-012-0286 900286" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0286">#0286</a> hfs檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0286｜SCA 900286｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/hfs.conf ； modprobe -r hfs ； rmmod hfs</pre></details>
+</section><section class="entry fail" id="e0287" data-id="0287 TWGCB-01-012-0287 900287" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0287">#0287</a> hfs plus檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0287｜SCA 900287｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/hfsplus.conf ； modprobe -r hfsplus ； rmmod hfsplus</pre></details>
+</section><section class="entry fail" id="e0288" data-id="0288 TWGCB-01-012-0288 900288" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0288">#0288</a> jffs2檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0288｜SCA 900288｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/jffs2.conf ； modprobe -r jffs2 ； rmmod jffs2</pre></details>
+</section><section class="entry fail" id="e0289" data-id="0289 TWGCB-01-012-0289 900289" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0289">#0289</a> afs檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0289｜SCA 900289｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/afs.conf ； modprobe -r afs ； rmmod afs</pre></details>
+</section><section class="entry fail" id="e0290" data-id="0290 TWGCB-01-012-0290 900290" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0290">#0290</a> ceph檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0290｜SCA 900290｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/ceph.conf ； modprobe -r ceph ； rmmod ceph</pre></details>
+</section><section class="entry fail" id="e0291" data-id="0291 TWGCB-01-012-0291 900291" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0291">#0291</a> cifs檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0291｜SCA 900291｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/cifs.conf ； modprobe -r cifs ； rmmod cifs</pre></details>
+</section><section class="entry fail" id="e0292" data-id="0292 TWGCB-01-012-0292 900292" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0292">#0292</a> exfat檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0292｜SCA 900292｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/exfat.conf ； modprobe -r exfat ； rmmod exfat</pre></details>
+</section><section class="entry fail" id="e0293" data-id="0293 TWGCB-01-012-0293 900293" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0293">#0293</a> ext檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0293｜SCA 900293｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/ext.conf ； modprobe -r ext ； rmmod ext</pre></details>
+</section><section class="entry fail" id="e0294" data-id="0294 TWGCB-01-012-0294 900294" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0294">#0294</a> fat檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0294｜SCA 900294｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/fat.conf ； modprobe -r fat ； rmmod fat</pre></details>
+</section><section class="entry fail" id="e0295" data-id="0295 TWGCB-01-012-0295 900295" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0295">#0295</a> fscache檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0295｜SCA 900295｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/fscache.conf ； modprobe -r fscache ； rmmod fscache</pre></details>
+</section><section class="entry fail" id="e0296" data-id="0296 TWGCB-01-012-0296 900296" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0296">#0296</a> fuse檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0296｜SCA 900296｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/fuse.conf ； modprobe -r fuse ； rmmod fuse</pre></details>
+</section><section class="entry fail" id="e0297" data-id="0297 TWGCB-01-012-0297 900297" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0297">#0297</a> gfs2檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0297｜SCA 900297｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/gfs2.conf ； modprobe -r gfs2 ； rmmod gfs2</pre></details>
+</section><section class="entry fail" id="e0298" data-id="0298 TWGCB-01-012-0298 900298" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0298">#0298</a> nfs_common檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0298｜SCA 900298｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/nfs_common.conf ； modprobe -r nfs_common ； rmmod nfs_common</pre></details>
+</section><section class="entry fail" id="e0299" data-id="0299 TWGCB-01-012-0299 900299" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0299">#0299</a> nfsd檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0299｜SCA 900299｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/nfsd.conf ； modprobe -r nfsd ； rmmod nfsd</pre></details>
+</section><section class="entry fail" id="e0300" data-id="0300 TWGCB-01-012-0300 900300" data-cat="磁碟與檔案系統">
+<h2><a class="anchor" href="#e0300">#0300</a> smbfs_common檔案系統
+<span class="badge fail">FAIL</span>
+<span class="meta">磁碟與檔案系統｜TWGCB-01-012-0300｜SCA 900300｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/modprobe.d/smbfs_common.conf ； modprobe -r smbfs_common ； rmmod smbfs_common</pre></details>
+</section><section class="entry pass" id="e0301" data-id="0301 TWGCB-01-012-0301 900301" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0301">#0301</a> /etc/shells檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0301｜SCA 900301｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/shells</pre></details>
+</section><section class="entry pass" id="e0302" data-id="0302 TWGCB-01-012-0302 900302" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0302">#0302</a> /etc/shells檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0302｜SCA 900302｜base</span></h2>
+<p class="compliance">合規值: 644或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 644 /etc/shells</pre></details>
+</section><section class="entry pass" id="e0303" data-id="0303 TWGCB-01-012-0303 900303" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0303">#0303</a> /etc/security/opasswd與 /etc/security/opasswd.old檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0303｜SCA 900303｜base</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/security/opasswd /etc/security/opasswd.old</pre></details>
+</section><section class="entry pass" id="e0304" data-id="0304 TWGCB-01-012-0304 900304" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0304">#0304</a> /etc/security/opasswd與 /etc/security/opasswd.old檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0304｜SCA 900304｜base</span></h2>
+<p class="compliance">合規值: 644或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 644 /etc/security/opasswd /etc/security/opasswd.old</pre></details>
+</section><section class="entry pass" id="e0305" data-id="0305 TWGCB-01-012-0305 900305" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0305">#0305</a> /etc/shells中不應存在nologin
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0305｜SCA 900305｜base</span></h2>
+<p class="compliance">合規值: 移除含有nologin的行</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：grep -E &#x27;^[^#]*\/nologin$&#x27; /etc/shells ； vim /etc/shells</pre></details>
+</section><section class="entry pass" id="e0306" data-id="0306 TWGCB-01-012-0306 900306" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0306">#0306</a> 禁止chrony以root權限執行
+<span class="badge pass">PASS</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0306｜SCA 900306｜base</span></h2>
+<p class="compliance">合規值: OPTIONS=&quot;-F 2&quot;</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：vim /etc/sysconfig/chronyd ； systemctl restart chronyd.service</pre></details>
+</section><section class="entry fail" id="e0307" data-id="0307 TWGCB-01-012-0307 900307" data-cat="系統設定與維護">
+<h2><a class="anchor" href="#e0307">#0307</a> ptrace限制模式
+<span class="badge fail">FAIL</span>
+<span class="meta">系統設定與維護｜TWGCB-01-012-0307｜SCA 900307｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sysctl -w kernel.yama.ptrace_scope=1</pre></details>
+</section><section class="entry fail" id="e0308" data-id="0308 TWGCB-01-012-0308 900308" data-cat="日誌與稽核">
+<h2><a class="anchor" href="#e0308">#0308</a> rsyslog logrotate
+<span class="badge fail">FAIL</span>
+<span class="meta">日誌與稽核｜TWGCB-01-012-0308｜SCA 900308｜base</span></h2>
+<p class="compliance">合規值: 指定 rsyslog logrotate weekly/rotate 4/compress/missingok/notifempty/postrotate；目錄 &lt;=0750</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：mkdir -p /var/log/rsyslog ； chmod 750 /var/log/rsyslog</pre></details>
+</section><section class="entry fail" id="e0309" data-id="0309 TWGCB-01-012-0309 900309" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0309">#0309</a> root之預設umask
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0309｜SCA 900309｜base</span></h2>
+<p class="compliance">合規值: 027或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/root/.bash_profile檔案/root/.bashrc，新增或修改參數如下： umask 027</pre></details>
+</section><section class="entry fail" id="e0310" data-id="0310 TWGCB-01-012-0310 900310" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0310">#0310</a> root帳戶鎖定時間
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0310｜SCA 900310｜base</span></h2>
+<p class="compliance">合規值: 60秒以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/faillock.conf檔案，新增或修改成以下內容： even_deny_root root_unlock_time=60</pre></details>
+</section><section class="entry fail" id="e0311" data-id="0311 TWGCB-01-012-0311 900311" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0311">#0311</a> 連續字元序列可使用個數
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0311｜SCA 900311｜base</span></h2>
+<p class="compliance">合規值: 3以下，但須大於0</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/security/pwquality.conf檔案，新增或修改成以下內容： maxsequence=3</pre></details>
+</section><section class="entry fail" id="e0312" data-id="0312 TWGCB-01-012-0312 900312" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0312">#0312</a> 啟用without-nullok
+<span class="badge fail">FAIL</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0312｜SCA 900312｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：authselect enable-feature without-nullok</pre></details>
+</section><section class="entry pass" id="e0313" data-id="0313 TWGCB-01-012-0313 900313" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0313">#0313</a> 啟用pam_pwquality
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0313｜SCA 900313｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，檢查是否有pam_pwquality.so： grep -P -- &#x27;\bpam_pwquality\.so\b&#x27; /etc/pam.d/{password,system}-auth 若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容： password requisite pam_pwquality.so local_users_only</pre></details>
+</section><section class="entry pass" id="e0314" data-id="0314 TWGCB-01-012-0314 900314" data-cat="帳號與存取控制">
+<h2><a class="anchor" href="#e0314">#0314</a> 啟用pam_unix
+<span class="badge pass">PASS</span>
+<span class="meta">帳號與存取控制｜TWGCB-01-012-0314｜SCA 900314｜base</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，檢查是否有pam_unix.so： grep -P -- &#x27;\bpam_unix\.so\b&#x27; /etc/pam.d/{password,system}-auth 若顯示空白，開啟終端機，編輯/etc/pam.d/password-auth與/etc/pam.d/system-auth，新增以下內容： auth sufficient pam_unix.so account required pam_unix.so password sufficient pam_unix.so sha512 shadow use_authtok session required pam…</pre></details>
+</section><section class="entry pass" id="e0242" data-id="0242 TWGCB-01-012-0242 900242" data-cat="Firewalld配置">
+<h2><a class="anchor" href="#e0242">#0242</a> firewalld防火牆套件
+<span class="badge pass">PASS</span>
+<span class="meta">Firewalld配置｜TWGCB-01-012-0242｜SCA 900242｜firewalld</span></h2>
+<p class="compliance">合規值: firewalld 已安裝</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install firewalld</pre></details>
+</section><section class="entry pass" id="e0243" data-id="0243 TWGCB-01-012-0243 900243" data-cat="Firewalld配置">
+<h2><a class="anchor" href="#e0243">#0243</a> firewalld服務
+<span class="badge pass">PASS</span>
+<span class="meta">Firewalld配置｜TWGCB-01-012-0243｜SCA 900243｜firewalld</span></h2>
+<p class="compliance">合規值: firewalld enabled+active</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now enable firewalld</pre></details>
+</section><section class="entry pass" id="e0244" data-id="0244 TWGCB-01-012-0244 900244" data-cat="Firewalld配置">
+<h2><a class="anchor" href="#e0244">#0244</a> iptables服務
+<span class="badge pass">PASS</span>
+<span class="meta">Firewalld配置｜TWGCB-01-012-0244｜SCA 900244｜firewalld</span></h2>
+<p class="compliance">合規值: iptables masked+inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask iptables ； systemctl --now mask ip6tables</pre></details>
+</section><section class="entry pass" id="e0245" data-id="0245 TWGCB-01-012-0245 900245" data-cat="Firewalld配置">
+<h2><a class="anchor" href="#e0245">#0245</a> nftables服務
+<span class="badge pass">PASS</span>
+<span class="meta">Firewalld配置｜TWGCB-01-012-0245｜SCA 900245｜firewalld</span></h2>
+<p class="compliance">合規值: nftables masked+inactive</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl --now mask nftables</pre></details>
+</section><section class="entry pass" id="e0246" data-id="0246 TWGCB-01-012-0246 900246" data-cat="Firewalld配置">
+<h2><a class="anchor" href="#e0246">#0246</a> firewalld防火牆預設區域
+<span class="badge pass">PASS</span>
+<span class="meta">Firewalld配置｜TWGCB-01-012-0246｜SCA 900246｜firewalld</span></h2>
+<p class="compliance">合規值: 須設定預設區域</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：firewall-cmd --set-default-zone=(區域名稱) ； firewall-cmd --set-default-zone=public</pre></details>
+</section><section class="entry excluded" id="e0247" data-id="0247 TWGCB-01-012-0247 900247" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0247">#0247</a> nftables服務
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0247｜SCA 900247｜base</span></h2>
+<p class="compliance">合規值: 啟用</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，啟用nftables服務： <br>#systemctl --now enable nftables</pre></details>
+</section><section class="entry excluded" id="e0248" data-id="0248 TWGCB-01-012-0248 900248" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0248">#0248</a> firewalld服務
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0248｜SCA 900248｜base</span></h2>
+<p class="compliance">合規值: 停用</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，停用並遮蔽firewalld服務：<br>#systemctl --now mask firewalld</pre></details>
+</section><section class="entry excluded" id="e0249" data-id="0249 TWGCB-01-012-0249 900249" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0249">#0249</a> 在nftables中建立表
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0249｜SCA 900249｜base</span></h2>
+<p class="compliance">合規值: 1個以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，在nftables建立表：<br>#nft create table inet (表名稱)<br>建立一個使用「inet」位址族且表名稱為「filter」之範例如下：<br>#nft create table inet filter</pre></details>
+</section><section class="entry excluded" id="e0250" data-id="0250 TWGCB-01-012-0250 900250" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0250">#0250</a> 在nftables建立基本鏈
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0250｜SCA 900250｜base</span></h2>
+<p class="compliance">合規值: 1個以上</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，在nftables建立基本鏈：<br>#nft create chain inet (表名稱) (鏈名稱) { type filter hook (input|forward|output) priority 0 \; }<br>在「filter」表中建立基本鏈之範例如下：<br>#nft create chain inet filter input { type filter hook input priority 0 \; }<br>#nft create chain inet filter forward { type filter hook forward priority 0 \; }<br>#nft create chain inet filter output { type filter hook output priority 0 \; }</pre></details>
+</section><section class="entry excluded" id="e0251" data-id="0251 TWGCB-01-012-0251 900251" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0251">#0251</a> 在nftables設定回送流量規則
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0251｜SCA 900251｜base</span></h2>
+<p class="compliance">合規值: 建立回送流量規則</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，在「filter」表中設定「lo」介面之回送流量規則：<br>#nft add rule inet filter input iif lo accept<br>#nft add rule inet filter input ip saddr 127.0.0.0/8 counter drop<br>#nft add rule inet filter input ip6 saddr ::1 counter drop</pre></details>
+</section><section class="entry excluded" id="e0252" data-id="0252 TWGCB-01-012-0252 900252" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0252">#0252</a> 在nftables建立預設拒絕規則
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0252｜SCA 900252｜base</span></h2>
+<p class="compliance">合規值: Drop</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行以下指令，針對輸入、轉發及輸出的基本鏈，建立預設拒絕規則：<br>#nft chain (位址族) (表名稱) (鏈名稱) { policy drop \; }<br>在位址族「inet」與表「 filter」下，建立input、forward及output基本鏈預設拒絕規則，範例如下：<br>#nft chain inet filter input { policy drop \; }<br>#nft chain inet filter forward { policy drop \; }<br>#nft chain inet filter output { policy drop \; }</pre></details>
+</section><section class="entry excluded" id="e0253" data-id="0253 TWGCB-01-012-0253 900253" data-cat="Nftables配置">
+<h2><a class="anchor" href="#e0253">#0253</a> 載入nftables規則
+<span class="badge excluded">不適用</span>
+<span class="meta">Nftables配置｜TWGCB-01-012-0253｜SCA 900253｜base</span></h2>
+<p class="compliance">合規值: 開機時自動載入nftables規則集</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：開啟終端機，執行vim指令，編輯/etc/sysconfig/nftables.conf檔案，範例如下：<br>#vim /etc/sysconfig/nftables.conf<br>將檔案中包含include參數的行內容取消註解(刪除行首的#符號)，以設定在服務啟動時載入nftables規則集，範例如下：<br>include &quot;/etc/nftables/main.nft&quot;</pre></details>
+</section><section class="entry pass" id="e0254" data-id="0254 TWGCB-01-012-0254 900254" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0254">#0254</a> sshd守護程序
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0254｜SCA 900254｜sshd</span></h2>
+<p class="compliance">合規值: openssh-server 已安裝；sshd enabled+active</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：dnf install openssh-server.x86_64 ； systemctl --now enable sshd.service</pre></details>
+</section><section class="entry pass" id="e0255" data-id="0255 TWGCB-01-012-0255 900255" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0255">#0255</a> SSH協定版本
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0255｜SCA 900255｜sshd</span></h2>
+<p class="compliance">合規值: Protocol 2</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0256" data-id="0256 TWGCB-01-012-0256 900256" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0256">#0256</a> /etc/ssh/sshd_config檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0256｜SCA 900256｜sshd</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chown root:root /etc/ssh/sshd_config</pre></details>
+</section><section class="entry pass" id="e0257" data-id="0257 TWGCB-01-012-0257 900257" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0257">#0257</a> /etc/ssh/sshd_config檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0257｜SCA 900257｜sshd</span></h2>
+<p class="compliance">合規值: 600或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：chmod 600 /etc/ssh/sshd_config</pre></details>
+</section><section class="entry pass" id="e0258" data-id="0258 TWGCB-01-012-0258 900258" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0258">#0258</a> 限制存取SSH
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0258｜SCA 900258｜sshd</span></h2>
+<p class="compliance">合規值: 待確認（來源未提供單一基準值）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0259" data-id="0259 TWGCB-01-012-0259 900259" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0259">#0259</a> SSH主機私鑰檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0259｜SCA 900259｜sshd</span></h2>
+<p class="compliance">合規值: root:ssh_keys</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find /etc/ssh -xdev -type f -name &#x27;ssh_host_*_key&#x27; -exec chown root:ssh_keys {} \;</pre></details>
+</section><section class="entry pass" id="e0260" data-id="0260 TWGCB-01-012-0260 900260" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0260">#0260</a> SSH主機私鑰檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0260｜SCA 900260｜sshd</span></h2>
+<p class="compliance">合規值: 640 或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find /etc/ssh -xdev -type f -name &#x27;ssh_host_*_key&#x27; -exec chmod 640 {} \;</pre></details>
+</section><section class="entry pass" id="e0261" data-id="0261 TWGCB-01-012-0261 900261" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0261">#0261</a> SSH主機公鑰檔案所有權
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0261｜SCA 900261｜sshd</span></h2>
+<p class="compliance">合規值: root:root</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find /etc/ssh -xdev -type f -name &#x27;ssh_host_*_key.pub&#x27; -exec chown root:root {} \;</pre></details>
+</section><section class="entry pass" id="e0262" data-id="0262 TWGCB-01-012-0262 900262" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0262">#0262</a> SSH主機公鑰檔案權限
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0262｜SCA 900262｜sshd</span></h2>
+<p class="compliance">合規值: 644 或更低權限</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find /etc/ssh -xdev -type f -name &#x27;ssh_host_*_key.pub&#x27; -exec chmod 644 {} \;</pre></details>
+</section><section class="entry pass" id="e0263" data-id="0263 TWGCB-01-012-0263 900263" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0263">#0263</a> SSH加密演算法
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0263｜SCA 900263｜sshd</span></h2>
+<p class="compliance">合規值: Ciphers aes128-ctr,aes192-ctr,aes256-ctr；MACS=hmac-sha2-512,hmac-sha2-256；KexAlgorithms=ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0264" data-id="0264 TWGCB-01-012-0264 900264" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0264">#0264</a> SSH日誌記錄等級
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0264｜SCA 900264｜sshd</span></h2>
+<p class="compliance">合規值: LogLevel VERBOSE 或 INFO</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0265" data-id="0265 TWGCB-01-012-0265 900265" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0265">#0265</a> SSH X11Forwarding功能
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0265｜SCA 900265｜sshd</span></h2>
+<p class="compliance">合規值: X11Forwarding no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0266" data-id="0266 TWGCB-01-012-0266 900266" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0266">#0266</a> SSH MaxAuthTries參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0266｜SCA 900266｜sshd</span></h2>
+<p class="compliance">合規值: MaxAuthTries 4（來源允許 1–4）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0267" data-id="0267 TWGCB-01-012-0267 900267" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0267">#0267</a> SSH IgnoreRhosts參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0267｜SCA 900267｜sshd</span></h2>
+<p class="compliance">合規值: IgnoreRhosts yes</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0268" data-id="0268 TWGCB-01-012-0268 900268" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0268">#0268</a> SSH HostbasedAuthentication參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0268｜SCA 900268｜sshd</span></h2>
+<p class="compliance">合規值: HostbasedAuthentication no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry manual_pending" id="e0269" data-id="0269 TWGCB-01-012-0269 900269" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0269">#0269</a> SSH PermitRootLogin參數
+<span class="badge manual_pending">範圍保留</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0269｜SCA 900269｜sshd</span></h2>
+<p class="compliance">合規值: PermitRootLogin no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry manual_pending" id="e0270" data-id="0270 TWGCB-01-012-0270 900270" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0270">#0270</a> SSH PermitEmptyPasswords參數
+<span class="badge manual_pending">範圍保留</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0270｜SCA 900270｜sshd</span></h2>
+<p class="compliance">合規值: PermitEmptyPasswords no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0271" data-id="0271 TWGCB-01-012-0271 900271" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0271">#0271</a> SSH PermitUserEnvironment參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0271｜SCA 900271｜sshd</span></h2>
+<p class="compliance">合規值: PermitUserEnvironment no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0272" data-id="0272 TWGCB-01-012-0272 900272" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0272">#0272</a> SSH逾時時間
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0272｜SCA 900272｜sshd</span></h2>
+<p class="compliance">合規值: ClientAliveInterval 600（來源允許 1–600）；ClientAliveCountMax 1</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0273" data-id="0273 TWGCB-01-012-0273 900273" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0273">#0273</a> SSH LoginGraceTime參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0273｜SCA 900273｜sshd</span></h2>
+<p class="compliance">合規值: LoginGraceTime 60（來源允許 1–60）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0274" data-id="0274 TWGCB-01-012-0274 900274" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0274">#0274</a> SSH UsePAM參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0274｜SCA 900274｜sshd</span></h2>
+<p class="compliance">合規值: UsePAM yes</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0275" data-id="0275 TWGCB-01-012-0275 900275" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0275">#0275</a> SSH AllowTcpForwarding參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0275｜SCA 900275｜sshd</span></h2>
+<p class="compliance">合規值: AllowTcpForwarding no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0276" data-id="0276 TWGCB-01-012-0276 900276" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0276">#0276</a> SSH MaxStartups參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0276｜SCA 900276｜sshd</span></h2>
+<p class="compliance">合規值: MaxStartups 10:30:60</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0277" data-id="0277 TWGCB-01-012-0277 900277" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0277">#0277</a> SSH MaxSessions參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0277｜SCA 900277｜sshd</span></h2>
+<p class="compliance">合規值: MaxSessions 4（來源允許 1–4）</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0278" data-id="0278 TWGCB-01-012-0278 900278" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0278">#0278</a> SSH StrictModes參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0278｜SCA 900278｜sshd</span></h2>
+<p class="compliance">合規值: StrictModes yes</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0279" data-id="0279 TWGCB-01-012-0279 900279" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0279">#0279</a> SSH Compression參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0279｜SCA 900279｜sshd</span></h2>
+<p class="compliance">合規值: Compression delayed 或 no</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0280" data-id="0280 TWGCB-01-012-0280 900280" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0280">#0280</a> SSH IgnoreUserKnownHosts參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0280｜SCA 900280｜sshd</span></h2>
+<p class="compliance">合規值: IgnoreUserKnownHosts yes</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0281" data-id="0281 TWGCB-01-012-0281 900281" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0281">#0281</a> SSH PrintLastLog參數
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0281｜SCA 900281｜sshd</span></h2>
+<p class="compliance">合規值: PrintLastLog yes</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0282" data-id="0282 TWGCB-01-012-0282 900282" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0282">#0282</a> shosts.equiv檔案
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0282｜SCA 900282｜sshd</span></h2>
+<p class="compliance">合規值: 移除所有 shosts.equiv</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find / -name shosts.equiv</pre></details>
+</section><section class="entry pass" id="e0283" data-id="0283 TWGCB-01-012-0283 900283" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0283">#0283</a> .shosts檔案
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0283｜SCA 900283｜sshd</span></h2>
+<p class="compliance">合規值: 移除所有 *.shosts</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：find / -name &#x27;*.shosts&#x27;</pre></details>
+</section><section class="entry pass" id="e0284" data-id="0284 TWGCB-01-012-0284 900284" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0284">#0284</a> 覆寫全系統加密原則
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0284｜SCA 900284｜sshd</span></h2>
+<p class="compliance">合規值: 不存在未註解的 CRYPTO_POLICY 設定</p>
+<details><summary>人工檢核</summary><pre>人工檢核指令（來源）：sed -ri &quot;s/^\s*(CRYPTO_POLICY\s*=.*)$/# \1/&quot; /etc/sysconfig/sshd ； systemctl restart sshd</pre></details>
+</section><section class="entry pass" id="e0315" data-id="0315 TWGCB-01-012-0315 900315" data-cat="SSH設定">
+<h2><a class="anchor" href="#e0315">#0315</a> 停用GSSAPI驗證
+<span class="badge pass">PASS</span>
+<span class="meta">SSH設定｜TWGCB-01-012-0315｜SCA 900315｜sshd</span></h2>
+<p class="compliance">合規值: GSSAPIAuthentication no</p>
+<details><summary>人工檢核</summary><pre>人工檢核程序（來源）：編輯/etc/ssh/sshd_config檔案，新增或修改成以下內容： GSSAPIAuthentication no</pre></details>
+</section>
+</main>
+<script>
+const entries = [...document.querySelectorAll('.entry')];
+const search = document.getElementById('search');
+const hint = document.getElementById('hint');
+function resolve(id) {
+  const q = id.trim().toLowerCase();
+  if (!q) return null;
+  const digits = q.replace(/[^0-9]/g, '');
+  let target = null;
+  for (const e of entries) {
+    const ids = e.dataset.id.toLowerCase().split(/\s+/);
+    if (ids.some(v => v === q || v === digits)) { target = e; break; }
+  }
+  if (!target && digits.length) {
+    const d4 = digits.length <= 4 ? digits.padStart(4, '0') : digits;
+    target = entries.find(e => e.dataset.id.toLowerCase().includes(d4)) || null;
+  }
+  return target;
+}
+let lastFlash = null;
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  const t = resolve(search.value);
+  const exactId = t && (t.dataset.id.toLowerCase().split(/\s+/).some(v => v === q || v === q.replace(/[^0-9]/g, '')));
+  if (exactId) {
+    for (const e of entries) e.classList.remove('hidden');
+    hint.textContent = `跳轉至 ${t.id.slice(1)}`;
+    t.scrollIntoView({behavior: 'smooth', block: 'start'});
+    if (lastFlash) lastFlash.classList.remove('flash');
+    t.classList.add('flash'); lastFlash = t;
+    history.replaceState(null, '', '#' + t.id);
+    return;
+  }
+  let shown = 0;
+  for (const e of entries) {
+    const hit = !q || e.dataset.id.includes(q) || e.textContent.toLowerCase().includes(q);
+    e.classList.toggle('hidden', !hit);
+    if (hit) shown++;
+  }
+  hint.textContent = q ? `符合 ${shown} 條` : '';
+});
+search.addEventListener('keydown', ev => { if (ev.key === 'Enter') ev.preventDefault(); });
+</script>
+</body>
+</html>

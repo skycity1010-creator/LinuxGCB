@@ -33,9 +33,11 @@ python3 -m unittest discover -s tests  # 137 項離線測試
 
 ## 條目清單（HTML）
 
-`reports/entry_list_20261101.html` — 314 條完整清單：
-- 置頂搜尋框（捲動時固定）：輸入條目 ID（`0187`、`900187`、`TWGCB-01-012-0187`）自動跳轉並高亮
-- 每條含：類別、合規值、R29 結果（PASS/FAIL/範圍保留/不適用）、人工檢核指令、accepted finding 旗標
+`reports/entry_list_20261101.html` — **由原始 Excel/Word 基準檔產生**，315 條基準原文
+（項次、類別、名稱、說明、設定方法、GCB 設定值；不含實機檢核結果）：
+- 置頂搜尋框（捲動時固定）：輸入條目 ID（`0187`、`TWGCB-01-012-0187`）自動跳轉並高亮；類別下拉與關鍵字過濾
+- ⚠ 原始檔不一致偵測：Excel 列表缺 0180（僅見於 Word），已補入並旗標，見 `docs/SOURCE_DISCREPANCY_0180.md`
+- 含實機 R29 結果的備用清單：`scripts/entry_list_scan_html.py` → `reports/entry_list_scan_20261101.html`
 
 ## 部署到 Wazuh Manager
 
