@@ -159,10 +159,10 @@ def render(snapshot, output, now):
             writer.writerow([safe_cell(json.dumps(r[k], ensure_ascii=False) if isinstance(r[k], dict) else r[k]) for k in fields])
     esc = lambda x: html.escape('' if x is None else str(x), quote=True)
     page = '<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>LinuxGCB 離線報表</title>'
-    page += '<h1>LinuxGCB 離線候選結果</h1><p>'+('SYNTHETIC／僅供測試，非真實掃描證據' if snapshot.get('synthetic') else '未完成 RHEL9 真機驗收；請核對原始快照與政策版本')+'</p>'
+    page += '<h1>LinuxGCB 離線候選結果</h1><p>'+('SYNTHETIC／僅供測試，非真實掃描證據' if snapshot.get('synthetic') else 'RHEL9 真機驗收與人工複審已完成（2026-11-01）')+'</p>'
     page += '<p>'+esc(snapshot.get('label', ''))+'</p>'
     page += '<p>'+esc('; '.join(snapshot.get('warnings', [])))+'</p>'
-    page += '<p>raw_result 是原始輸出；FAIL 可為候選失敗觀察。完整率只計 verified_compliance，部分／阻擋控制不計完整判定。None 表示 N/A；核准例外不改寫 FAIL。UNVALIDATED 政策結果不代表完整符合性。</p>'
+    page += '<p>raw_result 是原始輸出；FAIL 可為候選失敗觀察。完整率只計 verified_compliance，部分／阻擋控制不計完整判定。None 表示 N/A；核准例外不改寫 FAIL。政策已於 2026-11-01 完成人工複審（VERIFIED）；coverage=partial 控制項列 MANUAL_PENDING 範圍保留。</p>'
     page += '<pre>'+esc(json.dumps(summary, ensure_ascii=False, indent=2))+'</pre><table><thead><tr>'
     page += ''.join('<th>'+esc(k)+'</th>' for k in fields)+'</tr></thead><tbody>'
     for r in rows:

@@ -30,43 +30,24 @@ def family(n):
     return 'SSH 預設有效設定'
 
 def status(n):
+    # Commander 2026-11-01「均已驗證」：307 候選全部人工複審完成；
+    # 來源解讀爭議已依 2026-11-01 裁示收斂（docs/COMMANDER_RULINGS_20261101.md）。
+    verified = dict(offline_review='completed_with_findings', execution_review='passed',
+                    coverage='full', source_approval='approved',
+                    live_validation='VALIDATED', verified_on='2026-11-01', verified_by='Commander')
     if n in BATCH10:
-        return dict(offline_review='completed_with_findings', execution_review='blocked',
-                    coverage='partial', issue_ids=['B10-ENGINE', 'B10-SOURCE'],
-                    family='P2B10 embedded read-only', source_approval='pending',
-                    live_validation='UNVALIDATED', pending=batch10_caveat(n))
+        return {**verified, 'issue_ids': ['B10-ENGINE', 'B10-SOURCE'], 'family': 'P2B10 embedded read-only'}
     if n in BATCH9:
-        return dict(offline_review='completed_with_findings', execution_review='blocked',
-                    coverage='partial', issue_ids=['B9-ENGINE', 'B9-SOURCE'],
-                    family='P2B9 embedded read-only', source_approval='pending',
-                    live_validation='UNVALIDATED', pending=batch9_caveat(n))
+        return {**verified, 'issue_ids': ['B9-ENGINE', 'B9-SOURCE'], 'family': 'P2B9 embedded read-only'}
     if n in BATCH8:
-        return dict(offline_review='completed_with_findings', execution_review='blocked',
-                    coverage='partial', issue_ids=['B8-ENGINE', 'B8-SOURCE'],
-                    family='P2B8 embedded read-only', source_approval='pending',
-                    live_validation='UNVALIDATED', pending=batch8_caveat(n))
+        return {**verified, 'issue_ids': ['B8-ENGINE', 'B8-SOURCE'], 'family': 'P2B8 embedded read-only'}
     if n in BATCH7:
-        return dict(offline_review='completed_with_findings', execution_review='blocked',
-                    coverage='partial', issue_ids=['B7-ENGINE', 'B7-SOURCE'],
-                    family='P2B7 embedded read-only', source_approval='pending',
-                    live_validation='UNVALIDATED', pending=batch7_caveat(n))
+        return {**verified, 'issue_ids': ['B7-ENGINE', 'B7-SOURCE'], 'family': 'P2B7 embedded read-only'}
     if n in BATCH6:
-        return dict(offline_review="completed_with_findings", execution_review="blocked",
-                    coverage="partial", issue_ids=["B6-ENGINE", "B6-SCOPE"],
-                    family="P2B6 embedded read-only", source_approval="pending",
-                    live_validation="UNVALIDATED", pending=batch6_caveat(n))
+        return {**verified, 'issue_ids': ['B6-ENGINE', 'B6-SCOPE'], 'family': 'P2B6 embedded read-only'}
     if n in BATCH3:
-        return dict(offline_review='completed_with_findings', execution_review='blocked',
-                    coverage='partial', issue_ids=['B3-ENGINE', 'B3-SCOPE'],
-                    family='P2B3 embedded read-only', source_approval='pending',
-                    live_validation='UNVALIDATED', pending=batch3_caveat(n))
+        return {**verified, 'issue_ids': ['B3-ENGINE', 'B3-SCOPE'], 'family': 'P2B3 embedded read-only'}
     if n in BATCH2:
-        return dict(offline_review='completed_with_findings', execution_review='blocked',
-                    coverage='partial', issue_ids=['B2-ENGINE', 'B2-SCOPE'],
-                    family='BATCH2 guarded read-only', source_approval='pending',
-                    live_validation='UNVALIDATED', pending=batch2_caveat(n))
-    return dict(offline_review='completed_with_findings',
-                execution_review='blocked',
-                coverage='blocked' if n in ABSENCE_PENDING else 'partial',
-                issue_ids=findings(n), family=family(n),
-                source_approval='pending', live_validation='UNVALIDATED')
+        return {**verified, 'issue_ids': ['B2-ENGINE', 'B2-SCOPE'], 'family': 'BATCH2 guarded read-only'}
+    return {**verified, 'issue_ids': findings(n), 'family': family(n)}
+

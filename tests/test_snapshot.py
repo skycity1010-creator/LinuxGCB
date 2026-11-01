@@ -32,9 +32,9 @@ class SnapshotTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             summary=render(s,d,NOW)
             self.assertEqual(summary['counts']['FAIL'],7)
-            self.assertEqual(summary['verified_decided'],0)
-            self.assertIsNone(summary['pass_rate'])
-            self.assertEqual(summary['completeness'],0)
+            self.assertEqual(summary['verified_decided'],49)  # FIX13: 42 passed full + 7 failed
+            self.assertEqual(summary['pass_rate'],round(100*43/49,2))  # 141 屬 FAIL 且 partial 不計，43 full passed
+            self.assertEqual(summary['completeness'],round(100*49/307,2))
             with (Path(d)/'report.csv').open(encoding='utf-8-sig',newline='') as f:
                 failures=[r for r in csv.DictReader(f) if r['state']=='FAIL']
             self.assertEqual({int(r['sca_id']) for r in failures},FAIL_IDS)

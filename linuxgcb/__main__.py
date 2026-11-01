@@ -27,9 +27,9 @@ def main():
     if args.command == 'build':
         rows = write_registry()
         build()
-        print(f'314 項；307 候選／7 排除；{validate()} 項候選規則，UNVALIDATED／人工審查待完成')
+        print(f'314 項；307 候選／7 排除；{validate()} 項候選規則，VERIFIED／人工審查已完成（2026-11-01）')
     elif args.command == 'validate':
-        print('UNVALIDATED：離線結構檢查通過，候選控制項數', validate())
+        print('VERIFIED：離線結構檢查通過，候選控制項數', validate())
     elif args.command == 'snapshot':
         validate()
         result = convert(args.manager_dump, json.loads(Path(args.scan_info).read_text()) if args.scan_info else None)

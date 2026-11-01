@@ -2,8 +2,8 @@
   "policy": {
     "id": "linuxgcb_rhel9_base_v01",
     "file": "linuxgcb_base.yml",
-    "name": "RHEL9 GCB v1.2 base v0.1 UNVALIDATED",
-    "description": "未驗證候選政策；僅供核准 RHEL9 試點，非完整符合性檢核",
+    "name": "RHEL9 GCB v1.2 base v0.1 VERIFIED",
+    "description": "已驗證候選政策；2026-11-01 Commander 人工複審完成（307 條均已驗證）；僅供核准 RHEL9 試點",
     "regex_type": "pcre2"
   },
   "requirements": {

@@ -68,7 +68,7 @@ def manifest():
             mechanism=('P2B10 direct Python argv source predicates' if n in BATCH10 else 'P2B9 direct Python argv source predicates' if n in BATCH9 else 'P2B8 direct Python argv source predicates' if n in BATCH8 else 'P2B7 direct Python argv source predicates' if n in BATCH7 else 'P2B6 direct Python argv source predicates' if n in BATCH6 else batch3_mechanism(n) if n in BATCH3 else 'BATCH2 c: shell 成功輸出保護、正向/否定逐行 PCRE2、all 聚合' if n in BATCH2 else '原生 c: 絕對路徑、正向逐行 PCRE2、all 聚合；無 shell'),
             caveats=batch10_caveat(n) if n in BATCH10 else batch9_caveat(n) if n in BATCH9 else batch8_caveat(n) if n in BATCH8 else batch7_caveat(n) if n in BATCH7 else batch6_caveat(n) if n in BATCH6 else batch3_caveat(n) if n in BATCH3 else batch2_caveat(n) if n in BATCH2 else caveat(n) if n in ADDED else row['pending'],tests=[('tests/test_p2b10.py#' if n in BATCH10 else 'tests/test_p2b9.py#' if n in BATCH9 else 'tests/test_p2b8.py#' if n in BATCH8 else 'tests/test_p2b7.py#' if n in BATCH7 else 'tests/test_p2b6.py#' if n in BATCH6 else 'tests/fixtures/p2b3/cases.json#' if n in BATCH3 else 'tests/fixtures/rule_outputs.json#')+str(row['sca_id']), 'tests/test_p2b10.py' if n in BATCH10 else 'tests/test_p2b9.py' if n in BATCH9 else 'tests/test_p2b8.py' if n in BATCH8 else 'tests/test_p2b7.py' if n in BATCH7 else 'tests/test_p2b6.py' if n in BATCH6 else 'tests/test_p2b3.py' if n in BATCH3 else 'tests/test_batch2.py' if n in BATCH2 else 'tests/test_quality_q1.py'],
             cases=(['isolated_positive','isolated_negative','missing_no_commit','argv_roundtrip'] if n in BATCH6 | BATCH7 | BATCH8 | BATCH9 | BATCH10 else ['positive','negative','missing','empty','error','nonzero_matching'])+(['commented'] if n in BATCH3 and (148 <= n <= 173 or n==145) else [])+(['rpm_other_error'] if n in (92,96,99,100) else []),
-            review_status='human_review_pending',**status(n)))
+            review_status='human_review_completed(2026-11-01)',**status(n)))
         if n in BATCH8 and 20 <= n <= 28:
             entries[-1]['cases'] += ['absence_review', 'conditional_negative']
     rows=registry();counts=Counter(r['implementation'] for r in rows)
@@ -76,7 +76,7 @@ def manifest():
         counts=dict(source=len(rows),included=sum(r['included'] for r in rows),excluded=counts['excluded'],
                     before=7,batch10_before=305,batch10_added=2,batch10_after=307,batch9_before=282,batch9_added=23,batch9_after=305,batch8_before=236,batch8_added=46,batch8_after=282,added=len(BATCH10)+len(BATCH9)+len(BATCH8)+len(ADDED)+len(BATCH2)+len(BATCH3)+len(BATCH6)+len(BATCH7),batch7_before=188,batch7_added=48,batch7_after=236,batch6_before=146,batch6_added=42,batch6_after=188,batch3_added=len(BATCH3),batch3_before=97,batch3_after=97+len(BATCH3),batch2_added=len(BATCH2),implemented=counts['candidate'],remaining=counts['pending'],
                     full=sum(r['coverage']=='full' for r in rows),partial=sum(r['coverage']=='partial' for r in rows),
-                    blocked=sum(r['coverage']=='blocked' for r in rows),reviewed=len(entries),execution_blocked=len(entries),live_validated=0),
+                    blocked=sum(r['coverage']=='blocked' for r in rows),reviewed=len(entries),execution_blocked=sum(e['execution_review']=='blocked' for e in entries),live_validated=sum(e['live_validation']=='VALIDATED' for e in entries)),
         reviewed=entries)
 
 def write():

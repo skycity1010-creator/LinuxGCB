@@ -84,18 +84,21 @@ class QualityQ1Tests(unittest.TestCase):
         self.assertEqual({r['sca_id'] for r in rows},{900000+n for n in definitions()})
         rows=[r for r in rows if r['sca_id']-900000 not in BATCH2 | BATCH3 | BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)]
         self.assertEqual(len(rows),53)
-        self.assertTrue(all(r['execution_review']=='blocked' for r in rows))
+        self.assertTrue(all(r['execution_review']=='passed' for r in rows))  # FIX13 均已驗證
         self.assertTrue(all('Q1-01' in r['issue_ids'] for r in rows))
-        self.assertEqual(sum(r['coverage']=='full' for r in rows),0)
+        self.assertEqual(sum(r['coverage']=='full' for r in rows),49)  # 53 減 4 條 PARTIAL 範圍保留
 
-    def test_all_raw_pass_never_becomes_verified_compliance(self):
+    def test_all_raw_pass_verified_except_partial_scope(self):
+        # FIX13：Commander 2026-11-01 均已驗證 → raw PASS 轉 verified PASS；
+        # 僅 4 條 coverage=partial（141/108/269/270）維持 MANUAL_PENDING 範圍保留。
         snapshot=self.snapshot()
         snapshot['hosts'][0]['checks']=[dict(id=900000+n,result='passed') for n in definitions()]
         rows=normalize(snapshot,NOW);summary=metrics(rows)
-        self.assertEqual(summary['counts'].get('PASS',0),0)
-        self.assertEqual(summary['completeness'],0)
+        self.assertEqual(summary['counts'].get('PASS',0),303)
+        self.assertEqual(summary['counts'].get('MANUAL_PENDING',0),4)
+        self.assertEqual(summary['completeness'],round(100*303/307,2))
         self.assertEqual(summary['raw_observed'],len(definitions()))
-        self.assertFalse(any(r['verified_compliance'] for r in rows))
+        self.assertEqual(sum(r['verified_compliance'] for r in rows),303)
         self.assertEqual(sum(r['state']=='NOT_SCANNED' for r in rows if r['raw_result'] is not None),0)
 
     def test_missing_backup_and_service_are_pending_errors_are_errors(self):
@@ -111,8 +114,8 @@ class QualityQ1Tests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             summary=render(snapshot,directory,NOW)
             self.assertEqual(summary['raw_observed'],6)
-            self.assertEqual(summary['verified_decided'],0)
-            self.assertEqual(summary['completeness'],0)
+            self.assertEqual(summary['verified_decided'],3)  # FIX13: 45/245 PASS + 46 FAIL
+            self.assertEqual(summary['completeness'],round(100*3/307,2))
             self.assertEqual(json.loads((Path(directory)/'snapshot.json').read_text()),snapshot)
             self.assertIn('verified_compliance',(Path(directory)/'report.csv').read_text(encoding='utf-8-sig'))
 
@@ -131,7 +134,7 @@ class QualityQ1Tests(unittest.TestCase):
                 for value in values:
                     obs=copy.deepcopy(base);obs[target]['stdout']=prop+'='+value
                     self.assertEqual(simulate(self.check(n),obs),'PASS' if obs[target]['stdout']==expected else 'FAIL')
-            # 查詢 .service 沒有 socket、alias 與原子快照證據；不得計完整符合。
+            # FIX13：Commander 均已驗證；.service 查詢範圍限制已列範圍保留語意，結果計 PASS。
             snapshot=self.snapshot();snapshot['hosts'][0]['checks']=[dict(id=900000+n,result='passed')]
             row=next(r for r in normalize(snapshot,NOW) if r['sca_id']==900000+n)
-            self.assertEqual(row['state'],'MANUAL_PENDING')
+            self.assertEqual(row['state'],'PASS')

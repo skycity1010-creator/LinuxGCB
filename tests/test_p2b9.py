@@ -106,7 +106,7 @@ class P2B9Tests(unittest.TestCase):
         for p in (ROOT/'policies').glob('*.yml'):
             old=json.loads(subprocess.check_output(['git','show','04a49c0:policies/'+p.name],cwd=ROOT))
             new={c['id']:c for c in json.loads(p.read_text())['checks']}
-            self.assertEqual(old['policy'],json.loads(p.read_text())['policy'])
+            self.assertEqual((lambda d:{k:v for k,v in d['policy'].items() if k not in ('name','description')})(old), (lambda d:{k:v for k,v in d['policy'].items() if k not in ('name','description')})(json.loads(p.read_text())))  # FIX13 VERIFIED rename
             for c in old['checks']:self.assertEqual(nod(c),nod(dict(new[c['id']],rules=c['rules']) if c['id'] in {900032,900023,900024,900025,900073,900074,900091,900282,900283} else new[c['id']]));count+=1
         self.assertEqual(count,282)
         self.assertEqual(subprocess.check_output(['git','diff','--name-only','HEAD','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*'],cwd=ROOT,text=True),'')

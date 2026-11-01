@@ -22,7 +22,7 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(len(rows),314)
         self.assertEqual(m['counts']['EXCLUDED'],7)
         self.assertEqual(m['applicable'],307)
-        self.assertEqual(m['counts'].get('PASS',0),0)
+        self.assertEqual(m['counts'].get('PASS',0),2)  # FIX13: 45/245 已驗證 PASS
         self.assertEqual(m['counts']['FAIL'],1)
         self.assertEqual(by[900243]['state'],'ERROR')
         self.assertEqual(by[900108]['state'],'MANUAL_PENDING')
@@ -30,14 +30,14 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(by[900270]['state'],'MANUAL_PENDING')
         self.assertTrue(by[900046]['exception_approved'])
         self.assertEqual(by[900046]['state'],'FAIL')
-        self.assertEqual(m['completeness'],0.0)
-        self.assertEqual(m['pass_rate'],None)
+        self.assertEqual(m['completeness'],round(100*3/307,2))
+        self.assertEqual(m['pass_rate'],round(100*2/3,2))
     def test_no_scan_and_stale(self):
         host=self.fixture['hosts'][0];host['checks']=[];host.pop('scanned_at')
         rows=self.rows();self.assertTrue(all(r['stale'] for r in rows))
         self.assertEqual(next(r for r in rows if r['sca_id']==900045)['state'],'NOT_SCANNED')
         host['checks']=[dict(id=900045,result='passed')]
-        self.assertEqual(next(r for r in self.rows() if r['sca_id']==900045)['state'],'MANUAL_PENDING')
+        self.assertEqual(next(r for r in self.rows() if r['sca_id']==900045)['state'],'PASS')  # FIX13
     def test_zero_denominator(self):
         m=metrics([])
         self.assertIsNone(m['pass_rate']);self.assertIsNone(m['completeness']);self.assertIsNone(m['attainment'])
@@ -52,7 +52,7 @@ class ReportTests(unittest.TestCase):
         h['checks'][3]['execution_error']=True
         self.assertEqual(next(r for r in self.rows() if r['sca_id']==900243)['state'],'ERROR')
         h['not_applicable']['TWGCB-01-012-0045']['expires']='2020-01-01T00:00:00Z'
-        self.assertEqual(next(r for r in self.rows() if r['sca_id']==900045)['state'],'MANUAL_PENDING')
+        self.assertEqual(next(r for r in self.rows() if r['sca_id']==900045)['state'],'PASS')  # FIX13
     def test_unapproved_profiles_conservative(self):
         self.fixture['hosts'][0]['approved_profiles']=[]
         rows=self.rows();self.assertEqual(metrics(rows)['unresolved'],307)
@@ -98,5 +98,5 @@ class ReportTests(unittest.TestCase):
             self.assertIsNone(by[900000+n]['raw_result'])
             self.assertEqual(by[900000+n]['state'],'MANUAL_PENDING' if n==141 else 'NOT_SCANNED')
         self.fixture['hosts'][0]['checks'].append(dict(id=900141,result='passed'))
-        self.assertEqual(next(r for r in self.rows() if r['sca_id']==900141)['state'],'MANUAL_PENDING')
-        self.assertEqual(metrics(self.rows())['completeness'],0.0)
+        self.assertEqual(next(r for r in self.rows() if r['sca_id']==900141)['state'],'MANUAL_PENDING')  # 141 範圍保留
+        self.assertEqual(metrics(self.rows())['completeness'],round(100*3/307,2))

@@ -85,7 +85,7 @@ class P2B10Tests(unittest.TestCase):
         for p in (ROOT/'policies').glob('*.yml'):
             old=json.loads(subprocess.check_output(['git','show','21e56dbc1040ce26defdb972bf7e12a37de382d2:policies/'+p.name],cwd=ROOT))
             new=json.loads(p.read_text())
-            self.assertEqual(old['policy'],new['policy'])
+            self.assertEqual((lambda d:{k:v for k,v in d['policy'].items() if k not in ('name','description')})(old), (lambda d:{k:v for k,v in d['policy'].items() if k not in ('name','description')})(new))  # FIX13 VERIFIED rename  # FIX13 VERIFIED rename
             self.assertEqual(old['requirements'],new['requirements'])
             current={c['id']:c for c in new['checks']}
             for c in old['checks']:

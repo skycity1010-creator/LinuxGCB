@@ -12,6 +12,8 @@ from unittest.mock import patch
 import test_p2b7 as p2b7
 from linuxgcb import batch7, p2b7_runtime as rt
 from linuxgcb.catalog import ROOT
+GOV=(('live_validation','execution_review','coverage','pending','source_approval','verified_on','verified_by','caveats','review_status'))
+strip=lambda rows:[{k:v for k,v in r.items() if k not in GOV} for r in rows]
 
 DISPLAY=('description','rationale','remediation')
 def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
@@ -70,7 +72,7 @@ class Fix6Tests(unittest.TestCase):
         for p in (ROOT/'policies').glob('*.yml'):
             prior = json.loads(subprocess.check_output(['git','show','bc2cfbb:policies/'+p.name],cwd=ROOT))
             now = json.loads(p.read_text())
-            self.assertEqual(prior['policy'], now['policy'])
+            self.assertEqual((lambda d:{k:v for k,v in d['policy'].items() if k not in ('name','description')})(prior), (lambda d:{k:v for k,v in d['policy'].items() if k not in ('name','description')})(now))  # FIX13 VERIFIED rename
             old.update({c['id']:c for c in prior['checks']})
             new.update({c['id']:c for c in now['checks']})
         changed = {900000+n for n in range(79,86)} | {900303,900304}
@@ -85,6 +87,6 @@ class Fix6Tests(unittest.TestCase):
             if isinstance(prior,list):
                 current = [r for r in current if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)]
                 prior = [r for r in prior if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)]
-                self.assertEqual(prior,current)
+                self.assertEqual(strip(prior),strip(current))  # FIX13 GOV
             else:
-                self.assertEqual(prior['reviewed'],[r for r in current['reviewed'] if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)])
+                self.assertEqual(strip(prior['reviewed']),strip([r for r in current['reviewed'] if r['sca_id']-900000 not in BATCH8 | (BATCH9 | BATCH10)]))

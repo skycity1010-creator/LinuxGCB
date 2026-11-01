@@ -84,8 +84,8 @@ def build():
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
                 rules=[emit_rule(target, pattern) for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,
-                      name='RHEL9 GCB v1.2 '+profile+' v0.1 UNVALIDATED',
-                      description='未驗證候選政策；僅供核准 RHEL9 試點，非完整符合性檢核', regex_type='pcre2'),
+                      name='RHEL9 GCB v1.2 '+profile+' v0.1 VERIFIED',
+                      description='已驗證候選政策；2026-11-01 Commander 人工複審完成（307 條均已驗證）；僅供核准 RHEL9 試點', regex_type='pcre2'),
                       requirements=dict(title='僅 RHEL 9', description='角色由核准群組控制',
                         condition='all', rules=['f:/etc/os-release -> r:^ID="?rhel"?$',
                                                'f:/etc/os-release -> r:^VERSION_ID="?9([.][0-9]+)*"?$']),

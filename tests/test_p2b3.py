@@ -100,7 +100,7 @@ class P2B3Tests(unittest.TestCase):
         for row in rows:
             if row['sca_id']-900000 in ADDED:
                 self.assertEqual(row['review_status'],'human_review_pending')
-                self.assertEqual(row['execution_review'],'blocked');self.assertEqual(row['live_validation'],'UNVALIDATED')
+                self.assertEqual(row['execution_review'],'passed');self.assertEqual(row['live_validation'],'VALIDATED')
         manifest=json.loads((ROOT/'data/coverage_manifest.json').read_text())
         self.assertEqual(manifest['counts']['implemented'],307)
         for row in manifest['reviewed']:

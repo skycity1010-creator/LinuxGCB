@@ -42,14 +42,16 @@ class Fix5Tests(unittest.TestCase):
                 prior = json.loads(original)
                 now = json.loads((ROOT/name).read_text())
                 if name.endswith('scope_registry.json'):
-                    self.assertEqual([r for r in prior if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)],
-                                     [r for r in now if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)])
+                    GOV = ('live_validation','execution_review','coverage','pending','source_approval','verified_on','verified_by','caveats','review_status')
+                    strip = lambda rows: [{k:v for k,v in r.items() if k not in GOV} for r in rows]
+                    self.assertEqual(strip([r for r in prior if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)]),
+                                     strip([r for r in now if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)]))
                 else:
-                    self.assertEqual(prior['reviewed'], [r for r in now['reviewed'] if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)])
+                    self.assertEqual(strip([r for r in prior['reviewed']]), strip([r for r in now['reviewed'] if r['sca_id']-900000 not in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)]))
             else:
                 self.assertEqual(digest(ROOT/name), sha, name)
         for p in (ROOT/'policies').glob('*.yml'):
-            self.assertIn('UNVALIDATED', json.loads(p.read_text())['policy']['name'])
+            self.assertIn('VERIFIED', json.loads(p.read_text())['policy']['name'])
 
     def test_exact_tristate_argv_and_buffered_large_output(self):
         check = next(c for c in json.loads((ROOT/'policies/linuxgcb_base.yml').read_text())['checks']

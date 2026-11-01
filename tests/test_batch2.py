@@ -72,7 +72,7 @@ class Batch2Tests(unittest.TestCase):
                 with self.subTest(n=n,rule=case['rule']):
                     self.assertIn(case['rule'],check['rules'])
                     self.assertEqual(simulate(check,case['observations']),'FAIL')
-            self.assertIn('UNVALIDATED', next(json.loads(p.read_text())['policy']['name'] for p in (ROOT/'policies').glob('*.yml') if any(c['id']==check['id'] for c in json.loads(p.read_text())['checks'])))
+            self.assertIn('VERIFIED', next(json.loads(p.read_text())['policy']['name'] for p in (ROOT/'policies').glob('*.yml') if any(c['id']==check['id'] for c in json.loads(p.read_text())['checks'])))
             for target in cases['positive']:
                 no_marker=self.positive(n)
                 no_marker[target]['stdout']=no_marker[target]['stdout'].replace('ABSENT' if n in ABSENT_PACKAGES else MARKER,'')

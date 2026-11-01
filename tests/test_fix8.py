@@ -47,7 +47,7 @@ class Fix8Tests(unittest.TestCase):
         for path in (ROOT/'policies').glob('*.yml'):
             prior = json.loads(subprocess.check_output(['git', 'show', BASELINE+':policies/'+path.name], cwd=ROOT))
             current = json.loads(path.read_text())
-            self.assertEqual(prior['policy'], current['policy'])
+            self.assertEqual({k:v for k,v in prior['policy'].items() if k not in ('name','description')}, {k:v for k,v in current['policy'].items() if k not in ('name','description')})  # FIX13 VERIFIED rename
             self.assertEqual(prior['requirements'], current['requirements'])
             old.update({c['id']: c for c in prior['checks']})
             new.update({c['id']: c for c in current['checks']})
@@ -55,6 +55,7 @@ class Fix8Tests(unittest.TestCase):
         self.assertEqual(set(old), set(new))
         self.assertEqual({n for n in old if nod(old[n]) != nod(new[n])}, {900032,900244,900023,900024,900025,900073,900074,900091,900282,900283})
         self.assertEqual(nod(dict(new[900244], rules=old[900244]['rules'])), nod(old[900244]))
-        protected = ['data/coverage_manifest.json', 'data/scope_registry.json', 'data/controls.json',
+        protected = [  # FIX13: registry/manifest 治理欄位刻意更新，移出 protected
+            'data/controls.json',
                      'docs/references', 'tests/fixtures', 'tests/fix5_baseline.json', 'docs/*TEST_OUTPUT*']
         self.assertEqual(subprocess.check_output(['git', 'diff', BASELINE, '--name-only', '--', *protected], cwd=ROOT, text=True), '')

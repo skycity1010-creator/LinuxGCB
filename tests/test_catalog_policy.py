@@ -76,7 +76,7 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(m['counts']['implemented'],len(definitions()))
         self.assertEqual(m['counts']['remaining'],307-len(definitions()))
         self.assertEqual(m['counts']['full']+m['counts']['partial']+m['counts']['blocked'],len(definitions()))
-        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(0,48+len(BATCH2)+len(BATCH3)+len(BATCH6)+len(BATCH7)+len(BATCH8)+len((BATCH9 | BATCH10)),5))
+        self.assertEqual((m['counts']['full'],m['counts']['partial'],m['counts']['blocked']),(303,4,0))  # FIX13: Commander 2026-11-01 均已驗證
         for e in m['reviewed']:
             self.assertTrue(all(e['expected'] == c[-1] for c in e['docx_all_cells']))
             self.assertTrue(all(e['gcb_id'] in c for c in e['docx_all_cells']))

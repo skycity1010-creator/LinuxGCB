@@ -26,10 +26,10 @@ IMPLEMENTED.update({n: 'base' for n in BATCH7})
 IMPLEMENTED.update({n: 'base' for n in BATCH8})
 IMPLEMENTED.update({n: 'base' for n in BATCH9})
 IMPLEMENTED.update({n: 'firewalld' for n in BATCH10})
-PARTIAL = {141: '僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋',
-           108: '僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審',
-           269: '僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審',
-           270: '僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審'}
+PARTIAL = {141: '範圍保留：僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合未涵蓋',
+           108: '範圍保留：僅雙協定即時值；持久設定來源、覆寫順序與路由角色未涵蓋',
+           269: '範圍保留：僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣未涵蓋',
+           270: '範圍保留：僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣未涵蓋'}
 
 
 def digest(path):
@@ -69,6 +69,9 @@ def registry():
             pending=PARTIAL.get(n, '' if n in IMPLEMENTED else '未實作；待逐條 DOCX 語意審查')))
         if n in IMPLEMENTED:
             result[-1].update(status(n))
+            if n in PARTIAL:  # 檢查範圍僅涵蓋來源部分語意：維持 partial＋範圍保留
+                result[-1]['coverage'] = 'partial'
+                result[-1]['pending'] = PARTIAL[n]
     if (len(result), sum(r['included'] for r in result), len({r['sca_id'] for r in result}),
         len({r['gcb_id'] for r in result})) != (314, 307, 314, 314):
         raise ValueError('範圍或唯一性不符')
