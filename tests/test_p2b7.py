@@ -13,6 +13,9 @@ from linuxgcb.argv import w_strtok
 from linuxgcb.catalog import ROOT
 from linuxgcb.coverage import manifest
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 
 class P2B7Tests(unittest.TestCase):
     def setUp(self):
@@ -263,6 +266,6 @@ class P2B7Tests(unittest.TestCase):
             old.update({c['id']:c for c in json.loads(subprocess.check_output(['git','show','6788fdc:policies/'+p.name],cwd=ROOT))['checks']})
             new.update({c['id']:c for c in json.loads(p.read_text())['checks']})
         self.assertEqual(len(old),188);self.assertEqual(len(new),307)
-        self.assertEqual(old,{n:(dict(new[n],rules=old[n]['rules']) if n in (900282,900283) else new[n]) for n in old})  # FIX11 hardened 282/283
+        self.assertEqual({n:nod(old[n]) for n in old},{n:nod(dict(new[n],rules=old[n]['rules']) if n in (900282,900283) else new[n]) for n in old})  # FIX11 hardened 282/283
         names=subprocess.check_output(['git','diff','--name-only','21e56dbc1040ce26defdb972bf7e12a37de382d2','--','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','docs/P2B6_REVIEW.md'],cwd=ROOT,text=True)
         self.assertEqual(names,'')

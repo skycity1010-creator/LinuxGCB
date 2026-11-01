@@ -10,6 +10,9 @@ from linuxgcb.argv import w_strtok
 from linuxgcb.catalog import ROOT
 import test_p2b8 as p2b8
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 BASELINE = '3fb7feaf51722dc03caf88ea4d7a2c28d96a1930'
 AFFECTED = {900023,900024,900025,900073,900074,900091}
 
@@ -94,7 +97,7 @@ class Fix9Tests(unittest.TestCase):
             new.update({c['id']:c for c in current['checks']})
         self.assertEqual(len(new),307)
         self.assertEqual(set(old),set(new))
-        self.assertEqual({n for n in old if old[n] != new[n]}, AFFECTED | {900032,900282,900283})
-        for n in old: self.assertEqual(dict(new[n],rules=old[n]['rules']),old[n])
+        self.assertEqual({n for n in old if nod(old[n]) != nod(new[n])}, AFFECTED | {900032,900282,900283})
+        for n in old: self.assertEqual(nod(dict(new[n],rules=old[n]['rules'])),nod(old[n]))
         protected = ['data/coverage_manifest.json','data/scope_registry.json','data/controls.json','data/inventory.json','docs/references','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*']
         self.assertEqual(subprocess.check_output(['git','diff',BASELINE,'--name-only','--',*protected],cwd=ROOT,text=True),'')

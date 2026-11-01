@@ -17,6 +17,9 @@ from linuxgcb.expected import UNKNOWN, parse_description, source_expected
 from linuxgcb.report import normalize, render
 from linuxgcb.snapshot import convert
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 
 class ExpectedTests(unittest.TestCase):
     def test_all_53_source_values_and_q1_preserved(self):
@@ -27,7 +30,7 @@ class ExpectedTests(unittest.TestCase):
         for c in checks:
             gid = c['compliance'][0]['twgcb'][0]
             self.assertTrue(c['description'].startswith('合規值: '))
-            self.assertIn(' ｜ Q1 執行審查 ', c['description'])
+            self.assertTrue(c['rationale'].startswith('人工檢核'))
             self.assertEqual(parse_description(c['description']), source_expected(source[gid]))
             self.assertNotEqual(parse_description(c['description']), UNKNOWN)
         by = {c['id']: parse_description(c['description']) for c in checks}

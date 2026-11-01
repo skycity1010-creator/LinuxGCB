@@ -10,6 +10,9 @@ from linuxgcb.argv import w_strtok
 from linuxgcb.catalog import ROOT
 import test_p2b7 as p2b7
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 BASELINE = '12851d61d23b8a7bbf413e01dd6db0abc5c420aa'
 GOOD = '[main]\ngpgcheck=1\nlocalpkg_gpgcheck=1\n'
 
@@ -78,6 +81,6 @@ class Fix10Tests(unittest.TestCase):
         self.assertEqual(old.keys(), new.keys())
         self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']}, {900032,900282,900283})
         for n in old:
-            self.assertEqual(dict(new[n], rules=old[n]['rules']), old[n])
+            self.assertEqual(nod(dict(new[n], rules=old[n]['rules'])), nod(old[n]))
         protected = ['data/coverage_manifest.json','data/scope_registry.json','data/controls.json','data/inventory.json','docs/references','tests/fixtures','tests/fix5_baseline.json','docs/*TEST_OUTPUT*','*.xlsx','*.docx']
         self.assertEqual(subprocess.check_output(['git','diff',BASELINE,'--name-only','--',*protected], cwd=ROOT, text=True), '')

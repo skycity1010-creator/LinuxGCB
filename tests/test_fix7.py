@@ -7,6 +7,9 @@ import unittest
 from linuxgcb.catalog import ROOT
 import test_p2b8 as p2b8
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 BASELINE = '971fbc51601a08352ee80aadb15a23a68e4aab78'
 AFFECTED = {8,9,13,14,15,16,23,24,25,73,74,91}
 
@@ -83,8 +86,8 @@ class Fix7Tests(unittest.TestCase):
             old.update({c['id']:c for c in prior['checks']})
             new.update({c['id']:c for c in current['checks']})
         self.assertEqual(len(new),307)
-        self.assertEqual({n-900000 for n in old if old[n]!=new[n]},AFFECTED | {32,282,283})
-        for n in old: self.assertEqual(dict(new[n],rules=old[n]['rules']),old[n])
+        self.assertEqual({n-900000 for n in old if nod(old[n])!=nod(new[n])},AFFECTED | {32,282,283})
+        for n in old: self.assertEqual(nod(dict(new[n],rules=old[n]['rules'])),nod(old[n]))
         for name in ('data/coverage_manifest.json','data/scope_registry.json'):
             prior=json.loads(subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT))
             current=json.loads((ROOT/name).read_text())

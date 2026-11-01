@@ -23,6 +23,9 @@ from linuxgcb.catalog import ROOT, registry
 from linuxgcb.policy import emit_rule, parse_rule, simulate
 from scripts.batch2_fixtures import generated
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 
 class Batch2Tests(unittest.TestCase):
     @classmethod
@@ -46,7 +49,7 @@ class Batch2Tests(unittest.TestCase):
         self.assertEqual(len(ADDED),44)
         self.assertEqual(len(self.checks),307)
         self.assertFalse(any(r['coverage']=='unimplemented' for r in rows if r['category'] in CATEGORIES))
-        self.assertEqual({c['id']:c for c in self.baseline['checks']}, {n:self.checks[n] for n in before})
+        self.assertEqual({c['id']:nod(c) for c in self.baseline['checks']}, {n:nod(self.checks[n]) for n in before})
         for filename,digest in self.baseline['hashes'].items():
             self.assertEqual(hashlib.sha256((ROOT/filename).read_bytes()).hexdigest(),digest)
         for row in rows:
@@ -125,7 +128,7 @@ class Batch2Tests(unittest.TestCase):
         for value,want in [('yes','PASS'),('delayed','PASS'),('no','PASS'),('invalid','FAIL')]:
             obs=self.positive(279);target=next(iter(obs));obs[target]['stdout']='compression '+value+'\n'+MARKER
             self.assertEqual(simulate(self.check(279),obs),want)
-        for n in (255,279): self.assertIn('RHEL9 OpenSSH 8.0+',self.check(n)['description'])
+        for n in (255,279): self.assertTrue(self.check(n)['description'].startswith('合規值: ') and self.check(n)['rationale'].startswith('人工檢核'))
 
     def test_numeric_boundaries_and_crypto_components(self):
         for n,key,maximum in ((266,'maxauthtries',4),(272,'clientaliveinterval',600),(273,'logingracetime',60),(277,'maxsessions',4)):
@@ -160,7 +163,7 @@ class Batch2Tests(unittest.TestCase):
         source={r['gcb_id']:r for r in json.loads((ROOT/'data/controls.json').read_text())}
         for n in ADDED:
             value=expected(source['TWGCB-01-012-'+format(n,'04d')])
-            self.assertTrue(self.check(n)['description'].startswith('合規值: '+value+' ｜ '))
+            self.assertTrue(self.check(n)['description'].startswith('合規值: '+value))
         self.assertIn('待確認（來源未提供單一基準值）',self.check(258)['description'])
 
     def test_allowlist_rejects_altered_shell_and_negation(self):

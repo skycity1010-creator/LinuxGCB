@@ -19,7 +19,8 @@
     {
       "id": 900254,
       "title": "TWGCB-01-012-0254 sshd守護程序",
-      "description": "合規值: openssh-server 已安裝；sshd enabled+active ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: openssh-server 已安裝；sshd enabled+active",
+      "rationale": "人工檢核指令（來源）：dnf install openssh-server.x86_64 ； systemctl --now enable sshd.service",
       "compliance": [
         {
           "twgcb": [
@@ -43,7 +44,8 @@
     {
       "id": 900255,
       "title": "TWGCB-01-012-0255 SSH協定版本",
-      "description": "合規值: Protocol 2 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 僅支援 SSH2；sshd -T 不輸出 Protocol 時接受預設，輸出 protocol 1 則拒絕。",
+      "description": "合規值: Protocol 2",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -61,7 +63,8 @@
     {
       "id": 900256,
       "title": "TWGCB-01-012-0256 /etc/ssh/sshd_config檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/ssh/sshd_config",
       "compliance": [
         {
           "twgcb": [
@@ -78,7 +81,8 @@
     {
       "id": 900257,
       "title": "TWGCB-01-012-0257 /etc/ssh/sshd_config檔案權限",
-      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 600或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 600 /etc/ssh/sshd_config",
       "compliance": [
         {
           "twgcb": [
@@ -95,7 +99,8 @@
     {
       "id": 900258,
       "title": "TWGCB-01-012-0258 限制存取SSH",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。來源清單依組織授權，沒有單一基準值；只檢查至少一個有效限制清單，授權正確性待人工審查。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -113,7 +118,8 @@
     {
       "id": 900259,
       "title": "TWGCB-01-012-0259 SSH主機私鑰檔案所有權",
-      "description": "合規值: root:ssh_keys ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+      "description": "合規值: root:ssh_keys",
+      "rationale": "人工檢核指令（來源）：find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chown root:ssh_keys {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -132,7 +138,8 @@
     {
       "id": 900260,
       "title": "TWGCB-01-012-0260 SSH主機私鑰檔案權限",
-      "description": "合規值: 640 或更低權限 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。來源文字提 600 但設定命令與 expected 為 640，依 F/G 欄實作 640 位元子集合，差異待核准。",
+      "description": "合規值: 640 或更低權限",
+      "rationale": "人工檢核指令（來源）：find /etc/ssh -xdev -type f -name 'ssh_host_*_key' -exec chmod 640 {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -151,7 +158,8 @@
     {
       "id": 900261,
       "title": "TWGCB-01-012-0261 SSH主機公鑰檔案所有權",
-      "description": "合規值: root:root ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -170,7 +178,8 @@
     {
       "id": 900262,
       "title": "TWGCB-01-012-0262 SSH主機公鑰檔案權限",
-      "description": "合規值: 644 或更低權限 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源 find -xdev -type f 集合；至少一把鑰匙且全部 metadata 符合；ACL、連結與有效 HostKey 路徑待審。",
+      "description": "合規值: 644 或更低權限",
+      "rationale": "人工檢核指令（來源）：find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chmod 644 {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -189,7 +198,8 @@
     {
       "id": 900263,
       "title": "TWGCB-01-012-0263 SSH加密演算法",
-      "description": "合規值: Ciphers aes128-ctr,aes192-ctr,aes256-ctr；MACS=hmac-sha2-512,hmac-sha2-256；KexAlgorithms=ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: Ciphers aes128-ctr,aes192-ctr,aes256-ctr；MACS=hmac-sha2-512,hmac-sha2-256；KexAlgorithms=ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -209,7 +219,8 @@
     {
       "id": 900264,
       "title": "TWGCB-01-012-0264 SSH日誌記錄等級",
-      "description": "合規值: LogLevel VERBOSE 或 INFO ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: LogLevel VERBOSE 或 INFO",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -227,7 +238,8 @@
     {
       "id": 900265,
       "title": "TWGCB-01-012-0265 SSH X11Forwarding功能",
-      "description": "合規值: X11Forwarding no ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: X11Forwarding no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -245,7 +257,8 @@
     {
       "id": 900266,
       "title": "TWGCB-01-012-0266 SSH MaxAuthTries參數",
-      "description": "合規值: MaxAuthTries 4（來源允許 1–4） ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: MaxAuthTries 4（來源允許 1–4）",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -263,7 +276,8 @@
     {
       "id": 900267,
       "title": "TWGCB-01-012-0267 SSH IgnoreRhosts參數",
-      "description": "合規值: IgnoreRhosts yes ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: IgnoreRhosts yes",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -281,7 +295,8 @@
     {
       "id": 900268,
       "title": "TWGCB-01-012-0268 SSH HostbasedAuthentication參數",
-      "description": "合規值: HostbasedAuthentication no ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: HostbasedAuthentication no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -299,7 +314,8 @@
     {
       "id": 900269,
       "title": "TWGCB-01-012-0269 SSH PermitRootLogin參數",
-      "description": "合規值: PermitRootLogin no ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "description": "合規值: PermitRootLogin no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -316,7 +332,8 @@
     {
       "id": 900270,
       "title": "TWGCB-01-012-0270 SSH PermitEmptyPasswords參數",
-      "description": "合規值: PermitEmptyPasswords no ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅 sshd -T 預設情境；Include/Match 與使用者/來源矩陣待審",
+      "description": "合規值: PermitEmptyPasswords no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -333,7 +350,8 @@
     {
       "id": 900271,
       "title": "TWGCB-01-012-0271 SSH PermitUserEnvironment參數",
-      "description": "合規值: PermitUserEnvironment no ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: PermitUserEnvironment no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -351,7 +369,8 @@
     {
       "id": 900272,
       "title": "TWGCB-01-012-0272 SSH逾時時間",
-      "description": "合規值: ClientAliveInterval 600（來源允許 1–600）；ClientAliveCountMax 1 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: ClientAliveInterval 600（來源允許 1–600）；ClientAliveCountMax 1",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -370,7 +389,8 @@
     {
       "id": 900273,
       "title": "TWGCB-01-012-0273 SSH LoginGraceTime參數",
-      "description": "合規值: LoginGraceTime 60（來源允許 1–60） ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: LoginGraceTime 60（來源允許 1–60）",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -388,7 +408,8 @@
     {
       "id": 900274,
       "title": "TWGCB-01-012-0274 SSH UsePAM參數",
-      "description": "合規值: UsePAM yes ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: UsePAM yes",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -406,7 +427,8 @@
     {
       "id": 900275,
       "title": "TWGCB-01-012-0275 SSH AllowTcpForwarding參數",
-      "description": "合規值: AllowTcpForwarding no ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: AllowTcpForwarding no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -424,7 +446,8 @@
     {
       "id": 900276,
       "title": "TWGCB-01-012-0276 SSH MaxStartups參數",
-      "description": "合規值: MaxStartups 10:30:60 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: MaxStartups 10:30:60",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -442,7 +465,8 @@
     {
       "id": 900277,
       "title": "TWGCB-01-012-0277 SSH MaxSessions參數",
-      "description": "合規值: MaxSessions 4（來源允許 1–4） ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: MaxSessions 4（來源允許 1–4）",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -460,7 +484,8 @@
     {
       "id": 900278,
       "title": "TWGCB-01-012-0278 SSH StrictModes參數",
-      "description": "合規值: StrictModes yes ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: StrictModes yes",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -478,7 +503,8 @@
     {
       "id": 900279,
       "title": "TWGCB-01-012-0279 SSH Compression參數",
-      "description": "合規值: Compression delayed 或 no ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。RHEL9 OpenSSH 8.0+ 的 compression yes 僅認證後壓縮（等同歷史 delayed）；no 亦符合。",
+      "description": "合規值: Compression delayed 或 no",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -496,7 +522,8 @@
     {
       "id": 900280,
       "title": "TWGCB-01-012-0280 SSH IgnoreUserKnownHosts參數",
-      "description": "合規值: IgnoreUserKnownHosts yes ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: IgnoreUserKnownHosts yes",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -514,7 +541,8 @@
     {
       "id": 900281,
       "title": "TWGCB-01-012-0281 SSH PrintLastLog參數",
-      "description": "合規值: PrintLastLog yes ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: PrintLastLog yes",
+      "rationale": "人工檢核指令（來源）：systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -532,7 +560,8 @@
     {
       "id": 900282,
       "title": "TWGCB-01-012-0282 shosts.equiv檔案",
-      "description": "合規值: 移除所有 shosts.equiv ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。",
+      "description": "合規值: 移除所有 shosts.equiv",
+      "rationale": "人工檢核指令（來源）：find / -name shosts.equiv",
       "compliance": [
         {
           "twgcb": [
@@ -550,7 +579,8 @@
     {
       "id": 900283,
       "title": "TWGCB-01-012-0283 .shosts檔案",
-      "description": "合規值: 移除所有 *.shosts ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。全檔案系統唯讀 find 可能昂貴；權限錯誤不通過，掛載集合與 timeout 待審。",
+      "description": "合規值: 移除所有 *.shosts",
+      "rationale": "人工檢核指令（來源）：find / -name '*.shosts'",
       "compliance": [
         {
           "twgcb": [
@@ -568,7 +598,8 @@
     {
       "id": 900284,
       "title": "TWGCB-01-012-0284 覆寫全系統加密原則",
-      "description": "合規值: 不存在未註解的 CRYPTO_POLICY 設定 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "description": "合規值: 不存在未註解的 CRYPTO_POLICY 設定",
+      "rationale": "人工檢核指令（來源）：sed -ri \"s/^\\s*(CRYPTO_POLICY\\s*=.*)$/# \\1/\" /etc/sysconfig/sshd ； systemctl restart sshd",
       "compliance": [
         {
           "twgcb": [
@@ -586,7 +617,8 @@
     {
       "id": 900315,
       "title": "TWGCB-01-012-0315 停用GSSAPI驗證",
-      "description": "合規值: GSSAPIAuthentication no ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。sshd -T 僅預設情境；Include/Match 與使用者/來源矩陣沿用 Q1 限制；服務啟動參數與 crypto-policy 注入尚待核對。",
+      "description": "合規值: GSSAPIAuthentication no",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [

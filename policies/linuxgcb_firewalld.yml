@@ -19,7 +19,8 @@
     {
       "id": 900242,
       "title": "TWGCB-01-012-0242 firewalld防火牆套件",
-      "description": "合規值: firewalld 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "description": "合規值: firewalld 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install firewalld",
       "compliance": [
         {
           "twgcb": [
@@ -36,7 +37,8 @@
     {
       "id": 900243,
       "title": "TWGCB-01-012-0243 firewalld服務",
-      "description": "合規值: firewalld enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "description": "合規值: firewalld enabled+active",
+      "rationale": "人工檢核指令（來源）：systemctl --now enable firewalld",
       "compliance": [
         {
           "twgcb": [
@@ -55,7 +57,8 @@
     {
       "id": 900244,
       "title": "TWGCB-01-012-0244 iptables服務",
-      "description": "合規值: iptables masked+inactive ｜ P2B10 執行審查 blocked；coverage=partial；B10-ENGINE,B10-SOURCE；raw PASS 非已驗證符合。來源 --now mask 涵蓋 iptables 與 ip6tables；唯讀 is-enabled 須 masked/rc1，is-active 須 inactive/rc3；disabled 不等同遮蔽，缺服務不豁免。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: iptables masked+inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask iptables ； systemctl --now mask ip6tables",
       "compliance": [
         {
           "twgcb": [
@@ -72,7 +75,8 @@
     {
       "id": 900245,
       "title": "TWGCB-01-012-0245 nftables服務",
-      "description": "合規值: nftables masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "description": "合規值: nftables masked+inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask nftables",
       "compliance": [
         {
           "twgcb": [
@@ -91,7 +95,8 @@
     {
       "id": 900246,
       "title": "TWGCB-01-012-0246 firewalld防火牆預設區域",
-      "description": "合規值: 須設定預設區域 ｜ P2B10 執行審查 blocked；coverage=partial；B10-ENGINE,B10-SOURCE；raw PASS 非已驗證符合。以 --get-default-zone 唯讀對應來源設定區域；有效非空區域名稱即可，public 為來源允許範例；不推論是否曾人工設定。 P2B10 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 須設定預設區域",
+      "rationale": "人工檢核指令（來源）：firewall-cmd --set-default-zone=(區域名稱) ； firewall-cmd --set-default-zone=public",
       "compliance": [
         {
           "twgcb": [

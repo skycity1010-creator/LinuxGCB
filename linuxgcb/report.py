@@ -85,7 +85,7 @@ def normalize(snapshot, now):
                 state = 'NOT_SCANNED'
             expected, expected_status = report_expected(c, policy_checks.get(control['sca_id'], {}))
             all_rows.append(dict(agent_id=agent, gcb_id=control['gcb_id'], sca_id=control['sca_id'],
-                command=c.get('command', ','.join(r.split(' -> r:')[0][2:] for r in policy_checks.get(control['sca_id'], {}).get('rules', []))),
+                command=c.get('command', (lambda rules, rationale: (rationale or '') if any('\n' in r or 'python3 -c' in r for r in rules) else ','.join(r.split(' -> r:')[0][2:] for r in rules))(policy_checks.get(control['sca_id'], {}).get('rules', []), policy_checks.get(control['sca_id'], {}).get('rationale'))),
                 remediation=policy_checks.get(control['sca_id'], {}).get('remediation'),
                 raw_remediation=c.get('remediation'),
                 remediation_status='provided' if policy_checks.get(control['sca_id'], {}).get('remediation') else '政策未提供 remediation',

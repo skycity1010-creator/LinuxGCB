@@ -31,6 +31,36 @@ def definitions():
     }
 
 
+ACCEPTED_FINDINGS = {900187, 900229}
+FINDING_SUFFIX = ' ｜ 【Accepted finding】Commander 2026-11-01 裁定：維持 FAIL，不矯正系統設定（docs/EXCEPTIONS.md）'
+
+
+@lru_cache(maxsize=1)
+def manual_commands():
+    """來源 configuration_method 的人工檢核指令（# 開頭命令，條件詞前）；僅文字，不執行。"""
+    out = {}
+    for c in json.loads((ROOT/'data/controls.json').read_text()):
+        text = str(c.get('configuration_method') or '').replace('<br>', '\n')
+        cmds = []
+        for line in text.splitlines():
+            s = line.strip()
+            if not s:
+                continue
+            if s.startswith('#'):
+                cmds.append(s.lstrip('#').strip())
+                continue
+            m = re.search(r'[：:]\s*#(.+)$', s)
+            if m:
+                frag = re.split(r'\s+(?:若|如|則|請)', m[1].strip())[0].strip()
+                if frag:
+                    cmds.append(frag)
+            elif cmds and re.search(r'若|如出現|請', s):
+                break
+        joined = ' ； '.join(cmds)
+        out[c['gcb_id']] = (joined[:500] + '…') if len(joined) > 500 else joined
+    return out
+
+
 def build():
     rows = registry()
     expected = values()
@@ -40,8 +70,10 @@ def build():
         for row in rows:
             if row['implementation'] != 'candidate' or row['profile'] != profile:
                 continue
+            manual = manual_commands()[row['gcb_id']]
             checks.append(dict(id=row['sca_id'], title=row['gcb_id']+' '+row['title'],
-                description=PREFIX+expected[row['gcb_id']]+(' ｜ P2B10 執行審查 ' if row['sca_id']-900000 in BATCH10 else ' ｜ P2B9 執行審查 ' if row['sca_id']-900000 in BATCH9 else ' ｜ P2B8 執行審查 ' if row['sca_id']-900000 in BATCH8 else ' ｜ P2B7 執行審查 ' if row['sca_id']-900000 in BATCH7 else ' ｜ P2B6 執行審查 ' if row['sca_id']-900000 in BATCH6 else ' ｜ P2B3 執行審查 ' if row['sca_id']-900000 in BATCH3 else ' ｜ BATCH2 執行審查 ' if row['sca_id']-900000 in BATCH2 else ' ｜ Q1 執行審查 ')+row['execution_review']+'；coverage='+row['coverage']+'；'+','.join(row['issue_ids'])+'；raw PASS 非已驗證符合。'+row['pending'],
+                description=PREFIX+expected[row['gcb_id']]+(FINDING_SUFFIX if row['sca_id'] in ACCEPTED_FINDINGS else ''),
+                rationale=('人工檢核指令（來源）：'+manual) if manual else '人工檢核：見 GCB 來源 configuration_method',
                 compliance=[{'twgcb': [row['gcb_id']]}], regex_type='pcre2', condition='all',
                 rules=[emit_rule(target, pattern) for target, pattern in definitions()[int(row['gcb_id'][-4:])]]))
         policy = dict(policy=dict(id='linuxgcb_rhel9_'+profile+'_v01', file=filename,
@@ -77,7 +109,7 @@ def validate():
             require(c['id'] not in seen and rows[c['id']]['included'])
             seen.add(c['id'])
             require(parse_description(c.get('description')) == values()[rows[c['id']]['gcb_id']])
-            require((' ｜ P2B10 ' if c['id']-900000 in BATCH10 else ' ｜ P2B9 ' if c['id']-900000 in BATCH9 else ' ｜ P2B8 ' if c['id']-900000 in BATCH8 else ' ｜ P2B7 ' if c['id']-900000 in BATCH7 else ' ｜ P2B6 ' if c['id']-900000 in BATCH6 else ' ｜ P2B3 ' if c['id']-900000 in BATCH3 else ' ｜ BATCH2 ' if c['id']-900000 in BATCH2 else ' ｜ Q1 ') in c['description'])
+            require(c.get('rationale','').startswith('人工檢核'))
             require(c['regex_type'] == 'pcre2' and c['condition'] == 'all')
             require(c['compliance'] == [{'twgcb': [rows[c['id']]['gcb_id']]}])
             require(rows[c['id']]['policy_id'] == p['policy']['id'])

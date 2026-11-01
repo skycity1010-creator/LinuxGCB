@@ -11,6 +11,9 @@ import test_p2b3 as p2b3
 from linuxgcb.catalog import ROOT, digest
 from linuxgcb.policy import parse_rule, simulate
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 CHANGED = {900143, 900144, 900176}
 
 
@@ -38,7 +41,7 @@ class Fix4Tests(unittest.TestCase):
         self.assertEqual(set(old), set(self.checks) - {900000+n for n in BATCH6 | BATCH7 | BATCH8 | (BATCH9 | BATCH10)})
         self.assertEqual({n for n in old if old[n]['rules'] != self.checks[n]['rules']}, CHANGED | {900188,900282,900283})
         for n in old.keys() - CHANGED - {900188,900282,900283}:
-            self.assertEqual(old[n], self.checks[n])
+            self.assertEqual(nod(old[n]), nod(self.checks[n]))
         for name, sha in before['protected_hashes'].items():
             self.assertEqual(digest(ROOT/name), sha, name)
 

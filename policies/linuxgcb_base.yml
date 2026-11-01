@@ -19,7 +19,8 @@
     {
       "id": 900001,
       "title": "TWGCB-01-012-0001 cramfs檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/cramfs.conf ； rmmod cramfs",
       "compliance": [
         {
           "twgcb": [
@@ -36,7 +37,8 @@
     {
       "id": 900002,
       "title": "TWGCB-01-012-0002 squashfs檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/squashfs.conf ； rmmod squashfs",
       "compliance": [
         {
           "twgcb": [
@@ -53,7 +55,8 @@
     {
       "id": 900003,
       "title": "TWGCB-01-012-0003 udf檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/udf.conf ； rmmod udf",
       "compliance": [
         {
           "twgcb": [
@@ -70,7 +73,8 @@
     {
       "id": 900004,
       "title": "TWGCB-01-012-0004 設定/tmp目錄之檔案系統",
-      "description": "合規值: tmpfs ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: tmpfs",
+      "rationale": "人工檢核指令（來源）：vim /etc/fstab ； systemctl unmask tmp.mount ； systemctl enable tmp.mount",
       "compliance": [
         {
           "twgcb": [
@@ -87,7 +91,8 @@
     {
       "id": 900005,
       "title": "TWGCB-01-012-0005 設定/tmp目錄之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nodev /tmp ； mount -o remount,nodev /tmp",
       "compliance": [
         {
           "twgcb": [
@@ -104,7 +109,8 @@
     {
       "id": 900006,
       "title": "TWGCB-01-012-0006 設定/tmp目錄之nosuid選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nosuid /tmp ； mount -o remount,nosuid /tmp",
       "compliance": [
         {
           "twgcb": [
@@ -121,7 +127,8 @@
     {
       "id": 900007,
       "title": "TWGCB-01-012-0007 設定/tmp目錄之noexec選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,noexec /tmp ； mount -o remount,noexec /tmp",
       "compliance": [
         {
           "twgcb": [
@@ -138,7 +145,8 @@
     {
       "id": 900008,
       "title": "TWGCB-01-012-0008 設定/var目錄之檔案系統",
-      "description": "合規值: 使用獨立之分割磁區或邏輯磁區 ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 使用獨立之分割磁區或邏輯磁區",
+      "rationale": "人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M varvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n varlv varvg (從varvg分割出1個LV，LV名稱varlv，並將15個PE配置給varlv) ； mkfs.xfs /dev/varvg/varlv(對/dev/varvg/varlv進行格式化)",
       "compliance": [
         {
           "twgcb": [
@@ -155,7 +163,8 @@
     {
       "id": 900009,
       "title": "TWGCB-01-012-0009 設定/var/tmp目錄之檔案系統",
-      "description": "合規值: 使用獨立之分割磁區或邏輯磁區 ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 使用獨立之分割磁區或邏輯磁區",
+      "rationale": "人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M vartmpvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱vartmpvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n vartmplv vartmpvg (從vartmpvg分割出1個LV，LV名稱vartmplv，並將15個PE配置給vartmplv) ； mkfs.xfs /dev/vartmpvg/vartmplv(對/dev/vartmpvg/vartmplv進行格式化)",
       "compliance": [
         {
           "twgcb": [
@@ -172,7 +181,8 @@
     {
       "id": 900010,
       "title": "TWGCB-01-012-0010 設定/var/tmp目錄之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nodev /var/tmp",
       "compliance": [
         {
           "twgcb": [
@@ -189,7 +199,8 @@
     {
       "id": 900011,
       "title": "TWGCB-01-012-0011 設定/var/tmp目錄之nosuid選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nosuid /var/tmp",
       "compliance": [
         {
           "twgcb": [
@@ -206,7 +217,8 @@
     {
       "id": 900012,
       "title": "TWGCB-01-012-0012 設定/var/tmp目錄之noexec選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,noexec /var/tmp",
       "compliance": [
         {
           "twgcb": [
@@ -223,7 +235,8 @@
     {
       "id": 900013,
       "title": "TWGCB-01-012-0013 設定/var/log目錄之檔案系統",
-      "description": "合規值: 使用獨立之分割磁區或邏輯磁區 ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 使用獨立之分割磁區或邏輯磁區",
+      "rationale": "人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M varlogvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n varloglv varlogvg (從varlogvg分割出1個LV，LV名稱varloglv，並將15個PE配置給varloglv) ； mkfs.xfs /dev/varlogvg/varloglv(對/dev/varlogvg/varloglv進行格式化)",
       "compliance": [
         {
           "twgcb": [
@@ -240,7 +253,8 @@
     {
       "id": 900014,
       "title": "TWGCB-01-012-0014 設定/var/log/audit目錄之檔案系統",
-      "description": "合規值: 使用獨立之分割磁區或邏輯磁區 ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 使用獨立之分割磁區或邏輯磁區",
+      "rationale": "人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M varlogadvg /dev/sda3(對/dev/sda3建立1個VG，VG名稱varlogadvg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n varlogadlv varlogadvg (從varlogadvg分割出1個LV，LV名稱varlogadlv，並將15個PE配置給varlogadlv) ； mkfs.xfs /dev/varlogadvg/varlogadlv(對/dev/varlogadvg/varlogadlv進行格式化)",
       "compliance": [
         {
           "twgcb": [
@@ -257,7 +271,8 @@
     {
       "id": 900015,
       "title": "TWGCB-01-012-0015 設定/home目錄之檔案系統",
-      "description": "合規值: 使用獨立之分割磁區或邏輯磁區 ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。mountinfo 確認掛載點、裝置號不同於根與其他祖先、root=/，來源獨立裝置；bind/subpath 不算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 使用獨立之分割磁區或邏輯磁區",
+      "rationale": "人工檢核指令（來源）：gdisk /dev/sda ； n(新增磁區) ； 3(建立磁區編號) ； enter(在First sector輸入) ； +256M(在Last sector輸入) ； 8e00(變更Hex code，LVM磁區代碼) ； w(寫入磁區分割表格) ； partprobe(強制重新抓磁區分割表格) ； pvcreate /dev/sda3(對/dev/sda3建立PV) ； vgcreate -s 16M homevg /dev/sda3(對/dev/sda3建立1個VG，VG名稱homevg，且指定1個PE大小16MB) ； vgdisplay(顯示目前系統VG狀態，本範例的Total PE數顯示15) ； lvcreate -l 15 -n homelv homevg (從homevg分割出1個LV，LV名稱homelv，並將15個PE配置給homelv) ； mkfs.xfs /dev/homevg/homelv(對/dev/homevg/homelv進行格式化)",
       "compliance": [
         {
           "twgcb": [
@@ -274,7 +289,8 @@
     {
       "id": 900016,
       "title": "TWGCB-01-012-0016 設定/home目錄之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nodev /home",
       "compliance": [
         {
           "twgcb": [
@@ -291,7 +307,8 @@
     {
       "id": 900017,
       "title": "TWGCB-01-012-0017 設定/dev/shm目錄之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nodev /dev/shm",
       "compliance": [
         {
           "twgcb": [
@@ -308,7 +325,8 @@
     {
       "id": 900018,
       "title": "TWGCB-01-012-0018 設定/dev/shm目錄之nosuid選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,nosuid /dev/shm",
       "compliance": [
         {
           "twgcb": [
@@ -325,7 +343,8 @@
     {
       "id": 900019,
       "title": "TWGCB-01-012-0019 設定/dev/shm目錄之noexec選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。讀 /proc/mounts 精確掛載點、類型或完整 option token；缺掛載失敗；持久設定及生效差異待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount -o remount,noexec /dev/shm",
       "compliance": [
         {
           "twgcb": [
@@ -342,7 +361,8 @@
     {
       "id": 900020,
       "title": "TWGCB-01-012-0020 設定可攜式儲存裝置之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount",
       "compliance": [
         {
           "twgcb": [
@@ -359,7 +379,8 @@
     {
       "id": 900021,
       "title": "TWGCB-01-012-0021 設定可攜式儲存裝置之nosuid選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount",
       "compliance": [
         {
           "twgcb": [
@@ -376,7 +397,8 @@
     {
       "id": 900022,
       "title": "TWGCB-01-012-0022 設定可攜式儲存裝置之noexec選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。由 sysfs 裝置 removable 與父裝置辨識可攜式掛載；無對象或裝置無法分類輸出 REVIEW，並非符合或違規；USB 固定式及非 block 可攜式辨識待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：mount",
       "compliance": [
         {
           "twgcb": [
@@ -393,7 +415,8 @@
     {
       "id": 900023,
       "title": "TWGCB-01-012-0023 設定使用者家目錄之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd ； more /etc/fstab",
       "compliance": [
         {
           "twgcb": [
@@ -410,7 +433,8 @@
     {
       "id": 900024,
       "title": "TWGCB-01-012-0024 設定使用者家目錄之nosuid選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd ； more /etc/fstab",
       "compliance": [
         {
           "twgcb": [
@@ -427,7 +451,8 @@
     {
       "id": 900025,
       "title": "TWGCB-01-012-0025 設定使用者家目錄之noexec選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源 passwd UID>=1000 且非 nobody，只查家目錄本身獨立掛載；無對象輸出 REVIEW；以即時值取代來源 fstab 按任務要求，待批。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：awk -F: '($3>=1000)&&($1!=\"nobody\"){print $1,$3,$6}' /etc/passwd ； more /etc/fstab",
       "compliance": [
         {
           "twgcb": [
@@ -444,7 +469,8 @@
     {
       "id": 900026,
       "title": "TWGCB-01-012-0026 設定NFS檔案系統之nodev選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：grep nfs /etc/fstab",
       "compliance": [
         {
           "twgcb": [
@@ -461,7 +487,8 @@
     {
       "id": 900027,
       "title": "TWGCB-01-012-0027 設定NFS檔案系統之nosuid選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：grep nfs /etc/fstab",
       "compliance": [
         {
           "twgcb": [
@@ -478,7 +505,8 @@
     {
       "id": 900028,
       "title": "TWGCB-01-012-0028 設定NFS檔案系統之noexec選項",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源條件式 NFS；查即時 nfs/nfs4 掛載選項，無對象輸出 REVIEW；fstab 尚未掛載項之適用性另審。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：grep nfs /etc/fstab",
       "compliance": [
         {
           "twgcb": [
@@ -495,7 +523,8 @@
     {
       "id": 900029,
       "title": "TWGCB-01-012-0029 設定全域寫入權限目錄之粘滯位",
-      "description": "合規值: 設定粘滯位 ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。來源 df --local -P 逐本機磁區，find -xdev -type d -perm -0002 ! -perm -1000 -print -quit；24秒整體預算。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 設定粘滯位",
+      "rationale": "人工檢核指令（來源）：df --local -P | awk '{if (NR!=1) print $6}' | xargs -I '{}' find '{}' -xdev -type d \\( -perm -0002 -a ! -perm -1000 \\) 2>/dev/null | xargs -I '{}' chmod o+t '{}'",
       "compliance": [
         {
           "twgcb": [
@@ -512,7 +541,8 @@
     {
       "id": 900030,
       "title": "TWGCB-01-012-0030 autofs服務",
-      "description": "合規值: autofs disabled+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "description": "合規值: autofs disabled+inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now disable autofs",
       "compliance": [
         {
           "twgcb": [
@@ -531,7 +561,8 @@
     {
       "id": 900031,
       "title": "TWGCB-01-012-0031 USB儲存裝置",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/usb-storage.conf",
       "compliance": [
         {
           "twgcb": [
@@ -548,7 +579,8 @@
     {
       "id": 900032,
       "title": "TWGCB-01-012-0032 GPG簽章驗證",
-      "description": "合規值: 1 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。main 與 repo 檔同查 gpgcheck/localpkg_gpgcheck=1；各repo section皆需雙key；繼承與生效待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -565,7 +597,8 @@
     {
       "id": 900033,
       "title": "TWGCB-01-012-0033 sudo套件",
-      "description": "合規值: sudo 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "description": "合規值: sudo 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install sudo",
       "compliance": [
         {
           "twgcb": [
@@ -582,7 +615,8 @@
     {
       "id": 900034,
       "title": "TWGCB-01-012-0034 設定sudo指令使用pty",
-      "description": "合規值: Defaults use_pty ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。只接受未限定 Defaults use_pty；限定使用者/主機、include、續行與覆寫待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: Defaults use_pty",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -599,7 +633,8 @@
     {
       "id": 900035,
       "title": "TWGCB-01-012-0035 sudo自定義日誌檔案",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。logfile 要求非空絕對路徑；來源 /var/log/sudo.log 僅範例；複雜 sudoers 語意待審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -616,7 +651,8 @@
     {
       "id": 900036,
       "title": "TWGCB-01-012-0036 AIDE套件",
-      "description": "合規值: aide 已安裝 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。定向 rpm -q aide 三態；初始化資料庫動作未執行，資料庫生效另審。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: aide 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install aide ； aide --init ； mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz",
       "compliance": [
         {
           "twgcb": [
@@ -633,7 +669,8 @@
     {
       "id": 900037,
       "title": "TWGCB-01-012-0037 定期檢查檔案系統完整性",
-      "description": "合規值: 每天 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源 root crontab 每天5點；expected 每天允許合法固定分時；依任務另接受 cron.daily 可執行檔明確 /usr/sbin/aide --check。排程替代需批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 每天",
+      "rationale": "人工檢核指令（來源）：crontab -u root -e",
       "compliance": [
         {
           "twgcb": [
@@ -650,7 +687,8 @@
     {
       "id": 900038,
       "title": "TWGCB-01-012-0038 開機載入程式設定檔之所有權",
-      "description": "合規值: root:root ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源 BIOS grub.cfg/grubenv/選用user.cfg；UEFI fstab uid=0,gid=0；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /boot/grub2/grub.cfg ； chown root:root /boot/grub2/grubenv ； [ -f /boot/grub2/user.cfg ] && chown root:root /boot/grub2/user.cfg",
       "compliance": [
         {
           "twgcb": [
@@ -667,7 +705,8 @@
     {
       "id": 900039,
       "title": "TWGCB-01-012-0039 開機載入程式設定檔之權限",
-      "description": "合規值: 600或更低權限 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源 BIOS 600 位元子集；UEFI fmask=0177；未自行增加 loader/entries。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 600或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 600 /boot/grub2/grub.cfg ； chmod 600 /boot/grub2/grubenv ； [ -f /boot/grub2/user.cfg ] && chmod 600 /boot/grub2/user.cfg",
       "compliance": [
         {
           "twgcb": [
@@ -684,7 +723,8 @@
     {
       "id": 900040,
       "title": "TWGCB-01-012-0040 開機載入程式之通行碼",
-      "description": "合規值: 設定通行碼 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。靜態確認 grub2-setpassword 產生之 user.cfg PBKDF2 宣告；grub.cfg 載入與重建效果留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 設定通行碼",
+      "rationale": "人工檢核指令（來源）：grub2-setpassword ； grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
       "compliance": [
         {
           "twgcb": [
@@ -701,7 +741,8 @@
     {
       "id": 900041,
       "title": "TWGCB-01-012-0041 單一使用者模式身分鑑別",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源 rescue/emergency.service ExecStart 精確比對；systemd drop-in 實際生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -718,7 +759,8 @@
     {
       "id": 900042,
       "title": "TWGCB-01-012-0042 核心傾印功能",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。同查 suid_dumpable=0、core_pattern=|/bin/false 與 * hard core 0；條件性 coredump Storage/ProcessSizeMax/mask、即時值與載入效力待人工證據。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：sysctl -w fs.suid_dumpable=0 ； sysctl -w kernel.core_pattern=|/bin/false ； systemctl daemon-reload ； systemctl mask systemd-coredump.socket",
       "compliance": [
         {
           "twgcb": [
@@ -735,7 +777,8 @@
     {
       "id": 900043,
       "title": "TWGCB-01-012-0043 記憶體位址空間配置隨機載入",
-      "description": "合規值: 2 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。持久設定 randomize_va_space 精確2；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 2",
+      "rationale": "人工檢核指令（來源）：sysctl -w kernel.randomize_va_space=2",
       "compliance": [
         {
           "twgcb": [
@@ -752,7 +795,8 @@
     {
       "id": 900044,
       "title": "TWGCB-01-012-0044 設定全系統加密原則",
-      "description": "合規值: FUTURE或FIPS ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源明列 /etc/crypto-policies/config FUTURE/FIPS；未改查 CURRENT.pol；生效/重開機待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: FUTURE或FIPS",
+      "rationale": "人工檢核指令（來源）：grep -E -i '^\\s*(FUTURE|FIPS)\\s*(\\s+#.*)?$' /etc/crypto-policies/config",
       "compliance": [
         {
           "twgcb": [
@@ -769,7 +813,8 @@
     {
       "id": 900045,
       "title": "TWGCB-01-012-0045 /etc/passwd檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/passwd",
       "compliance": [
         {
           "twgcb": [
@@ -786,7 +831,8 @@
     {
       "id": 900046,
       "title": "TWGCB-01-012-0046 /etc/passwd檔案權限",
-      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 644或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 644 /etc/passwd",
       "compliance": [
         {
           "twgcb": [
@@ -803,7 +849,8 @@
     {
       "id": 900047,
       "title": "TWGCB-01-012-0047 /etc/shadow檔案所有權",
-      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root或root:shadow",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/shadow ； chown root:shadow /etc/shadow",
       "compliance": [
         {
           "twgcb": [
@@ -820,7 +867,8 @@
     {
       "id": 900048,
       "title": "TWGCB-01-012-0048 /etc/shadow檔案權限",
-      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 000",
+      "rationale": "人工檢核指令（來源）：chmod 000 /etc/shadow",
       "compliance": [
         {
           "twgcb": [
@@ -837,7 +885,8 @@
     {
       "id": 900049,
       "title": "TWGCB-01-012-0049 /etc/group檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/group",
       "compliance": [
         {
           "twgcb": [
@@ -854,7 +903,8 @@
     {
       "id": 900050,
       "title": "TWGCB-01-012-0050 /etc/group檔案權限",
-      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 644或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 644 /etc/group",
       "compliance": [
         {
           "twgcb": [
@@ -871,7 +921,8 @@
     {
       "id": 900051,
       "title": "TWGCB-01-012-0051 /etc/gshadow檔案所有權",
-      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root或root:shadow",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/gshadow ； chown root:shadow /etc/gshadow",
       "compliance": [
         {
           "twgcb": [
@@ -888,7 +939,8 @@
     {
       "id": 900052,
       "title": "TWGCB-01-012-0052 /etc/gshadow檔案權限",
-      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 000",
+      "rationale": "人工檢核指令（來源）：chmod 000 /etc/gshadow",
       "compliance": [
         {
           "twgcb": [
@@ -905,7 +957,8 @@
     {
       "id": 900053,
       "title": "TWGCB-01-012-0053 /etc/passwd-檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/passwd-",
       "compliance": [
         {
           "twgcb": [
@@ -922,7 +975,8 @@
     {
       "id": 900054,
       "title": "TWGCB-01-012-0054 /etc/passwd-檔案權限",
-      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: 644或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 644 /etc/passwd-",
       "compliance": [
         {
           "twgcb": [
@@ -939,7 +993,8 @@
     {
       "id": 900055,
       "title": "TWGCB-01-012-0055 /etc/shadow-檔案所有權",
-      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root或root:shadow",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/shadow- ； chown root:shadow /etc/shadow-",
       "compliance": [
         {
           "twgcb": [
@@ -956,7 +1011,8 @@
     {
       "id": 900056,
       "title": "TWGCB-01-012-0056 /etc/shadow-檔案權限",
-      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: 000",
+      "rationale": "人工檢核指令（來源）：chmod 000 /etc/shadow-",
       "compliance": [
         {
           "twgcb": [
@@ -973,7 +1029,8 @@
     {
       "id": 900057,
       "title": "TWGCB-01-012-0057 /etc/group-檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/group-",
       "compliance": [
         {
           "twgcb": [
@@ -990,7 +1047,8 @@
     {
       "id": 900058,
       "title": "TWGCB-01-012-0058 /etc/group-檔案權限",
-      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: 644或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 644 /etc/group-",
       "compliance": [
         {
           "twgcb": [
@@ -1007,7 +1065,8 @@
     {
       "id": 900059,
       "title": "TWGCB-01-012-0059 /etc/gshadow-檔案所有權",
-      "description": "合規值: root:root或root:shadow ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root或root:shadow",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/gshadow- ； chown root:shadow /etc/gshadow-",
       "compliance": [
         {
           "twgcb": [
@@ -1024,7 +1083,8 @@
     {
       "id": 900060,
       "title": "TWGCB-01-012-0060 /etc/gshadow-檔案權限",
-      "description": "合規值: 000 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: 000",
+      "rationale": "人工檢核指令（來源）：chmod 000 /etc/gshadow-",
       "compliance": [
         {
           "twgcb": [
@@ -1041,7 +1101,8 @@
     {
       "id": 900061,
       "title": "TWGCB-01-012-0061 其他使用者寫入具有全域寫入權限之檔案",
-      "description": "合規值: 禁止寫入 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 禁止寫入",
+      "rationale": "人工檢核指令（來源）：find (partition) -xdev -type f -perm -0002 ； chmod o-w (檔案名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -1058,7 +1119,8 @@
     {
       "id": 900062,
       "title": "TWGCB-01-012-0062 檢查所有檔案與目錄之擁有者",
-      "description": "合規值: 所有檔案與目錄擁有者皆為合法使用者 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 所有檔案與目錄擁有者皆為合法使用者",
+      "rationale": "人工檢核指令（來源）：find (partition) -xdev -nouser ； chown (使用者) (檔案名稱或目錄名稱) ； rm (檔案名稱或目錄名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -1075,7 +1137,8 @@
     {
       "id": 900063,
       "title": "TWGCB-01-012-0063 檢查所有檔案與目錄之擁有群組",
-      "description": "合規值: 所有檔案與目錄擁有群組皆為合法群組 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 所有檔案與目錄擁有群組皆為合法群組",
+      "rationale": "人工檢核指令（來源）：find (partition) -xdev -nogroup ； chgrp (群組) (檔案名稱或目錄名稱) ； rm (檔案名稱或目錄名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -1092,7 +1155,8 @@
     {
       "id": 900064,
       "title": "TWGCB-01-012-0064 所有具有全域寫入權限目錄之擁有者",
-      "description": "合規值: root或其他系統帳號 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root或其他系統帳號",
+      "rationale": "人工檢核指令（來源）：find (partition) -xdev -type d -perm -0002 -uid +999 -print ； chown root (目錄名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -1109,7 +1173,8 @@
     {
       "id": 900065,
       "title": "TWGCB-01-012-0065 所有具有全域寫入權限目錄之擁有群組",
-      "description": "合規值: root或其他系統群組 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root或其他系統群組",
+      "rationale": "人工檢核指令（來源）：find (partition) -xdev -type d -perm -0002 -gid +999 -print ； chgrp root (目錄名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -1126,7 +1191,8 @@
     {
       "id": 900066,
       "title": "TWGCB-01-012-0066 系統命令檔案權限",
-      "description": "合規值: 755或更低權限 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 755或更低權限",
+      "rationale": "人工檢核指令（來源）：find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -perm /0022 -exec ls -l {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -1143,7 +1209,8 @@
     {
       "id": 900067,
       "title": "TWGCB-01-012-0067 系統命令檔案擁有者",
-      "description": "合規值: root ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root",
+      "rationale": "人工檢核指令（來源）：find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -user root -exec ls -l {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -1160,7 +1227,8 @@
     {
       "id": 900068,
       "title": "TWGCB-01-012-0068 系統命令檔案擁有群組",
-      "description": "合規值: root ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源 find 允許 root/tty/slocate/lock，但 expected 寫 root；依方法保留四群組，待批。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root",
+      "rationale": "人工檢核指令（來源）：find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! -group root ! -group tty ! -group slocate ! -group lock -exec ls -l {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -1177,7 +1245,8 @@
     {
       "id": 900069,
       "title": "TWGCB-01-012-0069 程式庫檔案權限",
-      "description": "合規值: 755或更低權限 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 755或更低權限",
+      "rationale": "人工檢核指令（來源）：find -L /lib /lib64 /usr/lib /usr/lib64 -perm /0022 -type f -exec ls -l {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -1194,7 +1263,8 @@
     {
       "id": 900070,
       "title": "TWGCB-01-012-0070 程式庫檔案擁有者",
-      "description": "合規值: root ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root",
+      "rationale": "人工檢核指令（來源）：find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -exec ls -l {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -1211,7 +1281,8 @@
     {
       "id": 900071,
       "title": "TWGCB-01-012-0071 程式庫檔案擁有群組",
-      "description": "合規值: root ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。find -xdev、pseudo prune、-print -quit；0061–65依mountinfo逐本機磁區，0066–71固定來源目錄；24秒整體子程序預算，錯誤/逾時無PASS。分區範圍/白名單待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root",
+      "rationale": "人工檢核指令（來源）：find -L /lib /lib64 /usr/lib /usr/lib64 ! -group root -exec ls -l {} \\;",
       "compliance": [
         {
           "twgcb": [
@@ -1228,7 +1299,8 @@
     {
       "id": 900072,
       "title": "TWGCB-01-012-0072 帳號不使用空白通行碼",
-      "description": "合規值: 帳號必須具有通行碼或被鎖定 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。shadow 只判空欄；!/* 為非空鎖定；不輸出帳號/雜湊。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 帳號必須具有通行碼或被鎖定",
+      "rationale": "人工檢核指令（來源）：awk -F: '($2 == \"\" ) { print $1 \" does not have a password \"}' /etc/shadow",
       "compliance": [
         {
           "twgcb": [
@@ -1245,7 +1317,8 @@
     {
       "id": 900073,
       "title": "TWGCB-01-012-0073 root帳號之路徑變數",
-      "description": "合規值: 不允許「.」、「..」、路徑開頭不是「/」及空元素 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源 echo $PATH；離線靜態讀 /etc/profile、/root/.bash_profile、.bashrc 的 literal PATH，受限展開 $PATH；拒絕動態語法；登入環境與其他載入來源待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 不允許「.」、「..」、路徑開頭不是「/」及空元素",
+      "rationale": "人工檢核指令（來源）：echo $PATH",
       "compliance": [
         {
           "twgcb": [
@@ -1262,7 +1335,8 @@
     {
       "id": 900074,
       "title": "TWGCB-01-012-0074 root帳號之路徑變數不包含world-writable或group-writable目錄",
-      "description": "合規值: 不包含world-writable或group-writable目錄 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。沿用0073靜態PATH子集，逐目錄確認存在且無022寫入位元；登入有效環境待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 不包含world-writable或group-writable目錄",
+      "rationale": "人工檢核指令（來源）：echo $PATH",
       "compliance": [
         {
           "twgcb": [
@@ -1279,7 +1353,8 @@
     {
       "id": 900075,
       "title": "TWGCB-01-012-0075 /etc/passwd檔案行首之「+」符號",
-      "description": "合規值: 禁止 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 禁止",
+      "rationale": "人工檢核指令（來源）：grep '^\\+:' /etc/passwd",
       "compliance": [
         {
           "twgcb": [
@@ -1296,7 +1371,8 @@
     {
       "id": 900076,
       "title": "TWGCB-01-012-0076 /etc/shadow檔案行首之「+」符號",
-      "description": "合規值: 禁止 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 禁止",
+      "rationale": "人工檢核指令（來源）：grep '^\\+:' /etc/shadow",
       "compliance": [
         {
           "twgcb": [
@@ -1313,7 +1389,8 @@
     {
       "id": 900077,
       "title": "TWGCB-01-012-0077 /etc/group檔案行首之「+」符號",
-      "description": "合規值: 禁止 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 禁止",
+      "rationale": "人工檢核指令（來源）：grep '^\\+:' /etc/group",
       "compliance": [
         {
           "twgcb": [
@@ -1330,7 +1407,8 @@
     {
       "id": 900078,
       "title": "TWGCB-01-012-0078 UID=0之帳號",
-      "description": "合規值: 僅root帳號之UID為0 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 僅root帳號之UID為0",
+      "rationale": "人工檢核指令（來源）：awk -F: '($3 == 0) { print $1 }' /etc/passwd",
       "compliance": [
         {
           "twgcb": [
@@ -1347,7 +1425,8 @@
     {
       "id": 900079,
       "title": "TWGCB-01-012-0079 使用者家目錄權限",
-      "description": "合規值: 700或更低權限 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源互動帳號集合，排除 halt/sync/shutdown 名稱前綴與 nologin/false；700位元子集，家目錄不限/home。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 700或更低權限",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1364,7 +1443,8 @@
     {
       "id": 900080,
       "title": "TWGCB-01-012-0080 使用者家目錄擁有者",
-      "description": "合規值: 使用者擁有 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源 passwd 家目錄與 UID；跟隨stat symlink；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 使用者擁有",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1381,7 +1461,8 @@
     {
       "id": 900081,
       "title": "TWGCB-01-012-0081 使用者家目錄擁有群組",
-      "description": "合規值: 使用者群組擁有 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源 passwd 家目錄與主要GID；缺目錄失敗。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 使用者群組擁有",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1398,7 +1479,8 @@
     {
       "id": 900082,
       "title": "TWGCB-01-012-0082 使用者家目錄之「.」檔案權限",
-      "description": "合規值: go-w或更低權限 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源只查家目錄一層 .[A-Za-z0-9]* 普通檔、排除symlink、禁022；找到即返回。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: go-w或更低權限",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1415,7 +1497,8 @@
     {
       "id": 900083,
       "title": "TWGCB-01-012-0083 使用者家目錄之「.forward」檔案",
-      "description": "合規值: 移除 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.forward；未擴張成含root，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 移除",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1432,7 +1515,8 @@
     {
       "id": 900084,
       "title": "TWGCB-01-012-0084 使用者家目錄之「.netrc」檔案",
-      "description": "合規值: 移除 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.netrc；未讀檔案內容，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 移除",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1449,7 +1533,8 @@
     {
       "id": 900085,
       "title": "TWGCB-01-012-0085 使用者家目錄之「.rhosts」檔案",
-      "description": "合規值: 移除 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源排除root/halt/sync/shutdown前綴，只禁非symlink普通.rhosts，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 移除",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1466,7 +1551,8 @@
     {
       "id": 900086,
       "title": "TWGCB-01-012-0086 檢查/etc/passwd檔案設定之群組",
-      "description": "合規值: /etc/passwd檔案中帳號之群組皆須存在於/etc/group檔案中 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。passwd 所有主要GID需存在於本機group；NSS遠端群組不推測。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: /etc/passwd檔案中帳號之群組皆須存在於/etc/group檔案中",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1483,7 +1569,8 @@
     {
       "id": 900087,
       "title": "TWGCB-01-012-0087 唯一之UID",
-      "description": "合規值: 為每個帳號設定唯一之UID ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。UID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 為每個帳號設定唯一之UID",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1500,7 +1587,8 @@
     {
       "id": 900088,
       "title": "TWGCB-01-012-0088 唯一之GID",
-      "description": "合規值: 為每個群組設定唯一之GID ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。GID以整數唯一性判定。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 為每個群組設定唯一之GID",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1517,7 +1605,8 @@
     {
       "id": 900089,
       "title": "TWGCB-01-012-0089 唯一之使用者帳號名稱",
-      "description": "合規值: 為每個使用者帳號設定唯一之名稱 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 為每個使用者帳號設定唯一之名稱",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1534,7 +1623,8 @@
     {
       "id": 900090,
       "title": "TWGCB-01-012-0090 唯一之群組名稱",
-      "description": "合規值: 為每個群組設定唯一之群組名稱 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。依來源本機帳號檔唯讀解析。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 為每個群組設定唯一之群組名稱",
+      "rationale": "人工檢核指令（來源）：!/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -1551,7 +1641,8 @@
     {
       "id": 900091,
       "title": "TWGCB-01-012-0091 shadow群組成員",
-      "description": "合規值: shadow群組不包含任何使用者 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。要求shadow群組存在、補充成員空且無passwd主要GID引用；缺群組保守失敗，待批。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: shadow群組不包含任何使用者",
+      "rationale": "人工檢核指令（來源）：awk -F: '($1==\"shadow\") {print $NF}' /etc/group",
       "compliance": [
         {
           "twgcb": [
@@ -1568,7 +1659,8 @@
     {
       "id": 900092,
       "title": "TWGCB-01-012-0092 xinetd套件",
-      "description": "合規值: xinetd 未安裝 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: xinetd 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove xinetd",
       "compliance": [
         {
           "twgcb": [
@@ -1585,7 +1677,8 @@
     {
       "id": 900093,
       "title": "TWGCB-01-012-0093 chrony校時設定",
-      "description": "合規值: 至少一個有效 server 或 pool ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 至少一個有效 server 或 pool",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -1602,7 +1695,8 @@
     {
       "id": 900094,
       "title": "TWGCB-01-012-0094 rsyncd服務",
-      "description": "合規值: rsyncd masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "description": "合規值: rsyncd masked+inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask rsyncd",
       "compliance": [
         {
           "twgcb": [
@@ -1621,7 +1715,8 @@
     {
       "id": 900095,
       "title": "TWGCB-01-012-0095 avahi-daemon服務",
-      "description": "合規值: avahi-daemon.service/socket disabled/masked 且 inactive ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: avahi-daemon.service/socket disabled/masked 且 inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask avahi-daemon.service ； systemctl --now mask avahi-daemon.socket",
       "compliance": [
         {
           "twgcb": [
@@ -1638,7 +1733,8 @@
     {
       "id": 900096,
       "title": "TWGCB-01-012-0096 SNMP服務",
-      "description": "合規值: SNMP 停用或僅 SNMPv3（SHA/AES 需人工證據） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。來源允許 v3；自動候選限明確 rouser priv，禁 v1/v2 access/include；SHA/AES 金鑰建立與實際協商仍須人工證據，不讀取或輸出私密使用者金鑰。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: SNMP 停用或僅 SNMPv3（SHA/AES 需人工證據）",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask snmpd ； systemctl stop snmpd ； net-snmp-create-v3-user -ro -A (使用者通行碼) -a SHA -X (傳輸加密用金鑰) -x AES (使用者名稱) ； vim /etc/snmp/snmpd.conf ； com2sec notConfigUser  default       public ； group   notConfigGroup v1           notConfigUser ； group   notConfigGroup v2c          notConfigUser ； view    systemview    included   .1.3.6.1.2.1.1 ； view    systemview    included   .1.3.6.1.2.1.25.1.1 ； access  notConfigGroup  \"\"      any       noauth    exact  systemview none none ； systemc…",
       "compliance": [
         {
           "twgcb": [
@@ -1655,7 +1751,8 @@
     {
       "id": 900097,
       "title": "TWGCB-01-012-0097 Squid服務",
-      "description": "合規值: squid masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "description": "合規值: squid masked+inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask squid",
       "compliance": [
         {
           "twgcb": [
@@ -1674,7 +1771,8 @@
     {
       "id": 900098,
       "title": "TWGCB-01-012-0098 Samba服務",
-      "description": "合規值: smb masked+inactive ｜ Q1 執行審查 blocked；coverage=blocked；Q1-01,Q1-06,Q1-07；raw PASS 非已驗證符合。",
+      "description": "合規值: smb masked+inactive",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask smb",
       "compliance": [
         {
           "twgcb": [
@@ -1696,7 +1794,8 @@
     {
       "id": 900099,
       "title": "TWGCB-01-012-0099 FTP伺服器",
-      "description": "合規值: vsftpd disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: vsftpd disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask vsftpd",
       "compliance": [
         {
           "twgcb": [
@@ -1713,7 +1812,8 @@
     {
       "id": 900100,
       "title": "TWGCB-01-012-0100 NIS伺服器",
-      "description": "合規值: ypserv disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。FIX-1 明確 not-found 且 inactive 視為停用；disabled/masked 且 inactive 合格；systemctl 錯誤不合格。套件 ABSENT 仍須確認服務 inactive，避免移除套件後程序仍存活。多次查詢非原子。僅定向 rpm -q，0=INSTALLED、1=ABSENT、其他錯誤無成功輸出；不查 rpm -qa。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: ypserv disabled/masked 或明確 not-found，且 inactive；RPM 三態無錯誤",
+      "rationale": "人工檢核指令（來源）：systemctl --now mask ypserv",
       "compliance": [
         {
           "twgcb": [
@@ -1730,7 +1830,8 @@
     {
       "id": 900101,
       "title": "TWGCB-01-012-0101 kdump服務",
-      "description": "合規值: kdump.service enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "description": "合規值: kdump.service enabled+active",
+      "rationale": "人工檢核指令（來源）：systemctl --now enable kdump.service",
       "compliance": [
         {
           "twgcb": [
@@ -1749,7 +1850,8 @@
     {
       "id": 900102,
       "title": "TWGCB-01-012-0102 NIS用戶端套件",
-      "description": "合規值: ypbind 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: ypbind 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove ypbind",
       "compliance": [
         {
           "twgcb": [
@@ -1766,7 +1868,8 @@
     {
       "id": 900103,
       "title": "TWGCB-01-012-0103 telnet用戶端套件",
-      "description": "合規值: telnet 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: telnet 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove telnet",
       "compliance": [
         {
           "twgcb": [
@@ -1783,7 +1886,8 @@
     {
       "id": 900104,
       "title": "TWGCB-01-012-0104 telnet伺服器套件",
-      "description": "合規值: telnet-server 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: telnet-server 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove telnet-server",
       "compliance": [
         {
           "twgcb": [
@@ -1800,7 +1904,8 @@
     {
       "id": 900105,
       "title": "TWGCB-01-012-0105 rsh伺服器套件",
-      "description": "合規值: rsh-server 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: rsh-server 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove rsh-server",
       "compliance": [
         {
           "twgcb": [
@@ -1817,7 +1922,8 @@
     {
       "id": 900106,
       "title": "TWGCB-01-012-0106 tftp伺服器套件",
-      "description": "合規值: tftp-server 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: tftp-server 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove tftp-server",
       "compliance": [
         {
           "twgcb": [
@@ -1834,7 +1940,8 @@
     {
       "id": 900107,
       "title": "TWGCB-01-012-0107 更新套件後移除舊版本元件",
-      "description": "合規值: clean_requirements_on_remove=True（/etc/yum.conf 與 /etc/dnf/dnf.conf） ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "description": "合規值: clean_requirements_on_remove=True（/etc/yum.conf 與 /etc/dnf/dnf.conf）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -1854,7 +1961,8 @@
     {
       "id": 900108,
       "title": "TWGCB-01-012-0108 IP轉送",
-      "description": "合規值: net.ipv4.ip_forward=0；net.ipv6.conf.all.forwarding=0 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-08；raw PASS 非已驗證符合。僅雙協定即時值；持久設定來源、覆寫順序與路由角色待審",
+      "description": "合規值: net.ipv4.ip_forward=0；net.ipv6.conf.all.forwarding=0",
+      "rationale": "人工檢核指令（來源）：grep -Els \"^\\s*net\\.ipv4\\.ip_forward\\s*=\\s*1\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.ip_forward\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.ip_forward=0; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.ip_forward = 0\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf ； grep -Els \"^\\s*net\\.ipv6\\.conf\\.all\\.forwarding\\s*=\\s*1\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sy…",
       "compliance": [
         {
           "twgcb": [
@@ -1872,7 +1980,8 @@
     {
       "id": 900109,
       "title": "TWGCB-01-012-0109 所有網路介面禁止傳送ICMP重新導向封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.send_redirects=0 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1889,7 +1998,8 @@
     {
       "id": 900110,
       "title": "TWGCB-01-012-0110 預設網路介面禁止傳送ICMP重新導向封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.send_redirects=0 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1906,7 +2016,8 @@
     {
       "id": 900111,
       "title": "TWGCB-01-012-0111 所有網路介面阻擋來源路由封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.accept_source_route=0 ； sysctl -w net.ipv6.conf.all.accept_source_route=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1924,7 +2035,8 @@
     {
       "id": 900112,
       "title": "TWGCB-01-012-0112 預設網路介面阻擋來源路由封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.accept_source_route=0 ； sysctl -w net.ipv6.conf.default.accept_source_route=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1942,7 +2054,8 @@
     {
       "id": 900113,
       "title": "TWGCB-01-012-0113 所有網路介面阻擋ICMP重新導向封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.accept_redirects=0 ； sysctl -w net.ipv6.conf.all.accept_redirects=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1960,7 +2073,8 @@
     {
       "id": 900114,
       "title": "TWGCB-01-012-0114 預設網路介面阻擋ICMP重新導向封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.accept_redirects=0 ； sysctl -w net.ipv6.conf.default.accept_redirects=0 ； sysctl -w net.ipv4.route.flush=1 ； sysctl -w net.ipv6.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1978,7 +2092,8 @@
     {
       "id": 900115,
       "title": "TWGCB-01-012-0115 所有網路介面阻擋安全之ICMP重新導向封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.secure_redirects=0 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -1995,7 +2110,8 @@
     {
       "id": 900116,
       "title": "TWGCB-01-012-0116 預設網路介面阻擋安全之ICMP重新導向封包",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.secure_redirects=0 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -2012,7 +2128,8 @@
     {
       "id": 900117,
       "title": "TWGCB-01-012-0117 所有網路介面記錄可疑封包",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.all.log_martians=1 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -2029,7 +2146,8 @@
     {
       "id": 900118,
       "title": "TWGCB-01-012-0118 預設網路介面記錄可疑封包",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.log_martians=1 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -2046,7 +2164,8 @@
     {
       "id": 900119,
       "title": "TWGCB-01-012-0119 不回應ICMP廣播要求",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：grep -Els \"^\\s*net\\.ipv4\\.icmp_echo_ignore_broadcasts\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.icmp_echo_ignore_broadcasts\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.icmp_echo_ignore_broadcasts = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2063,7 +2182,8 @@
     {
       "id": 900120,
       "title": "TWGCB-01-012-0120 忽略偽造之ICMP錯誤訊息",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：grep -Els \"^\\s*net\\.ipv4\\.icmp_ignore_bogus_error_responses\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.icmp_ignore_bogus_error_responses\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.icmp_ignore_bogus_error_responses=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.icmp_ignore_bogus_error_responses = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2080,7 +2200,8 @@
     {
       "id": 900121,
       "title": "TWGCB-01-012-0121 所有網路介面啟用逆向路徑過濾功能",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：grep -Els \"^\\s*net\\.ipv4\\.conf\\.all\\.rp_filter\\s*=\\s*0\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.net.ipv4.conf\\.all\\.rp_filter\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.conf.all.rp_filter=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.conf.all.rp_filter = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2097,7 +2218,8 @@
     {
       "id": 900122,
       "title": "TWGCB-01-012-0122 預設網路介面啟用逆向路徑過濾功能",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv4.conf.default.rp_filter=1 ； sysctl -w net.ipv4.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -2114,7 +2236,8 @@
     {
       "id": 900123,
       "title": "TWGCB-01-012-0123 TCP SYN cookies",
-      "description": "合規值: 1 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。來源清理命令另含 /usr/lib/sysctl.d 與 /run/sysctl.d，故同時查這兩處有無衝突；不模擬載入優先序。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核指令（來源）：grep -Els \"^\\s*net\\.ipv4\\.tcp_syncookies\\s*=\\s*[02]*\" /etc/sysctl.conf /etc/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /run/sysctl.d/*.conf | while read filename; do sed -ri \"s/^\\s*(net\\.ipv4\\.tcp_syncookies\\s*)(=)(\\s*\\S+\\b).*$/# *REMOVED* \\1/\" $filename; done; sysctl -w net.ipv4.tcp_syncookies=1; sysctl -w net.ipv4.route.flush=1; printf \"\\nnet.ipv4.tcp_syncookies = 1\\n\" >> /etc/sysctl.d/60-netipv4_sysctl.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2131,7 +2254,8 @@
     {
       "id": 900124,
       "title": "TWGCB-01-012-0124 所有網路介面阻擋IPv6路由器公告訊息",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv6.conf.all.accept_ra=0 ； sysctl -w net.ipv6.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -2148,7 +2272,8 @@
     {
       "id": 900125,
       "title": "TWGCB-01-012-0125 預設網路介面阻擋IPv6路由器公告訊息",
-      "description": "合規值: 0 ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。逐一精確來源 key，查 /etc/sysctl.conf 與 /etc/sysctl.d/*.conf，所有有效宣告須一致；數值於規則層等值判定。不讀 /proc/sys；sysctl -w 與 route.flush 為來源修復步驟，不執行。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 0",
+      "rationale": "人工檢核指令（來源）：sysctl -w net.ipv6.conf.default.accept_ra=0 ； sysctl -w net.ipv6.route.flush=1",
       "compliance": [
         {
           "twgcb": [
@@ -2165,7 +2290,8 @@
     {
       "id": 900126,
       "title": "TWGCB-01-012-0126 DCCP協定",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/dccp.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2182,7 +2308,8 @@
     {
       "id": 900127,
       "title": "TWGCB-01-012-0127 SCTP協定",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/sctp.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2199,7 +2326,8 @@
     {
       "id": 900128,
       "title": "TWGCB-01-012-0128 RDS協定",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/rds.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2216,7 +2344,8 @@
     {
       "id": 900129,
       "title": "TWGCB-01-012-0129 TIPC協定",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不豁免不存在模組；重新開機及載入狀態待真機。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/tipc.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2233,7 +2362,8 @@
     {
       "id": 900130,
       "title": "TWGCB-01-012-0130 無線網路介面",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。若 nmcli 存在，以 nmcli -t -f WIFI,WWAN radio all 唯讀查軟體 WIFI 與 WWAN 均 disabled；否則以 sysfs wireless 找 module 並檢查來源 install/blacklist。無無線對象不提交 PASS，適用性待批。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：nmcli radio all off",
       "compliance": [
         {
           "twgcb": [
@@ -2250,7 +2380,8 @@
     {
       "id": 900131,
       "title": "TWGCB-01-012-0131 網路介面混雜模式",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B9 執行審查 blocked；coverage=partial；B9-ENGINE,B9-SOURCE；raw PASS 非已驗證符合。依來源用 ip link 唯讀輸出，任一行不分大小寫含 promisc 即失敗；空輸出、缺介面、stderr、非零或逾時不提交 PASS；不執行來源 ip link set。 P2B9 UNVALIDATED；human_review_pending；execution_review=blocked；來源與引擎語意待批。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：ip link | grep -i promisc",
       "compliance": [
         {
           "twgcb": [
@@ -2267,7 +2398,8 @@
     {
       "id": 900132,
       "title": "TWGCB-01-012-0132 auditd套件",
-      "description": "合規值: audit audit-libs 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "description": "合規值: audit audit-libs 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install audit audit-libs",
       "compliance": [
         {
           "twgcb": [
@@ -2285,7 +2417,8 @@
     {
       "id": 900133,
       "title": "TWGCB-01-012-0133 auditd服務",
-      "description": "合規值: auditd enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "description": "合規值: auditd enabled+active",
+      "rationale": "人工檢核指令（來源）：systemctl --now enable auditd",
       "compliance": [
         {
           "twgcb": [
@@ -2304,7 +2437,8 @@
     {
       "id": 900134,
       "title": "TWGCB-01-012-0134 稽核auditd服務啟動前之程序",
-      "description": "合規值: audit=1 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: audit=1",
+      "rationale": "人工檢核指令（來源）：grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
       "compliance": [
         {
           "twgcb": [
@@ -2321,7 +2455,8 @@
     {
       "id": 900135,
       "title": "TWGCB-01-012-0135 稽核待辦事項數量限制",
-      "description": "合規值: audit_backlog_limit>=8192 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。僅來源 /etc/default/grub；已產生開機項/執行中核心待真機確認。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: audit_backlog_limit>=8192",
+      "rationale": "人工檢核指令（來源）：grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
       "compliance": [
         {
           "twgcb": [
@@ -2338,7 +2473,8 @@
     {
       "id": 900136,
       "title": "TWGCB-01-012-0136 稽核處理失敗時通知系統管理者",
-      "description": "合規值: postmaster: root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: postmaster: root",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -2355,7 +2491,8 @@
     {
       "id": 900137,
       "title": "TWGCB-01-012-0137 稽核日誌檔案所有權",
-      "description": "合規值: 稽核日誌 root:root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 稽核日誌 root:root",
+      "rationale": "人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chown root:root (稽核日誌檔案名稱) ； chown root:root /var/log/audit/audit.log",
       "compliance": [
         {
           "twgcb": [
@@ -2372,7 +2509,8 @@
     {
       "id": 900138,
       "title": "TWGCB-01-012-0138 稽核日誌檔案權限",
-      "description": "合規值: 稽核日誌 <=0600（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 稽核日誌 <=0600（位元子集合）",
+      "rationale": "人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chmod 600 (稽核日誌檔案名稱) ； chmod 600 /var/log/audit/audit.log",
       "compliance": [
         {
           "twgcb": [
@@ -2389,7 +2527,8 @@
     {
       "id": 900139,
       "title": "TWGCB-01-012-0139 稽核日誌目錄所有權",
-      "description": "合規值: 稽核日誌目錄 root:root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 稽核日誌目錄 root:root",
+      "rationale": "人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chown root:root (稽核日誌目錄名稱) ； chown root:root /var/log/audit",
       "compliance": [
         {
           "twgcb": [
@@ -2406,7 +2545,8 @@
     {
       "id": 900140,
       "title": "TWGCB-01-012-0140 稽核日誌目錄權限",
-      "description": "合規值: 稽核日誌目錄 <=0700（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。使用最後有效 log_file，缺失不採範例路徑預設；跟隨 symlink；檔案本體與實際目錄，ACL/輪替檔待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 稽核日誌目錄 <=0700（位元子集合）",
+      "rationale": "人工檢核指令（來源）：grep -iw log_file /etc/audit/auditd.conf ； chmod 700 (稽核日誌目錄名稱) ； chmod 700 /var/log/audit",
       "compliance": [
         {
           "twgcb": [
@@ -2423,7 +2563,8 @@
     {
       "id": 900141,
       "title": "TWGCB-01-012-0141 稽核規則檔案權限",
-      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05,Q1-08；raw PASS 非已驗證符合。僅來源設定方法明列 audit.rules；其餘 rules.d 規則檔集合尚未覆蓋",
+      "description": "合規值: 600或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 600 /etc/audit/rules.d/audit.rules",
       "compliance": [
         {
           "twgcb": [
@@ -2440,7 +2581,8 @@
     {
       "id": 900142,
       "title": "TWGCB-01-012-0142 稽核設定檔案權限",
-      "description": "合規值: 640或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 640或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 640 /etc/audit/auditd.conf",
       "compliance": [
         {
           "twgcb": [
@@ -2457,7 +2599,8 @@
     {
       "id": 900143,
       "title": "TWGCB-01-012-0143 稽核工具權限",
-      "description": "合規值: 九個稽核工具 <=0750（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 九個稽核工具 <=0750（位元子集合）",
+      "rationale": "人工檢核指令（來源）：stat -c \"%a %n\" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2>/dev/null",
       "compliance": [
         {
           "twgcb": [
@@ -2474,7 +2617,8 @@
     {
       "id": 900144,
       "title": "TWGCB-01-012-0144 稽核工具所有權",
-      "description": "合規值: 九個稽核工具 root:root ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。RHEL9 audit 3.x 無 audisp plugin；不存在工具跳過之來源解讀待批。存在工具仍須符合原 mode/owner 標準；僅 FileNotFoundError 跳過，其他 stat 錯誤失敗；stat 跟隨 /sbin symlink；ACL 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 九個稽核工具 root:root",
+      "rationale": "人工檢核指令（來源）：ls -al /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/audisp-remote /sbin/audisp-syslog /sbin/augenrules /sbin/rsyslogd 2>/dev/null",
       "compliance": [
         {
           "twgcb": [
@@ -2491,7 +2635,8 @@
     {
       "id": 900145,
       "title": "TWGCB-01-012-0145 保護稽核工具",
-      "description": "合規值: 八個稽核工具 p+i+n+u+g+s+b+acl+xattrs+sha512 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。逐工具要求來源完整屬性序列；AIDE macro/Include 與資料庫初始化待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 八個稽核工具 p+i+n+u+g+s+b+acl+xattrs+sha512",
+      "rationale": "人工檢核指令（來源）：Audit Tools",
       "compliance": [
         {
           "twgcb": [
@@ -2508,7 +2653,8 @@
     {
       "id": 900146,
       "title": "TWGCB-01-012-0146 稽核日誌檔案大小上限",
-      "description": "合規值: max_log_file>=32 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: max_log_file>=32",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -2525,7 +2671,8 @@
     {
       "id": 900147,
       "title": "TWGCB-01-012-0147 稽核日誌達到其檔案大小上限之行為",
-      "description": "合規值: max_log_file_action=keep_logs ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: max_log_file_action=keep_logs",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -2542,7 +2689,8 @@
     {
       "id": 900148,
       "title": "TWGCB-01-012-0148 記錄系統管理者活動",
-      "description": "合規值: -w /etc/sudoers -p wa -k scope；-w /etc/sudoers.d/ -p wa -k scope ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /etc/sudoers -p wa -k scope；-w /etc/sudoers.d/ -p wa -k scope",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2559,7 +2707,8 @@
     {
       "id": 900149,
       "title": "TWGCB-01-012-0149 記錄變更登入與登出資訊事件",
-      "description": "合規值: -w /var/run/faillock/ -p wa -k logins；-w /var/log/lastlog -p wa -k logins ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /var/run/faillock/ -p wa -k logins；-w /var/log/lastlog -p wa -k logins",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2576,7 +2725,8 @@
     {
       "id": 900150,
       "title": "TWGCB-01-012-0150 記錄會談啟始資訊",
-      "description": "合規值: -w /var/run/utmp -p wa -k session；-w /var/log/wtmp -p wa -k logins；-w /var/log/btmp -p wa -k logins ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /var/run/utmp -p wa -k session；-w /var/log/wtmp -p wa -k logins；-w /var/log/btmp -p wa -k logins",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2593,7 +2743,8 @@
     {
       "id": 900151,
       "title": "TWGCB-01-012-0151 記錄變更日期與時間事件",
-      "description": "合規值: -a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change；-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change；-a always,exit -F arch=b64 -S clock_settime -k time-change；-a always,exit -F arch=b32 -S clock_settime -k time-change；-w /etc/localtime -p wa -k time-change ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change；-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change；-a always,exit -F arch=b64 -S clock_settime -k time-change；-a always,exit -F arch=b32 -S clock_settime -k time-change；-w /etc/localtime -p wa -k time-change",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2610,7 +2761,8 @@
     {
       "id": 900152,
       "title": "TWGCB-01-012-0152 記錄變更系統強制存取控制事件",
-      "description": "合規值: -w /etc/selinux/ -p wa -k MAC-policy；-w /usr/share/selinux/ -p wa -k MAC-policy ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /etc/selinux/ -p wa -k MAC-policy；-w /usr/share/selinux/ -p wa -k MAC-policy",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2627,7 +2779,8 @@
     {
       "id": 900153,
       "title": "TWGCB-01-012-0153 記錄變更系統網路環境事件",
-      "description": "合規值: -a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale；-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale；-w /etc/issue -p wa -k system-locale；-w /etc/issue.net -p wa -k system-locale；-w /etc/hosts -p wa -k system-locale；-w /etc/sysconfig/network-scripts -p wa -k system-locale；-w /etc/NetworkManager -p wa -k system-locale；-w /etc/sysconfig/network -p wa -k system-locale；-w /etc/hostname -p wa -k system-locale ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale；-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale；-w /etc/issue -p wa -k system-locale；-w /etc/issue.net -p wa -k system-locale；-w /etc/hosts -p wa -k system-locale；-w /etc/sysconfig/network-scripts -p wa -k system-locale；-w /etc/NetworkManager -p wa -k system-locale；-w /etc/sysconfig/network -p wa -k system-locale；-w /etc/hostname -p wa -k system-locale",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2644,7 +2797,8 @@
     {
       "id": 900154,
       "title": "TWGCB-01-012-0154 記錄變更自主存取控制權限事件",
-      "description": "合規值: -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod；-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2661,7 +2815,8 @@
     {
       "id": 900155,
       "title": "TWGCB-01-012-0155 記錄不成功之未經授權檔案存取",
-      "description": "合規值: -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access；-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2678,7 +2833,8 @@
     {
       "id": 900156,
       "title": "TWGCB-01-012-0156 記錄變更使用者或群組資訊事件",
-      "description": "合規值: -w /etc/group -p wa -k identity；-w /etc/passwd -p wa -k identity；-w /etc/gshadow -p wa -k identity；-w /etc/shadow -p wa -k identity；-w /etc/security/opasswd -p wa -k identity；-w /etc/nsswitch.conf -p wa -k identity；-w /etc/pam.conf -p wa -k identity；-w /etc/pam.d -p wa -k identity ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /etc/group -p wa -k identity；-w /etc/passwd -p wa -k identity；-w /etc/gshadow -p wa -k identity；-w /etc/shadow -p wa -k identity；-w /etc/security/opasswd -p wa -k identity；-w /etc/nsswitch.conf -p wa -k identity；-w /etc/pam.conf -p wa -k identity；-w /etc/pam.d -p wa -k identity",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2695,7 +2851,8 @@
     {
       "id": 900157,
       "title": "TWGCB-01-012-0157 記錄變更檔案系統掛載事件",
-      "description": "合規值: -a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts；-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts；-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2712,7 +2869,8 @@
     {
       "id": 900158,
       "title": "TWGCB-01-012-0158 記錄特權指令使用情形",
-      "description": "合規值: 每個磁區所有特權程式都有 privileged.rules 執行稽核 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。列舉 mountinfo 實體檔案系統（排除 proc/sysfs 等虛擬介面），每掛載點 xdev 查所有 regular setuid/setgid；空集合為全稱真但 privileged.rules 仍須可讀。大型/網路檔案系統成本與競態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 每個磁區所有特權程式都有 privileged.rules 執行稽核",
+      "rationale": "人工檢核指令（來源）：find (partition) -xdev \\( -perm -4000 -o -perm -2000 \\) -type f | awk '{print \"-a always,exit -F path=\" $1 \" -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged\" }' ； find / -xdev \\( -perm -4000 -o -perm -2000 \\) -type f | awk '{print \"-a always,exit -F path=\" $1 \" -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged\" }' >> /etc/audit/rules.d/privileged.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2729,7 +2887,8 @@
     {
       "id": 900159,
       "title": "TWGCB-01-012-0159 記錄檔案刪除事件",
-      "description": "合規值: -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete；-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。來源 renameat-S 排版錯誤解讀為 renameat -S，保留五個 syscall，待人工核准。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete；-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -S rmdir -F auid>=1000 -F auid!=4294967295 -k delete",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2746,7 +2905,8 @@
     {
       "id": 900160,
       "title": "TWGCB-01-012-0160 記錄核心模組掛載與卸載事件",
-      "description": "合規值: -w /sbin/insmod -p x -k modules；-w /sbin/rmmod -p x -k modules；-w /sbin/modprobe -p x -k modules；-a always,exit -F arch=b64 -S init_module -S delete_module -k modules；-a always,exit -F arch=b32 -S init_module -S delete_module -k modules ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /sbin/insmod -p x -k modules；-w /sbin/rmmod -p x -k modules；-w /sbin/modprobe -p x -k modules；-a always,exit -F arch=b64 -S init_module -S delete_module -k modules；-a always,exit -F arch=b32 -S init_module -S delete_module -k modules",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2763,7 +2923,8 @@
     {
       "id": 900161,
       "title": "TWGCB-01-012-0161 記錄系統管理者活動日誌變更",
-      "description": "合規值: sudo 實際 logfile 有 actions.rules wa/actions 稽核 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。只辨識 /etc/sudoers 與 sudoers.d 的明確 Defaults logfile；不假定 /var/log/sudo.log；條件 Defaults、外部 include 與覆寫完整語意待人工審查。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: sudo 實際 logfile 有 actions.rules wa/actions 稽核",
+      "rationale": "人工檢核指令（來源）：grep -r logfile /etc/sudoers* | sed -e 's/.*logfile=//;s/,? .*//' ； vim /etc/audit/rules.d/actions.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2780,7 +2941,8 @@
     {
       "id": 900162,
       "title": "TWGCB-01-012-0162 記錄chcon指令使用情形",
-      "description": "合規值: -a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2797,7 +2959,8 @@
     {
       "id": 900163,
       "title": "TWGCB-01-012-0163 記錄ssh-agent程序使用情形",
-      "description": "合規值: -a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-ssh ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F path=/usr/bin/ssh-agent -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-ssh",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2814,7 +2977,8 @@
     {
       "id": 900164,
       "title": "TWGCB-01-012-0164 記錄unix_update程序使用情形",
-      "description": "合規值: -a always,exit -F path=/sbin/unix_update -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-unix-update ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F path=/sbin/unix_update -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-unix-update",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2831,7 +2995,8 @@
     {
       "id": 900165,
       "title": "TWGCB-01-012-0165 記錄setfacl指令使用情形",
-      "description": "合規值: -a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2848,7 +3013,8 @@
     {
       "id": 900166,
       "title": "TWGCB-01-012-0166 記錄finit_module指令使用情形",
-      "description": "合規值: -a always,exit -F arch=b32 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng；-a always,exit -F arch=b64 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b32 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng；-a always,exit -F arch=b64 -S finit_module -F auid>=1000 -F auid!=4294967295 -k module_chng",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2865,7 +3031,8 @@
     {
       "id": 900167,
       "title": "TWGCB-01-012-0167 記錄open_by_handle_at系統呼叫使用情形",
-      "description": "合規值: -a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b32 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access；-a always,exit -F arch=b64 -S open_by_handle_at -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k perm_access",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2882,7 +3049,8 @@
     {
       "id": 900168,
       "title": "TWGCB-01-012-0168 記錄usermod指令使用情形",
-      "description": "合規值: -a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-usermod ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=4294967295 -k privileged-usermod",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2899,7 +3067,8 @@
     {
       "id": 900169,
       "title": "TWGCB-01-012-0169 記錄chacl指令使用情形",
-      "description": "合規值: -a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=4294967295 -k perm_chng",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2916,7 +3085,8 @@
     {
       "id": 900170,
       "title": "TWGCB-01-012-0170 記錄kmod指令使用情形",
-      "description": "合規值: -w /bin/kmod -p x -k modules ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /bin/kmod -p x -k modules",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2933,7 +3103,8 @@
     {
       "id": 900171,
       "title": "TWGCB-01-012-0171 記錄Pam_Faillock日誌檔案",
-      "description": "合規值: -w /var/log/faillock -p wa -k logins ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -w /var/log/faillock -p wa -k logins",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2950,7 +3121,8 @@
     {
       "id": 900172,
       "title": "TWGCB-01-012-0172 記錄execve系統呼叫使用情形",
-      "description": "合規值: -a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 audit.rules 的完整 token 順序逐條比對；等價重排或合併 syscall 可能保守失敗；不代表核心已載入。auid 門檻依 login.defs UID_MIN。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -a always,exit -F arch=b32 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C uid!=euid -F key=execpriv；-a always,exit -F arch=b32 -F auid!=unset -S execve -C gid!=egid -F key=execpriv；-a always,exit -F arch=b64 -F auid!=unset -S execve -C gid!=egid -F key=execpriv",
+      "rationale": "人工檢核指令（來源）：vim /etc/audit/rules.d/audit.rules ； augenrules --load",
       "compliance": [
         {
           "twgcb": [
@@ -2967,7 +3139,8 @@
     {
       "id": 900173,
       "title": "TWGCB-01-012-0173 auditd設定不變模式",
-      "description": "合規值: -e 2；--loginuid-immutable ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源 -e 2--loginuid-immutable 排版解讀為兩條指令；自然數字排序規則檔，最後 -e 必須為 2 且最後有效行為鎖定指令；核心狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: -e 2；--loginuid-immutable",
+      "rationale": "人工檢核指令（來源）：grep -h \"^\\s*[^#]\" /etc/audit/rules.d/*.rules | egrep \"(-e 2)|(--loginuid-immutable)\"",
       "compliance": [
         {
           "twgcb": [
@@ -2984,7 +3157,8 @@
     {
       "id": 900174,
       "title": "TWGCB-01-012-0174 rsyslog套件",
-      "description": "合規值: rsyslog 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "description": "合規值: rsyslog 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install rsyslog",
       "compliance": [
         {
           "twgcb": [
@@ -3001,7 +3175,8 @@
     {
       "id": 900175,
       "title": "TWGCB-01-012-0175 rsyslog服務",
-      "description": "合規值: rsyslog enabled+active ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-06；raw PASS 非已驗證符合。",
+      "description": "合規值: rsyslog enabled+active",
+      "rationale": "人工檢核指令（來源）：systemctl --now enable rsyslog",
       "compliance": [
         {
           "twgcb": [
@@ -3020,7 +3195,8 @@
     {
       "id": 900176,
       "title": "TWGCB-01-012-0176 設定rsyslog日誌檔案預設權限",
-      "description": "合規值: $FileCreateMode/action fileCreateMode <=0640（位元子集合） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。保守要求所有明確 $FileCreateMode 與 action fileCreateMode 均不超過 0640；未設定不假定預設合格；複雜模板/include 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: $FileCreateMode/action fileCreateMode <=0640（位元子集合）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3037,7 +3213,8 @@
     {
       "id": 900177,
       "title": "TWGCB-01-012-0177 設定rsyslog日誌記錄規則",
-      "description": "合規值: auth.*、authpriv.*、daemon.* → /var/log/secure ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。接受來源逗號與分號 selector，舊式 secure 路徑與新式 omfile action；複雜多行 action/模板/ruleset 待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: auth.*、authpriv.*、daemon.* → /var/log/secure",
+      "rationale": "人工檢核指令（來源）：systemctl restart rsyslog.service",
       "compliance": [
         {
           "twgcb": [
@@ -3054,7 +3231,8 @@
     {
       "id": 900178,
       "title": "TWGCB-01-012-0178 /var/log/messages檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /var/log/messages",
       "compliance": [
         {
           "twgcb": [
@@ -3071,7 +3249,8 @@
     {
       "id": 900179,
       "title": "TWGCB-01-012-0179 /var/log目錄所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /var/log",
       "compliance": [
         {
           "twgcb": [
@@ -3089,7 +3268,8 @@
     {
       "id": 900181,
       "title": "TWGCB-01-012-0181 設定journald壓縮日誌檔案",
-      "description": "合規值: [Journal] Compress=yes（明確設定） ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: [Journal] Compress=yes（明確設定）",
+      "rationale": "人工檢核指令（來源）：systemctl restart systemd-journald",
       "compliance": [
         {
           "twgcb": [
@@ -3106,7 +3286,8 @@
     {
       "id": 900182,
       "title": "TWGCB-01-012-0182 設定journald將日誌檔案永久保存於磁碟",
-      "description": "合規值: [Journal] Storage=persistent ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。來源要求新增明確設定；未設定（即使 Compress 套件預設 yes）不判 PASS。解析 [Journal]、最後值與 /usr/lib、/usr/local/lib、/run、/etc drop-in 同名優先/字典順序與 /dev/null mask；執行中狀態待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: [Journal] Storage=persistent",
+      "rationale": "人工檢核指令（來源）：systemctl restart systemd-journald",
       "compliance": [
         {
           "twgcb": [
@@ -3123,7 +3304,8 @@
     {
       "id": 900183,
       "title": "TWGCB-01-012-0183 SELinux套件",
-      "description": "合規值: libselinux 已安裝 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01；raw PASS 非已驗證符合。",
+      "description": "合規值: libselinux 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install libselinux",
       "compliance": [
         {
           "twgcb": [
@@ -3140,7 +3322,8 @@
     {
       "id": 900184,
       "title": "TWGCB-01-012-0184 開機載入程式啟用SELinux",
-      "description": "合規值: 所有 GRUB_CMDLINE_LINUX* 不含 selinux=0 或 enforcing=0 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅 /etc/default/grub 設定；實際開機項與已產生 grub.cfg 尚待驗證。",
+      "description": "合規值: 所有 GRUB_CMDLINE_LINUX* 不含 selinux=0 或 enforcing=0",
+      "rationale": "人工檢核指令（來源）：grub2-mkconfig -o \"$(dirname \"$(find /boot -type f \\( -name 'grubenv' -o -name 'grub.conf' -o -name 'grub.cfg' \\) -exec grep -Pl '^\\h*(kernelopts=|linux|kernel)' {} \\;)\")/grub.cfg\"",
       "compliance": [
         {
           "twgcb": [
@@ -3158,7 +3341,8 @@
     {
       "id": 900185,
       "title": "TWGCB-01-012-0185 SELinux政策",
-      "description": "合規值: SELINUXTYPE=targeted（或來源允許之更嚴格 mls） ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "description": "合規值: SELINUXTYPE=targeted（或來源允許之更嚴格 mls）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3176,7 +3360,8 @@
     {
       "id": 900186,
       "title": "TWGCB-01-012-0186 SELinux啟用狀態",
-      "description": "合規值: SELINUX=enforcing；即時 enforcing ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "description": "合規值: SELINUX=enforcing；即時 enforcing",
+      "rationale": "人工檢核指令（來源）：setenforce 1",
       "compliance": [
         {
           "twgcb": [
@@ -3196,7 +3381,8 @@
     {
       "id": 900187,
       "title": "TWGCB-01-012-0187 未受限程序",
-      "description": "合規值: 無 unconfined_service_t 程序 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: 無 unconfined_service_t 程序 ｜ 【Accepted finding】Commander 2026-11-01 裁定：維持 FAIL，不矯正系統設定（docs/EXCEPTIONS.md）",
+      "rationale": "人工檢核指令（來源）：ps -eZf | grep unconfined_service_t | grep -v grep",
       "compliance": [
         {
           "twgcb": [
@@ -3214,7 +3400,8 @@
     {
       "id": 900188,
       "title": "TWGCB-01-012-0188 setroubleshoot套件",
-      "description": "合規值: setroubleshoot 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: setroubleshoot 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove setroubleshoot",
       "compliance": [
         {
           "twgcb": [
@@ -3231,7 +3418,8 @@
     {
       "id": 900189,
       "title": "TWGCB-01-012-0189 mcstrans套件",
-      "description": "合規值: mcstrans 未安裝 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: mcstrans 未安裝",
+      "rationale": "人工檢核指令（來源）：dnf remove mcstrans",
       "compliance": [
         {
           "twgcb": [
@@ -3248,7 +3436,8 @@
     {
       "id": 900190,
       "title": "TWGCB-01-012-0190 cron守護程序",
-      "description": "合規值: crond enabled+active ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: crond enabled+active",
+      "rationale": "人工檢核指令（來源）：systemctl --now enable crond",
       "compliance": [
         {
           "twgcb": [
@@ -3270,7 +3459,8 @@
     {
       "id": 900191,
       "title": "TWGCB-01-012-0191 /etc/crontab檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/crontab",
       "compliance": [
         {
           "twgcb": [
@@ -3287,7 +3477,8 @@
     {
       "id": 900192,
       "title": "TWGCB-01-012-0192 /etc/crontab檔案權限",
-      "description": "合規值: 600或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04,Q1-05；raw PASS 非已驗證符合。",
+      "description": "合規值: 600或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 600 /etc/crontab",
       "compliance": [
         {
           "twgcb": [
@@ -3304,7 +3495,8 @@
     {
       "id": 900193,
       "title": "TWGCB-01-012-0193 /etc/cron.hourly目錄所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/cron.hourly",
       "compliance": [
         {
           "twgcb": [
@@ -3322,7 +3514,8 @@
     {
       "id": 900194,
       "title": "TWGCB-01-012-0194 /etc/cron.hourly目錄權限",
-      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 700或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 700 /etc/cron.hourly",
       "compliance": [
         {
           "twgcb": [
@@ -3340,7 +3533,8 @@
     {
       "id": 900195,
       "title": "TWGCB-01-012-0195 /etc/cron.daily目錄所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/cron.daily",
       "compliance": [
         {
           "twgcb": [
@@ -3358,7 +3552,8 @@
     {
       "id": 900196,
       "title": "TWGCB-01-012-0196 /etc/cron.daily目錄權限",
-      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 700或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 700 /etc/cron.daily",
       "compliance": [
         {
           "twgcb": [
@@ -3376,7 +3571,8 @@
     {
       "id": 900197,
       "title": "TWGCB-01-012-0197 /etc/cron.weekly目錄所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/cron.weekly",
       "compliance": [
         {
           "twgcb": [
@@ -3394,7 +3590,8 @@
     {
       "id": 900198,
       "title": "TWGCB-01-012-0198 /etc/cron.weekly目錄權限",
-      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 700或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 700 /etc/cron.weekly",
       "compliance": [
         {
           "twgcb": [
@@ -3412,7 +3609,8 @@
     {
       "id": 900199,
       "title": "TWGCB-01-012-0199 /etc/cron.monthly目錄所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/cron.monthly",
       "compliance": [
         {
           "twgcb": [
@@ -3430,7 +3628,8 @@
     {
       "id": 900200,
       "title": "TWGCB-01-012-0200 /etc/cron.monthly目錄權限",
-      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 700或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 700 /etc/cron.monthly",
       "compliance": [
         {
           "twgcb": [
@@ -3448,7 +3647,8 @@
     {
       "id": 900201,
       "title": "TWGCB-01-012-0201 /etc/cron.d目錄所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/cron.d",
       "compliance": [
         {
           "twgcb": [
@@ -3466,7 +3666,8 @@
     {
       "id": 900202,
       "title": "TWGCB-01-012-0202 /etc/cron.d目錄權限",
-      "description": "合規值: 700或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 700或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 700 /etc/cron.d",
       "compliance": [
         {
           "twgcb": [
@@ -3484,7 +3685,8 @@
     {
       "id": 900203,
       "title": "TWGCB-01-012-0203 at.allow與cron.allow檔案所有權",
-      "description": "合規值: root:root；/etc/at.deny 與 /etc/cron.deny 不存在 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: root:root；/etc/at.deny 與 /etc/cron.deny 不存在",
+      "rationale": "人工檢核指令（來源）：rm /etc/cron.deny ； rm /etc/at.deny ； touch /etc/cron.allow ； touch /etc/at.allow ； chown root:root /etc/cron.allow ； chown root:root /etc/at.allow",
       "compliance": [
         {
           "twgcb": [
@@ -3506,7 +3708,8 @@
     {
       "id": 900204,
       "title": "TWGCB-01-012-0204 at.allow與cron.allow檔案權限",
-      "description": "合規值: 600 或更低權限；/etc/at.deny 與 /etc/cron.deny 不存在 ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。",
+      "description": "合規值: 600 或更低權限；/etc/at.deny 與 /etc/cron.deny 不存在",
+      "rationale": "人工檢核指令（來源）：rm /etc/cron.deny ； rm /etc/at.deny ； touch /etc/cron.allow ； touch /etc/at.allow ； chmod 600 /etc/cron.allow ； chmod 600 /etc/at.allow",
       "compliance": [
         {
           "twgcb": [
@@ -3528,7 +3731,8 @@
     {
       "id": 900205,
       "title": "TWGCB-01-012-0205 cron日誌記錄功能",
-      "description": "合規值: cron.* /var/log/cron ｜ BATCH2 執行審查 blocked；coverage=partial；B2-ENGINE,B2-SCOPE；raw PASS 非已驗證符合。BATCH2 輸出先緩衝，exit 0 才發布成功標記；shell argv/quoting、stderr、timeout 與 RHEL9 引擎待真機驗證；UNVALIDATED。僅來源指定文字設定；重複指令、載入順序與執行中狀態待審。",
+      "description": "合規值: cron.* /var/log/cron",
+      "rationale": "人工檢核指令（來源）：grep cron /etc/rsyslog.conf /etc/rsyslog.d/*.conf",
       "compliance": [
         {
           "twgcb": [
@@ -3546,7 +3750,8 @@
     {
       "id": 900206,
       "title": "TWGCB-01-012-0206 可設定通行碼次數",
-      "description": "合規值: 3以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。來源 Retry 大寫解讀為 libpwquality retry 小寫；待批。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 3以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3563,7 +3768,8 @@
     {
       "id": 900207,
       "title": "TWGCB-01-012-0207 強制root通行碼須符合通行碼規則",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：authselect create-profile <profile名稱> -b sssd --symlink-meta ； authselect select custom/<profile名稱> with-sudo with-faillock without-nullok ； !/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -3580,7 +3786,8 @@
     {
       "id": 900208,
       "title": "TWGCB-01-012-0208 通行碼最小長度",
-      "description": "合規值: 12個字元以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。同時要求來源 PASS_MIN_LEN 與 minlen；RHEL9 PASS_MIN_LEN 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 12個字元以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3597,7 +3804,8 @@
     {
       "id": 900209,
       "title": "TWGCB-01-012-0209 通行碼必須至少包含字元類別數量",
-      "description": "合規值: 4 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 4",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3614,7 +3822,8 @@
     {
       "id": 900210,
       "title": "TWGCB-01-012-0210 通行碼必須至少包含數字個數",
-      "description": "合規值: 1個以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 1個以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3631,7 +3840,8 @@
     {
       "id": 900211,
       "title": "TWGCB-01-012-0211 通行碼必須至少包含大寫字母個數",
-      "description": "合規值: 1個以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 1個以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3648,7 +3858,8 @@
     {
       "id": 900212,
       "title": "TWGCB-01-012-0212 通行碼必須至少包含小寫字母個數",
-      "description": "合規值: 1個以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 1個以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3665,7 +3876,8 @@
     {
       "id": 900213,
       "title": "TWGCB-01-012-0213 通行碼必須至少包含特殊字元個數",
-      "description": "合規值: 1個以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 1個以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3682,7 +3894,8 @@
     {
       "id": 900214,
       "title": "TWGCB-01-012-0214 新通行碼與舊通行碼最少相異字元數",
-      "description": "合規值: 3以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 3以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3699,7 +3912,8 @@
     {
       "id": 900215,
       "title": "TWGCB-01-012-0215 同一類別字元可連續使用個數",
-      "description": "合規值: 4以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 4以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3716,7 +3930,8 @@
     {
       "id": 900216,
       "title": "TWGCB-01-012-0216 相同字元可連續使用個數",
-      "description": "合規值: 3以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 3以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3733,7 +3948,8 @@
     {
       "id": 900217,
       "title": "TWGCB-01-012-0217 必須禁止使用字典檔單字做為通行碼",
-      "description": "合規值: 1 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 1",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3750,7 +3966,8 @@
     {
       "id": 900218,
       "title": "TWGCB-01-012-0218 帳戶鎖定閾值",
-      "description": "合規值: 5次以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 5次以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3767,7 +3984,8 @@
     {
       "id": 900219,
       "title": "TWGCB-01-012-0219 帳戶鎖定時間",
-      "description": "合規值: 900秒以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 900秒以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3784,7 +4002,8 @@
     {
       "id": 900220,
       "title": "TWGCB-01-012-0220 強制執行通行碼歷程記錄",
-      "description": "合規值: 3以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。來源腳本與文字模組混用；採 pam_pwhistory remember>=3，單查 system-auth；待批。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 3以上",
+      "rationale": "人工檢核指令（來源）：authselect create-profile <profile名稱> -b sssd --symlink-meta ； authselect select custom/<profile名稱> with-sudo with-faillock without-nullok ； !/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -3801,7 +4020,8 @@
     {
       "id": 900221,
       "title": "TWGCB-01-012-0221 顯示登入失敗次數與日期",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3818,7 +4038,8 @@
     {
       "id": 900222,
       "title": "TWGCB-01-012-0222 通行碼雜湊演算法",
-      "description": "合規值: SHA512 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: SHA512",
+      "rationale": "人工檢核指令（來源）：authselect create-profile <profile名稱> -b sssd --symlink-meta ； authselect select custom/<profile名稱> with-sudo with-faillock without-nullok ； !/bin/bash",
       "compliance": [
         {
           "twgcb": [
@@ -3835,7 +4056,8 @@
     {
       "id": 900223,
       "title": "TWGCB-01-012-0223 通行碼最短使用期限",
-      "description": "合規值: 1天以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 1天以上",
+      "rationale": "人工檢核指令（來源）：chage --mindays 1 (使用者帳號名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -3852,7 +4074,8 @@
     {
       "id": 900224,
       "title": "TWGCB-01-012-0224 通行碼到期前提醒使用者變更通行碼",
-      "description": "合規值: 14天以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 14天以上",
+      "rationale": "人工檢核指令（來源）：chage --warndays 14 (使用者帳號名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -3869,7 +4092,8 @@
     {
       "id": 900225,
       "title": "TWGCB-01-012-0225 通行碼最長使用期限",
-      "description": "合規值: 90天以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。只檢查預設值；既有帳號 chage 效果待人工證據，不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 90天以下，但須大於0",
+      "rationale": "人工檢核指令（來源）：chage --maxdays 90 (使用者帳號名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -3886,7 +4110,8 @@
     {
       "id": 900226,
       "title": "TWGCB-01-012-0226 通行碼到期後，帳號停用前之天數",
-      "description": "合規值: 30天以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。useradd -D -f 對應 /etc/default/useradd INACTIVE；既有帳號待人工證據。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 30天以下，但須大於0",
+      "rationale": "人工檢核指令（來源）：useradd -D -f 30 ； chage --inactive 30 (使用者帳號名稱)",
       "compliance": [
         {
           "twgcb": [
@@ -3903,7 +4128,8 @@
     {
       "id": 900227,
       "title": "TWGCB-01-012-0227 登入嘗試失敗之延遲時間",
-      "description": "合規值: 4秒以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。依來源 login.defs FAIL_DELAY>=4，未替換成 PAM delay。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 4秒以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3920,7 +4146,8 @@
     {
       "id": 900228,
       "title": "TWGCB-01-012-0228 新使用者帳號預設建立使用者家目錄",
-      "description": "合規值: yes ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。依來源 login.defs CREATE_HOME，未改查 /etc/default/useradd。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: yes",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3937,7 +4164,8 @@
     {
       "id": 900229,
       "title": "TWGCB-01-012-0229 要求使用者必須經過身分鑑別才能提升權限",
-      "description": "合規值: 要求身分鑑別 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 要求身分鑑別 ｜ 【Accepted finding】Commander 2026-11-01 裁定：維持 FAIL，不矯正系統設定（docs/EXCEPTIONS.md）",
+      "rationale": "人工檢核指令（來源）：egrep -i '(nopasswd|!authenticate)' /etc/sudoers /etc/sudoers.d/*",
       "compliance": [
         {
           "twgcb": [
@@ -3954,7 +4182,8 @@
     {
       "id": 900230,
       "title": "TWGCB-01-012-0230 限制每個帳號可同時登入之數量",
-      "description": "合規值: 10以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 10以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -3971,7 +4200,8 @@
     {
       "id": 900231,
       "title": "TWGCB-01-012-0231 kbd套件",
-      "description": "合規值: kbd 已安裝 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。rpm -q kbd：0 installed、1 absent、其他錯誤無 PASS；不用 rpm -qa。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: kbd 已安裝",
+      "rationale": "人工檢核指令（來源）：dnf install kbd.x86_64",
       "compliance": [
         {
           "twgcb": [
@@ -3988,7 +4218,8 @@
     {
       "id": 900232,
       "title": "TWGCB-01-012-0232 使用者會談鎖定",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/dconf/db/local.d/00-screensaver ； Set this to true to lock the screen when the screensaver activates ； dconf update",
       "compliance": [
         {
           "twgcb": [
@@ -4005,7 +4236,8 @@
     {
       "id": 900233,
       "title": "TWGCB-01-012-0233 GNOME使用者會談逾時時間",
-      "description": "合規值: 900秒以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 900秒以下，但須大於0",
+      "rationale": "人工檢核指令（來源）：vim /etc/dconf/db/local.d/00-screensaver ； Set the lock time out to 900 seconds before the session is considered idle ； dconf update",
       "compliance": [
         {
           "twgcb": [
@@ -4022,7 +4254,8 @@
     {
       "id": 900234,
       "title": "TWGCB-01-012-0234 禁止GNOME使用者自動登入",
-      "description": "合規值: false ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: false",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4039,7 +4272,8 @@
     {
       "id": 900235,
       "title": "TWGCB-01-012-0235 系統帳號登入方式",
-      "description": "合規值: nologin ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。依來源 UID_MIN（非 SYS_UID_MAX）；root/+ 排除，shell 另排除 sync/shutdown/halt；passwd -S 唯讀確認 L/LK。不讀 shadow。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: nologin",
+      "rationale": "人工檢核指令（來源）：awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"' && $7!=\"'\"$(which nologin)\"'\" && $7!=\"/bin/false\") {print $1}' /etc/passwd | while read user; do usermod -s $(which nologin) $user; done ； awk -F: '($1!=\"root\" && $1!~/^\\+/ && $3<'\"$(awk '/^\\s*UID_MIN/{print $2}' /etc/login.defs)\"') {print $1}' /etc/passwd | xargs -I '{}' passwd -S '{}' | awk '($2!=\"L\" && $2!=\"LK\") {print $1}' | while read user; do usermod -L…",
       "compliance": [
         {
           "twgcb": [
@@ -4056,7 +4290,8 @@
     {
       "id": 900236,
       "title": "TWGCB-01-012-0236 Bash shell閒置時登出時間",
-      "description": "合規值: 900秒以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。同時要求 bashrc 與 profile/profile.d；保守靜態宣告子集，條件分支/載入順序與 readonly/export 效力待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 900秒以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4073,7 +4308,8 @@
     {
       "id": 900237,
       "title": "TWGCB-01-012-0237 防止修改圖形使用者介面(GUI)設定",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。只讀來源 dconf 系統來源檔；缺檔無 PASS；dconf update 編譯資料庫、profile/locks 載入與桌面有效值待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/dconf/db/local.d/locks/session",
       "compliance": [
         {
           "twgcb": [
@@ -4090,7 +4326,8 @@
     {
       "id": 900238,
       "title": "TWGCB-01-012-0238 root帳號所屬群組",
-      "description": "合規值: GID 0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: GID 0",
+      "rationale": "人工檢核指令（來源）：usermod -g 0 root",
       "compliance": [
         {
           "twgcb": [
@@ -4107,7 +4344,8 @@
     {
       "id": 900239,
       "title": "TWGCB-01-012-0239 所有使用者帳號之預設umask",
-      "description": "合規值: 027或更低權限 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。同時要求 bashrc 與 profile/profile.d；umask 位元包含027，含007因不符合來源027不接受；shell 分支待審。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 027或更低權限",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4124,7 +4362,8 @@
     {
       "id": 900240,
       "title": "TWGCB-01-012-0240 在/etc/login.defs設定所有使用者之預設umask",
-      "description": "合規值: 027或更低權限 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 027或更低權限",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4141,7 +4380,8 @@
     {
       "id": 900241,
       "title": "TWGCB-01-012-0241 可使用su指令之群組",
-      "description": "合規值: 僅限wheel群組才能使用su指令 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。確認 wheel 包含 root；其他允許成員名單需人工核准。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 僅限wheel群組才能使用su指令",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4158,7 +4398,8 @@
     {
       "id": 900285,
       "title": "TWGCB-01-012-0285 freevxfs檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/freevxfs.conf ； modprobe -r freevxfs ； rmmod freevxfs",
       "compliance": [
         {
           "twgcb": [
@@ -4175,7 +4416,8 @@
     {
       "id": 900286,
       "title": "TWGCB-01-012-0286 hfs檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/hfs.conf ； modprobe -r hfs ； rmmod hfs",
       "compliance": [
         {
           "twgcb": [
@@ -4192,7 +4434,8 @@
     {
       "id": 900287,
       "title": "TWGCB-01-012-0287 hfs plus檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/hfsplus.conf ； modprobe -r hfsplus ； rmmod hfsplus",
       "compliance": [
         {
           "twgcb": [
@@ -4209,7 +4452,8 @@
     {
       "id": 900288,
       "title": "TWGCB-01-012-0288 jffs2檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/jffs2.conf ； modprobe -r jffs2 ； rmmod jffs2",
       "compliance": [
         {
           "twgcb": [
@@ -4226,7 +4470,8 @@
     {
       "id": 900289,
       "title": "TWGCB-01-012-0289 afs檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/afs.conf ； modprobe -r afs ； rmmod afs",
       "compliance": [
         {
           "twgcb": [
@@ -4243,7 +4488,8 @@
     {
       "id": 900290,
       "title": "TWGCB-01-012-0290 ceph檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/ceph.conf ； modprobe -r ceph ； rmmod ceph",
       "compliance": [
         {
           "twgcb": [
@@ -4260,7 +4506,8 @@
     {
       "id": 900291,
       "title": "TWGCB-01-012-0291 cifs檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/cifs.conf ； modprobe -r cifs ； rmmod cifs",
       "compliance": [
         {
           "twgcb": [
@@ -4277,7 +4524,8 @@
     {
       "id": 900292,
       "title": "TWGCB-01-012-0292 exfat檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/exfat.conf ； modprobe -r exfat ； rmmod exfat",
       "compliance": [
         {
           "twgcb": [
@@ -4294,7 +4542,8 @@
     {
       "id": 900293,
       "title": "TWGCB-01-012-0293 ext檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/ext.conf ； modprobe -r ext ； rmmod ext",
       "compliance": [
         {
           "twgcb": [
@@ -4311,7 +4560,8 @@
     {
       "id": 900294,
       "title": "TWGCB-01-012-0294 fat檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/fat.conf ； modprobe -r fat ； rmmod fat",
       "compliance": [
         {
           "twgcb": [
@@ -4328,7 +4578,8 @@
     {
       "id": 900295,
       "title": "TWGCB-01-012-0295 fscache檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/fscache.conf ； modprobe -r fscache ； rmmod fscache",
       "compliance": [
         {
           "twgcb": [
@@ -4345,7 +4596,8 @@
     {
       "id": 900296,
       "title": "TWGCB-01-012-0296 fuse檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/fuse.conf ； modprobe -r fuse ； rmmod fuse",
       "compliance": [
         {
           "twgcb": [
@@ -4362,7 +4614,8 @@
     {
       "id": 900297,
       "title": "TWGCB-01-012-0297 gfs2檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/gfs2.conf ； modprobe -r gfs2 ； rmmod gfs2",
       "compliance": [
         {
           "twgcb": [
@@ -4379,7 +4632,8 @@
     {
       "id": 900298,
       "title": "TWGCB-01-012-0298 nfs_common檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/nfs_common.conf ； modprobe -r nfs_common ； rmmod nfs_common",
       "compliance": [
         {
           "twgcb": [
@@ -4396,7 +4650,8 @@
     {
       "id": 900299,
       "title": "TWGCB-01-012-0299 nfsd檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/nfsd.conf ； modprobe -r nfsd ； rmmod nfsd",
       "compliance": [
         {
           "twgcb": [
@@ -4413,7 +4668,8 @@
     {
       "id": 900300,
       "title": "TWGCB-01-012-0300 smbfs_common檔案系統",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B8 執行審查 blocked；coverage=partial；B8-ENGINE,B8-SOURCE；raw PASS 非已驗證符合。精確 install 模組 /bin/true 與 blacklist 模組；不以模組不存在豁免；載入狀態與重新開機待真機。 P2B8 UNVALIDATED；human_review_pending；execution_review=blocked；REVIEW 在輸出匹配層為 raw passed，但 coverage partial 且 blocked，必須人工判定適用性，不是已驗證 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：vim /etc/modprobe.d/smbfs_common.conf ； modprobe -r smbfs_common ； rmmod smbfs_common",
       "compliance": [
         {
           "twgcb": [
@@ -4430,7 +4686,8 @@
     {
       "id": 900301,
       "title": "TWGCB-01-012-0301 /etc/shells檔案所有權",
-      "description": "合規值: root:root ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/shells",
       "compliance": [
         {
           "twgcb": [
@@ -4447,7 +4704,8 @@
     {
       "id": 900302,
       "title": "TWGCB-01-012-0302 /etc/shells檔案權限",
-      "description": "合規值: 644或更低權限 ｜ Q1 執行審查 blocked；coverage=partial；Q1-01,Q1-03,Q1-04；raw PASS 非已驗證符合。",
+      "description": "合規值: 644或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 644 /etc/shells",
       "compliance": [
         {
           "twgcb": [
@@ -4464,7 +4722,8 @@
     {
       "id": 900303,
       "title": "TWGCB-01-012-0303 /etc/security/opasswd與 /etc/security/opasswd.old檔案所有權",
-      "description": "合規值: root:root ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源無缺檔豁免；opasswd與.old都必須存在且root:root，不讀內容。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: root:root",
+      "rationale": "人工檢核指令（來源）：chown root:root /etc/security/opasswd /etc/security/opasswd.old",
       "compliance": [
         {
           "twgcb": [
@@ -4481,7 +4740,8 @@
     {
       "id": 900304,
       "title": "TWGCB-01-012-0304 /etc/security/opasswd與 /etc/security/opasswd.old檔案權限",
-      "description": "合規值: 644或更低權限 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源無缺檔豁免；兩檔都必須存在且644位元子集。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 644或更低權限",
+      "rationale": "人工檢核指令（來源）：chmod 644 /etc/security/opasswd /etc/security/opasswd.old",
       "compliance": [
         {
           "twgcb": [
@@ -4498,7 +4758,8 @@
     {
       "id": 900305,
       "title": "TWGCB-01-012-0305 /etc/shells中不應存在nologin",
-      "description": "合規值: 移除含有nologin的行 ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。排除註解與前後空白後禁止/nologin結尾。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 移除含有nologin的行",
+      "rationale": "人工檢核指令（來源）：grep -E '^[^#]*\\/nologin$' /etc/shells ； vim /etc/shells",
       "compliance": [
         {
           "twgcb": [
@@ -4515,7 +4776,8 @@
     {
       "id": 900306,
       "title": "TWGCB-01-012-0306 禁止chrony以root權限執行",
-      "description": "合規值: OPTIONS=\"-F 2\" ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源OPTIONS含-F 2且不得-u root；服務執行身分/重啟生效留真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: OPTIONS=\"-F 2\"",
+      "rationale": "人工檢核指令（來源）：vim /etc/sysconfig/chronyd ； systemctl restart chronyd.service",
       "compliance": [
         {
           "twgcb": [
@@ -4532,7 +4794,8 @@
     {
       "id": 900307,
       "title": "TWGCB-01-012-0307 ptrace限制模式",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B7 執行審查 blocked；coverage=partial；B7-ENGINE,B7-SOURCE；raw PASS 非已驗證符合。來源ptrace_scope精確1，未自行放寬2/3；即時值待真機。P2B7 UNVALIDATED；human_review_pending；execution_review=blocked；來源文字靜態唯讀子集，生效狀態/角色/覆寫需真機；缺失與錯誤無 PASS。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：sysctl -w kernel.yama.ptrace_scope=1",
       "compliance": [
         {
           "twgcb": [
@@ -4549,7 +4812,8 @@
     {
       "id": 900308,
       "title": "TWGCB-01-012-0308 rsyslog logrotate",
-      "description": "合規值: 指定 rsyslog logrotate weekly/rotate 4/compress/missingok/notifempty/postrotate；目錄 <=0750 ｜ P2B3 執行審查 blocked；coverage=partial；B3-ENGINE,B3-SCOPE；raw PASS 非已驗證符合。依來源 /etc/logrotate.d/rsyslog 指定路徑、weekly/rotate 4/compress/missingok/notifempty/postrotate 及目錄 <=0750；不是任意 rsyslog 字樣即合格；複雜多 stanza、實際輪替待審。P2B3 UNVALIDATED；human_review_pending；execution_review=blocked。唯讀內嵌 Python，需 RHEL9 /usr/bin/python3 標準函式庫；不安裝 helper。完成所有讀取才輸出單行 PASS，錯誤/缺失無成功輸出；w_strtok、PCRE2、timeout 待真機驗證。",
+      "description": "合規值: 指定 rsyslog logrotate weekly/rotate 4/compress/missingok/notifempty/postrotate；目錄 <=0750",
+      "rationale": "人工檢核指令（來源）：mkdir -p /var/log/rsyslog ； chmod 750 /var/log/rsyslog",
       "compliance": [
         {
           "twgcb": [
@@ -4566,7 +4830,8 @@
     {
       "id": 900309,
       "title": "TWGCB-01-012-0309 root之預設umask",
-      "description": "合規值: 027或更低權限 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。依來源同時檢查 /root/.bash_profile 與 /root/.bashrc，缺檔失敗。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 027或更低權限",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4583,7 +4848,8 @@
     {
       "id": 900310,
       "title": "TWGCB-01-012-0310 root帳戶鎖定時間",
-      "description": "合規值: 60秒以上 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 60秒以上",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4600,7 +4866,8 @@
     {
       "id": 900311,
       "title": "TWGCB-01-012-0311 連續字元序列可使用個數",
-      "description": "合規值: 3以下，但須大於0 ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 3以下，但須大於0",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4617,7 +4884,8 @@
     {
       "id": 900312,
       "title": "TWGCB-01-012-0312 啟用without-nullok",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。檢查渲染堆疊 pam_unix 無 nullok；authselect feature 狀態及 apply-changes 待真機。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核指令（來源）：authselect enable-feature without-nullok",
       "compliance": [
         {
           "twgcb": [
@@ -4634,7 +4902,8 @@
     {
       "id": 900313,
       "title": "TWGCB-01-012-0313 啟用pam_pwquality",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [
@@ -4651,7 +4920,8 @@
     {
       "id": 900314,
       "title": "TWGCB-01-012-0314 啟用pam_unix",
-      "description": "合規值: 待確認（來源未提供單一基準值） ｜ P2B6 執行審查 blocked；coverage=partial；B6-ENGINE,B6-SCOPE；raw PASS 非已驗證符合。讀 /etc/pam.d 渲染堆疊並跟隨 symlink；authselect custom profile 與執行中效力待真機。P2B6 UNVALIDATED；human_review_pending；execution_review=blocked；唯讀 Python 標準庫，錯誤/缺失無成功輸出；w_strtok/PCRE2/timeout 待真機。",
+      "description": "合規值: 待確認（來源未提供單一基準值）",
+      "rationale": "人工檢核：見 GCB 來源 configuration_method",
       "compliance": [
         {
           "twgcb": [

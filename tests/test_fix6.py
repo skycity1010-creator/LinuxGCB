@@ -13,6 +13,9 @@ import test_p2b7 as p2b7
 from linuxgcb import batch7, p2b7_runtime as rt
 from linuxgcb.catalog import ROOT
 
+DISPLAY=('description','rationale','remediation')
+def nod(d): return {k:v for k,v in d.items() if k not in DISPLAY}
+
 
 class Fix6Tests(unittest.TestCase):
     setUp = p2b7.P2B7Tests.setUp
@@ -75,7 +78,7 @@ class Fix6Tests(unittest.TestCase):
         self.assertEqual({n for n in old if old[n]['rules'] != new[n]['rules']},changed | {900032,900073,900074,900091,900282,900283})
         for n in old:
             actual = dict(new[n], rules=old[n]['rules'])
-            self.assertEqual(actual,old[n])
+            self.assertEqual(nod(actual),nod(old[n]))
         for name in ('data/coverage_manifest.json','data/scope_registry.json'):
             prior = json.loads(subprocess.check_output(['git','show','bc2cfbb:'+name],cwd=ROOT))
             current = json.loads((ROOT/name).read_text())
